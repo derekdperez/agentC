@@ -1,6 +1,6 @@
 {
   "event_path": "/home/cisco/repo/agentC/agentc/bugbounty_dashboard.py",
-  "event_kind": "modified",
+  "event_kind": "moved_to",
   "event_filename": "bugbounty_dashboard.py",
   "system": "agentC",
   "now": "2026-06-10 16:55:00",
