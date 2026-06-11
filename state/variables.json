@@ -1,7 +1,7 @@
 {
-  "event_path": "/home/cisco/repo/agentC/agentc/bugbounty_dashboard.py.tmp.345234.597991311ddf",
-  "event_kind": "created",
-  "event_filename": "bugbounty_dashboard.py.tmp.345234.597991311ddf",
+  "event_path": "/home/cisco/repo/agentC/bugbounty/scripts/perform_http_request.py",
+  "event_kind": "moved_to",
+  "event_filename": "perform_http_request.py",
   "system": "agentC",
   "now": "2026-06-10 16:55:00",
   "event_task": "watch-inbox",
