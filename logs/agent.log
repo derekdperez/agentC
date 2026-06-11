@@ -3050,3 +3050,57 @@
 2026-06-11 14:06:47 INFO    agentc.progress: task 'bugbounty-body-pattern-scan' completed in 14.51s
 2026-06-11 14:06:50 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
 2026-06-11 14:06:50 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 60.69s: exit 1
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-dedup' started [run 866d553fd000, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/8665ff61027a4197b6a0d35892a0cdca.json)
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 6b3a4ec324f0, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/8665ff61027a4197b6a0d35892a0cdca.json)
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-dedup' started [run 76081dfb1704, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/1d334c27bf4c4d08b313669048d2743a.json)
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run add702cf537e, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/1d334c27bf4c4d08b313669048d2743a.json)
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-dedup' started [run 31b6384f696b, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/a7ffc5e13a834cf8a2870b6babdf3826.json)
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 5a553accaff5, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/a7ffc5e13a834cf8a2870b6babdf3826.json)
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-dedup' started [run 5a3fdaac0506, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b5b754c773a34fce8ab7cbbb2ee3005f.json)
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run bbe20ecf6030, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b5b754c773a34fce8ab7cbbb2ee3005f.json)
+2026-06-11 18:14:47 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.23s
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.31s
+2026-06-11 18:14:47 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 18:14:47 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.37s: exit 1
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-dedup' started [run 8e768b4b945f, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b1a99609c7a04dfaa11f202a183024d0.json)
+2026-06-11 18:14:47 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.50s
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.51s
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 678850f3e76d, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b1a99609c7a04dfaa11f202a183024d0.json)
+2026-06-11 18:14:47 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.42s
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.44s
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-dedup' started [run 835ca552d53e, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d00414735dd64340a320f65d3b7a0c57.json)
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 00601c9326a9, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d00414735dd64340a320f65d3b7a0c57.json)
+2026-06-11 18:14:47 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.51s
+2026-06-11 18:14:47 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.52s
+2026-06-11 18:14:48 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.56s
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.58s
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-http-request' started [run 280a266e99c6, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/ready/1d334c27bf4c4d08b313669048d2743a.json)
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-http-request' started [run edac714439d9, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/ready/a7ffc5e13a834cf8a2870b6babdf3826.json)
+2026-06-11 18:14:48 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.78s
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.86s
+2026-06-11 18:14:48 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.74s
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.74s
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-http-request' started [run 8067bdd51a3e, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/ready/8665ff61027a4197b6a0d35892a0cdca.json)
+2026-06-11 18:14:48 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.77s
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.77s
+2026-06-11 18:14:48 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.91s
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.92s
+2026-06-11 18:14:48 INFO    agentc.progress:   action 'perform-request' (python) ok in 0.62s
+2026-06-11 18:14:48 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.88s
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-http-request' completed in 0.70s
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.92s
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-http-request' started [run 71f042ee51eb, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/ready/b5b754c773a34fce8ab7cbbb2ee3005f.json)
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-http-request' started [run c774f8018be0, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/ready/b1a99609c7a04dfaa11f202a183024d0.json)
+2026-06-11 18:14:48 INFO    agentc.progress:   action 'perform-request' (python) ok in 0.86s
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-http-request' completed in 0.86s
+2026-06-11 18:14:48 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 1.04s
+2026-06-11 18:14:48 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 1.05s
+2026-06-11 18:14:49 INFO    agentc.progress: task 'bugbounty-http-request' started [run 90097158e1da, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/ready/d00414735dd64340a320f65d3b7a0c57.json)
+2026-06-11 18:14:49 INFO    agentc.progress:   action 'perform-request' (python) ok in 0.65s
+2026-06-11 18:14:49 INFO    agentc.progress: task 'bugbounty-http-request' completed in 0.65s
+2026-06-11 18:14:49 INFO    agentc.progress:   action 'perform-request' (python) ok in 1.03s
+2026-06-11 18:14:49 INFO    agentc.progress: task 'bugbounty-http-request' completed in 1.16s
+2026-06-11 18:14:49 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 18:14:49 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.58s: exit 1
+2026-06-11 18:14:49 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 18:14:49 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.60s: exit 1
