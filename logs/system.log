@@ -2132,3 +2132,597 @@
 2026-06-11 12:57:14 INFO    agentc.engine:   [ok] render (python) 1.906s
 2026-06-11 12:57:17 INFO    agentc.engine: === run 45a6801773cf : task dashboard (trigger=schedule) ===
 2026-06-11 12:57:18 INFO    agentc.engine: === run caa99efc023f : task git_commit_push (trigger=schedule) ===
+2026-06-11 12:57:20 INFO    agentc.engine:   [ok] add_commit_push (shell) 1.268s
+2026-06-11 12:57:20 INFO    agentc.engine:   [ok] render (python) 2.570s
+2026-06-11 12:57:22 INFO    agentc.engine: === run 1435ba4d7626 : task dashboard (trigger=schedule) ===
+2026-06-11 12:57:24 INFO    agentc.engine:   [ok] render (python) 2.126s
+2026-06-11 12:57:27 INFO    agentc.engine: === run ff643ee8e4fa : task dashboard (trigger=schedule) ===
+2026-06-11 12:57:29 INFO    agentc.engine:   [ok] render (python) 1.815s
+2026-06-11 12:57:32 INFO    agentc.engine: === run 0f3a669179a2 : task dashboard (trigger=schedule) ===
+2026-06-11 12:57:35 INFO    agentc.engine:   [ok] render (python) 2.329s
+2026-06-11 12:57:37 INFO    agentc.engine: === run 66117c3d738e : task dashboard (trigger=schedule) ===
+2026-06-11 12:57:39 INFO    agentc.engine:   [ok] render (python) 2.189s
+2026-06-11 12:57:42 INFO    agentc.engine: === run 548bdeb94ce4 : task dashboard (trigger=schedule) ===
+2026-06-11 12:57:44 INFO    agentc.engine:   [ok] render (python) 1.852s
+2026-06-11 12:57:47 INFO    agentc.engine: === run 50094c7562b3 : task dashboard (trigger=schedule) ===
+2026-06-11 12:57:50 INFO    agentc.engine:   [ok] render (python) 2.296s
+2026-06-11 12:57:52 INFO    agentc.engine: === run e68987f6dfff : task dashboard (trigger=schedule) ===
+2026-06-11 12:57:55 INFO    agentc.engine:   [ok] render (python) 2.219s
+2026-06-11 12:57:57 INFO    agentc.engine: === run fbb20ca8a35e : task dashboard (trigger=schedule) ===
+2026-06-11 12:57:59 INFO    agentc.engine:   [ok] render (python) 1.916s
+2026-06-11 12:58:02 INFO    agentc.engine: === run b9ebba750d25 : task dashboard (trigger=schedule) ===
+2026-06-11 12:58:05 INFO    agentc.engine:   [ok] render (python) 2.334s
+2026-06-11 12:58:07 INFO    agentc.engine: === run 28a6ce6e0d45 : task dashboard (trigger=schedule) ===
+2026-06-11 12:58:10 INFO    agentc.engine:   [ok] render (python) 2.528s
+2026-06-11 12:58:12 INFO    agentc.engine: === run 0d682b9b044d : task dashboard (trigger=schedule) ===
+2026-06-11 12:58:14 INFO    agentc.engine:   [ok] render (python) 1.870s
+2026-06-11 12:58:17 INFO    agentc.engine: === run 8bb2f8a8460f : task dashboard (trigger=schedule) ===
+2026-06-11 12:58:19 INFO    agentc.engine:   [ok] render (python) 1.938s
+2026-06-11 12:58:22 INFO    agentc.engine: === run 6812049448b2 : task dashboard (trigger=schedule) ===
+2026-06-11 12:58:25 INFO    agentc.engine:   [ok] render (python) 2.212s
+2026-06-11 12:58:27 INFO    agentc.engine: === run ca8bd242ff49 : task dashboard (trigger=schedule) ===
+2026-06-11 12:58:29 INFO    agentc.engine:   [ok] render (python) 1.922s
+2026-06-11 12:58:32 INFO    agentc.engine: === run 1cbf1f38c174 : task dashboard (trigger=schedule) ===
+2026-06-11 12:58:34 INFO    agentc.engine:   [ok] render (python) 1.807s
+2026-06-11 12:58:37 INFO    agentc.engine: === run a18734966e8a : task dashboard (trigger=schedule) ===
+2026-06-11 12:58:39 INFO    agentc.engine:   [ok] render (python) 2.124s
+2026-06-11 12:58:42 INFO    agentc.engine: === run f3a8ddbec0c5 : task dashboard (trigger=schedule) ===
+2026-06-11 12:58:44 INFO    agentc.engine:   [ok] render (python) 1.912s
+2026-06-11 12:58:47 INFO    agentc.engine: === run 0e4f5058682a : task dashboard (trigger=schedule) ===
+2026-06-11 12:58:49 INFO    agentc.engine:   [ok] render (python) 1.697s
+2026-06-11 12:58:52 INFO    agentc.engine: === run b1fd8f5f45a4 : task dashboard (trigger=schedule) ===
+2026-06-11 12:58:54 INFO    agentc.engine:   [ok] render (python) 2.082s
+2026-06-11 12:58:57 INFO    agentc.engine: === run 2a78e75975fc : task dashboard (trigger=schedule) ===
+2026-06-11 12:58:59 INFO    agentc.engine:   [ok] render (python) 2.126s
+2026-06-11 12:59:02 INFO    agentc.engine: === run e81151d32cb7 : task dashboard (trigger=schedule) ===
+2026-06-11 12:59:04 INFO    agentc.engine:   [ok] render (python) 1.870s
+2026-06-11 12:59:07 INFO    agentc.engine: === run 28765b50e764 : task dashboard (trigger=schedule) ===
+2026-06-11 12:59:09 INFO    agentc.engine:   [ok] render (python) 1.806s
+2026-06-11 12:59:12 INFO    agentc.engine: === run d7b5d32de7d6 : task dashboard (trigger=schedule) ===
+2026-06-11 12:59:15 INFO    agentc.engine:   [ok] render (python) 2.282s
+2026-06-11 12:59:17 INFO    agentc.engine: === run d19153d14681 : task dashboard (trigger=schedule) ===
+2026-06-11 12:59:19 INFO    agentc.engine:   [ok] render (python) 1.823s
+2026-06-11 12:59:22 INFO    agentc.engine: === run 7d59534a52bc : task dashboard (trigger=schedule) ===
+2026-06-11 12:59:24 INFO    agentc.engine:   [ok] render (python) 1.737s
+2026-06-11 12:59:27 INFO    agentc.engine: === run ebe82b2a4156 : task dashboard (trigger=schedule) ===
+2026-06-11 12:59:30 INFO    agentc.engine:   [ok] render (python) 2.188s
+2026-06-11 12:59:32 INFO    agentc.engine: === run 7b742966406e : task dashboard (trigger=schedule) ===
+2026-06-11 12:59:34 INFO    agentc.engine:   [ok] render (python) 1.910s
+2026-06-11 12:59:37 INFO    agentc.engine: === run 3697ba603c59 : task dashboard (trigger=schedule) ===
+2026-06-11 12:59:39 INFO    agentc.engine:   [ok] render (python) 1.714s
+2026-06-11 12:59:42 INFO    agentc.engine: === run 4e731ffaee30 : task dashboard (trigger=schedule) ===
+2026-06-11 12:59:45 INFO    agentc.engine:   [ok] render (python) 2.150s
+2026-06-11 12:59:47 INFO    agentc.engine: === run 4bbda2d4f761 : task dashboard (trigger=schedule) ===
+2026-06-11 12:59:50 INFO    agentc.engine:   [ok] render (python) 2.146s
+2026-06-11 12:59:52 INFO    agentc.engine: === run 45eec4e07e8f : task dashboard (trigger=schedule) ===
+2026-06-11 12:59:54 INFO    agentc.engine:   [ok] render (python) 1.796s
+2026-06-11 12:59:57 INFO    agentc.engine: === run d1c49ffc4e0b : task dashboard (trigger=schedule) ===
+2026-06-11 12:59:59 INFO    agentc.engine:   [ok] render (python) 1.869s
+2026-06-11 13:00:02 INFO    agentc.engine: === run 56599ce6d933 : task dashboard (trigger=schedule) ===
+2026-06-11 13:00:05 INFO    agentc.engine:   [ok] render (python) 2.298s
+2026-06-11 13:00:07 INFO    agentc.engine: === run 443b29532f8d : task dashboard (trigger=schedule) ===
+2026-06-11 13:00:09 INFO    agentc.engine:   [ok] render (python) 1.849s
+2026-06-11 13:00:12 INFO    agentc.engine: === run 7d60354a8eea : task dashboard (trigger=schedule) ===
+2026-06-11 13:00:14 INFO    agentc.engine:   [ok] render (python) 1.800s
+2026-06-11 13:00:17 INFO    agentc.engine: === run d319cb3aae34 : task dashboard (trigger=schedule) ===
+2026-06-11 13:00:20 INFO    agentc.engine:   [ok] render (python) 2.145s
+2026-06-11 13:00:22 INFO    agentc.engine: === run 4ec7acb4ecd0 : task dashboard (trigger=schedule) ===
+2026-06-11 13:00:24 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 13:00:24 INFO    agentc.engine: === run bae1e7c0f287 : task monitor-files (trigger=file) ===
+2026-06-11 13:00:24 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:00:24 INFO    agentc.engine:   [ok] noop (shell) 0.009s
+2026-06-11 13:00:24 INFO    agentc.engine: === run 790e7a4ee171 : task monitor-files (trigger=file) ===
+2026-06-11 13:00:24 INFO    agentc.engine:   [ok] noop (shell) 0.004s
+2026-06-11 13:00:25 INFO    agentc.engine:   [ok] render (python) 2.290s
+2026-06-11 13:00:27 INFO    agentc.engine: === run 331b0f25ba87 : task dashboard (trigger=schedule) ===
+2026-06-11 13:00:29 INFO    agentc.engine:   [ok] render (python) 1.884s
+2026-06-11 13:00:32 INFO    agentc.engine: === run c8ca3f01b224 : task dashboard (trigger=schedule) ===
+2026-06-11 13:00:35 INFO    agentc.engine:   [ok] render (python) 2.237s
+2026-06-11 13:00:36 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 13:00:36 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:00:36 INFO    agentc.engine: === run e5e894038243 : task monitor-files (trigger=file) ===
+2026-06-11 13:00:36 INFO    agentc.engine: === run 6436cfd0f5db : task monitor-files (trigger=file) ===
+2026-06-11 13:00:36 INFO    agentc.engine:   [ok] noop (shell) 0.003s
+2026-06-11 13:00:36 INFO    agentc.engine:   [ok] noop (shell) 0.005s
+2026-06-11 13:00:37 INFO    agentc.engine: === run 1abb629e0bd8 : task dashboard (trigger=schedule) ===
+2026-06-11 13:00:40 INFO    agentc.engine:   [ok] render (python) 2.232s
+2026-06-11 13:00:42 INFO    agentc.engine: === run 144fe04623a1 : task dashboard (trigger=schedule) ===
+2026-06-11 13:00:44 INFO    agentc.engine:   [ok] render (python) 1.813s
+2026-06-11 13:00:47 INFO    agentc.engine: === run ed3d45289aad : task dashboard (trigger=schedule) ===
+2026-06-11 13:00:50 INFO    agentc.engine:   [ok] render (python) 2.114s
+2026-06-11 13:00:51 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 13:00:51 INFO    agentc.engine: === run e0efc3e8e12f : task monitor-files (trigger=file) ===
+2026-06-11 13:00:51 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:00:51 INFO    agentc.engine: === run fda8d54043bb : task monitor-files (trigger=file) ===
+2026-06-11 13:00:51 INFO    agentc.engine:   [ok] noop (shell) 0.003s
+2026-06-11 13:00:51 INFO    agentc.engine:   [ok] noop (shell) 0.002s
+2026-06-11 13:00:52 INFO    agentc.engine: === run 478123be76d0 : task dashboard (trigger=schedule) ===
+2026-06-11 13:00:55 INFO    agentc.engine:   [ok] render (python) 2.519s
+2026-06-11 13:00:57 INFO    agentc.engine: === run 79a090c34d27 : task dashboard (trigger=schedule) ===
+2026-06-11 13:00:59 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 13:00:59 INFO    agentc.engine: === run 4278fd37a747 : task monitor-files (trigger=file) ===
+2026-06-11 13:00:59 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:00:59 INFO    agentc.engine: === run bd17b6f83305 : task monitor-files (trigger=file) ===
+2026-06-11 13:00:59 INFO    agentc.engine:   [ok] noop (shell) 0.004s
+2026-06-11 13:00:59 INFO    agentc.engine:   [ok] noop (shell) 0.013s
+2026-06-11 13:00:59 INFO    agentc.engine:   [ok] render (python) 2.062s
+2026-06-11 13:01:02 INFO    agentc.engine: === run 0d6aa3f90b93 : task dashboard (trigger=schedule) ===
+2026-06-11 13:01:04 INFO    agentc.engine:   [ok] render (python) 1.995s
+2026-06-11 13:01:07 INFO    agentc.engine: === run 8bccb7b1f905 : task dashboard (trigger=schedule) ===
+2026-06-11 13:01:10 INFO    agentc.engine:   [ok] render (python) 2.389s
+2026-06-11 13:01:11 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 13:01:11 INFO    agentc.engine: === run 0b92b4d8bfb5 : task monitor-files (trigger=file) ===
+2026-06-11 13:01:11 INFO    agentc.engine:   [ok] noop (shell) 0.004s
+2026-06-11 13:01:12 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:01:12 INFO    agentc.engine: === run 0c70a0eb10a0 : task monitor-files (trigger=file) ===
+2026-06-11 13:01:12 INFO    agentc.engine:   [ok] noop (shell) 0.002s
+2026-06-11 13:01:12 INFO    agentc.engine: === run 662972ee1257 : task dashboard (trigger=schedule) ===
+2026-06-11 13:01:14 INFO    agentc.engine:   [ok] render (python) 2.022s
+2026-06-11 13:01:17 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 13:01:17 INFO    agentc.engine: === run 3056b6c6663a : task monitor-files (trigger=file) ===
+2026-06-11 13:01:17 INFO    agentc.engine:   [ok] noop (shell) 0.008s
+2026-06-11 13:01:17 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:01:17 INFO    agentc.engine: === run 820960fbe2a7 : task monitor-files (trigger=file) ===
+2026-06-11 13:01:17 INFO    agentc.engine:   [ok] noop (shell) 0.048s
+2026-06-11 13:01:17 INFO    agentc.engine: === run a81d65acfb34 : task dashboard (trigger=schedule) ===
+2026-06-11 13:01:19 INFO    agentc.engine:   [ok] render (python) 1.861s
+2026-06-11 13:01:22 INFO    agentc.engine: === run 972e062ad7ef : task dashboard (trigger=schedule) ===
+2026-06-11 13:01:25 INFO    agentc.engine:   [ok] render (python) 2.555s
+2026-06-11 13:01:27 INFO    agentc.engine: === run 1581c5ee0673 : task dashboard (trigger=schedule) ===
+2026-06-11 13:01:29 INFO    agentc.engine:   [ok] render (python) 1.986s
+2026-06-11 13:01:32 INFO    agentc.engine: === run 2b1dc5a7d00b : task dashboard (trigger=schedule) ===
+2026-06-11 13:01:34 INFO    agentc.engine:   [ok] render (python) 1.825s
+2026-06-11 13:01:37 INFO    agentc.engine: === run c54121951f89 : task dashboard (trigger=schedule) ===
+2026-06-11 13:01:40 INFO    agentc.engine:   [ok] render (python) 2.266s
+2026-06-11 13:01:42 INFO    agentc.engine: === run 32b839449851 : task dashboard (trigger=schedule) ===
+2026-06-11 13:01:44 INFO    agentc.engine:   [ok] render (python) 1.978s
+2026-06-11 13:01:47 INFO    agentc.engine: === run 0b7610619962 : task dashboard (trigger=schedule) ===
+2026-06-11 13:01:49 INFO    agentc.engine:   [ok] render (python) 1.796s
+2026-06-11 13:01:52 INFO    agentc.engine: === run 982e68c57262 : task dashboard (trigger=schedule) ===
+2026-06-11 13:01:55 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 13:01:55 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:01:55 INFO    agentc.engine: === run 1f9cdbe77c7d : task monitor-files (trigger=file) ===
+2026-06-11 13:01:55 INFO    agentc.engine: === run 683d6aac614e : task monitor-files (trigger=file) ===
+2026-06-11 13:01:55 INFO    agentc.engine:   [ok] noop (shell) 0.011s
+2026-06-11 13:01:55 INFO    agentc.engine:   [ok] noop (shell) 0.008s
+2026-06-11 13:01:55 INFO    agentc.engine:   [ok] render (python) 2.168s
+2026-06-11 13:01:57 INFO    agentc.engine: === run e4e7b743f4b3 : task dashboard (trigger=schedule) ===
+2026-06-11 13:02:00 INFO    agentc.engine:   [ok] render (python) 2.346s
+2026-06-11 13:02:01 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 13:02:01 INFO    agentc.engine: === run e432bc022e01 : task monitor-files (trigger=file) ===
+2026-06-11 13:02:01 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:02:01 INFO    agentc.engine: === run 9cf0f312b9e4 : task monitor-files (trigger=file) ===
+2026-06-11 13:02:01 INFO    agentc.engine:   [ok] noop (shell) 0.010s
+2026-06-11 13:02:01 INFO    agentc.engine:   [ok] noop (shell) 0.005s
+2026-06-11 13:02:02 INFO    agentc.engine: === run b65f38f71c80 : task dashboard (trigger=schedule) ===
+2026-06-11 13:02:04 INFO    agentc.engine:   [ok] render (python) 1.939s
+2026-06-11 13:02:07 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 13:02:07 INFO    agentc.engine: === run ed2bd92d68c4 : task monitor-files (trigger=file) ===
+2026-06-11 13:02:07 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:02:07 INFO    agentc.engine: === run 0a301bf93d6c : task monitor-files (trigger=file) ===
+2026-06-11 13:02:07 INFO    agentc.engine:   [ok] noop (shell) 0.007s
+2026-06-11 13:02:07 INFO    agentc.engine:   [ok] noop (shell) 0.012s
+2026-06-11 13:02:07 INFO    agentc.engine: === run 41ccf0f1ba1e : task dashboard (trigger=schedule) ===
+2026-06-11 13:02:10 INFO    agentc.engine:   [ok] render (python) 2.116s
+2026-06-11 13:02:11 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 13:02:11 INFO    agentc.engine: === run 6020b61262bd : task monitor-files (trigger=file) ===
+2026-06-11 13:02:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:02:11 INFO    agentc.engine: === run 443bca423816 : task monitor-files (trigger=file) ===
+2026-06-11 13:02:11 INFO    agentc.engine:   [ok] noop (shell) 0.004s
+2026-06-11 13:02:11 INFO    agentc.engine:   [ok] noop (shell) 0.025s
+2026-06-11 13:02:12 INFO    agentc.engine: === run aeae01098e9f : task dashboard (trigger=schedule) ===
+2026-06-11 13:02:15 INFO    agentc.engine:   [ok] render (python) 2.257s
+2026-06-11 13:02:17 INFO    agentc.engine: === run 728eb74ab504 : task dashboard (trigger=schedule) ===
+2026-06-11 13:02:19 INFO    agentc.engine:   [ok] render (python) 1.963s
+2026-06-11 13:02:22 INFO    agentc.engine: === run 016a4a9b9037 : task dashboard (trigger=schedule) ===
+2026-06-11 13:02:24 INFO    agentc.engine:   [ok] render (python) 1.925s
+2026-06-11 13:02:27 INFO    agentc.engine: === run a150c82439fa : task dashboard (trigger=schedule) ===
+2026-06-11 13:02:30 INFO    agentc.engine:   [ok] render (python) 2.510s
+2026-06-11 13:02:32 INFO    agentc.engine: === run 752c23e8e661 : task dashboard (trigger=schedule) ===
+2026-06-11 13:02:35 INFO    agentc.engine:   [ok] render (python) 2.211s
+2026-06-11 13:02:37 INFO    agentc.engine: === run 402ce48e044d : task dashboard (trigger=schedule) ===
+2026-06-11 13:02:39 INFO    agentc.engine:   [ok] render (python) 1.999s
+2026-06-11 13:02:42 INFO    agentc.engine: === run 374a1d4b2710 : task dashboard (trigger=schedule) ===
+2026-06-11 13:02:45 INFO    agentc.engine:   [ok] render (python) 2.082s
+2026-06-11 13:02:47 INFO    agentc.engine: === run 67951ca558a6 : task dashboard (trigger=schedule) ===
+2026-06-11 13:02:49 INFO    agentc.engine:   [ok] render (python) 1.957s
+2026-06-11 13:02:52 INFO    agentc.engine: === run ad8dc6e7336a : task dashboard (trigger=schedule) ===
+2026-06-11 13:02:54 INFO    agentc.engine:   [ok] render (python) 1.857s
+2026-06-11 13:02:57 INFO    agentc.engine: === run 87f6fe81e1b0 : task dashboard (trigger=schedule) ===
+2026-06-11 13:03:00 INFO    agentc.engine:   [ok] render (python) 2.081s
+2026-06-11 13:03:02 INFO    agentc.engine: === run d8e159f7761d : task dashboard (trigger=schedule) ===
+2026-06-11 13:03:04 INFO    agentc.engine:   [ok] render (python) 1.901s
+2026-06-11 13:03:07 INFO    agentc.engine: === run 2472fa462fb0 : task dashboard (trigger=schedule) ===
+2026-06-11 13:03:09 INFO    agentc.engine:   [ok] render (python) 1.906s
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 3217e52f68b7 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: === run bc8379bf199a : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' started [run bc8379bf199a, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/00a8dd0d60ce4e25a09d0754aeed4889.json)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 86e40a2152d3 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 86e40a2152d3, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/00a8dd0d60ce4e25a09d0754aeed4889.json)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.012s
+2026-06-11 13:03:10 INFO    agentc.engine: === run 09377e92496a : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.008s
+2026-06-11 13:03:10 INFO    agentc.engine: === run eba6fbfe5007 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.003s
+2026-06-11 13:03:10 INFO    agentc.engine: === run f281d14ff2a2 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' started [run f281d14ff2a2, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/1c04c2bc56d24800b9c65ae360c11be0.json)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 4c5285d91b50 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 4c5285d91b50, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/1c04c2bc56d24800b9c65ae360c11be0.json)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 9ab208c197b7 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.006s
+2026-06-11 13:03:10 INFO    agentc.engine: === run 87f548a4e659 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 9c0be846cfb2 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' started [run 9c0be846cfb2, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/1d51d8652e8448e89bb16f8d6d166320.json)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] check-and-track (python) 0.072s
+2026-06-11 13:03:10 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.07s
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.07s
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.019s
+2026-06-11 13:03:10 INFO    agentc.engine: === run f974adbeca9f : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run f974adbeca9f, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/1d51d8652e8448e89bb16f8d6d166320.json)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 4a96d8d24fef : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] check-and-track (python) 0.122s
+2026-06-11 13:03:10 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.12s
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.12s
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.004s
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 693721b03e04 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run fc9c21b3b3e1 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' started [run fc9c21b3b3e1, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/1e773b4db40d47f998fc1eac71b053d3.json)
+2026-06-11 13:03:10 INFO    agentc.engine: === run b133f43146e5 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run b133f43146e5, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/1e773b4db40d47f998fc1eac71b053d3.json)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.023s
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.155s
+2026-06-11 13:03:10 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.16s
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.16s
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 3e4ace87fb99 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 457e6070790a : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.009s
+2026-06-11 13:03:10 INFO    agentc.engine: === run 793c89779c84 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' started [run 793c89779c84, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/2bc998fbceeb459494943ed5e1c599d7.json)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.044s
+2026-06-11 13:03:10 INFO    agentc.engine: === run b7aee6ccd993 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run b7aee6ccd993, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/2bc998fbceeb459494943ed5e1c599d7.json)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 750c32cafc08 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run ba440621a437 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.219s
+2026-06-11 13:03:10 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.22s
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.22s
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.006s
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.030s
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 786783d4550e : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' started [run 786783d4550e, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/2d3a23953af1404d839df8c21a3aa629.json)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 8e52ef4b4e18 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 8e52ef4b4e18, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/2d3a23953af1404d839df8c21a3aa629.json)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.164s
+2026-06-11 13:03:10 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.16s
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.17s
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] check-and-track (python) 0.171s
+2026-06-11 13:03:10 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.17s
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.19s
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run de65eff52aa8 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 6c39eefd4bc4 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: === run c2812e29643c : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] check-and-track (python) 0.116s
+2026-06-11 13:03:10 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.12s
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.12s
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' started [run c2812e29643c, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/3f5626175a1a477ea374368b64dd2836.json)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.051s
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.047s
+2026-06-11 13:03:10 INFO    agentc.engine: === run c9ed74b86822 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run c9ed74b86822, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/3f5626175a1a477ea374368b64dd2836.json)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 9202796eb7d2 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 7e0b0b31f221 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' started [run 7e0b0b31f221, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/7df62605681d4f2da43593135535acf5.json)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.012s
+2026-06-11 13:03:10 INFO    agentc.engine: === run 97fdb275040d : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 97fdb275040d, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/7df62605681d4f2da43593135535acf5.json)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 3c92ead0cf96 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: === run 1b745ab597f6 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.032s
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.037s
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 9b6ad87651bc : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.011s
+2026-06-11 13:03:10 INFO    agentc.engine: === run e055bfb708c4 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' started [run e055bfb708c4, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/7f493163ff694d0e9245a674fd3a439f.json)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] check-and-track (python) 0.319s
+2026-06-11 13:03:10 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.32s
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.32s
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 5eceff0d80b5 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 5eceff0d80b5, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/7f493163ff694d0e9245a674fd3a439f.json)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run f34e3e553103 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 212c74d1402b : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.018s
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run ca416786de28 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 4f632113efb8 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] check-and-track (python) 0.182s
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' started [run ca416786de28, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/8458f3380e9b42f68d04512ab13157fe.json)
+2026-06-11 13:03:10 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.18s
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.19s
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.024s
+2026-06-11 13:03:10 INFO    agentc.engine: === run 103f6b0f3d24 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 103f6b0f3d24, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/8458f3380e9b42f68d04512ab13157fe.json)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 390996d04484 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.023s
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 78c4883a032f : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-dedup' started [run 78c4883a032f, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/9004e8647ab4423281e28a5f591112b6.json)
+2026-06-11 13:03:10 INFO    agentc.engine: === run 4b5dd5fcdd7d : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 4b5dd5fcdd7d, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/9004e8647ab4423281e28a5f591112b6.json)
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.044s
+2026-06-11 13:03:10 INFO    agentc.engine: === run 8d7b9c84174c : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.373s
+2026-06-11 13:03:10 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.37s
+2026-06-11 13:03:10 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.38s
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.010s
+2026-06-11 13:03:10 INFO    agentc.engine: === run 2d47b2e9d773 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:10 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:10 INFO    agentc.engine:   [ok] noop (shell) 0.020s
+2026-06-11 13:03:11 INFO    agentc.engine: === run a3c262f354b0 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' started [run a3c262f354b0, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/a73cc71cea514f819fc57876dc504a89.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.372s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.37s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.37s
+2026-06-11 13:03:11 INFO    agentc.engine: === run 06f3a0a32758 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 06f3a0a32758, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/a73cc71cea514f819fc57876dc504a89.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.189s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.19s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.19s
+2026-06-11 13:03:11 INFO    agentc.engine: === run 34ca365e7899 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run ed0830bc7e83 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.012s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.007s
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run b2e09861a1b2 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' started [run b2e09861a1b2, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/ab4ecc61978944ea9eb971aa95106470.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.154s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.15s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.16s
+2026-06-11 13:03:11 INFO    agentc.engine: === run f342115eb256 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run f342115eb256, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/ab4ecc61978944ea9eb971aa95106470.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 36cbfd3d0974 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 12f1e7413667 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.010s
+2026-06-11 13:03:11 INFO    agentc.engine: === run c1574e0c6e2b : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' started [run c1574e0c6e2b, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/b08d4f3c2d6542a1a44512d16d73608e.json)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.008s
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 04450c37c0d8 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 04450c37c0d8, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/b08d4f3c2d6542a1a44512d16d73608e.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 738f71e575df : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run c7abc3b7a7a7 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' started [run c7abc3b7a7a7, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/b1248a77699543aea135fe056fb0c21d.json)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 27a90dedcaac : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: === run 9815cb6d0b1b : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 9815cb6d0b1b, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/b1248a77699543aea135fe056fb0c21d.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.602s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.60s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.60s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.030s
+2026-06-11 13:03:11 INFO    agentc.engine: === run 60665a78729a : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 1b0f388c9cbe : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.024s
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.015s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.459s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.46s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.49s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.013s
+2026-06-11 13:03:11 INFO    agentc.engine: === run bb039a612dd7 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' started [run bb039a612dd7, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/b27e3a7520c345d78f5985abb92d3b8b.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run f241a2589dde : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run f241a2589dde, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/b27e3a7520c345d78f5985abb92d3b8b.json)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.442s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.44s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.44s
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 75bddcabcd8c : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 829d2ba7cb5e : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 4c58c32a4463 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' started [run 4c58c32a4463, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/c63c6ee6c1ff48cdb2d093fafae71902.json)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.017s
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.027s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.370s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.37s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.38s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.309s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.31s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.32s
+2026-06-11 13:03:11 INFO    agentc.engine: === run e6c2d664f774 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run e6c2d664f774, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/c63c6ee6c1ff48cdb2d093fafae71902.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 80171b3cf3eb : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.346s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.35s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.35s
+2026-06-11 13:03:11 INFO    agentc.engine: === run c9a9cfafcd73 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.018s
+2026-06-11 13:03:11 INFO    agentc.engine: === run b4b3a75c65e3 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' started [run b4b3a75c65e3, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/d471f8cc4bf64cb3864c7c52fac8af27.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.015s
+2026-06-11 13:03:11 INFO    agentc.engine: === run a15448df0d30 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run a15448df0d30, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/d471f8cc4bf64cb3864c7c52fac8af27.json)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.142s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.14s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.14s
+2026-06-11 13:03:11 INFO    agentc.engine: === run 35370d60c306 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run eb276b405213 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.022s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.010s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.336s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.34s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.34s
+2026-06-11 13:03:11 INFO    agentc.engine: === run ddb63c746107 : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' started [run ddb63c746107, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/d6c01e240a1343d6bd91023e35dece41.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 04bdb3fa2f72 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 04bdb3fa2f72, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/d6c01e240a1343d6bd91023e35dece41.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.219s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.22s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.22s
+2026-06-11 13:03:11 INFO    agentc.engine: === run cda9db3c5588 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.353s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.35s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.35s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.327s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.33s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.33s
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.026s
+2026-06-11 13:03:11 INFO    agentc.engine: === run e34e3af7c875 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 20f5600a3bed : task bugbounty-dedup (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' started [run 20f5600a3bed, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/dfdbcd283b444e4599be75781f27e7c5.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.022s
+2026-06-11 13:03:11 INFO    agentc.engine: === run bb92d8825246 : task bugbounty-rate-orchestrator (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run bb92d8825246, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/pending/dfdbcd283b444e4599be75781f27e7c5.json)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 8a5e16643a45 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.modified (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.353s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.35s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.35s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.007s
+2026-06-11 13:03:11 INFO    agentc.engine: === run aed4564b337c : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.modified (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.modified (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run dc6eda8a850f : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine: === run 803fe5a10e9f : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.340s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.34s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.34s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.430s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.43s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.43s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.055s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.095s
+2026-06-11 13:03:11 INFO    agentc.engine:   [FAIL] check-and-track (python) 0.278s
+2026-06-11 13:03:11 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 13:03:11 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.28s: exit 1
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.modified (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.083s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.323s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.32s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.34s
+2026-06-11 13:03:11 INFO    agentc.engine: === run 3e2c54276cc1 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.232s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.23s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.23s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.005s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.280s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.28s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.28s
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.moved_to (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run cb9c347bab59 : task bugbounty-http-request (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-http-request' started [run cb9c347bab59, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/ready/d471f8cc4bf64cb3864c7c52fac8af27.json)
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.955s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.95s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.96s
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] check-and-track (python) 0.175s
+2026-06-11 13:03:11 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.18s
+2026-06-11 13:03:11 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.18s
+2026-06-11 13:03:11 INFO    agentc.engine:   [FAIL] perform-request (python) 0.320s
+2026-06-11 13:03:11 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 13:03:11 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.33s: exit 1
+2026-06-11 13:03:11 INFO    agentc.engine: emit file.modified (watcher)
+2026-06-11 13:03:11 INFO    agentc.engine: === run 63c85f649764 : task monitor-files (trigger=file) ===
+2026-06-11 13:03:11 INFO    agentc.engine:   [ok] noop (shell) 0.003s
+2026-06-11 13:03:12 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 0.564s
+2026-06-11 13:03:12 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.56s
+2026-06-11 13:03:12 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.56s
+2026-06-11 13:03:12 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 1.387s
+2026-06-11 13:03:12 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 1.39s
+2026-06-11 13:03:12 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 1.39s
+2026-06-11 13:03:12 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 1.673s
+2026-06-11 13:03:12 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 1.67s
+2026-06-11 13:03:12 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 1.70s
+2026-06-11 13:03:12 INFO    agentc.engine: === run 0d0086828561 : task dashboard (trigger=schedule) ===
+2026-06-11 13:03:13 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 2.000s
+2026-06-11 13:03:13 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 2.00s
+2026-06-11 13:03:13 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 2.00s
+2026-06-11 13:03:13 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 2.606s
+2026-06-11 13:03:13 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 2.61s
+2026-06-11 13:03:13 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 2.61s
+2026-06-11 13:03:14 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 3.027s
+2026-06-11 13:03:14 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 3.03s
+2026-06-11 13:03:14 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 3.03s
+2026-06-11 13:03:14 INFO    agentc.engine:   [ok] rate-limit-and-queue (python) 3.236s
+2026-06-11 13:03:14 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 3.24s
+2026-06-11 13:03:14 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 3.24s
+2026-06-11 13:03:14 INFO    agentc.engine:   [ok] render (python) 1.988s
+2026-06-11 13:03:17 INFO    agentc.engine: === run 841653ca4006 : task dashboard (trigger=schedule) ===
+2026-06-11 13:03:20 INFO    agentc.engine:   [ok] render (python) 2.214s
+2026-06-11 13:03:22 INFO    agentc.engine: === run d261b28c5c2a : task dashboard (trigger=schedule) ===
+2026-06-11 13:03:24 INFO    agentc.engine:   [ok] render (python) 1.937s
+2026-06-11 13:03:27 INFO    agentc.engine: === run 4ab358d78990 : task dashboard (trigger=schedule) ===
+2026-06-11 13:03:29 INFO    agentc.engine:   [ok] render (python) 1.932s
+2026-06-11 13:03:32 INFO    agentc.engine: === run 3db85e124536 : task dashboard (trigger=schedule) ===
+2026-06-11 13:03:34 INFO    agentc.engine:   [ok] render (python) 2.026s
+2026-06-11 13:03:37 INFO    agentc.engine: === run c198637c2874 : task dashboard (trigger=schedule) ===

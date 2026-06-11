@@ -196,6 +196,34 @@ def _source_type_label(st: str) -> str:
     }.get(st or "", st or "")
 
 
+def _queue_metrics_html(metrics: dict) -> str:
+    """Render queue throughput metrics as header-style spans for the queue panel titlebar."""
+    if not metrics:
+        return ""
+    rps = metrics.get("req_per_sec", 0.0)
+    rpm = metrics.get("req_per_min", 0)
+    max_dom = metrics.get("max_domain", "")
+    max_ct = metrics.get("max_domain_count", 0)
+    spct = metrics.get("success_pct", 100.0)
+    rl = metrics.get("rate_limited", 0)
+    status = metrics.get("status", "healthy")
+    rl_cls = "bad" if rl > 0 else "mut"
+    st_cls = "ok" if status == "healthy" else "bad"
+    parts = [
+        f'<span class="hi">req/sec <b>{rps}</b></span>',
+        f'<span class="hi">req/min <b>{rpm}</b></span>',
+    ]
+    if max_dom:
+        short = max_dom if len(max_dom) <= 24 else max_dom[:21] + "…"
+        parts.append(f'<span class="hi" title="{e(max_dom)}">max/domain/min <b>{e(short)} ({max_ct})</b></span>')
+    parts += [
+        f'<span class="hi">success <b>{spct}%</b></span>',
+        f'<span class="badge {rl_cls}">RL/min {rl}</span>',
+        f'<span class="badge {st_cls}">{e(status)}</span>',
+    ]
+    return " ".join(parts)
+
+
 def _build_source_type_map() -> dict:
     """Build {asset_id: source_type} from completed/200 request records.
 
@@ -399,6 +427,73 @@ def load_asset_raw(asset_id: str) -> dict:
 def load_rate_state() -> dict:
     d = _load_json(os.path.join(requests_dir(), "rate_state.json"))
     return d if isinstance(d, dict) else {}
+
+
+def load_request_metrics() -> dict:
+    """Compute req/sec (last 3s), req/min, success %, rate-limited/min from completed requests."""
+    now = time.time()
+    cut60 = now - 60.0
+    cut3 = now - 3.0
+    comp = os.path.join(requests_dir(), "completed")
+    sec_count = 0
+    min_total = 0
+    min_success = 0
+    min_429 = 0
+    domain_counts: dict = {}
+    try:
+        for st_dir in os.listdir(comp):
+            spath = os.path.join(comp, st_dir)
+            if not os.path.isdir(spath):
+                continue
+            try:
+                sc = int(st_dir)
+            except ValueError:
+                continue
+            try:
+                fnames = os.listdir(spath)
+            except OSError:
+                continue
+            for fname in fnames:
+                if not fname.endswith(".json"):
+                    continue
+                fpath = os.path.join(spath, fname)
+                try:
+                    mt = os.path.getmtime(fpath)
+                except OSError:
+                    continue
+                if mt < cut60:
+                    continue
+                min_total += 1
+                if 200 <= sc < 300:
+                    min_success += 1
+                if sc == 429:
+                    min_429 += 1
+                if mt >= cut3:
+                    sec_count += 1
+                if min_total <= 500:  # cap JSON reads for performance
+                    try:
+                        d = _load_json(fpath) or {}
+                        req = d.get("request") or d
+                        dom = req.get("domain", "?")
+                        domain_counts[dom] = domain_counts.get(dom, 0) + 1
+                    except Exception:  # noqa: BLE001
+                        pass
+    except OSError:
+        pass
+    rps = round(sec_count / 3.0, 1)
+    spct = round(min_success * 100.0 / min_total, 1) if min_total else 100.0
+    max_dom = max(domain_counts, key=domain_counts.get) if domain_counts else ""
+    max_ct = domain_counts.get(max_dom, 0)
+    degraded = min_total > 0 and (spct < 90.0 or min_429 > 0)
+    return {
+        "req_per_sec": rps,
+        "req_per_min": min_total,
+        "max_domain": max_dom,
+        "max_domain_count": max_ct,
+        "success_pct": spct,
+        "rate_limited": min_429,
+        "status": "degraded" if degraded else "healthy",
+    }
 
 
 def load_pending_by_domain(limit=4000) -> dict:
@@ -946,7 +1041,7 @@ def delete_queue_items(ids: list) -> int:
     return deleted
 
 
-def render_queue_panel(items: list, paused: bool) -> str:
+def render_queue_panel(items: list, paused: bool, metrics: dict = None) -> str:
     headers = ["", "status", "domain", "url", "source", "created"]
     rows, meta = [], []
     for item in items:
@@ -966,12 +1061,16 @@ def render_queue_panel(items: list, paused: bool) -> str:
     pause_lbl = "Resume queue" if paused else "Pause queue"
     pending_ct = sum(1 for i in items if i.get("qstatus") == "pending")
     ready_ct = sum(1 for i in items if i.get("qstatus") == "ready")
-    ct = (f'<span class="badge run" title="pending">{pending_ct}p</span> '
-          f'<span class="badge ok" title="ready">{ready_ct}r</span>')
-    head = (f'<button class="mini" id="q-all">All</button> '
-            f'<button class="mini {pause_cls}" id="q-pause">{pause_lbl}</button> '
-            f'<button class="mini bad" id="q-del" disabled>Delete Selected</button> '
-            + ct)
+    ct_html = (f'<span class="badge run" title="pending">{pending_ct}p</span> '
+               f'<span class="badge ok" title="ready">{ready_ct}r</span>')
+    metrics_html = _queue_metrics_html(metrics) if metrics else ""
+    head = (
+        f'<span id="queue-metrics">{metrics_html}</span> '
+        f'<button class="mini" id="q-all">All</button> '
+        f'<button class="mini {pause_cls}" id="q-pause">{pause_lbl}</button> '
+        f'<button class="mini bad" id="q-del" disabled>Delete Selected</button> '
+        f'<span id="queue-counts">{ct_html}</span>'
+    )
     return panel("queue", "Queue", len(items),
                  table("tbl-queue", headers, rows, meta),
                  head_buttons=head, filter_for="tbl-queue")
@@ -1043,6 +1142,7 @@ def render_page(paths: Paths) -> str:
     eng = engine_status()
     paused = is_paused()
     queue = load_queue()
+    metrics = load_request_metrics()
 
     panels = (
         render_feed_panel(feed)
@@ -1052,7 +1152,7 @@ def render_page(paths: Paths) -> str:
         + render_requests_panel(summary)
         + render_activity_panel(paths, eng, rate, pend_by_dom, runs)
         + render_rate_panel(rate, pend_by_dom)
-        + render_queue_panel(queue, paused)
+        + render_queue_panel(queue, paused, metrics)
     )
     stats = _header_stats(targets, subs, assets, summary, eng, paused)
     alive = bool(eng.get("active") or eng.get("running"))
@@ -1146,6 +1246,59 @@ def make_handler(paths: Paths):
                 return
             if parts[:2] == ["api", "queue"]:
                 self._json(200, {"items": load_queue(), "paused": is_paused()})
+                return
+            if parts[:2] == ["api", "refresh"]:
+                tgts = load_targets()
+                subs_list = load_subdomains(tgts)
+                assets = load_assets()
+                summary = load_request_summary()
+                rate = load_rate_state()
+                pend_by_dom = load_pending_by_domain()
+                runs = load_bb_runs(paths)
+                feed = load_feed(paths)
+                eng = engine_status()
+                paused = is_paused()
+                queue = load_queue()
+                metrics = load_request_metrics()
+
+                def _tbody(html: str) -> str:
+                    s = html.find("<tbody>") + 7
+                    ee = html.rfind("</tbody>")
+                    return html[s:ee] if s > 7 and ee >= 0 else ""
+
+                def _count(html: str) -> str:
+                    m = re.search(r'class="count"[^>]*>([^<]+)', html)
+                    return m.group(1).strip() if m else "0"
+
+                pending_ct = sum(1 for i in queue if i.get("qstatus") == "pending")
+                ready_ct = sum(1 for i in queue if i.get("qstatus") == "ready")
+                ct_html = (f'<span class="badge run" title="pending">{pending_ct}p</span> '
+                           f'<span class="badge ok" title="ready">{ready_ct}r</span>')
+
+                feed_html = render_feed_panel(feed)
+                tgts_html = render_targets_panel(tgts)
+                subs_html = render_subdomains_panel(subs_list)
+                act_html = render_activity_panel(paths, eng, rate, pend_by_dom, runs)
+                rate_html = render_rate_panel(rate, pend_by_dom)
+                queue_html = render_queue_panel(queue, paused, metrics)
+
+                self._json(200, {
+                    "gen_epoch": int(time.time()),
+                    "is_paused": paused,
+                    "assets_ver": assets_version(assets),
+                    "req_ver": requests_version(summary),
+                    "stats": _header_stats(tgts, subs_list, assets, summary, eng, paused),
+                    "metrics_html": _queue_metrics_html(metrics),
+                    "queue_counts_html": ct_html,
+                    "panels": {
+                        "feed":       {"count": _count(feed_html),   "tbody": _tbody(feed_html)},
+                        "targets":    {"count": _count(tgts_html),   "tbody": _tbody(tgts_html)},
+                        "subdomains": {"count": _count(subs_html),   "tbody": _tbody(subs_html)},
+                        "activity":   {"count": _count(act_html),    "tbody": _tbody(act_html)},
+                        "rate":       {"count": _count(rate_html),   "tbody": _tbody(rate_html)},
+                        "queue":      {"count": _count(queue_html),  "tbody": _tbody(queue_html)},
+                    },
+                })
                 return
             self._json(404, {"errors": ["not found"]})
 
@@ -1310,7 +1463,7 @@ PAGE = r"""<!DOCTYPE html>
 <header>
   <span class="brand">agentC</span>
   <span class="hi mode">bugbounty</span>
-  __STATS__
+  <span id="hstats">__STATS__</span>
   <span class="spacer"></span>
   <span class="engctl" id="engctl">
     <button class="eng eon" id="eng-start" title="start engine">start</button>
@@ -2035,24 +2188,118 @@ aoverlay.addEventListener('mousedown', function(ev){ if(ev.target===aoverlay) cl
 var toastEl=document.getElementById('toast'), _tt;
 function toast(msg){ toastEl.textContent=msg; toastEl.classList.add('show'); clearTimeout(_tt); _tt=setTimeout(function(){ toastEl.classList.remove('show'); }, 2600); }
 
-/* ---- auto-refresh ---- */
+/* ---- auto-refresh (AJAX — no full page reload) ---- */
 var pause=document.getElementById('pause'); pause.checked=!!L('paused');
-function schedule(){ if(window._t) clearTimeout(window._t);
-  if(pause.checked || modalOpen || confirmOpen || dragging || queueSelecting) return;
-  window._t=setTimeout(function(){ location.reload(); }, REFRESH*1000); }
+var _refreshing=false;
+
+/* Track any user activity so we can defer refreshes during interaction */
+var lastActivity=0;
+document.addEventListener('mousedown', function(){ lastActivity=Date.now(); }, true);
+document.addEventListener('keydown', function(){ lastActivity=Date.now(); }, true);
+document.addEventListener('input', function(){ lastActivity=Date.now(); }, true);
+
+function isRecentlyActive(){ return (Date.now()-lastActivity)<1500; }
+
+function schedule(){
+  if(window._t) clearTimeout(window._t);
+  if(pause.checked||modalOpen||confirmOpen||dragging) return;
+  window._t=setTimeout(doRefresh, REFRESH*1000);
+}
+
+function doRefresh(){
+  window._t=null;
+  if(pause.checked||modalOpen||confirmOpen||dragging||isRecentlyActive()){
+    window._t=setTimeout(doRefresh,1000); return;
+  }
+  if(_refreshing) return;
+  _refreshing=true;
+  fetch('/api/refresh')
+    .then(function(r){ return r.json(); })
+    .then(function(data){ _refreshing=false; applyRefresh(data); schedule(); })
+    .catch(function(){ _refreshing=false; schedule(); });
+}
+
+function applyRefresh(data){
+  /* header stats */
+  var hs=document.getElementById('hstats');
+  if(hs && data.stats) hs.innerHTML=data.stats;
+  GEN=data.gen_epoch||GEN;
+  /* pause state */
+  if(data.is_paused!=null){
+    ISPAUSED=data.is_paused;
+    var qp=document.getElementById('q-pause');
+    if(qp){ qp.className='mini'+(ISPAUSED?' bad':''); qp.textContent=ISPAUSED?'Resume queue':'Pause queue'; }
+  }
+  /* queue metrics & counts (always update — independent of selection state) */
+  var qm=document.getElementById('queue-metrics');
+  if(qm && data.metrics_html!=null) qm.innerHTML=data.metrics_html;
+  var qc=document.getElementById('queue-counts');
+  if(qc && data.queue_counts_html!=null) qc.innerHTML=data.queue_counts_html;
+  /* panel bodies */
+  var panels=data.panels||{};
+  for(var pid in panels) applyPanelBody(pid, panels[pid]);
+  /* virtual tables: only re-fetch when server version changed */
+  if(data.assets_ver && data.assets_ver!==ASSETSVER){
+    ASSETSVER=data.assets_ver; loadVT(AssetsVT,'/api/assets',ASSETSVER,'agentcbb:assets'); }
+  if(data.req_ver && data.req_ver!==REQVER){
+    REQVER=data.req_ver; loadVT(ReqVT,'/api/requests',REQVER,'agentcbb:requests'); }
+}
+
+function applyPanelBody(panelId, data){
+  var panel=document.getElementById('panel-'+panelId); if(!panel) return;
+  /* skip if user is typing in this panel */
+  var ae=document.activeElement;
+  if(ae && panel.contains(ae) && ae!==document.body &&
+     (ae.tagName==='INPUT'||ae.tagName==='TEXTAREA'||ae.tagName==='SELECT')) return;
+  /* update count badge */
+  var cc=panel.querySelector('#count-'+panelId);
+  if(cc && data.count!=null) cc.textContent=data.count;
+  /* skip queue tbody while user has selections */
+  if(panelId==='queue' && queueSelecting) return;
+  /* locate table */
+  var pbody=panel.querySelector('.pbody');
+  var tbl=pbody && pbody.querySelector('table.dt');
+  var tbody=tbl && tbl.querySelector('tbody');
+  if(!tbody || data.tbody==null) return;
+  /* preserve scroll, replace only tbody rows */
+  var scrollTop=pbody?pbody.scrollTop:0;
+  tbody.innerHTML=data.tbody;
+  if(pbody) pbody.scrollTop=scrollTop;
+  /* re-apply sort (re-orders the new rows using the saved preference) */
+  if(!VIRTUAL_TABLES[tbl.id]){
+    var saved=L('sort:'+tbl.id);
+    if(saved && typeof saved.idx==='number'){
+      sortTable(tbl, saved.idx, saved.dir);
+      var ths=tbl.tHead.rows[0].cells;
+      for(var i=0;i<ths.length;i++) ths[i].classList.remove('asc','desc');
+      if(ths[saved.idx]) ths[saved.idx].classList.add(saved.dir||'asc');
+    }
+  }
+  /* re-apply text filter */
+  var fi=panel.querySelector('input.filter[data-t="'+tbl.id+'"]');
+  if(fi && fi.value) applyFilter(tbl, fi.value);
+  /* panel-specific post-update hooks */
+  if(panelId==='subdomains') applySubView();
+  if(panelId==='feed'){
+    var fl=document.getElementById('feedlevel');
+    if(fl) applyFeedLevel(fl.value);
+  }
+  /* queue: reset selection state after tbody replaced */
+  if(panelId==='queue'){ queueSelecting=false; updateQueueState(); }
+}
+
 pause.addEventListener('change', function(){ S('paused', pause.checked); schedule(); });
 document.getElementById('reload').addEventListener('click', function(){ location.reload(); });
 
 /* ---- queue management ---- */
+function getQueueChecked(){ return [].slice.call(document.querySelectorAll('.q-chk:checked')); }
+function updateQueueState(){
+  var checked=getQueueChecked(); queueSelecting=checked.length>0;
+  var delBtn=document.getElementById('q-del');
+  if(delBtn){ delBtn.disabled=!queueSelecting;
+    delBtn.textContent=queueSelecting?'Delete Selected ('+checked.length+')':'Delete Selected'; }
+}
 (function(){
-  function getChecked(){ return [].slice.call(document.querySelectorAll('.q-chk:checked')); }
-  function updateQueueState(){
-    var checked=getChecked(); queueSelecting=checked.length>0;
-    var delBtn=document.getElementById('q-del');
-    if(delBtn){ delBtn.disabled=!queueSelecting;
-      delBtn.textContent=queueSelecting?'Delete Selected ('+checked.length+')':'Delete Selected'; }
-    schedule();
-  }
   document.addEventListener('change', function(ev){
     if(ev.target.classList.contains('q-chk')) updateQueueState();
   });
@@ -2061,7 +2308,7 @@ document.getElementById('reload').addEventListener('click', function(){ location
     var chks=document.querySelectorAll('.q-chk');
     var anyUnchecked=[].some.call(chks, function(c){ return !c.checked; });
     [].forEach.call(chks, function(c){ c.checked=anyUnchecked; });
-    updateQueueState();
+    updateQueueState(); // hoisted to module scope
   });
   var qpause=document.getElementById('q-pause');
   if(qpause) qpause.addEventListener('click', function(){
@@ -2069,20 +2316,31 @@ document.getElementById('reload').addEventListener('click', function(){ location
     fetch('/api/queue/pause',{method:'POST',headers:{'Content-Type':'application/json'},
         body:JSON.stringify({pause:!ISPAUSED})})
       .then(function(r){ return r.json(); })
-      .then(function(res){ toast(res.paused?'Queue paused':'Queue resumed');
-        setTimeout(function(){ location.reload(); },300); })
+      .then(function(res){
+        toast(res.paused?'Queue paused':'Queue resumed');
+        /* update button state immediately without full reload */
+        ISPAUSED=res.paused;
+        qpause.className='mini'+(ISPAUSED?' bad':'');
+        qpause.textContent=ISPAUSED?'Resume queue':'Pause queue';
+        qpause.disabled=false;
+      })
       .catch(function(e){ toast('Pause failed: '+e); qpause.disabled=false; });
   });
   var qdel=document.getElementById('q-del');
   if(qdel) qdel.addEventListener('click', function(){
-    var ids=getChecked().map(function(c){ return c.value; });
+    var ids=getQueueChecked().map(function(c){ return c.value; });
     if(!ids.length) return;
     qdel.disabled=true;
     fetch('/api/queue',{method:'DELETE',headers:{'Content-Type':'application/json'},
         body:JSON.stringify({ids:ids})})
       .then(function(r){ return r.json(); })
-      .then(function(res){ toast('Deleted '+res.deleted+' queue items');
-        queueSelecting=false; setTimeout(function(){ location.reload(); },300); })
+      .then(function(res){
+        toast('Deleted '+res.deleted+' queue items');
+        queueSelecting=false;
+        /* trigger an immediate refresh to show updated queue */
+        if(window._t) clearTimeout(window._t);
+        setTimeout(doRefresh, 300);
+      })
       .catch(function(e){ toast('Delete failed: '+e); qdel.disabled=false; });
   });
 })();

@@ -9558,3 +9558,7 @@ subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate
 2026-06-11 12:44:53 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.82s: exit 1
 2026-06-11 12:45:10 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
 2026-06-11 12:45:10 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 60.95s: exit 1
+2026-06-11 13:03:11 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 13:03:11 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.28s: exit 1
+2026-06-11 13:03:11 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 13:03:11 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.33s: exit 1
