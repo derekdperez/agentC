@@ -1,7 +1,7 @@
 {
-  "event_path": "/home/cisco/repo/agentC/bugbounty/requests/pending/9004e8647ab4423281e28a5f591112b6.json",
-  "event_kind": "moved_to",
-  "event_filename": "9004e8647ab4423281e28a5f591112b6.json",
+  "event_path": "/home/cisco/repo/agentC/bugbounty/requests/pending/1082b98e718545fcbb12ae2fe16eb741.json",
+  "event_kind": "created",
+  "event_filename": "1082b98e718545fcbb12ae2fe16eb741.json",
   "system": "agentC",
   "now": "2026-06-10 16:55:00",
   "event_task": "watch-inbox",
