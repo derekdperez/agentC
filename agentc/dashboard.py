@@ -333,6 +333,24 @@ def create_file(paths, rel_dir, name, content):
     return 200, {"ok": True}
 
 
+def redrop_file(paths, rel):
+    """Re-drop a file: delete it and re-create it with the same content so the
+    file watcher emits a fresh ``created`` event and the owning file-trigger task
+    reprocesses it. Sandboxed; only acts on an existing regular file."""
+    full = _safe_join(paths.root, rel)
+    if not full or not os.path.isfile(full):
+        return 400, {"ok": False, "errors": ["file not found"]}
+    try:
+        with open(full, "rb") as fh:
+            data = fh.read()
+        os.remove(full)
+        with open(full, "wb") as fh:
+            fh.write(data)
+    except OSError as exc:
+        return 500, {"ok": False, "errors": [str(exc)]}
+    return 200, {"ok": True, "name": os.path.basename(full)}
+
+
 # --------------------------------------------------------------------------- #
 # Rendering helpers
 # --------------------------------------------------------------------------- #
@@ -825,6 +843,14 @@ def make_handler(paths):
                                         data.get("name", ""), data.get("content", ""))
                 self._json(code, res)
                 return
+            if parts[:2] == ["api", "redrop"]:
+                data = self._body()
+                if data is None:
+                    self._json(400, {"ok": False, "errors": ["invalid JSON body"]})
+                    return
+                code, res = redrop_file(paths, data.get("rel", ""))
+                self._json(code, res)
+                return
             self._mutate("POST")
 
         def do_PUT(self):
@@ -955,6 +981,13 @@ PAGE = r"""<!DOCTYPE html>
   .runtime { color: #58a6ff; }
   /* monitored-folders browser */
   .fbrowse { font-size: 11px; }
+  /* right-click context menu (files in a monitored folder) */
+  .ctxmenu { position: fixed; z-index: 70; min-width: 124px; display: none;
+    background: #161b22; border: 1px solid #30363d; border-radius: 5px; padding: 3px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.5); }
+  .ctxmenu .ci { padding: 4px 10px; font-size: 11px; color: #c9d1d9; cursor: pointer;
+    border-radius: 3px; white-space: nowrap; }
+  .ctxmenu .ci:hover { background: #1f6feb; color: #fff; }
   .fbempty { color: #6e7681; padding: 8px; font-style: italic; }
   .folder { border-bottom: 1px solid #161b22; }
   .fhead { display: flex; align-items: center; gap: 6px; padding: 2px 6px;
@@ -1102,7 +1135,7 @@ PAGE = r"""<!DOCTYPE html>
 
 <script>
 var REFRESH=__REFRESH__, GEN=__GENEPOCH__, STALE=__STALE__, INTERACTIVE=__INTERACTIVE__, ENGINE_ALIVE=__ENGINEALIVE__;
-var modalOpen=false, confirmOpen=false, CTYPE='', CMODE='', CNAME='';
+var modalOpen=false, confirmOpen=false, ctxOpen=false, dragging=false, CTYPE='', CMODE='', CNAME='';
 
 function S(k,v){ try{ localStorage.setItem('agentc:'+k, JSON.stringify(v)); }catch(e){} }
 function L(k){ try{ var v=localStorage.getItem('agentc:'+k); return v?JSON.parse(v):null; }catch(e){ return null; } }
@@ -1197,12 +1230,15 @@ panels.forEach(function(p){
   });
 });
 var preSize={};
-document.addEventListener('mousedown', function(){ panels.forEach(function(p){ preSize[p.id]=p.offsetWidth+'x'+p.offsetHeight; }); });
+// While the mouse is down (e.g. dragging a panel's resize handle) suspend the
+// auto-refresh: cancel any pending reload so it can't interrupt the action.
+document.addEventListener('mousedown', function(){ dragging=true; if(window._t) clearTimeout(window._t);
+  panels.forEach(function(p){ preSize[p.id]=p.offsetWidth+'x'+p.offsetHeight; }); });
 document.addEventListener('mouseup', function(){ panels.forEach(function(p){
   if(p.classList.contains('collapsed') || p.offsetWidth===0) return;
   var cur=p.offsetWidth+'x'+p.offsetHeight;
   if(preSize[p.id] && preSize[p.id]!==cur){ S('size:'+p.id, {w:p.offsetWidth+'px', h:p.offsetHeight+'px'}); }
-}); });
+}); dragging=false; schedule(); });
 
 /* ---- panel show/hide/reorder config (persists until reset) ---- */
 function panelKeys(){ return panels.map(function(p){ return p.id.replace('panel-',''); }); }
@@ -1412,23 +1448,29 @@ function delItem(type, name){
 }
 
 /* ---- row selection (persists across auto-refresh) ---- */
-var selByKind = L('rowsel') || {agent:null, task:null};
+var selByKind = L('rowsel') || {agent:null, task:null, run:null};
 function saveSel(){ S('rowsel', selByKind); }
 function tableForKind(kind){ return document.getElementById(kind==='agent'?'tbl-agents':'tbl-tasks'); }
+function _cssEsc(s){ return (window.CSS&&CSS.escape)?CSS.escape(s):s; }
 function selectRow(tr){
   var tbl=tr.closest('table'); if(tbl){ [].forEach.call(tbl.querySelectorAll('tr.selected'),
     function(r){ r.classList.remove('selected'); }); }
   tr.classList.add('selected');
   var kind=tr.getAttribute('data-kind');
   if(kind==='agent'||kind==='task'){ selByKind[kind]=tr.getAttribute('data-name'); saveSel(); }
+  else if(kind==='run'){ selByKind.run=tr.getAttribute('data-run'); saveSel(); }
 }
 function reapplySel(){
   ['agent','task'].forEach(function(kind){
     var nm=selByKind[kind]; if(!nm) return;
     var tbl=tableForKind(kind); if(!tbl) return;
-    var tr=tbl.querySelector('tr[data-name="'+(window.CSS&&CSS.escape?CSS.escape(nm):nm)+'"]');
+    var tr=tbl.querySelector('tr[data-name="'+_cssEsc(nm)+'"]');
     if(tr) tr.classList.add('selected');
   });
+  if(selByKind.run){
+    [].forEach.call(document.querySelectorAll('tr[data-run="'+_cssEsc(selByKind.run)+'"]'),
+      function(tr){ tr.classList.add('selected'); });
+  }
 }
 reapplySel();
 // Click a row: runs open the detail modal; agents/tasks get selected for edit/del.
@@ -1521,21 +1563,37 @@ roverlay.addEventListener('mousedown', function(ev){ if(ev.target===roverlay) cl
 
 /* ---- folder browser (Monitored folders panel) ---- */
 var SELECTED_FOLDER = L('selfolder') || null;
+var OPEN_FOLDERS = L('openfolders') || [];   // monitored folders the user expanded
+function saveOpenFolders(){ S('openfolders', OPEN_FOLDERS); }
+function setFolderOpen(folder, open){
+  folder.classList.toggle('open', open);
+  var b=folder.querySelector('.fbody'); if(b) b.style.display=open?'':'none';
+  var path=folder.getAttribute('data-path'), i=OPEN_FOLDERS.indexOf(path);
+  if(open && i<0) OPEN_FOLDERS.push(path);
+  if(!open && i>=0) OPEN_FOLDERS.splice(i,1);
+  saveOpenFolders();
+}
 (function(){
   var bs=document.querySelector('.fbrowse'); if(!bs) return;
   function selectFolder(folder){
     [].forEach.call(document.querySelectorAll('.folder.selected'), function(f){ f.classList.remove('selected'); });
     folder.classList.add('selected'); SELECTED_FOLDER=folder.getAttribute('data-path'); S('selfolder', SELECTED_FOLDER);
   }
-  // restore selection / first folder as default target
   var folders=[].slice.call(document.querySelectorAll('.folder'));
+  // restore expanded folders across the auto-refresh
+  folders.forEach(function(folder){
+    if(OPEN_FOLDERS.indexOf(folder.getAttribute('data-path'))>=0){
+      folder.classList.add('open');
+      var b=folder.querySelector('.fbody'); if(b) b.style.display='';
+    }
+  });
+  // restore selection / first folder as default target
   var match=folders.filter(function(f){ return f.getAttribute('data-path')===SELECTED_FOLDER; })[0];
   if(match) match.classList.add('selected'); else if(folders[0]){ SELECTED_FOLDER=folders[0].getAttribute('data-path'); }
   bs.addEventListener('click', function(ev){
     var fh=ev.target.closest('.fhead'); if(!fh) return;
     var folder=fh.closest('.folder');
-    folder.classList.toggle('open');
-    var body=folder.querySelector('.fbody'); if(body) body.style.display=folder.classList.contains('open')?'':'none';
+    setFolderOpen(folder, !folder.classList.contains('open'));
     selectFolder(folder);
   });
 })();
@@ -1544,10 +1602,48 @@ function openFolders(dir){
   var panel=document.getElementById('panel-folders'); if(panel) panel.classList.remove('collapsed');
   var folders=[].slice.call(document.querySelectorAll('.folder'));
   var owner=folders.filter(function(f){ var p=f.getAttribute('data-path'); return dir && (dir===p || dir.indexOf(p+'/')===0); })[0];
-  if(owner){ owner.classList.add('open'); var b=owner.querySelector('.fbody'); if(b) b.style.display='';
+  if(owner){ setFolderOpen(owner, true);
     owner.scrollIntoView({block:'nearest'}); toast('Output dir: '+dir); }
   else { toast('Output dir: '+dir); }
 }
+
+/* ---- right-click "Re-drop" a file in a monitored folder ---- */
+(function(){
+  var menu=document.createElement('div');
+  menu.className='ctxmenu';
+  menu.innerHTML='<div class="ci" data-act="redrop">&#8635; Re-drop</div>';
+  document.body.appendChild(menu);
+  var targetRel=null;
+  function hide(){ if(menu.style.display==='block'){ menu.style.display='none'; ctxOpen=false; schedule(); } }
+  document.addEventListener('contextmenu', function(ev){
+    var item=ev.target.closest('.fbrowse .fitem');
+    if(!item || item.getAttribute('data-isdir')){ hide(); return; }  // files only
+    ev.preventDefault();
+    targetRel=item.getAttribute('data-rel');
+    menu.style.left=ev.pageX+'px'; menu.style.top=ev.pageY+'px';
+    menu.style.display='block'; ctxOpen=true; if(window._t) clearTimeout(window._t);
+  });
+  menu.addEventListener('click', function(ev){
+    var ci=ev.target.closest('.ci'); if(!ci) return;
+    if(ci.getAttribute('data-act')==='redrop' && targetRel){
+      var rel=targetRel, base=rel.split('/').pop();
+      fetch('/api/redrop', {method:'POST', headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({rel:rel})})
+        .then(function(r){ return r.json(); })
+        .then(function(res){
+          if(res.ok){ toast('Re-dropped '+base+' — re-triggered'); }
+          else { toast('Re-drop failed: '+((res.errors&&res.errors[0])||'error')); }
+          setTimeout(function(){ location.reload(); }, 700);
+        })
+        .catch(function(e){ toast('Re-drop error: '+e); });
+    }
+    hide();
+  });
+  document.addEventListener('click', function(ev){ if(!ev.target.closest('.ctxmenu')) hide(); });
+  document.addEventListener('scroll', hide, true);
+  document.addEventListener('keydown', function(ev){ if(ev.key==='Escape') hide(); });
+  window.addEventListener('blur', hide);
+})();
 
 /* ---- new file modal ---- */
 var noverlay=document.getElementById('noverlay'), nerrs=document.getElementById('nerrs');
@@ -1585,7 +1681,7 @@ function toast(msg){ toastEl.textContent=msg; toastEl.classList.add('show'); cle
 /* ---- auto-refresh (paused while a dialog is open) ---- */
 var pause=document.getElementById('pause'); pause.checked=!!L('paused');
 function schedule(){ if(window._t) clearTimeout(window._t);
-  if(pause.checked || modalOpen || confirmOpen) return;
+  if(pause.checked || modalOpen || confirmOpen || ctxOpen || dragging) return;
   window._t=setTimeout(function(){ location.reload(); }, REFRESH*1000); }
 pause.addEventListener('change', function(){ S('paused', pause.checked); schedule(); });
 document.getElementById('reload').addEventListener('click', function(){ location.reload(); });

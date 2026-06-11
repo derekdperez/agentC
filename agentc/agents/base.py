@@ -94,19 +94,35 @@ class Agent:
 
         elapsed = time.time() - start
         _api_response(cfg, proc.returncode, proc.stdout, proc.stderr, elapsed)
-        if proc.returncode == 0:
+        text = self.adapter.parse(proc.stdout)
+        # A clean exit with no output means the agent did nothing useful — an
+        # empty model completion or a soft API failure that the CLI still
+        # reported as exit 0. Treat that as a failure so the workflow stops
+        # instead of "completing" a task with an empty result (and archiving it).
+        produced_nothing = proc.returncode == 0 and not (text or "").strip()
+        success = proc.returncode == 0 and not produced_nothing
+        if success:
             PROGRESS.info("agent '%s' replied in %.2fs (%d chars)",
-                          cfg.name, elapsed, len(proc.stdout or ""))
+                          cfg.name, elapsed, len(text or ""))
+        elif produced_nothing:
+            PROGRESS.warning("agent '%s' exited 0 but produced no output in %.2fs",
+                             cfg.name, elapsed)
         else:
             PROGRESS.warning("agent '%s' exited %s in %.2fs",
                              cfg.name, proc.returncode, elapsed)
+        if produced_nothing:
+            error = "agent exited 0 but produced no output"
+        elif proc.returncode == 0:
+            error = None
+        else:
+            error = f"exit {proc.returncode}"
         return ActionResult(
             name=cfg.name,
             type="agent",
-            success=proc.returncode == 0,
+            success=success,
             exit_code=proc.returncode,
-            stdout=self.adapter.parse(proc.stdout),
+            stdout=text,
             stderr=proc.stderr,
             outputs={"agent": cfg.name},
-            error=None if proc.returncode == 0 else f"exit {proc.returncode}",
+            error=error,
         )

@@ -34,6 +34,14 @@ var_name = sys.argv[1] if len(sys.argv) > 1 else "result"
 suffix = sys.argv[2] if len(sys.argv) > 2 else ".out.md"
 document = str(variables.get(var_name, "")).rstrip()
 
+# Never archive a task the agent didn't actually act on: an empty result means
+# nothing was produced, so leave the original in place to be retried instead of
+# silently moving it to completed/ with an empty companion document.
+if not document:
+    print(f"finalize: agent output ({var_name!r}) is empty — leaving {name!r} "
+          f"in place for retry instead of archiving", file=sys.stderr)
+    sys.exit(1)
+
 completed = os.path.join(os.path.dirname(src), "completed")
 os.makedirs(completed, exist_ok=True)
 
