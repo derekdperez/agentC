@@ -242,12 +242,12 @@ def _epoch(val) -> float:
 
 
 def assets_version(assets: list) -> str:
-    """A cheap change-token for the asset set: count + newest mtime.
+    """A cheap change-token for the asset set: schema version + count + newest mtime.
 
-    The client compares this against its cached copy; an unchanged token means
-    the cached rows are still valid, so no re-fetch is needed."""
+    The schema prefix (v2) invalidates any sessionStorage cache built by an
+    older column layout so the client always re-fetches after a schema change."""
     mx = max((a["mtime"] for a in assets), default=0)
-    return f"{len(assets)}:{int(mx)}"
+    return f"v2:{len(assets)}:{int(mx)}"
 
 
 def asset_rows_json(assets: list) -> list:
@@ -526,6 +526,9 @@ def add_target(data: dict):
     if os.path.isdir(os.path.join(targets_dir(), domain)):
         return 409, {"ok": False, "errors": [f"target {domain} already exists"]}
     _write_meta(domain, data)
+    # Create the root domain as a subdomain stub so it appears in the
+    # Subdomains panel and can be spidered/scoped like any other host.
+    os.makedirs(os.path.join(targets_dir(), domain, domain, "assets"), exist_ok=True)
     _drop_queue(domain)  # fires bugbounty-spider-init (state + initial + probes)
     return 200, {"ok": True, "domain": domain}
 
