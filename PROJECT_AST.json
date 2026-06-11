@@ -1,0 +1,5305 @@
+{
+  "project": "agentC",
+  "file_count": 26,
+  "total_tokens": 41504,
+  "token_method": "tiktoken o200k_base",
+  "files": [
+    {
+      "path": "agentc/__init__.py",
+      "doc": "agentC \u2014 an AI agent team orchestration framework.",
+      "tokens": 104,
+      "symbols": []
+    },
+    {
+      "path": "agentc/__main__.py",
+      "doc": "",
+      "tokens": 22,
+      "symbols": []
+    },
+    {
+      "path": "agentc/actions/__init__.py",
+      "doc": "Actions \u2014 the executable steps that make up a task.",
+      "tokens": 102,
+      "symbols": []
+    },
+    {
+      "path": "agentc/actions/agent_action.py",
+      "doc": "AgentAction (a.k.a. ToolAction) \u2014 invoke a configured agent.",
+      "tokens": 596,
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "AgentAction",
+          "header": "class AgentAction(Action)",
+          "decorators": [],
+          "doc": "Spec fields:",
+          "line": 18,
+          "end_line": 66,
+          "tokens": 460,
+          "children": [
+            {
+              "kind": "function",
+              "name": "execute",
+              "header": "def execute(self, context: Context) -> ActionResult",
+              "decorators": [],
+              "doc": "",
+              "line": 28,
+              "end_line": 66,
+              "tokens": 390,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.00802
+        },
+        {
+          "kind": "class",
+          "name": "ToolAction",
+          "header": "class ToolAction(AgentAction)",
+          "decorators": [],
+          "doc": "",
+          "line": 70,
+          "end_line": 71,
+          "tokens": 13,
+          "children": [],
+          "references": 0,
+          "importance": 0.004335
+        }
+      ]
+    },
+    {
+      "path": "agentc/actions/base.py",
+      "doc": "The Action interface and the common run lifecycle.",
+      "tokens": 924,
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "Action",
+          "header": "class Action(ABC)",
+          "decorators": [],
+          "doc": "Base class for everything the engine can execute as a step.",
+          "line": 23,
+          "end_line": 89,
+          "tokens": 615,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self, spec: Dict[str, Any])",
+              "decorators": [],
+              "doc": "",
+              "line": 38,
+              "end_line": 46,
+              "tokens": 121,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "execute",
+              "header": "def execute(self, context: Context) -> ActionResult",
+              "decorators": [
+                "abstractmethod"
+              ],
+              "doc": "Do the work. Receives a context with templates *already available*",
+              "line": 50,
+              "end_line": 52,
+              "tokens": 42,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "run",
+              "header": "def run(self, context: Context) -> ActionResult",
+              "decorators": [],
+              "doc": "",
+              "line": 55,
+              "end_line": 79,
+              "tokens": 192,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_post_success",
+              "header": "def _post_success(self, context: Context, result: ActionResult) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 81,
+              "end_line": 89,
+              "tokens": 92,
+              "children": []
+            }
+          ],
+          "references": 5,
+          "importance": 0.014117
+        },
+        {
+          "kind": "function",
+          "name": "resolve_path",
+          "header": "def resolve_path(path: str) -> str",
+          "decorators": [],
+          "doc": "Resolve a (possibly relative) action path.",
+          "line": 92,
+          "end_line": 106,
+          "tokens": 139,
+          "children": [],
+          "references": 3,
+          "importance": 0.006944
+        },
+        {
+          "kind": "function",
+          "name": "_truthy",
+          "header": "def _truthy(value: Any) -> bool",
+          "decorators": [],
+          "doc": "",
+          "line": 109,
+          "end_line": 112,
+          "tokens": 46,
+          "children": [],
+          "references": 1,
+          "importance": 0.007335
+        }
+      ]
+    },
+    {
+      "path": "agentc/actions/python_action.py",
+      "doc": "PythonAction \u2014 run a Python executable file or an inline snippet.",
+      "tokens": 691,
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "PythonAction",
+          "header": "class PythonAction(Action)",
+          "decorators": [],
+          "doc": "Spec fields:",
+          "line": 25,
+          "end_line": 78,
+          "tokens": 448,
+          "children": [
+            {
+              "kind": "function",
+              "name": "execute",
+              "header": "def execute(self, context: Context) -> ActionResult",
+              "decorators": [],
+              "doc": "",
+              "line": 36,
+              "end_line": 78,
+              "tokens": 374,
+              "children": []
+            }
+          ],
+          "references": 0,
+          "importance": 0.004335
+        },
+        {
+          "kind": "function",
+          "name": "_parse_directives",
+          "header": "def _parse_directives(stdout: str) -> Dict[str, Any]",
+          "decorators": [],
+          "doc": "Collect ``::set key=value`` lines into a dict of structured outputs.",
+          "line": 81,
+          "end_line": 88,
+          "tokens": 88,
+          "children": [],
+          "references": 1,
+          "importance": 0.004949
+        }
+      ]
+    },
+    {
+      "path": "agentc/actions/registry.py",
+      "doc": "Action factory: maps a spec's ``type`` to an Action subclass.",
+      "tokens": 237,
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "register_action",
+          "header": "def register_action(cls: Type[Action]) -> Type[Action]",
+          "decorators": [],
+          "doc": "Decorator / function to register a custom Action subtype.",
+          "line": 20,
+          "end_line": 23,
+          "tokens": 40,
+          "children": [],
+          "references": 0,
+          "importance": 0.004335
+        },
+        {
+          "kind": "function",
+          "name": "known_types",
+          "header": "def known_types() -> list[str]",
+          "decorators": [],
+          "doc": "",
+          "line": 26,
+          "end_line": 27,
+          "tokens": 15,
+          "children": [],
+          "references": 1,
+          "importance": 0.007377
+        },
+        {
+          "kind": "function",
+          "name": "build_action",
+          "header": "def build_action(spec: Dict[str, Any]) -> Action",
+          "decorators": [],
+          "doc": "",
+          "line": 30,
+          "end_line": 36,
+          "tokens": 72,
+          "children": [],
+          "references": 2,
+          "importance": 0.007158
+        }
+      ]
+    },
+    {
+      "path": "agentc/actions/shell.py",
+      "doc": "ShellAction \u2014 run a shell executable file or an inline command.",
+      "tokens": 490,
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "ShellAction",
+          "header": "class ShellAction(Action)",
+          "decorators": [],
+          "doc": "Spec fields:",
+          "line": 14,
+          "end_line": 58,
+          "tokens": 434,
+          "children": [
+            {
+              "kind": "function",
+              "name": "execute",
+              "header": "def execute(self, context: Context) -> ActionResult",
+              "decorators": [],
+              "doc": "",
+              "line": 27,
+              "end_line": 58,
+              "tokens": 330,
+              "children": []
+            }
+          ],
+          "references": 0,
+          "importance": 0.004335
+        }
+      ]
+    },
+    {
+      "path": "agentc/agents/__init__.py",
+      "doc": "Agents \u2014 runnable CLI-tool wrappers.",
+      "tokens": 57,
+      "symbols": []
+    },
+    {
+      "path": "agentc/agents/adapters.py",
+      "doc": "CLI adapters \u2014 turn an :class:`AgentConfig` + prompt into a command line.",
+      "tokens": 1323,
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "CLIAdapter",
+          "header": "class CLIAdapter(ABC)",
+          "decorators": [],
+          "doc": "Builds the argv + environment to invoke one CLI tool.",
+          "line": 32,
+          "end_line": 51,
+          "tokens": 196,
+          "children": [
+            {
+              "kind": "function",
+              "name": "resolve",
+              "header": "def resolve(self, agent: AgentConfig) -> Tuple[str | None, str | None]",
+              "decorators": [],
+              "doc": "Return (api_key, base_url) using provider defaults + overrides.",
+              "line": 37,
+              "end_line": 43,
+              "tokens": 101,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "build",
+              "header": "def build(self, agent: AgentConfig, prompt: str) -> Tuple[List[str], Dict[str, str]]",
+              "decorators": [
+                "abstractmethod"
+              ],
+              "doc": "Return (argv, extra_env).",
+              "line": 46,
+              "end_line": 47,
+              "tokens": 33,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "parse",
+              "header": "def parse(self, stdout: str) -> str",
+              "decorators": [],
+              "doc": "Hook for adapters whose CLI emits structured output.",
+              "line": 49,
+              "end_line": 51,
+              "tokens": 25,
+              "children": []
+            }
+          ],
+          "references": 6,
+          "importance": 0.025468
+        },
+        {
+          "kind": "class",
+          "name": "ClaudeAdapter",
+          "header": "class ClaudeAdapter(CLIAdapter)",
+          "decorators": [],
+          "doc": "",
+          "line": 54,
+          "end_line": 70,
+          "tokens": 141,
+          "children": [
+            {
+              "kind": "function",
+              "name": "build",
+              "header": "def build(self, agent, prompt)",
+              "decorators": [],
+              "doc": "",
+              "line": 57,
+              "end_line": 70,
+              "tokens": 126,
+              "children": []
+            }
+          ],
+          "references": 0,
+          "importance": 0.004335
+        },
+        {
+          "kind": "class",
+          "name": "OpencodeAdapter",
+          "header": "class OpencodeAdapter(CLIAdapter)",
+          "decorators": [],
+          "doc": "",
+          "line": 73,
+          "end_line": 86,
+          "tokens": 134,
+          "children": [
+            {
+              "kind": "function",
+              "name": "build",
+              "header": "def build(self, agent, prompt)",
+              "decorators": [],
+              "doc": "",
+              "line": 76,
+              "end_line": 86,
+              "tokens": 118,
+              "children": []
+            }
+          ],
+          "references": 0,
+          "importance": 0.004335
+        },
+        {
+          "kind": "class",
+          "name": "CodexAdapter",
+          "header": "class CodexAdapter(CLIAdapter)",
+          "decorators": [],
+          "doc": "",
+          "line": 89,
+          "end_line": 103,
+          "tokens": 118,
+          "children": [
+            {
+              "kind": "function",
+              "name": "build",
+              "header": "def build(self, agent, prompt)",
+              "decorators": [],
+              "doc": "",
+              "line": 92,
+              "end_line": 103,
+              "tokens": 102,
+              "children": []
+            }
+          ],
+          "references": 0,
+          "importance": 0.004335
+        },
+        {
+          "kind": "class",
+          "name": "GeminiAdapter",
+          "header": "class GeminiAdapter(CLIAdapter)",
+          "decorators": [],
+          "doc": "",
+          "line": 106,
+          "end_line": 120,
+          "tokens": 121,
+          "children": [
+            {
+              "kind": "function",
+              "name": "build",
+              "header": "def build(self, agent, prompt)",
+              "decorators": [],
+              "doc": "",
+              "line": 109,
+              "end_line": 120,
+              "tokens": 106,
+              "children": []
+            }
+          ],
+          "references": 0,
+          "importance": 0.004335
+        },
+        {
+          "kind": "class",
+          "name": "MockAdapter",
+          "header": "class MockAdapter(CLIAdapter)",
+          "decorators": [],
+          "doc": "Deterministic, dependency-free runner used for dry runs and tests.",
+          "line": 123,
+          "end_line": 136,
+          "tokens": 128,
+          "children": [
+            {
+              "kind": "function",
+              "name": "build",
+              "header": "def build(self, agent, prompt)",
+              "decorators": [],
+              "doc": "",
+              "line": 128,
+              "end_line": 129,
+              "tokens": 26,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "reply",
+              "header": "def reply(self, agent: AgentConfig, prompt: str) -> str",
+              "decorators": [],
+              "doc": "",
+              "line": 131,
+              "end_line": 136,
+              "tokens": 71,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.005014
+        },
+        {
+          "kind": "function",
+          "name": "get_adapter",
+          "header": "def get_adapter(cli: str) -> CLIAdapter",
+          "decorators": [],
+          "doc": "",
+          "line": 148,
+          "end_line": 151,
+          "tokens": 55,
+          "children": [],
+          "references": 1,
+          "importance": 0.005014
+        }
+      ]
+    },
+    {
+      "path": "agentc/agents/base.py",
+      "doc": "The Agent \u2014 a runnable wrapper around an :class:`AgentConfig`.",
+      "tokens": 1103,
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "_api_request",
+          "header": "def _api_request(cfg, argv, extra_env, mock=False)",
+          "decorators": [],
+          "doc": "",
+          "line": 26,
+          "end_line": 31,
+          "tokens": 102,
+          "children": [],
+          "references": 1,
+          "importance": 0.005014
+        },
+        {
+          "kind": "function",
+          "name": "_api_response",
+          "header": "def _api_response(cfg, exit_code, stdout, stderr, elapsed)",
+          "decorators": [],
+          "doc": "",
+          "line": 34,
+          "end_line": 37,
+          "tokens": 68,
+          "children": [],
+          "references": 1,
+          "importance": 0.005014
+        },
+        {
+          "kind": "class",
+          "name": "Agent",
+          "header": "class Agent",
+          "decorators": [],
+          "doc": "",
+          "line": 40,
+          "end_line": 109,
+          "tokens": 771,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self, config: AgentConfig, force_mock: bool=False)",
+              "decorators": [],
+              "doc": "",
+              "line": 41,
+              "end_line": 44,
+              "tokens": 41,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "name",
+              "header": "def name(self) -> str",
+              "decorators": [
+                "property"
+              ],
+              "doc": "",
+              "line": 47,
+              "end_line": 48,
+              "tokens": 12,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_should_mock",
+              "header": "def _should_mock(self) -> bool",
+              "decorators": [],
+              "doc": "",
+              "line": 50,
+              "end_line": 54,
+              "tokens": 53,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "run",
+              "header": "def run(self, prompt: str, context: Optional[Context]=None) -> ActionResult",
+              "decorators": [],
+              "doc": "",
+              "line": 56,
+              "end_line": 109,
+              "tokens": 652,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.005593
+        }
+      ]
+    },
+    {
+      "path": "agentc/cli.py",
+      "doc": "Command-line interface for the agentC workflow engine.",
+      "tokens": 2109,
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "_default",
+          "header": "def _default(*parts: str) -> str",
+          "decorators": [],
+          "doc": "",
+          "line": 30,
+          "end_line": 31,
+          "tokens": 34,
+          "children": [],
+          "references": 2,
+          "importance": 0.009299
+        },
+        {
+          "kind": "function",
+          "name": "_load_env_file",
+          "header": "def _load_env_file() -> None",
+          "decorators": [],
+          "doc": "Load KEY=VALUE pairs from the project-root ``.env`` into the environment.",
+          "line": 34,
+          "end_line": 49,
+          "tokens": 156,
+          "children": [],
+          "references": 1,
+          "importance": 0.005256
+        },
+        {
+          "kind": "function",
+          "name": "_kv",
+          "header": "def _kv(pairs: List[str]) -> Dict[str, str]",
+          "decorators": [],
+          "doc": "",
+          "line": 52,
+          "end_line": 59,
+          "tokens": 78,
+          "children": [],
+          "references": 2,
+          "importance": 0.007757
+        },
+        {
+          "kind": "function",
+          "name": "_engine",
+          "header": "def _engine(args) -> WorkflowEngine",
+          "decorators": [],
+          "doc": "",
+          "line": 62,
+          "end_line": 68,
+          "tokens": 46,
+          "children": [],
+          "references": 7,
+          "importance": 0.026238
+        },
+        {
+          "kind": "function",
+          "name": "cmd_list",
+          "header": "def cmd_list(args)",
+          "decorators": [],
+          "doc": "",
+          "line": 71,
+          "end_line": 83,
+          "tokens": 191,
+          "children": [],
+          "references": 1,
+          "importance": 0.004832
+        },
+        {
+          "kind": "function",
+          "name": "cmd_validate",
+          "header": "def cmd_validate(args)",
+          "decorators": [],
+          "doc": "",
+          "line": 86,
+          "end_line": 95,
+          "tokens": 64,
+          "children": [],
+          "references": 1,
+          "importance": 0.004832
+        },
+        {
+          "kind": "function",
+          "name": "cmd_run",
+          "header": "def cmd_run(args)",
+          "decorators": [],
+          "doc": "",
+          "line": 98,
+          "end_line": 118,
+          "tokens": 232,
+          "children": [],
+          "references": 1,
+          "importance": 0.004832
+        },
+        {
+          "kind": "function",
+          "name": "_paths_for",
+          "header": "def _paths_for(args)",
+          "decorators": [],
+          "doc": "",
+          "line": 121,
+          "end_line": 125,
+          "tokens": 56,
+          "children": [],
+          "references": 2,
+          "importance": 0.010495
+        },
+        {
+          "kind": "function",
+          "name": "cmd_start",
+          "header": "def cmd_start(args)",
+          "decorators": [],
+          "doc": "",
+          "line": 128,
+          "end_line": 142,
+          "tokens": 115,
+          "children": [],
+          "references": 1,
+          "importance": 0.004832
+        },
+        {
+          "kind": "function",
+          "name": "cmd_serve",
+          "header": "def cmd_serve(args)",
+          "decorators": [],
+          "doc": "",
+          "line": 145,
+          "end_line": 148,
+          "tokens": 32,
+          "children": [],
+          "references": 1,
+          "importance": 0.004832
+        },
+        {
+          "kind": "function",
+          "name": "cmd_emit",
+          "header": "def cmd_emit(args)",
+          "decorators": [],
+          "doc": "",
+          "line": 151,
+          "end_line": 159,
+          "tokens": 69,
+          "children": [],
+          "references": 1,
+          "importance": 0.004832
+        },
+        {
+          "kind": "function",
+          "name": "cmd_agent",
+          "header": "def cmd_agent(args)",
+          "decorators": [],
+          "doc": "",
+          "line": 162,
+          "end_line": 170,
+          "tokens": 68,
+          "children": [],
+          "references": 1,
+          "importance": 0.004832
+        },
+        {
+          "kind": "function",
+          "name": "cmd_runs",
+          "header": "def cmd_runs(args)",
+          "decorators": [],
+          "doc": "",
+          "line": 173,
+          "end_line": 184,
+          "tokens": 111,
+          "children": [],
+          "references": 1,
+          "importance": 0.004832
+        },
+        {
+          "kind": "function",
+          "name": "build_parser",
+          "header": "def build_parser() -> argparse.ArgumentParser",
+          "decorators": [],
+          "doc": "",
+          "line": 187,
+          "end_line": 233,
+          "tokens": 557,
+          "children": [],
+          "references": 1,
+          "importance": 0.005256
+        },
+        {
+          "kind": "function",
+          "name": "main",
+          "header": "def main(argv=None) -> int",
+          "decorators": [],
+          "doc": "",
+          "line": 236,
+          "end_line": 241,
+          "tokens": 54,
+          "children": [],
+          "references": 0,
+          "importance": 0.004335
+        }
+      ]
+    },
+    {
+      "path": "agentc/config.py",
+      "doc": "Loading and validating agent / task configuration files.",
+      "tokens": 680,
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "_iter_config_files",
+          "header": "def _iter_config_files(directory: str)",
+          "decorators": [],
+          "doc": "",
+          "line": 16,
+          "end_line": 21,
+          "tokens": 53,
+          "children": [],
+          "references": 2,
+          "importance": 0.00947
+        },
+        {
+          "kind": "function",
+          "name": "load_agents",
+          "header": "def load_agents(directory: str) -> Dict[str, AgentConfig]",
+          "decorators": [],
+          "doc": "",
+          "line": 24,
+          "end_line": 30,
+          "tokens": 64,
+          "children": [],
+          "references": 4,
+          "importance": 0.011532
+        },
+        {
+          "kind": "function",
+          "name": "load_tasks",
+          "header": "def load_tasks(directory: str) -> Dict[str, Task]",
+          "decorators": [],
+          "doc": "",
+          "line": 33,
+          "end_line": 39,
+          "tokens": 61,
+          "children": [],
+          "references": 5,
+          "importance": 0.01263
+        },
+        {
+          "kind": "function",
+          "name": "validate_agent",
+          "header": "def validate_agent(config: AgentConfig) -> List[str]",
+          "decorators": [],
+          "doc": "",
+          "line": 42,
+          "end_line": 48,
+          "tokens": 69,
+          "children": [],
+          "references": 1,
+          "importance": 0.005524
+        },
+        {
+          "kind": "function",
+          "name": "validate_task",
+          "header": "def validate_task(task: Task, agents: Dict[str, AgentConfig]) -> List[str]",
+          "decorators": [],
+          "doc": "",
+          "line": 51,
+          "end_line": 74,
+          "tokens": 277,
+          "children": [],
+          "references": 1,
+          "importance": 0.005524
+        },
+        {
+          "kind": "function",
+          "name": "validate_all",
+          "header": "def validate_all(agents: Dict[str, AgentConfig], tasks: Dict[str, Task]) -> Tuple[bool, List[str]]",
+          "decorators": [],
+          "doc": "",
+          "line": 77,
+          "end_line": 84,
+          "tokens": 73,
+          "children": [],
+          "references": 1,
+          "importance": 0.005593
+        }
+      ]
+    },
+    {
+      "path": "agentc/dashboard.py",
+      "doc": "The agentC dashboard: HTML rendering + an interactive HTTP server.",
+      "tokens": 20904,
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "Paths",
+          "header": "class Paths",
+          "decorators": [],
+          "doc": "",
+          "line": 30,
+          "end_line": 38,
+          "tokens": 119,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self, root, agents_dir=None, tasks_dir=None, state_dir=None, logs_dir=None)",
+              "decorators": [],
+              "doc": "",
+              "line": 31,
+              "end_line": 38,
+              "tokens": 115,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.005256
+        },
+        {
+          "kind": "function",
+          "name": "_load_json",
+          "header": "def _load_json(path, default=None)",
+          "decorators": [],
+          "doc": "",
+          "line": 50,
+          "end_line": 55,
+          "tokens": 48,
+          "children": [],
+          "references": 7,
+          "importance": 0.029938
+        },
+        {
+          "kind": "function",
+          "name": "load_agents",
+          "header": "def load_agents(directory)",
+          "decorators": [],
+          "doc": "",
+          "line": 58,
+          "end_line": 60,
+          "tokens": 38,
+          "children": [],
+          "references": 4,
+          "importance": 0.011532
+        },
+        {
+          "kind": "function",
+          "name": "load_tasks",
+          "header": "def load_tasks(directory)",
+          "decorators": [],
+          "doc": "",
+          "line": 63,
+          "end_line": 65,
+          "tokens": 38,
+          "children": [],
+          "references": 5,
+          "importance": 0.01263
+        },
+        {
+          "kind": "function",
+          "name": "load_runs",
+          "header": "def load_runs(state_dir)",
+          "decorators": [],
+          "doc": "",
+          "line": 68,
+          "end_line": 72,
+          "tokens": 65,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "load_events",
+          "header": "def load_events(state_dir)",
+          "decorators": [],
+          "doc": "",
+          "line": 75,
+          "end_line": 89,
+          "tokens": 89,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "list_log_files",
+          "header": "def list_log_files(logs_dir)",
+          "decorators": [],
+          "doc": "",
+          "line": 95,
+          "end_line": 99,
+          "tokens": 69,
+          "children": [],
+          "references": 3,
+          "importance": 0.007119
+        },
+        {
+          "kind": "function",
+          "name": "load_log_tail",
+          "header": "def load_log_tail(logs_dir, name, n=400)",
+          "decorators": [],
+          "doc": "Return the last *n* lines of a log file (path-safe).",
+          "line": 102,
+          "end_line": 111,
+          "tokens": 105,
+          "children": [],
+          "references": 3,
+          "importance": 0.007119
+        },
+        {
+          "kind": "function",
+          "name": "_log_level_class",
+          "header": "def _log_level_class(line)",
+          "decorators": [],
+          "doc": "",
+          "line": 114,
+          "end_line": 121,
+          "tokens": 59,
+          "children": [],
+          "references": 1,
+          "importance": 0.005308
+        },
+        {
+          "kind": "function",
+          "name": "_slug",
+          "header": "def _slug(name)",
+          "decorators": [],
+          "doc": "",
+          "line": 127,
+          "end_line": 129,
+          "tokens": 39,
+          "children": [],
+          "references": 2,
+          "importance": 0.00777
+        },
+        {
+          "kind": "function",
+          "name": "_find_by_name",
+          "header": "def _find_by_name(directory, name)",
+          "decorators": [],
+          "doc": "",
+          "line": 132,
+          "end_line": 137,
+          "tokens": 51,
+          "children": [],
+          "references": 3,
+          "importance": 0.015226
+        },
+        {
+          "kind": "function",
+          "name": "get_one",
+          "header": "def get_one(directory, name)",
+          "decorators": [],
+          "doc": "",
+          "line": 140,
+          "end_line": 142,
+          "tokens": 29,
+          "children": [],
+          "references": 1,
+          "importance": 0.00479
+        },
+        {
+          "kind": "function",
+          "name": "_prune",
+          "header": "def _prune(value)",
+          "decorators": [],
+          "doc": "Drop empty-string / None entries so saved config files stay tidy.",
+          "line": 145,
+          "end_line": 149,
+          "tokens": 57,
+          "children": [],
+          "references": 1,
+          "importance": 0.006956
+        },
+        {
+          "kind": "function",
+          "name": "_write_config",
+          "header": "def _write_config(directory, name, data)",
+          "decorators": [],
+          "doc": "",
+          "line": 152,
+          "end_line": 160,
+          "tokens": 90,
+          "children": [],
+          "references": 2,
+          "importance": 0.006167
+        },
+        {
+          "kind": "function",
+          "name": "_delete_by_name",
+          "header": "def _delete_by_name(directory, name)",
+          "decorators": [],
+          "doc": "",
+          "line": 163,
+          "end_line": 168,
+          "tokens": 36,
+          "children": [],
+          "references": 2,
+          "importance": 0.00922
+        },
+        {
+          "kind": "function",
+          "name": "_validate_agent",
+          "header": "def _validate_agent(data)",
+          "decorators": [],
+          "doc": "",
+          "line": 171,
+          "end_line": 178,
+          "tokens": 63,
+          "children": [],
+          "references": 2,
+          "importance": 0.006167
+        },
+        {
+          "kind": "function",
+          "name": "_validate_task",
+          "header": "def _validate_task(paths, data)",
+          "decorators": [],
+          "doc": "",
+          "line": 181,
+          "end_line": 192,
+          "tokens": 116,
+          "children": [],
+          "references": 2,
+          "importance": 0.006167
+        },
+        {
+          "kind": "function",
+          "name": "create_item",
+          "header": "def create_item(paths, kind, data)",
+          "decorators": [],
+          "doc": "",
+          "line": 195,
+          "end_line": 206,
+          "tokens": 157,
+          "children": [],
+          "references": 1,
+          "importance": 0.00479
+        },
+        {
+          "kind": "function",
+          "name": "update_item",
+          "header": "def update_item(paths, kind, oldname, data)",
+          "decorators": [],
+          "doc": "",
+          "line": 209,
+          "end_line": 218,
+          "tokens": 128,
+          "children": [],
+          "references": 1,
+          "importance": 0.00479
+        },
+        {
+          "kind": "function",
+          "name": "delete_item",
+          "header": "def delete_item(paths, kind, name)",
+          "decorators": [],
+          "doc": "",
+          "line": 221,
+          "end_line": 224,
+          "tokens": 46,
+          "children": [],
+          "references": 1,
+          "importance": 0.00479
+        },
+        {
+          "kind": "function",
+          "name": "task_agent",
+          "header": "def task_agent(task)",
+          "decorators": [],
+          "doc": "The agent a task drives, if any (first agent/tool action).",
+          "line": 230,
+          "end_line": 235,
+          "tokens": 64,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "task_output_dir",
+          "header": "def task_output_dir(task)",
+          "decorators": [],
+          "doc": "Where a task's outputs land \u2014 the ``completed/`` archive of a watched",
+          "line": 238,
+          "end_line": 244,
+          "tokens": 80,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "_task_index",
+          "header": "def _task_index(tasks_dir)",
+          "decorators": [],
+          "doc": "",
+          "line": 247,
+          "end_line": 248,
+          "tokens": 30,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "get_run_detail",
+          "header": "def get_run_detail(state_dir, logs_dir, run_id)",
+          "decorators": [],
+          "doc": "Full run record plus any log lines that mention the run id.",
+          "line": 251,
+          "end_line": 264,
+          "tokens": 143,
+          "children": [],
+          "references": 1,
+          "importance": 0.00479
+        },
+        {
+          "kind": "function",
+          "name": "_safe_join",
+          "header": "def _safe_join(root, rel)",
+          "decorators": [],
+          "doc": "Resolve *rel* under *root*, refusing traversal. Returns abs path or None.",
+          "line": 270,
+          "end_line": 277,
+          "tokens": 85,
+          "children": [],
+          "references": 2,
+          "importance": 0.013304
+        },
+        {
+          "kind": "function",
+          "name": "monitored_dirs",
+          "header": "def monitored_dirs(paths)",
+          "decorators": [],
+          "doc": "The folders watched by file-trigger tasks, as ``{path, task, recursive}``.",
+          "line": 280,
+          "end_line": 290,
+          "tokens": 119,
+          "children": [],
+          "references": 2,
+          "importance": 0.005762
+        },
+        {
+          "kind": "function",
+          "name": "list_dir",
+          "header": "def list_dir(paths, rel)",
+          "decorators": [],
+          "doc": "List a directory's immediate entries (sandboxed). Returns list or None.",
+          "line": 293,
+          "end_line": 314,
+          "tokens": 179,
+          "children": [],
+          "references": 2,
+          "importance": 0.005762
+        },
+        {
+          "kind": "function",
+          "name": "create_file",
+          "header": "def create_file(paths, rel_dir, name, content)",
+          "decorators": [],
+          "doc": "Create a new file with *content* inside *rel_dir* (sandboxed).",
+          "line": 317,
+          "end_line": 333,
+          "tokens": 225,
+          "children": [],
+          "references": 1,
+          "importance": 0.00479
+        },
+        {
+          "kind": "function",
+          "name": "e",
+          "header": "def e(value)",
+          "decorators": [],
+          "doc": "",
+          "line": 339,
+          "end_line": 340,
+          "tokens": 14,
+          "children": [],
+          "references": 7,
+          "importance": 0.025395
+        },
+        {
+          "kind": "function",
+          "name": "fmt_size",
+          "header": "def fmt_size(n)",
+          "decorators": [],
+          "doc": "",
+          "line": 343,
+          "end_line": 352,
+          "tokens": 101,
+          "children": [],
+          "references": 1,
+          "importance": 0.005308
+        },
+        {
+          "kind": "function",
+          "name": "fmt_dur",
+          "header": "def fmt_dur(secs)",
+          "decorators": [],
+          "doc": "",
+          "line": 355,
+          "end_line": 366,
+          "tokens": 122,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "fmt_ts",
+          "header": "def fmt_ts(ts)",
+          "decorators": [],
+          "doc": "",
+          "line": 369,
+          "end_line": 375,
+          "tokens": 53,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "trigger_summary",
+          "header": "def trigger_summary(task)",
+          "decorators": [],
+          "doc": "",
+          "line": 378,
+          "end_line": 386,
+          "tokens": 96,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "badge",
+          "header": "def badge(text, cls)",
+          "decorators": [],
+          "doc": "",
+          "line": 389,
+          "end_line": 390,
+          "tokens": 23,
+          "children": [],
+          "references": 2,
+          "importance": 0.008469
+        },
+        {
+          "kind": "function",
+          "name": "status_badge",
+          "header": "def status_badge(s)",
+          "decorators": [],
+          "doc": "",
+          "line": 393,
+          "end_line": 398,
+          "tokens": 76,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "table",
+          "header": "def table(tid, headers, rows, row_meta=None)",
+          "decorators": [],
+          "doc": "Render a data table. *row_meta[i]* is an optional dict of ``data-*``",
+          "line": 401,
+          "end_line": 422,
+          "tokens": 285,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "panel",
+          "header": "def panel(key, title, count, table_html, head_buttons='', filter_for=None)",
+          "decorators": [],
+          "doc": "A panel. *head_buttons* is HTML inserted left of the search box;",
+          "line": 425,
+          "end_line": 438,
+          "tokens": 207,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "_crud_buttons",
+          "header": "def _crud_buttons(kind)",
+          "decorators": [],
+          "doc": "Add / Edit / Delete buttons for a panel; Edit & Delete act on the row",
+          "line": 441,
+          "end_line": 448,
+          "tokens": 117,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "render_logs_panel",
+          "header": "def render_logs_panel(paths)",
+          "decorators": [],
+          "doc": "",
+          "line": 451,
+          "end_line": 477,
+          "tokens": 350,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "render_folder_browser",
+          "header": "def render_folder_browser(paths)",
+          "decorators": [],
+          "doc": "The right half of the File events panel: each monitored folder, expandable",
+          "line": 480,
+          "end_line": 512,
+          "tokens": 419,
+          "children": [],
+          "references": 1,
+          "importance": 0.004578
+        },
+        {
+          "kind": "function",
+          "name": "render_page",
+          "header": "def render_page(paths, interactive=True)",
+          "decorators": [],
+          "doc": "",
+          "line": 518,
+          "end_line": 690,
+          "tokens": 2013,
+          "children": [],
+          "references": 2,
+          "importance": 0.005711
+        },
+        {
+          "kind": "function",
+          "name": "make_handler",
+          "header": "def make_handler(paths)",
+          "decorators": [],
+          "doc": "",
+          "line": 696,
+          "end_line": 832,
+          "tokens": 1285,
+          "children": [],
+          "references": 1,
+          "importance": 0.00802
+        },
+        {
+          "kind": "function",
+          "name": "serve",
+          "header": "def serve(paths, host='127.0.0.1', port=8765, quiet=False)",
+          "decorators": [],
+          "doc": "",
+          "line": 835,
+          "end_line": 845,
+          "tokens": 104,
+          "children": [],
+          "references": 0,
+          "importance": 0.004335
+        }
+      ]
+    },
+    {
+      "path": "agentc/engine.py",
+      "doc": "The workflow engine \u2014 the orchestrator.",
+      "tokens": 2370,
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "WorkflowEngine",
+          "header": "class WorkflowEngine",
+          "decorators": [],
+          "doc": "",
+          "line": 35,
+          "end_line": 267,
+          "tokens": 2138,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self, agents_dir='configs/agents', tasks_dir='configs/tasks', state_dir='state', mock_agents: bool=False)",
+              "decorators": [],
+              "doc": "",
+              "line": 36,
+              "end_line": 54,
+              "tokens": 163,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "load",
+              "header": "def load(self) -> 'WorkflowEngine'",
+              "decorators": [],
+              "doc": "",
+              "line": 59,
+              "end_line": 67,
+              "tokens": 91,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "validate",
+              "header": "def validate(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 69,
+              "end_line": 70,
+              "tokens": 16,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "emit",
+              "header": "def emit(self, name: str, payload: Optional[Dict[str, Any]]=None, source: str='engine') -> Event",
+              "decorators": [],
+              "doc": "",
+              "line": 75,
+              "end_line": 81,
+              "tokens": 77,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "run_task",
+              "header": "def run_task(self, task_name: str, event: Optional[Event]=None, extra_vars: Optional[Dict[str, Any]]=None) -> RunRecord",
+              "decorators": [],
+              "doc": "",
+              "line": 86,
+              "end_line": 165,
+              "tokens": 786,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_run_task_async",
+              "header": "def _run_task_async(self, task_name: str, event: Optional[Event]=None) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 167,
+              "end_line": 171,
+              "tokens": 57,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "register_triggers",
+              "header": "def register_triggers(self) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 176,
+              "end_line": 200,
+              "tokens": 286,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_on_file_event",
+              "header": "def _on_file_event(self, task_name: str, filepath: str, kind: str) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 202,
+              "end_line": 205,
+              "tokens": 74,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_write_status",
+              "header": "def _write_status(self, status: str) -> None",
+              "decorators": [],
+              "doc": "Write the engine heartbeat/status file the dashboard reads.",
+              "line": 210,
+              "end_line": 221,
+              "tokens": 105,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "start",
+              "header": "def start(self) -> None",
+              "decorators": [],
+              "doc": "Start schedulers + watchers and block until interrupted.",
+              "line": 223,
+              "end_line": 257,
+              "tokens": 333,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "stop",
+              "header": "def stop(self) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 259,
+              "end_line": 267,
+              "tokens": 57,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.026637
+        }
+      ]
+    },
+    {
+      "path": "agentc/events.py",
+      "doc": "A tiny thread-safe publish/subscribe event bus.",
+      "tokens": 324,
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "EventBus",
+          "header": "class EventBus",
+          "decorators": [],
+          "doc": "",
+          "line": 20,
+          "end_line": 45,
+          "tokens": 230,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 21,
+              "end_line": 23,
+              "tokens": 29,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "subscribe",
+              "header": "def subscribe(self, pattern: str, callback: Subscriber) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 25,
+              "end_line": 27,
+              "tokens": 31,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_matches",
+              "header": "def _matches(pattern: str, name: str) -> bool",
+              "decorators": [
+                "staticmethod"
+              ],
+              "doc": "",
+              "line": 30,
+              "end_line": 35,
+              "tokens": 45,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "publish",
+              "header": "def publish(self, event: Event) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 37,
+              "end_line": 45,
+              "tokens": 112,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.005593
+        }
+      ]
+    },
+    {
+      "path": "agentc/logsetup.py",
+      "doc": "Centralized file logging for agentC.",
+      "tokens": 706,
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "_rotating",
+          "header": "def _rotating(path, level, max_bytes, backups=3)",
+          "decorators": [],
+          "doc": "",
+          "line": 31,
+          "end_line": 36,
+          "tokens": 64,
+          "children": [],
+          "references": 1,
+          "importance": 0.00802
+        },
+        {
+          "kind": "function",
+          "name": "configure",
+          "header": "def configure(logs_dir='logs', level='INFO', console=True)",
+          "decorators": [],
+          "doc": "Wire up console + file logging. Returns the resolved logs directory.",
+          "line": 39,
+          "end_line": 76,
+          "tokens": 346,
+          "children": [],
+          "references": 0,
+          "importance": 0.004335
+        }
+      ]
+    },
+    {
+      "path": "agentc/math_utils.py",
+      "doc": "Simple mathematical utility functions.",
+      "tokens": 228,
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "add",
+          "header": "def add(a: int | float, b: int | float) -> int | float",
+          "decorators": [],
+          "doc": "Return the sum of *a* and *b*.",
+          "line": 6,
+          "end_line": 8,
+          "tokens": 38,
+          "children": [],
+          "references": 3,
+          "importance": 0.009048
+        },
+        {
+          "kind": "function",
+          "name": "factorial",
+          "header": "def factorial(n: int) -> int",
+          "decorators": [],
+          "doc": "Return the factorial of *n*.",
+          "line": 11,
+          "end_line": 18,
+          "tokens": 66,
+          "children": [],
+          "references": 0,
+          "importance": 0.004335
+        },
+        {
+          "kind": "function",
+          "name": "square",
+          "header": "def square(n: int | float) -> int | float",
+          "decorators": [],
+          "doc": "Return the square of *n*.",
+          "line": 21,
+          "end_line": 23,
+          "tokens": 28,
+          "children": [],
+          "references": 0,
+          "importance": 0.004335
+        },
+        {
+          "kind": "function",
+          "name": "absolute",
+          "header": "def absolute(n: int | float) -> int | float",
+          "decorators": [],
+          "doc": "Return the absolute value of *n*.",
+          "line": 26,
+          "end_line": 28,
+          "tokens": 35,
+          "children": [],
+          "references": 0,
+          "importance": 0.004335
+        },
+        {
+          "kind": "function",
+          "name": "max_of_two",
+          "header": "def max_of_two(a: int | float, b: int | float) -> int | float",
+          "decorators": [],
+          "doc": "Return the maximum of *a* and *b*.",
+          "line": 31,
+          "end_line": 33,
+          "tokens": 44,
+          "children": [],
+          "references": 0,
+          "importance": 0.004335
+        }
+      ]
+    },
+    {
+      "path": "agentc/models.py",
+      "doc": "Core data models shared across the engine.",
+      "tokens": 1228,
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "AgentConfig",
+          "header": "class AgentConfig",
+          "decorators": [
+            "dataclass"
+          ],
+          "doc": "Configuration for a single agent.",
+          "line": 19,
+          "end_line": 41,
+          "tokens": 259,
+          "children": [
+            {
+              "kind": "function",
+              "name": "from_dict",
+              "header": "def from_dict(cls, data: Dict[str, Any]) -> 'AgentConfig'",
+              "decorators": [
+                "classmethod"
+              ],
+              "doc": "",
+              "line": 39,
+              "end_line": 41,
+              "tokens": 61,
+              "children": []
+            }
+          ],
+          "references": 8,
+          "importance": 0.03995
+        },
+        {
+          "kind": "class",
+          "name": "Trigger",
+          "header": "class Trigger",
+          "decorators": [
+            "dataclass"
+          ],
+          "doc": "How a task is started.",
+          "line": 48,
+          "end_line": 76,
+          "tokens": 283,
+          "children": [
+            {
+              "kind": "function",
+              "name": "from_dict",
+              "header": "def from_dict(cls, data: Dict[str, Any]) -> 'Trigger'",
+              "decorators": [
+                "classmethod"
+              ],
+              "doc": "",
+              "line": 72,
+              "end_line": 76,
+              "tokens": 69,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.013711
+        },
+        {
+          "kind": "class",
+          "name": "Task",
+          "header": "class Task",
+          "decorators": [
+            "dataclass"
+          ],
+          "doc": "",
+          "line": 80,
+          "end_line": 105,
+          "tokens": 230,
+          "children": [
+            {
+              "kind": "function",
+              "name": "from_dict",
+              "header": "def from_dict(cls, data: Dict[str, Any]) -> 'Task'",
+              "decorators": [
+                "classmethod"
+              ],
+              "doc": "",
+              "line": 91,
+              "end_line": 105,
+              "tokens": 123,
+              "children": []
+            }
+          ],
+          "references": 4,
+          "importance": 0.01103
+        },
+        {
+          "kind": "class",
+          "name": "ActionResult",
+          "header": "class ActionResult",
+          "decorators": [
+            "dataclass"
+          ],
+          "doc": "",
+          "line": 112,
+          "end_line": 124,
+          "tokens": 93,
+          "children": [
+            {
+              "kind": "function",
+              "name": "to_dict",
+              "header": "def to_dict(self) -> Dict[str, Any]",
+              "decorators": [],
+              "doc": "",
+              "line": 123,
+              "end_line": 124,
+              "tokens": 17,
+              "children": []
+            }
+          ],
+          "references": 5,
+          "importance": 0.01107
+        },
+        {
+          "kind": "class",
+          "name": "Event",
+          "header": "class Event",
+          "decorators": [
+            "dataclass"
+          ],
+          "doc": "Something that happened. Actions and the engine emit these; triggers",
+          "line": 128,
+          "end_line": 139,
+          "tokens": 96,
+          "children": [
+            {
+              "kind": "function",
+              "name": "to_dict",
+              "header": "def to_dict(self) -> Dict[str, Any]",
+              "decorators": [],
+              "doc": "",
+              "line": 138,
+              "end_line": 139,
+              "tokens": 17,
+              "children": []
+            }
+          ],
+          "references": 6,
+          "importance": 0.018029
+        },
+        {
+          "kind": "class",
+          "name": "RunRecord",
+          "header": "class RunRecord",
+          "decorators": [
+            "dataclass"
+          ],
+          "doc": "The durable record of a single task execution.",
+          "line": 143,
+          "end_line": 157,
+          "tokens": 140,
+          "children": [
+            {
+              "kind": "function",
+              "name": "to_dict",
+              "header": "def to_dict(self) -> Dict[str, Any]",
+              "decorators": [],
+              "doc": "",
+              "line": 156,
+              "end_line": 157,
+              "tokens": 17,
+              "children": []
+            }
+          ],
+          "references": 2,
+          "importance": 0.007178
+        }
+      ]
+    },
+    {
+      "path": "agentc/scheduler.py",
+      "doc": "Scheduling of cron / interval tasks.",
+      "tokens": 1204,
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "_parse_field",
+          "header": "def _parse_field(field: str, lo: int, hi: int) -> set[int]",
+          "decorators": [],
+          "doc": "",
+          "line": 29,
+          "end_line": 44,
+          "tokens": 144,
+          "children": [],
+          "references": 1,
+          "importance": 0.010209
+        },
+        {
+          "kind": "class",
+          "name": "CronSpec",
+          "header": "class CronSpec",
+          "decorators": [],
+          "doc": "A 5-field cron expression: minute hour day-of-month month day-of-week.",
+          "line": 47,
+          "end_line": 68,
+          "tokens": 258,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self, expr: str)",
+              "decorators": [],
+              "doc": "",
+              "line": 50,
+              "end_line": 58,
+              "tokens": 130,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "matches",
+              "header": "def matches(self, t: time.struct_time) -> bool",
+              "decorators": [],
+              "doc": "",
+              "line": 60,
+              "end_line": 68,
+              "tokens": 89,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.00691
+        },
+        {
+          "kind": "class",
+          "name": "_ThreadScheduler",
+          "header": "class _ThreadScheduler",
+          "decorators": [],
+          "doc": "Fallback scheduler: one daemon thread, second-resolution tick.",
+          "line": 71,
+          "end_line": 107,
+          "tokens": 337,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 74,
+              "end_line": 78,
+              "tokens": 74,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "add_cron",
+              "header": "def add_cron(self, expr: str, fn: Callable) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 80,
+              "end_line": 81,
+              "tokens": 30,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "add_interval",
+              "header": "def add_interval(self, seconds: float, fn: Callable) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 83,
+              "end_line": 84,
+              "tokens": 34,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "start",
+              "header": "def start(self) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 86,
+              "end_line": 88,
+              "tokens": 35,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "shutdown",
+              "header": "def shutdown(self) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 90,
+              "end_line": 91,
+              "tokens": 13,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_loop",
+              "header": "def _loop(self) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 93,
+              "end_line": 107,
+              "tokens": 127,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.009089
+        },
+        {
+          "kind": "function",
+          "name": "_safe",
+          "header": "def _safe(fn: Callable) -> None",
+          "decorators": [],
+          "doc": "",
+          "line": 110,
+          "end_line": 114,
+          "tokens": 35,
+          "children": [],
+          "references": 1,
+          "importance": 0.00691
+        },
+        {
+          "kind": "class",
+          "name": "Scheduler",
+          "header": "class Scheduler",
+          "decorators": [],
+          "doc": "Uniform fa\u00e7ade over APScheduler or the thread fallback.",
+          "line": 117,
+          "end_line": 148,
+          "tokens": 236,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 120,
+              "end_line": 126,
+              "tokens": 52,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "add_cron",
+              "header": "def add_cron(self, expr: str, fn: Callable) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 128,
+              "end_line": 132,
+              "tokens": 56,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "add_interval",
+              "header": "def add_interval(self, seconds: float, fn: Callable) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 134,
+              "end_line": 138,
+              "tokens": 52,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "start",
+              "header": "def start(self) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 140,
+              "end_line": 142,
+              "tokens": 27,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "shutdown",
+              "header": "def shutdown(self) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 144,
+              "end_line": 148,
+              "tokens": 29,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.005593
+        }
+      ]
+    },
+    {
+      "path": "agentc/service.py",
+      "doc": "Control the agentC engine as a supervised systemd **user** service.",
+      "tokens": 807,
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "_systemctl",
+          "header": "def _systemctl(*args, timeout=15)",
+          "decorators": [],
+          "doc": "",
+          "line": 23,
+          "end_line": 27,
+          "tokens": 41,
+          "children": [],
+          "references": 5,
+          "importance": 0.026213
+        },
+        {
+          "kind": "function",
+          "name": "available",
+          "header": "def available() -> bool",
+          "decorators": [],
+          "doc": "True if ``systemctl --user`` is usable on this host.",
+          "line": 30,
+          "end_line": 37,
+          "tokens": 72,
+          "children": [],
+          "references": 5,
+          "importance": 0.014876
+        },
+        {
+          "kind": "function",
+          "name": "unit_installed",
+          "header": "def unit_installed(unit: str=ENGINE_UNIT) -> bool",
+          "decorators": [],
+          "doc": "",
+          "line": 40,
+          "end_line": 47,
+          "tokens": 64,
+          "children": [],
+          "references": 2,
+          "importance": 0.007001
+        },
+        {
+          "kind": "function",
+          "name": "is_active",
+          "header": "def is_active(unit: str=ENGINE_UNIT) -> bool",
+          "decorators": [],
+          "doc": "",
+          "line": 50,
+          "end_line": 57,
+          "tokens": 65,
+          "children": [],
+          "references": 1,
+          "importance": 0.005644
+        },
+        {
+          "kind": "function",
+          "name": "restarts",
+          "header": "def restarts() -> 'int | None'",
+          "decorators": [],
+          "doc": "How many times systemd has auto-restarted the engine (crash count).",
+          "line": 60,
+          "end_line": 69,
+          "tokens": 101,
+          "children": [],
+          "references": 2,
+          "importance": 0.005886
+        },
+        {
+          "kind": "function",
+          "name": "status",
+          "header": "def status() -> dict",
+          "decorators": [],
+          "doc": "A small snapshot the dashboard can surface.",
+          "line": 72,
+          "end_line": 80,
+          "tokens": 58,
+          "children": [],
+          "references": 2,
+          "importance": 0.006158
+        },
+        {
+          "kind": "function",
+          "name": "control",
+          "header": "def control(action: str)",
+          "decorators": [],
+          "doc": "Run start/stop/restart on the engine unit.",
+          "line": 83,
+          "end_line": 104,
+          "tokens": 236,
+          "children": [],
+          "references": 1,
+          "importance": 0.00479
+        }
+      ]
+    },
+    {
+      "path": "agentc/store.py",
+      "doc": "JSON/YAML-file-backed state.",
+      "tokens": 1099,
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "load_structured",
+          "header": "def load_structured(path: str) -> Any",
+          "decorators": [],
+          "doc": "Load a .json / .yaml / .yml file.",
+          "line": 25,
+          "end_line": 37,
+          "tokens": 130,
+          "children": [],
+          "references": 2,
+          "importance": 0.00947
+        },
+        {
+          "kind": "class",
+          "name": "StateStore",
+          "header": "class StateStore",
+          "decorators": [],
+          "doc": "",
+          "line": 40,
+          "end_line": 123,
+          "tokens": 795,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self, root: str='state')",
+              "decorators": [],
+              "doc": "",
+              "line": 41,
+              "end_line": 48,
+              "tokens": 96,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "save_engine_status",
+              "header": "def save_engine_status(self, data: Dict[str, Any]) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 51,
+              "end_line": 53,
+              "tokens": 41,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "load_variables",
+              "header": "def load_variables(self) -> Dict[str, Any]",
+              "decorators": [],
+              "doc": "",
+              "line": 56,
+              "end_line": 60,
+              "tokens": 50,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "save_variables",
+              "header": "def save_variables(self, variables: Dict[str, Any]) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 62,
+              "end_line": 64,
+              "tokens": 41,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "append_event",
+              "header": "def append_event(self, event: Event) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 67,
+              "end_line": 70,
+              "tokens": 53,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "save_run",
+              "header": "def save_run(self, run: RunRecord) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 73,
+              "end_line": 76,
+              "tokens": 56,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "reconcile_running",
+              "header": "def reconcile_running(self) -> int",
+              "decorators": [],
+              "doc": "Flip any run still marked 'running' to 'interrupted'.",
+              "line": 78,
+              "end_line": 110,
+              "tokens": 305,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "list_runs",
+              "header": "def list_runs(self, limit: int=20) -> List[Dict[str, Any]]",
+              "decorators": [],
+              "doc": "",
+              "line": 112,
+              "end_line": 123,
+              "tokens": 107,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.005593
+        },
+        {
+          "kind": "function",
+          "name": "_atomic_write",
+          "header": "def _atomic_write(path: str, text: str) -> None",
+          "decorators": [],
+          "doc": "",
+          "line": 126,
+          "end_line": 130,
+          "tokens": 53,
+          "children": [],
+          "references": 1,
+          "importance": 0.00592
+        }
+      ]
+    },
+    {
+      "path": "agentc/variables.py",
+      "doc": "Variable storage and ``${...}`` template resolution.",
+      "tokens": 923,
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "VariableStore",
+          "header": "class VariableStore",
+          "decorators": [],
+          "doc": "A small mutable key/value store with JSON-friendly values.",
+          "line": 25,
+          "end_line": 44,
+          "tokens": 167,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self, initial: Dict[str, Any] | None=None)",
+              "decorators": [],
+              "doc": "",
+              "line": 28,
+              "end_line": 29,
+              "tokens": 33,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "get",
+              "header": "def get(self, key: str, default: Any=None) -> Any",
+              "decorators": [],
+              "doc": "",
+              "line": 31,
+              "end_line": 32,
+              "tokens": 27,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "set",
+              "header": "def set(self, key: str, value: Any) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 34,
+              "end_line": 35,
+              "tokens": 23,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "update",
+              "header": "def update(self, values: Dict[str, Any]) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 37,
+              "end_line": 38,
+              "tokens": 21,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "as_dict",
+              "header": "def as_dict(self) -> Dict[str, Any]",
+              "decorators": [],
+              "doc": "",
+              "line": 40,
+              "end_line": 41,
+              "tokens": 18,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "__contains__",
+              "header": "def __contains__(self, key: str) -> bool",
+              "decorators": [],
+              "doc": "",
+              "line": 43,
+              "end_line": 44,
+              "tokens": 20,
+              "children": []
+            }
+          ],
+          "references": 2,
+          "importance": 0.016071
+        },
+        {
+          "kind": "function",
+          "name": "_resolve_token",
+          "header": "def _resolve_token(token: str, context: 'Context') -> Any",
+          "decorators": [],
+          "doc": "",
+          "line": 47,
+          "end_line": 75,
+          "tokens": 220,
+          "children": [],
+          "references": 1,
+          "importance": 0.014236
+        },
+        {
+          "kind": "function",
+          "name": "render",
+          "header": "def render(value: Any, context: 'Context') -> Any",
+          "decorators": [],
+          "doc": "Recursively resolve ``${...}`` templates inside *value*.",
+          "line": 78,
+          "end_line": 92,
+          "tokens": 166,
+          "children": [],
+          "references": 5,
+          "importance": 0.011648
+        },
+        {
+          "kind": "class",
+          "name": "Context",
+          "header": "class Context",
+          "decorators": [],
+          "doc": "Per-run execution context handed to every action.",
+          "line": 95,
+          "end_line": 112,
+          "tokens": 191,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self, variables, results=None, event=None, engine=None, task=None)",
+              "decorators": [],
+              "doc": "",
+              "line": 98,
+              "end_line": 104,
+              "tokens": 89,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "render",
+              "header": "def render(self, value: Any) -> Any",
+              "decorators": [],
+              "doc": "",
+              "line": 106,
+              "end_line": 107,
+              "tokens": 18,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "emit",
+              "header": "def emit(self, name: str, payload: Dict[str, Any] | None=None, source: str='action') -> None",
+              "decorators": [],
+              "doc": "Emit an event onto the engine's bus (if attached).",
+              "line": 109,
+              "end_line": 112,
+              "tokens": 66,
+              "children": []
+            }
+          ],
+          "references": 6,
+          "importance": 0.012327
+        }
+      ]
+    },
+    {
+      "path": "agentc/watcher.py",
+      "doc": "Filesystem-event watching using the Linux file-watching system.",
+      "tokens": 2573,
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "_ignored",
+          "header": "def _ignored(path: str, patterns) -> bool",
+          "decorators": [],
+          "doc": "True if *path* matches any ignore pattern.",
+          "line": 46,
+          "end_line": 60,
+          "tokens": 150,
+          "children": [],
+          "references": 2,
+          "importance": 0.016704
+        },
+        {
+          "kind": "class",
+          "name": "_Watch",
+          "header": "class _Watch",
+          "decorators": [],
+          "doc": "",
+          "line": 63,
+          "end_line": 89,
+          "tokens": 259,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self, path, on, pattern, recursive, callback, ignore=None)",
+              "decorators": [],
+              "doc": "",
+              "line": 64,
+              "end_line": 74,
+              "tokens": 141,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "consider",
+              "header": "def consider(self, filepath: str, kind: str) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 76,
+              "end_line": 89,
+              "tokens": 112,
+              "children": []
+            }
+          ],
+          "references": 2,
+          "importance": 0.013367
+        },
+        {
+          "kind": "class",
+          "name": "_BaseWatcher",
+          "header": "class _BaseWatcher",
+          "decorators": [],
+          "doc": "",
+          "line": 92,
+          "end_line": 111,
+          "tokens": 179,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 93,
+              "end_line": 94,
+              "tokens": 17,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "add",
+              "header": "def add(self, path, on='created', pattern='*', recursive=False, callback=None, ignore=None)",
+              "decorators": [],
+              "doc": "",
+              "line": 96,
+              "end_line": 97,
+              "tokens": 41,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_dispatch",
+              "header": "def _dispatch(self, directory: str, filename: str, kind: str) -> None",
+              "decorators": [],
+              "doc": "",
+              "line": 99,
+              "end_line": 105,
+              "tokens": 74,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "start",
+              "header": "def start(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 107,
+              "end_line": 108,
+              "tokens": 18,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "stop",
+              "header": "def stop(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 110,
+              "end_line": 111,
+              "tokens": 18,
+              "children": []
+            }
+          ],
+          "references": 3,
+          "importance": 0.009442
+        },
+        {
+          "kind": "class",
+          "name": "InotifyWatcher",
+          "header": "class InotifyWatcher(_BaseWatcher)",
+          "decorators": [],
+          "doc": "",
+          "line": 137,
+          "end_line": 206,
+          "tokens": 644,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 140,
+              "end_line": 146,
+              "tokens": 75,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "start",
+              "header": "def start(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 148,
+              "end_line": 163,
+              "tokens": 183,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_dirs_for",
+              "header": "def _dirs_for(self, w: _Watch) -> List[str]",
+              "decorators": [],
+              "doc": "",
+              "line": 165,
+              "end_line": 174,
+              "tokens": 111,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_loop",
+              "header": "def _loop(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 176,
+              "end_line": 183,
+              "tokens": 75,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_parse",
+              "header": "def _parse(self, data: bytes)",
+              "decorators": [],
+              "doc": "",
+              "line": 185,
+              "end_line": 198,
+              "tokens": 142,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "stop",
+              "header": "def stop(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 200,
+              "end_line": 206,
+              "tokens": 36,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.00592
+        },
+        {
+          "kind": "class",
+          "name": "PollingWatcher",
+          "header": "class PollingWatcher(_BaseWatcher)",
+          "decorators": [],
+          "doc": "",
+          "line": 212,
+          "end_line": 258,
+          "tokens": 377,
+          "children": [
+            {
+              "kind": "function",
+              "name": "__init__",
+              "header": "def __init__(self, interval: float=1.0)",
+              "decorators": [],
+              "doc": "",
+              "line": 215,
+              "end_line": 220,
+              "tokens": 64,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "start",
+              "header": "def start(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 222,
+              "end_line": 227,
+              "tokens": 71,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_scan",
+              "header": "def _scan(directory: str) -> dict[str, float]",
+              "decorators": [
+                "staticmethod"
+              ],
+              "doc": "",
+              "line": 230,
+              "end_line": 239,
+              "tokens": 75,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "_loop",
+              "header": "def _loop(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 241,
+              "end_line": 255,
+              "tokens": 132,
+              "children": []
+            },
+            {
+              "kind": "function",
+              "name": "stop",
+              "header": "def stop(self)",
+              "decorators": [],
+              "doc": "",
+              "line": 257,
+              "end_line": 258,
+              "tokens": 10,
+              "children": []
+            }
+          ],
+          "references": 1,
+          "importance": 0.00592
+        },
+        {
+          "kind": "function",
+          "name": "make_watcher",
+          "header": "def make_watcher() -> _BaseWatcher",
+          "decorators": [],
+          "doc": "Pick the best available backend.",
+          "line": 311,
+          "end_line": 319,
+          "tokens": 80,
+          "children": [],
+          "references": 1,
+          "importance": 0.005593
+        }
+      ]
+    },
+    {
+      "path": "scripts/finalize_to_completed.py",
+      "doc": "Finalize a watched file after an agent has processed it.",
+      "tokens": 455,
+      "symbols": []
+    },
+    {
+      "path": "scripts/render_dashboard.py",
+      "doc": "Write the static dashboard.html from the engine's current state.",
+      "tokens": 245,
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "main",
+          "header": "def main()",
+          "decorators": [],
+          "doc": "",
+          "line": 22,
+          "end_line": 29,
+          "tokens": 69,
+          "children": [],
+          "references": 0,
+          "importance": 0.004335
+        }
+      ]
+    }
+  ],
+  "ranking": [
+    {
+      "name": "AgentConfig",
+      "kind": "class",
+      "path": "agentc/models.py",
+      "line": 19,
+      "references": 8,
+      "importance": 0.03995,
+      "tokens": 259
+    },
+    {
+      "name": "_load_json",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 50,
+      "references": 7,
+      "importance": 0.029938,
+      "tokens": 48
+    },
+    {
+      "name": "WorkflowEngine",
+      "kind": "class",
+      "path": "agentc/engine.py",
+      "line": 35,
+      "references": 1,
+      "importance": 0.026637,
+      "tokens": 2138
+    },
+    {
+      "name": "_engine",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 62,
+      "references": 7,
+      "importance": 0.026238,
+      "tokens": 46
+    },
+    {
+      "name": "_systemctl",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 23,
+      "references": 5,
+      "importance": 0.026213,
+      "tokens": 41
+    },
+    {
+      "name": "CLIAdapter",
+      "kind": "class",
+      "path": "agentc/agents/adapters.py",
+      "line": 32,
+      "references": 6,
+      "importance": 0.025468,
+      "tokens": 196
+    },
+    {
+      "name": "e",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 339,
+      "references": 7,
+      "importance": 0.025395,
+      "tokens": 14
+    },
+    {
+      "name": "Event",
+      "kind": "class",
+      "path": "agentc/models.py",
+      "line": 128,
+      "references": 6,
+      "importance": 0.018029,
+      "tokens": 96
+    },
+    {
+      "name": "_ignored",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 46,
+      "references": 2,
+      "importance": 0.016704,
+      "tokens": 150
+    },
+    {
+      "name": "VariableStore",
+      "kind": "class",
+      "path": "agentc/variables.py",
+      "line": 25,
+      "references": 2,
+      "importance": 0.016071,
+      "tokens": 167
+    },
+    {
+      "name": "_find_by_name",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 132,
+      "references": 3,
+      "importance": 0.015226,
+      "tokens": 51
+    },
+    {
+      "name": "available",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 30,
+      "references": 5,
+      "importance": 0.014876,
+      "tokens": 72
+    },
+    {
+      "name": "_resolve_token",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 47,
+      "references": 1,
+      "importance": 0.014236,
+      "tokens": 220
+    },
+    {
+      "name": "Action",
+      "kind": "class",
+      "path": "agentc/actions/base.py",
+      "line": 23,
+      "references": 5,
+      "importance": 0.014117,
+      "tokens": 615
+    },
+    {
+      "name": "Trigger",
+      "kind": "class",
+      "path": "agentc/models.py",
+      "line": 48,
+      "references": 1,
+      "importance": 0.013711,
+      "tokens": 283
+    },
+    {
+      "name": "_Watch",
+      "kind": "class",
+      "path": "agentc/watcher.py",
+      "line": 63,
+      "references": 2,
+      "importance": 0.013367,
+      "tokens": 259
+    },
+    {
+      "name": "_safe_join",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 270,
+      "references": 2,
+      "importance": 0.013304,
+      "tokens": 85
+    },
+    {
+      "name": "load_tasks",
+      "kind": "function",
+      "path": "agentc/config.py",
+      "line": 33,
+      "references": 5,
+      "importance": 0.01263,
+      "tokens": 61
+    },
+    {
+      "name": "load_tasks",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 63,
+      "references": 5,
+      "importance": 0.01263,
+      "tokens": 38
+    },
+    {
+      "name": "Context",
+      "kind": "class",
+      "path": "agentc/variables.py",
+      "line": 95,
+      "references": 6,
+      "importance": 0.012327,
+      "tokens": 191
+    },
+    {
+      "name": "render",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 78,
+      "references": 5,
+      "importance": 0.011648,
+      "tokens": 166
+    },
+    {
+      "name": "load_agents",
+      "kind": "function",
+      "path": "agentc/config.py",
+      "line": 24,
+      "references": 4,
+      "importance": 0.011532,
+      "tokens": 64
+    },
+    {
+      "name": "load_agents",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 58,
+      "references": 4,
+      "importance": 0.011532,
+      "tokens": 38
+    },
+    {
+      "name": "ActionResult",
+      "kind": "class",
+      "path": "agentc/models.py",
+      "line": 112,
+      "references": 5,
+      "importance": 0.01107,
+      "tokens": 93
+    },
+    {
+      "name": "Task",
+      "kind": "class",
+      "path": "agentc/models.py",
+      "line": 80,
+      "references": 4,
+      "importance": 0.01103,
+      "tokens": 230
+    },
+    {
+      "name": "_paths_for",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 121,
+      "references": 2,
+      "importance": 0.010495,
+      "tokens": 56
+    },
+    {
+      "name": "_parse_field",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 29,
+      "references": 1,
+      "importance": 0.010209,
+      "tokens": 144
+    },
+    {
+      "name": "_iter_config_files",
+      "kind": "function",
+      "path": "agentc/config.py",
+      "line": 16,
+      "references": 2,
+      "importance": 0.00947,
+      "tokens": 53
+    },
+    {
+      "name": "load_structured",
+      "kind": "function",
+      "path": "agentc/store.py",
+      "line": 25,
+      "references": 2,
+      "importance": 0.00947,
+      "tokens": 130
+    },
+    {
+      "name": "_BaseWatcher",
+      "kind": "class",
+      "path": "agentc/watcher.py",
+      "line": 92,
+      "references": 3,
+      "importance": 0.009442,
+      "tokens": 179
+    },
+    {
+      "name": "_default",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 30,
+      "references": 2,
+      "importance": 0.009299,
+      "tokens": 34
+    },
+    {
+      "name": "_delete_by_name",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 163,
+      "references": 2,
+      "importance": 0.00922,
+      "tokens": 36
+    },
+    {
+      "name": "_ThreadScheduler",
+      "kind": "class",
+      "path": "agentc/scheduler.py",
+      "line": 71,
+      "references": 1,
+      "importance": 0.009089,
+      "tokens": 337
+    },
+    {
+      "name": "add",
+      "kind": "function",
+      "path": "agentc/math_utils.py",
+      "line": 6,
+      "references": 3,
+      "importance": 0.009048,
+      "tokens": 38
+    },
+    {
+      "name": "badge",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 389,
+      "references": 2,
+      "importance": 0.008469,
+      "tokens": 23
+    },
+    {
+      "name": "_rotating",
+      "kind": "function",
+      "path": "agentc/logsetup.py",
+      "line": 31,
+      "references": 1,
+      "importance": 0.00802,
+      "tokens": 64
+    },
+    {
+      "name": "AgentAction",
+      "kind": "class",
+      "path": "agentc/actions/agent_action.py",
+      "line": 18,
+      "references": 1,
+      "importance": 0.00802,
+      "tokens": 460
+    },
+    {
+      "name": "make_handler",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 696,
+      "references": 1,
+      "importance": 0.00802,
+      "tokens": 1285
+    },
+    {
+      "name": "_slug",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 127,
+      "references": 2,
+      "importance": 0.00777,
+      "tokens": 39
+    },
+    {
+      "name": "_kv",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 52,
+      "references": 2,
+      "importance": 0.007757,
+      "tokens": 78
+    },
+    {
+      "name": "known_types",
+      "kind": "function",
+      "path": "agentc/actions/registry.py",
+      "line": 26,
+      "references": 1,
+      "importance": 0.007377,
+      "tokens": 15
+    },
+    {
+      "name": "_truthy",
+      "kind": "function",
+      "path": "agentc/actions/base.py",
+      "line": 109,
+      "references": 1,
+      "importance": 0.007335,
+      "tokens": 46
+    },
+    {
+      "name": "RunRecord",
+      "kind": "class",
+      "path": "agentc/models.py",
+      "line": 143,
+      "references": 2,
+      "importance": 0.007178,
+      "tokens": 140
+    },
+    {
+      "name": "build_action",
+      "kind": "function",
+      "path": "agentc/actions/registry.py",
+      "line": 30,
+      "references": 2,
+      "importance": 0.007158,
+      "tokens": 72
+    },
+    {
+      "name": "list_log_files",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 95,
+      "references": 3,
+      "importance": 0.007119,
+      "tokens": 69
+    },
+    {
+      "name": "load_log_tail",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 102,
+      "references": 3,
+      "importance": 0.007119,
+      "tokens": 105
+    },
+    {
+      "name": "unit_installed",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 40,
+      "references": 2,
+      "importance": 0.007001,
+      "tokens": 64
+    },
+    {
+      "name": "_prune",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 145,
+      "references": 1,
+      "importance": 0.006956,
+      "tokens": 57
+    },
+    {
+      "name": "resolve_path",
+      "kind": "function",
+      "path": "agentc/actions/base.py",
+      "line": 92,
+      "references": 3,
+      "importance": 0.006944,
+      "tokens": 139
+    },
+    {
+      "name": "_safe",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 110,
+      "references": 1,
+      "importance": 0.00691,
+      "tokens": 35
+    },
+    {
+      "name": "CronSpec",
+      "kind": "class",
+      "path": "agentc/scheduler.py",
+      "line": 47,
+      "references": 1,
+      "importance": 0.00691,
+      "tokens": 258
+    },
+    {
+      "name": "_validate_agent",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 171,
+      "references": 2,
+      "importance": 0.006167,
+      "tokens": 63
+    },
+    {
+      "name": "_validate_task",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 181,
+      "references": 2,
+      "importance": 0.006167,
+      "tokens": 116
+    },
+    {
+      "name": "_write_config",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 152,
+      "references": 2,
+      "importance": 0.006167,
+      "tokens": 90
+    },
+    {
+      "name": "status",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 72,
+      "references": 2,
+      "importance": 0.006158,
+      "tokens": 58
+    },
+    {
+      "name": "_atomic_write",
+      "kind": "function",
+      "path": "agentc/store.py",
+      "line": 126,
+      "references": 1,
+      "importance": 0.00592,
+      "tokens": 53
+    },
+    {
+      "name": "InotifyWatcher",
+      "kind": "class",
+      "path": "agentc/watcher.py",
+      "line": 137,
+      "references": 1,
+      "importance": 0.00592,
+      "tokens": 644
+    },
+    {
+      "name": "PollingWatcher",
+      "kind": "class",
+      "path": "agentc/watcher.py",
+      "line": 212,
+      "references": 1,
+      "importance": 0.00592,
+      "tokens": 377
+    },
+    {
+      "name": "restarts",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 60,
+      "references": 2,
+      "importance": 0.005886,
+      "tokens": 101
+    },
+    {
+      "name": "list_dir",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 293,
+      "references": 2,
+      "importance": 0.005762,
+      "tokens": 179
+    },
+    {
+      "name": "monitored_dirs",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 280,
+      "references": 2,
+      "importance": 0.005762,
+      "tokens": 119
+    },
+    {
+      "name": "render_page",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 518,
+      "references": 2,
+      "importance": 0.005711,
+      "tokens": 2013
+    },
+    {
+      "name": "is_active",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 50,
+      "references": 1,
+      "importance": 0.005644,
+      "tokens": 65
+    },
+    {
+      "name": "Agent",
+      "kind": "class",
+      "path": "agentc/agents/base.py",
+      "line": 40,
+      "references": 1,
+      "importance": 0.005593,
+      "tokens": 771
+    },
+    {
+      "name": "EventBus",
+      "kind": "class",
+      "path": "agentc/events.py",
+      "line": 20,
+      "references": 1,
+      "importance": 0.005593,
+      "tokens": 230
+    },
+    {
+      "name": "make_watcher",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 311,
+      "references": 1,
+      "importance": 0.005593,
+      "tokens": 80
+    },
+    {
+      "name": "Scheduler",
+      "kind": "class",
+      "path": "agentc/scheduler.py",
+      "line": 117,
+      "references": 1,
+      "importance": 0.005593,
+      "tokens": 236
+    },
+    {
+      "name": "StateStore",
+      "kind": "class",
+      "path": "agentc/store.py",
+      "line": 40,
+      "references": 1,
+      "importance": 0.005593,
+      "tokens": 795
+    },
+    {
+      "name": "validate_all",
+      "kind": "function",
+      "path": "agentc/config.py",
+      "line": 77,
+      "references": 1,
+      "importance": 0.005593,
+      "tokens": 73
+    },
+    {
+      "name": "validate_agent",
+      "kind": "function",
+      "path": "agentc/config.py",
+      "line": 42,
+      "references": 1,
+      "importance": 0.005524,
+      "tokens": 69
+    },
+    {
+      "name": "validate_task",
+      "kind": "function",
+      "path": "agentc/config.py",
+      "line": 51,
+      "references": 1,
+      "importance": 0.005524,
+      "tokens": 277
+    },
+    {
+      "name": "_log_level_class",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 114,
+      "references": 1,
+      "importance": 0.005308,
+      "tokens": 59
+    },
+    {
+      "name": "fmt_size",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 343,
+      "references": 1,
+      "importance": 0.005308,
+      "tokens": 101
+    },
+    {
+      "name": "_load_env_file",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 34,
+      "references": 1,
+      "importance": 0.005256,
+      "tokens": 156
+    },
+    {
+      "name": "build_parser",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 187,
+      "references": 1,
+      "importance": 0.005256,
+      "tokens": 557
+    },
+    {
+      "name": "Paths",
+      "kind": "class",
+      "path": "agentc/dashboard.py",
+      "line": 30,
+      "references": 1,
+      "importance": 0.005256,
+      "tokens": 119
+    },
+    {
+      "name": "_api_request",
+      "kind": "function",
+      "path": "agentc/agents/base.py",
+      "line": 26,
+      "references": 1,
+      "importance": 0.005014,
+      "tokens": 102
+    },
+    {
+      "name": "_api_response",
+      "kind": "function",
+      "path": "agentc/agents/base.py",
+      "line": 34,
+      "references": 1,
+      "importance": 0.005014,
+      "tokens": 68
+    },
+    {
+      "name": "get_adapter",
+      "kind": "function",
+      "path": "agentc/agents/adapters.py",
+      "line": 148,
+      "references": 1,
+      "importance": 0.005014,
+      "tokens": 55
+    },
+    {
+      "name": "MockAdapter",
+      "kind": "class",
+      "path": "agentc/agents/adapters.py",
+      "line": 123,
+      "references": 1,
+      "importance": 0.005014,
+      "tokens": 128
+    },
+    {
+      "name": "_parse_directives",
+      "kind": "function",
+      "path": "agentc/actions/python_action.py",
+      "line": 81,
+      "references": 1,
+      "importance": 0.004949,
+      "tokens": 88
+    },
+    {
+      "name": "cmd_agent",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 162,
+      "references": 1,
+      "importance": 0.004832,
+      "tokens": 68
+    },
+    {
+      "name": "cmd_emit",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 151,
+      "references": 1,
+      "importance": 0.004832,
+      "tokens": 69
+    },
+    {
+      "name": "cmd_list",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 71,
+      "references": 1,
+      "importance": 0.004832,
+      "tokens": 191
+    },
+    {
+      "name": "cmd_run",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 98,
+      "references": 1,
+      "importance": 0.004832,
+      "tokens": 232
+    },
+    {
+      "name": "cmd_runs",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 173,
+      "references": 1,
+      "importance": 0.004832,
+      "tokens": 111
+    },
+    {
+      "name": "cmd_serve",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 145,
+      "references": 1,
+      "importance": 0.004832,
+      "tokens": 32
+    },
+    {
+      "name": "cmd_start",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 128,
+      "references": 1,
+      "importance": 0.004832,
+      "tokens": 115
+    },
+    {
+      "name": "cmd_validate",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 86,
+      "references": 1,
+      "importance": 0.004832,
+      "tokens": 64
+    },
+    {
+      "name": "control",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 83,
+      "references": 1,
+      "importance": 0.00479,
+      "tokens": 236
+    },
+    {
+      "name": "create_file",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 317,
+      "references": 1,
+      "importance": 0.00479,
+      "tokens": 225
+    },
+    {
+      "name": "create_item",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 195,
+      "references": 1,
+      "importance": 0.00479,
+      "tokens": 157
+    },
+    {
+      "name": "delete_item",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 221,
+      "references": 1,
+      "importance": 0.00479,
+      "tokens": 46
+    },
+    {
+      "name": "get_one",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 140,
+      "references": 1,
+      "importance": 0.00479,
+      "tokens": 29
+    },
+    {
+      "name": "get_run_detail",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 251,
+      "references": 1,
+      "importance": 0.00479,
+      "tokens": 143
+    },
+    {
+      "name": "update_item",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 209,
+      "references": 1,
+      "importance": 0.00479,
+      "tokens": 128
+    },
+    {
+      "name": "_crud_buttons",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 441,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 117
+    },
+    {
+      "name": "_task_index",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 247,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 30
+    },
+    {
+      "name": "fmt_dur",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 355,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 122
+    },
+    {
+      "name": "fmt_ts",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 369,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 53
+    },
+    {
+      "name": "load_events",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 75,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 89
+    },
+    {
+      "name": "load_runs",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 68,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 65
+    },
+    {
+      "name": "panel",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 425,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 207
+    },
+    {
+      "name": "render_folder_browser",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 480,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 419
+    },
+    {
+      "name": "render_logs_panel",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 451,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 350
+    },
+    {
+      "name": "status_badge",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 393,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 76
+    },
+    {
+      "name": "table",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 401,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 285
+    },
+    {
+      "name": "task_agent",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 230,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 64
+    },
+    {
+      "name": "task_output_dir",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 238,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 80
+    },
+    {
+      "name": "trigger_summary",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 378,
+      "references": 1,
+      "importance": 0.004578,
+      "tokens": 96
+    },
+    {
+      "name": "absolute",
+      "kind": "function",
+      "path": "agentc/math_utils.py",
+      "line": 26,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 35
+    },
+    {
+      "name": "ClaudeAdapter",
+      "kind": "class",
+      "path": "agentc/agents/adapters.py",
+      "line": 54,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 141
+    },
+    {
+      "name": "CodexAdapter",
+      "kind": "class",
+      "path": "agentc/agents/adapters.py",
+      "line": 89,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 118
+    },
+    {
+      "name": "configure",
+      "kind": "function",
+      "path": "agentc/logsetup.py",
+      "line": 39,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 346
+    },
+    {
+      "name": "factorial",
+      "kind": "function",
+      "path": "agentc/math_utils.py",
+      "line": 11,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 66
+    },
+    {
+      "name": "GeminiAdapter",
+      "kind": "class",
+      "path": "agentc/agents/adapters.py",
+      "line": 106,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 121
+    },
+    {
+      "name": "main",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 236,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 54
+    },
+    {
+      "name": "main",
+      "kind": "function",
+      "path": "scripts/render_dashboard.py",
+      "line": 22,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 69
+    },
+    {
+      "name": "max_of_two",
+      "kind": "function",
+      "path": "agentc/math_utils.py",
+      "line": 31,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 44
+    },
+    {
+      "name": "OpencodeAdapter",
+      "kind": "class",
+      "path": "agentc/agents/adapters.py",
+      "line": 73,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 134
+    },
+    {
+      "name": "PythonAction",
+      "kind": "class",
+      "path": "agentc/actions/python_action.py",
+      "line": 25,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 448
+    },
+    {
+      "name": "register_action",
+      "kind": "function",
+      "path": "agentc/actions/registry.py",
+      "line": 20,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 40
+    },
+    {
+      "name": "serve",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 835,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 104
+    },
+    {
+      "name": "ShellAction",
+      "kind": "class",
+      "path": "agentc/actions/shell.py",
+      "line": 14,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 434
+    },
+    {
+      "name": "square",
+      "kind": "function",
+      "path": "agentc/math_utils.py",
+      "line": 21,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 28
+    },
+    {
+      "name": "ToolAction",
+      "kind": "class",
+      "path": "agentc/actions/agent_action.py",
+      "line": 70,
+      "references": 0,
+      "importance": 0.004335,
+      "tokens": 13
+    }
+  ],
+  "symbol_index": [
+    {
+      "name": "_api_request",
+      "kind": "function",
+      "path": "agentc/agents/base.py",
+      "line": 26
+    },
+    {
+      "name": "_api_response",
+      "kind": "function",
+      "path": "agentc/agents/base.py",
+      "line": 34
+    },
+    {
+      "name": "_atomic_write",
+      "kind": "function",
+      "path": "agentc/store.py",
+      "line": 126
+    },
+    {
+      "name": "_BaseWatcher",
+      "kind": "class",
+      "path": "agentc/watcher.py",
+      "line": 92
+    },
+    {
+      "name": "_BaseWatcher.__init__",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 93
+    },
+    {
+      "name": "_BaseWatcher._dispatch",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 99
+    },
+    {
+      "name": "_BaseWatcher.add",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 96
+    },
+    {
+      "name": "_BaseWatcher.start",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 107
+    },
+    {
+      "name": "_BaseWatcher.stop",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 110
+    },
+    {
+      "name": "_crud_buttons",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 441
+    },
+    {
+      "name": "_default",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 30
+    },
+    {
+      "name": "_delete_by_name",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 163
+    },
+    {
+      "name": "_engine",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 62
+    },
+    {
+      "name": "_find_by_name",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 132
+    },
+    {
+      "name": "_ignored",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 46
+    },
+    {
+      "name": "_iter_config_files",
+      "kind": "function",
+      "path": "agentc/config.py",
+      "line": 16
+    },
+    {
+      "name": "_kv",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 52
+    },
+    {
+      "name": "_load_env_file",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 34
+    },
+    {
+      "name": "_load_json",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 50
+    },
+    {
+      "name": "_log_level_class",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 114
+    },
+    {
+      "name": "_parse_directives",
+      "kind": "function",
+      "path": "agentc/actions/python_action.py",
+      "line": 81
+    },
+    {
+      "name": "_parse_field",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 29
+    },
+    {
+      "name": "_paths_for",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 121
+    },
+    {
+      "name": "_prune",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 145
+    },
+    {
+      "name": "_resolve_token",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 47
+    },
+    {
+      "name": "_rotating",
+      "kind": "function",
+      "path": "agentc/logsetup.py",
+      "line": 31
+    },
+    {
+      "name": "_safe",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 110
+    },
+    {
+      "name": "_safe_join",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 270
+    },
+    {
+      "name": "_slug",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 127
+    },
+    {
+      "name": "_systemctl",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 23
+    },
+    {
+      "name": "_task_index",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 247
+    },
+    {
+      "name": "_ThreadScheduler",
+      "kind": "class",
+      "path": "agentc/scheduler.py",
+      "line": 71
+    },
+    {
+      "name": "_ThreadScheduler.__init__",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 74
+    },
+    {
+      "name": "_ThreadScheduler._loop",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 93
+    },
+    {
+      "name": "_ThreadScheduler.add_cron",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 80
+    },
+    {
+      "name": "_ThreadScheduler.add_interval",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 83
+    },
+    {
+      "name": "_ThreadScheduler.shutdown",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 90
+    },
+    {
+      "name": "_ThreadScheduler.start",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 86
+    },
+    {
+      "name": "_truthy",
+      "kind": "function",
+      "path": "agentc/actions/base.py",
+      "line": 109
+    },
+    {
+      "name": "_validate_agent",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 171
+    },
+    {
+      "name": "_validate_task",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 181
+    },
+    {
+      "name": "_Watch",
+      "kind": "class",
+      "path": "agentc/watcher.py",
+      "line": 63
+    },
+    {
+      "name": "_Watch.__init__",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 64
+    },
+    {
+      "name": "_Watch.consider",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 76
+    },
+    {
+      "name": "_write_config",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 152
+    },
+    {
+      "name": "absolute",
+      "kind": "function",
+      "path": "agentc/math_utils.py",
+      "line": 26
+    },
+    {
+      "name": "Action",
+      "kind": "class",
+      "path": "agentc/actions/base.py",
+      "line": 23
+    },
+    {
+      "name": "Action.__init__",
+      "kind": "function",
+      "path": "agentc/actions/base.py",
+      "line": 38
+    },
+    {
+      "name": "Action._post_success",
+      "kind": "function",
+      "path": "agentc/actions/base.py",
+      "line": 81
+    },
+    {
+      "name": "Action.execute",
+      "kind": "function",
+      "path": "agentc/actions/base.py",
+      "line": 50
+    },
+    {
+      "name": "Action.run",
+      "kind": "function",
+      "path": "agentc/actions/base.py",
+      "line": 55
+    },
+    {
+      "name": "ActionResult",
+      "kind": "class",
+      "path": "agentc/models.py",
+      "line": 112
+    },
+    {
+      "name": "ActionResult.to_dict",
+      "kind": "function",
+      "path": "agentc/models.py",
+      "line": 123
+    },
+    {
+      "name": "add",
+      "kind": "function",
+      "path": "agentc/math_utils.py",
+      "line": 6
+    },
+    {
+      "name": "Agent",
+      "kind": "class",
+      "path": "agentc/agents/base.py",
+      "line": 40
+    },
+    {
+      "name": "Agent.__init__",
+      "kind": "function",
+      "path": "agentc/agents/base.py",
+      "line": 41
+    },
+    {
+      "name": "Agent._should_mock",
+      "kind": "function",
+      "path": "agentc/agents/base.py",
+      "line": 50
+    },
+    {
+      "name": "Agent.name",
+      "kind": "function",
+      "path": "agentc/agents/base.py",
+      "line": 47
+    },
+    {
+      "name": "Agent.run",
+      "kind": "function",
+      "path": "agentc/agents/base.py",
+      "line": 56
+    },
+    {
+      "name": "AgentAction",
+      "kind": "class",
+      "path": "agentc/actions/agent_action.py",
+      "line": 18
+    },
+    {
+      "name": "AgentAction.execute",
+      "kind": "function",
+      "path": "agentc/actions/agent_action.py",
+      "line": 28
+    },
+    {
+      "name": "AgentConfig",
+      "kind": "class",
+      "path": "agentc/models.py",
+      "line": 19
+    },
+    {
+      "name": "AgentConfig.from_dict",
+      "kind": "function",
+      "path": "agentc/models.py",
+      "line": 39
+    },
+    {
+      "name": "available",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 30
+    },
+    {
+      "name": "badge",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 389
+    },
+    {
+      "name": "build_action",
+      "kind": "function",
+      "path": "agentc/actions/registry.py",
+      "line": 30
+    },
+    {
+      "name": "build_parser",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 187
+    },
+    {
+      "name": "ClaudeAdapter",
+      "kind": "class",
+      "path": "agentc/agents/adapters.py",
+      "line": 54
+    },
+    {
+      "name": "ClaudeAdapter.build",
+      "kind": "function",
+      "path": "agentc/agents/adapters.py",
+      "line": 57
+    },
+    {
+      "name": "CLIAdapter",
+      "kind": "class",
+      "path": "agentc/agents/adapters.py",
+      "line": 32
+    },
+    {
+      "name": "CLIAdapter.build",
+      "kind": "function",
+      "path": "agentc/agents/adapters.py",
+      "line": 46
+    },
+    {
+      "name": "CLIAdapter.parse",
+      "kind": "function",
+      "path": "agentc/agents/adapters.py",
+      "line": 49
+    },
+    {
+      "name": "CLIAdapter.resolve",
+      "kind": "function",
+      "path": "agentc/agents/adapters.py",
+      "line": 37
+    },
+    {
+      "name": "cmd_agent",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 162
+    },
+    {
+      "name": "cmd_emit",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 151
+    },
+    {
+      "name": "cmd_list",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 71
+    },
+    {
+      "name": "cmd_run",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 98
+    },
+    {
+      "name": "cmd_runs",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 173
+    },
+    {
+      "name": "cmd_serve",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 145
+    },
+    {
+      "name": "cmd_start",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 128
+    },
+    {
+      "name": "cmd_validate",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 86
+    },
+    {
+      "name": "CodexAdapter",
+      "kind": "class",
+      "path": "agentc/agents/adapters.py",
+      "line": 89
+    },
+    {
+      "name": "CodexAdapter.build",
+      "kind": "function",
+      "path": "agentc/agents/adapters.py",
+      "line": 92
+    },
+    {
+      "name": "configure",
+      "kind": "function",
+      "path": "agentc/logsetup.py",
+      "line": 39
+    },
+    {
+      "name": "Context",
+      "kind": "class",
+      "path": "agentc/variables.py",
+      "line": 95
+    },
+    {
+      "name": "Context.__init__",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 98
+    },
+    {
+      "name": "Context.emit",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 109
+    },
+    {
+      "name": "Context.render",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 106
+    },
+    {
+      "name": "control",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 83
+    },
+    {
+      "name": "create_file",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 317
+    },
+    {
+      "name": "create_item",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 195
+    },
+    {
+      "name": "CronSpec",
+      "kind": "class",
+      "path": "agentc/scheduler.py",
+      "line": 47
+    },
+    {
+      "name": "CronSpec.__init__",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 50
+    },
+    {
+      "name": "CronSpec.matches",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 60
+    },
+    {
+      "name": "delete_item",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 221
+    },
+    {
+      "name": "e",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 339
+    },
+    {
+      "name": "Event",
+      "kind": "class",
+      "path": "agentc/models.py",
+      "line": 128
+    },
+    {
+      "name": "Event.to_dict",
+      "kind": "function",
+      "path": "agentc/models.py",
+      "line": 138
+    },
+    {
+      "name": "EventBus",
+      "kind": "class",
+      "path": "agentc/events.py",
+      "line": 20
+    },
+    {
+      "name": "EventBus.__init__",
+      "kind": "function",
+      "path": "agentc/events.py",
+      "line": 21
+    },
+    {
+      "name": "EventBus._matches",
+      "kind": "function",
+      "path": "agentc/events.py",
+      "line": 30
+    },
+    {
+      "name": "EventBus.publish",
+      "kind": "function",
+      "path": "agentc/events.py",
+      "line": 37
+    },
+    {
+      "name": "EventBus.subscribe",
+      "kind": "function",
+      "path": "agentc/events.py",
+      "line": 25
+    },
+    {
+      "name": "factorial",
+      "kind": "function",
+      "path": "agentc/math_utils.py",
+      "line": 11
+    },
+    {
+      "name": "fmt_dur",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 355
+    },
+    {
+      "name": "fmt_size",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 343
+    },
+    {
+      "name": "fmt_ts",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 369
+    },
+    {
+      "name": "GeminiAdapter",
+      "kind": "class",
+      "path": "agentc/agents/adapters.py",
+      "line": 106
+    },
+    {
+      "name": "GeminiAdapter.build",
+      "kind": "function",
+      "path": "agentc/agents/adapters.py",
+      "line": 109
+    },
+    {
+      "name": "get_adapter",
+      "kind": "function",
+      "path": "agentc/agents/adapters.py",
+      "line": 148
+    },
+    {
+      "name": "get_one",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 140
+    },
+    {
+      "name": "get_run_detail",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 251
+    },
+    {
+      "name": "InotifyWatcher",
+      "kind": "class",
+      "path": "agentc/watcher.py",
+      "line": 137
+    },
+    {
+      "name": "InotifyWatcher.__init__",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 140
+    },
+    {
+      "name": "InotifyWatcher._dirs_for",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 165
+    },
+    {
+      "name": "InotifyWatcher._loop",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 176
+    },
+    {
+      "name": "InotifyWatcher._parse",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 185
+    },
+    {
+      "name": "InotifyWatcher.start",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 148
+    },
+    {
+      "name": "InotifyWatcher.stop",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 200
+    },
+    {
+      "name": "is_active",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 50
+    },
+    {
+      "name": "known_types",
+      "kind": "function",
+      "path": "agentc/actions/registry.py",
+      "line": 26
+    },
+    {
+      "name": "list_dir",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 293
+    },
+    {
+      "name": "list_log_files",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 95
+    },
+    {
+      "name": "load_agents",
+      "kind": "function",
+      "path": "agentc/config.py",
+      "line": 24
+    },
+    {
+      "name": "load_agents",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 58
+    },
+    {
+      "name": "load_events",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 75
+    },
+    {
+      "name": "load_log_tail",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 102
+    },
+    {
+      "name": "load_runs",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 68
+    },
+    {
+      "name": "load_structured",
+      "kind": "function",
+      "path": "agentc/store.py",
+      "line": 25
+    },
+    {
+      "name": "load_tasks",
+      "kind": "function",
+      "path": "agentc/config.py",
+      "line": 33
+    },
+    {
+      "name": "load_tasks",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 63
+    },
+    {
+      "name": "main",
+      "kind": "function",
+      "path": "agentc/cli.py",
+      "line": 236
+    },
+    {
+      "name": "main",
+      "kind": "function",
+      "path": "scripts/render_dashboard.py",
+      "line": 22
+    },
+    {
+      "name": "make_handler",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 696
+    },
+    {
+      "name": "make_watcher",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 311
+    },
+    {
+      "name": "max_of_two",
+      "kind": "function",
+      "path": "agentc/math_utils.py",
+      "line": 31
+    },
+    {
+      "name": "MockAdapter",
+      "kind": "class",
+      "path": "agentc/agents/adapters.py",
+      "line": 123
+    },
+    {
+      "name": "MockAdapter.build",
+      "kind": "function",
+      "path": "agentc/agents/adapters.py",
+      "line": 128
+    },
+    {
+      "name": "MockAdapter.reply",
+      "kind": "function",
+      "path": "agentc/agents/adapters.py",
+      "line": 131
+    },
+    {
+      "name": "monitored_dirs",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 280
+    },
+    {
+      "name": "OpencodeAdapter",
+      "kind": "class",
+      "path": "agentc/agents/adapters.py",
+      "line": 73
+    },
+    {
+      "name": "OpencodeAdapter.build",
+      "kind": "function",
+      "path": "agentc/agents/adapters.py",
+      "line": 76
+    },
+    {
+      "name": "panel",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 425
+    },
+    {
+      "name": "Paths",
+      "kind": "class",
+      "path": "agentc/dashboard.py",
+      "line": 30
+    },
+    {
+      "name": "Paths.__init__",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 31
+    },
+    {
+      "name": "PollingWatcher",
+      "kind": "class",
+      "path": "agentc/watcher.py",
+      "line": 212
+    },
+    {
+      "name": "PollingWatcher.__init__",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 215
+    },
+    {
+      "name": "PollingWatcher._loop",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 241
+    },
+    {
+      "name": "PollingWatcher._scan",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 230
+    },
+    {
+      "name": "PollingWatcher.start",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 222
+    },
+    {
+      "name": "PollingWatcher.stop",
+      "kind": "function",
+      "path": "agentc/watcher.py",
+      "line": 257
+    },
+    {
+      "name": "PythonAction",
+      "kind": "class",
+      "path": "agentc/actions/python_action.py",
+      "line": 25
+    },
+    {
+      "name": "PythonAction.execute",
+      "kind": "function",
+      "path": "agentc/actions/python_action.py",
+      "line": 36
+    },
+    {
+      "name": "register_action",
+      "kind": "function",
+      "path": "agentc/actions/registry.py",
+      "line": 20
+    },
+    {
+      "name": "render",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 78
+    },
+    {
+      "name": "render_folder_browser",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 480
+    },
+    {
+      "name": "render_logs_panel",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 451
+    },
+    {
+      "name": "render_page",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 518
+    },
+    {
+      "name": "resolve_path",
+      "kind": "function",
+      "path": "agentc/actions/base.py",
+      "line": 92
+    },
+    {
+      "name": "restarts",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 60
+    },
+    {
+      "name": "RunRecord",
+      "kind": "class",
+      "path": "agentc/models.py",
+      "line": 143
+    },
+    {
+      "name": "RunRecord.to_dict",
+      "kind": "function",
+      "path": "agentc/models.py",
+      "line": 156
+    },
+    {
+      "name": "Scheduler",
+      "kind": "class",
+      "path": "agentc/scheduler.py",
+      "line": 117
+    },
+    {
+      "name": "Scheduler.__init__",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 120
+    },
+    {
+      "name": "Scheduler.add_cron",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 128
+    },
+    {
+      "name": "Scheduler.add_interval",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 134
+    },
+    {
+      "name": "Scheduler.shutdown",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 144
+    },
+    {
+      "name": "Scheduler.start",
+      "kind": "function",
+      "path": "agentc/scheduler.py",
+      "line": 140
+    },
+    {
+      "name": "serve",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 835
+    },
+    {
+      "name": "ShellAction",
+      "kind": "class",
+      "path": "agentc/actions/shell.py",
+      "line": 14
+    },
+    {
+      "name": "ShellAction.execute",
+      "kind": "function",
+      "path": "agentc/actions/shell.py",
+      "line": 27
+    },
+    {
+      "name": "square",
+      "kind": "function",
+      "path": "agentc/math_utils.py",
+      "line": 21
+    },
+    {
+      "name": "StateStore",
+      "kind": "class",
+      "path": "agentc/store.py",
+      "line": 40
+    },
+    {
+      "name": "StateStore.__init__",
+      "kind": "function",
+      "path": "agentc/store.py",
+      "line": 41
+    },
+    {
+      "name": "StateStore.append_event",
+      "kind": "function",
+      "path": "agentc/store.py",
+      "line": 67
+    },
+    {
+      "name": "StateStore.list_runs",
+      "kind": "function",
+      "path": "agentc/store.py",
+      "line": 112
+    },
+    {
+      "name": "StateStore.load_variables",
+      "kind": "function",
+      "path": "agentc/store.py",
+      "line": 56
+    },
+    {
+      "name": "StateStore.reconcile_running",
+      "kind": "function",
+      "path": "agentc/store.py",
+      "line": 78
+    },
+    {
+      "name": "StateStore.save_engine_status",
+      "kind": "function",
+      "path": "agentc/store.py",
+      "line": 51
+    },
+    {
+      "name": "StateStore.save_run",
+      "kind": "function",
+      "path": "agentc/store.py",
+      "line": 73
+    },
+    {
+      "name": "StateStore.save_variables",
+      "kind": "function",
+      "path": "agentc/store.py",
+      "line": 62
+    },
+    {
+      "name": "status",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 72
+    },
+    {
+      "name": "status_badge",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 393
+    },
+    {
+      "name": "table",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 401
+    },
+    {
+      "name": "Task",
+      "kind": "class",
+      "path": "agentc/models.py",
+      "line": 80
+    },
+    {
+      "name": "Task.from_dict",
+      "kind": "function",
+      "path": "agentc/models.py",
+      "line": 91
+    },
+    {
+      "name": "task_agent",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 230
+    },
+    {
+      "name": "task_output_dir",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 238
+    },
+    {
+      "name": "ToolAction",
+      "kind": "class",
+      "path": "agentc/actions/agent_action.py",
+      "line": 70
+    },
+    {
+      "name": "Trigger",
+      "kind": "class",
+      "path": "agentc/models.py",
+      "line": 48
+    },
+    {
+      "name": "Trigger.from_dict",
+      "kind": "function",
+      "path": "agentc/models.py",
+      "line": 72
+    },
+    {
+      "name": "trigger_summary",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 378
+    },
+    {
+      "name": "unit_installed",
+      "kind": "function",
+      "path": "agentc/service.py",
+      "line": 40
+    },
+    {
+      "name": "update_item",
+      "kind": "function",
+      "path": "agentc/dashboard.py",
+      "line": 209
+    },
+    {
+      "name": "validate_agent",
+      "kind": "function",
+      "path": "agentc/config.py",
+      "line": 42
+    },
+    {
+      "name": "validate_all",
+      "kind": "function",
+      "path": "agentc/config.py",
+      "line": 77
+    },
+    {
+      "name": "validate_task",
+      "kind": "function",
+      "path": "agentc/config.py",
+      "line": 51
+    },
+    {
+      "name": "VariableStore",
+      "kind": "class",
+      "path": "agentc/variables.py",
+      "line": 25
+    },
+    {
+      "name": "VariableStore.__contains__",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 43
+    },
+    {
+      "name": "VariableStore.__init__",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 28
+    },
+    {
+      "name": "VariableStore.as_dict",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 40
+    },
+    {
+      "name": "VariableStore.get",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 31
+    },
+    {
+      "name": "VariableStore.set",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 34
+    },
+    {
+      "name": "VariableStore.update",
+      "kind": "function",
+      "path": "agentc/variables.py",
+      "line": 37
+    },
+    {
+      "name": "WorkflowEngine",
+      "kind": "class",
+      "path": "agentc/engine.py",
+      "line": 35
+    },
+    {
+      "name": "WorkflowEngine.__init__",
+      "kind": "function",
+      "path": "agentc/engine.py",
+      "line": 36
+    },
+    {
+      "name": "WorkflowEngine._on_file_event",
+      "kind": "function",
+      "path": "agentc/engine.py",
+      "line": 202
+    },
+    {
+      "name": "WorkflowEngine._run_task_async",
+      "kind": "function",
+      "path": "agentc/engine.py",
+      "line": 167
+    },
+    {
+      "name": "WorkflowEngine._write_status",
+      "kind": "function",
+      "path": "agentc/engine.py",
+      "line": 210
+    },
+    {
+      "name": "WorkflowEngine.emit",
+      "kind": "function",
+      "path": "agentc/engine.py",
+      "line": 75
+    },
+    {
+      "name": "WorkflowEngine.load",
+      "kind": "function",
+      "path": "agentc/engine.py",
+      "line": 59
+    },
+    {
+      "name": "WorkflowEngine.register_triggers",
+      "kind": "function",
+      "path": "agentc/engine.py",
+      "line": 176
+    },
+    {
+      "name": "WorkflowEngine.run_task",
+      "kind": "function",
+      "path": "agentc/engine.py",
+      "line": 86
+    },
+    {
+      "name": "WorkflowEngine.start",
+      "kind": "function",
+      "path": "agentc/engine.py",
+      "line": 223
+    },
+    {
+      "name": "WorkflowEngine.stop",
+      "kind": "function",
+      "path": "agentc/engine.py",
+      "line": 259
+    },
+    {
+      "name": "WorkflowEngine.validate",
+      "kind": "function",
+      "path": "agentc/engine.py",
+      "line": 69
+    }
+  ]
+}

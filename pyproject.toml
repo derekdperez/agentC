@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentc"
+version = "0.1.0"
+description = "AI agent team orchestration framework"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+full = ["apscheduler>=3.10", "watchdog>=3.0", "PyYAML>=6.0"]
+
+[project.scripts]
+agentc = "agentc.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["agentc*"]

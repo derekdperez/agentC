@@ -1,0 +1,77 @@
+2026-06-10 18:39:45 WARNING agentc.progress: agent 'junior-developer' exited -15 in 54.99s
+2026-06-10 18:39:45 WARNING agentc.progress:   action 'implement' (agent) FAILED: exit -15
+2026-06-10 18:39:45 WARNING agentc.progress: task 'minor-dev-items' FAILED after 55.00s: exit -15
+2026-06-11 00:21:56 ERROR   agentc.action: action 'implement' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/agent_action.py", line 46, in execute
+    result = agent.run(prompt, context)
+  File "/home/cisco/repo/agentC/agentc/agents/base.py", line 77, in run
+    proc = subprocess.run(argv, capture_output=True, text=True,
+                          env=env, timeout=cfg.timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1921, in _execute_child
+    self.pid = _fork_exec(
+               ~~~~~~~~~~^
+            args, executable_list,
+            ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+            process_group, gid, gids, uid, umask,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            preexec_fn, _USE_VFORK)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: embedded null byte
+2026-06-11 00:21:56 WARNING agentc.progress:   action 'implement' (agent) FAILED: embedded null byte
+2026-06-11 00:21:56 WARNING agentc.progress: task 'minor-dev-items' FAILED after 0.02s: embedded null byte
+2026-06-11 00:21:57 ERROR   agentc.action: action 'implement' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/agent_action.py", line 46, in execute
+    result = agent.run(prompt, context)
+  File "/home/cisco/repo/agentC/agentc/agents/base.py", line 77, in run
+    proc = subprocess.run(argv, capture_output=True, text=True,
+                          env=env, timeout=cfg.timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1921, in _execute_child
+    self.pid = _fork_exec(
+               ~~~~~~~~~~^
+            args, executable_list,
+            ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+            process_group, gid, gids, uid, umask,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            preexec_fn, _USE_VFORK)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: embedded null byte
+2026-06-11 00:21:57 WARNING agentc.progress:   action 'implement' (agent) FAILED: embedded null byte
+2026-06-11 00:21:57 WARNING agentc.progress: task 'minor-dev-items' FAILED after 0.00s: embedded null byte
+2026-06-11 00:26:30 ERROR   agentc.agent: agent junior-developer timed out after 240s
+2026-06-11 00:26:30 WARNING agentc.progress: agent 'junior-developer' timed out after 240s
+2026-06-11 00:26:30 WARNING agentc.progress:   action 'implement' (agent) FAILED: agent timed out after 240s
+2026-06-11 00:26:30 WARNING agentc.progress: task 'minor-dev-items' FAILED after 240.18s: agent timed out after 240s

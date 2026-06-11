@@ -1,0 +1,28 @@
+{
+  "name": "devops-tasks",
+  "description": "Watch todo/ad-hoc_system_tasks: when a file arrives, the Junior DevOps agent carries out the instructions it contains, then the original is archived to completed/.",
+  "trigger": {
+    "type": "file",
+    "path": "todo/ad-hoc_system_tasks",
+    "on": "created",
+    "pattern": "*",
+    "recursive": false
+  },
+  "actions": [
+    {
+      "name": "execute",
+      "type": "agent",
+      "agent": "junior-devops",
+      "prompt": "An ad-hoc DevOps/system task was dropped into the queue as the file '${event_filename}'. Carry out the instructions described below. Report your plan, the exact commands, the outcome, and any follow-up.",
+      "input_file": "${event_path}",
+      "capture": "devops_result"
+    },
+    {
+      "name": "finalize",
+      "type": "python",
+      "executable": "scripts/finalize_to_completed.py",
+      "args": ["devops_result", ".result.md"]
+    }
+  ],
+  "emits": ["devops.completed"]
+}

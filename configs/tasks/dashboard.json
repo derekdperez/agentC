@@ -1,0 +1,21 @@
+{
+  "name": "dashboard",
+  "description": "Regenerates dashboard.html from current engine state on a fixed interval, giving a refreshable, regularly-updated view of the whole system.",
+  "enabled": true,
+  "persist": false,
+  "trigger": {
+    "type": "schedule",
+    "interval": 5,
+    "recursive": false,
+    "ignore": []
+  },
+  "variables": {},
+  "emits": [],
+  "actions": [
+    {
+      "name": "render",
+      "type": "python",
+      "executable": "scripts/render_dashboard.py"
+    }
+  ]
+}

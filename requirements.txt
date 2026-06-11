@@ -1,0 +1,8 @@
+# agentC runs on the Python standard library alone (a ctypes-based inotify
+# watcher and a thread-based cron scheduler ship as fallbacks).
+#
+# Installing these optional libraries upgrades the engine to the more battle-
+# tested backends automatically — no code or config changes required:
+apscheduler>=3.10     # preferred scheduler backend (cron + interval)
+watchdog>=3.0         # preferred filesystem-watch backend
+PyYAML>=6.0           # allows agent/task configs to be written as .yaml

@@ -1,0 +1,32 @@
+{
+  "name": "minor-dev-items",
+  "description": "Watch minor_dev_items: when a file arrives, the Junior Developer implements the task described in the file, then the original is archived to completed/.",
+  "trigger": {
+    "type": "file",
+    "path": "todo/minor_dev_items",
+    "on": "created",
+    "pattern": "*",
+    "recursive": false,
+    "ignore": [
+      "completed", ".*", "*.swp", "*.swo", "*.swx", "*.tmp", "*~",
+      "*.bak", "*.part", "*.crdownload", "4913"
+    ]
+  },
+  "actions": [
+    {
+      "name": "implement",
+      "type": "agent",
+      "agent": "junior-developer",
+      "prompt": "A minor development task was dropped into the queue as the file '${event_filename}'. Implement the feature or fix described below. Write clear, simple, correct code following the existing conventions in the codebase. Report your plan, the files you changed, and any tests you ran.",
+      "input_file": "${event_path}",
+      "capture": "dev_result"
+    },
+    {
+      "name": "finalize",
+      "type": "python",
+      "executable": "scripts/finalize_to_completed.py",
+      "args": ["dev_result", ".impl.md"]
+    }
+  ],
+  "emits": ["minor_dev.completed"]
+}

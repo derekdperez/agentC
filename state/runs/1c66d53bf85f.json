@@ -1,0 +1,31 @@
+{
+  "task": "design-work",
+  "id": "1c66d53bf85f",
+  "status": "failed",
+  "trigger": "file",
+  "started": 1781126720.8245575,
+  "finished": 1781126960.9743829,
+  "variables": {
+    "event_path": "/home/cisco/repo/agentC/todo/needs_design_work/tui-todo.txt",
+    "event_kind": "created",
+    "event_filename": "tui-todo.txt",
+    "system": "agentC",
+    "now": "2026-06-10 16:55:00",
+    "event_task": "watch-inbox",
+    "design_document": "The file doesn't exist yet. I'll create the complete design document now.\nDone."
+  },
+  "results": [
+    {
+      "name": "design",
+      "type": "agent",
+      "success": false,
+      "exit_code": 124,
+      "stdout": "",
+      "stderr": "",
+      "outputs": {},
+      "error": "agent timed out after 240s",
+      "duration": 240.1488
+    }
+  ],
+  "error": "agent timed out after 240s"
+}

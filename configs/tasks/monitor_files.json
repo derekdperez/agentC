@@ -1,0 +1,19 @@
+{
+  "name": "monitor-files",
+  "description": "Subscribes to ALL file events across the project (recursive) so they are logged to the event stream and shown on the dashboard. Engine output, VCS, and caches are ignored to avoid feedback loops.",
+  "persist": false,
+  "trigger": {
+    "type": "file",
+    "path": ".",
+    "on": "any",
+    "pattern": "*",
+    "recursive": true,
+    "ignore": [
+      "state", "logs", ".git", "__pycache__", ".venv", "node_modules",
+      "dashboard.html", "*.tmp", "*.pyc", "*.swp", ".env", ".gitkeep"
+    ]
+  },
+  "actions": [
+    { "name": "noop", "type": "shell", "command": "true" }
+  ]
+}

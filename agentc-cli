@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+"""Standalone launcher for agentC that works from any directory.
+
+It adds this script's own directory (the project root) to sys.path, so the
+local ``agentc`` package is importable without installing it or cd-ing first.
+
+Usage from anywhere:
+    /home/cisco/repo/agentC/agentc-cli list
+Or put it on your PATH:
+    ln -s /home/cisco/repo/agentC/agentc-cli ~/.local/bin/agentc
+"""
+import os
+import sys
+
+# realpath (not abspath) so the project root resolves correctly even when this
+# launcher is invoked through a symlink on PATH (e.g. ~/.local/bin/agentc).
+ROOT = os.path.dirname(os.path.realpath(__file__))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+
+# Config/state paths are relative to CWD by default; anchor them to the project
+# root unless the user overrode them, so the bundled configs are found anywhere.
+os.environ.setdefault("AGENTC_ROOT", ROOT)
+
+from agentc.cli import main  # noqa: E402
+
+if __name__ == "__main__":
+    sys.exit(main())
