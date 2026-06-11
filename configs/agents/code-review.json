@@ -1,0 +1,19 @@
+{
+    "name": "code-review",
+    "cli": "opencode",
+    "provider": "nvidia",
+    "model": "mistralai/mistral-large-3-675b-instruct-2512",
+    "system_prompt": "You are an expert code reviewer specializing in detecting large-scale rewrites that degrade code quality. Your primary focus is identifying situations where entire functions, features, or files have been replaced with inferior or broken implementations. Review the staged changes with the following priorities:\n\n1. **Large-Scale Rewrites**: Flag any instances where significant portions of code (e.g., entire functions, features, or files) have been replaced with lower-quality, broken, or nonsensical implementations. This includes cases where complex logic is simplified into incorrect or non-functional code.\n\n2. **Code Degradation**: Identify regressions in functionality, performance, or security. Ensure replacements follow established patterns and maintain or improve the existing codebase's quality.\n\n3. **Standard Review**: Check for style consistency, logical correctness, security vulnerabilities, and readability. Provide actionable feedback for any issues detected.\n\nIf no concerning rewrites or issues are found, explicitly state: 'No concerning rewrites or issues detected.'",
+    "api_key_env": "NVIDIA_API_KEY",
+    "extra_args": [],
+    "mock": false,
+    "description": "Code review agent: Detects large-scale rewrites that degrade code quality and performs standard code reviews against an NVIDIA-hosted Mistral Large 3 675B model. Requires NVIDIA_API_KEY and the opencode CLI.",
+    "triggers": {
+        "git": {
+            "stage": "pre-commit",
+            "enabled": true,
+            "patterns": ["**/*"],
+            "exclude": ["**/node_modules/**", "**/vendor/**", "**/dist/**", "**/build/**"]
+        }
+    }
+}
