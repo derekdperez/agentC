@@ -650,6 +650,36 @@ def add_target(data: dict):
     return 200, {"ok": True, "domain": domain}
 
 
+def import_targets(data: dict):
+    content = data.get("content", "")
+    program = (data.get("program") or "").strip()
+    status = data.get("status", "active")
+    if status not in TARGET_STATUSES:
+        status = "active"
+
+    lines = [l.strip() for l in content.splitlines()]
+    domains = [l for l in lines if l and not l.startswith("#")]
+
+    added, skipped, errors = [], [], []
+    for raw in domains:
+        domain = normalize_domain(raw)
+        if not valid_domain(domain):
+            errors.append(raw)
+            continue
+        if os.path.isdir(os.path.join(targets_dir(), domain)):
+            skipped.append(domain)
+            continue
+        meta = {"domain": domain, "program": program, "status": status,
+                "tags": [], "scope_in": [domain], "scope_out": [], "notes": ""}
+        _write_meta(domain, meta)
+        os.makedirs(os.path.join(targets_dir(), domain, domain, "assets"), exist_ok=True)
+        init_rate_config_for_domain(domain)
+        _drop_queue(domain)
+        added.append(domain)
+
+    return 200, {"ok": True, "added": added, "skipped": skipped, "errors": errors}
+
+
 def edit_target(domain: str, data: dict):
     domain = normalize_domain(domain)
     if not os.path.isdir(os.path.join(targets_dir(), domain)):
@@ -815,7 +845,8 @@ def render_targets_panel(targets) -> str:
         ])
         meta.append({"kind": "target", "domain": t["domain"],
                      "_class": "selectable"})
-    buttons = '<button class="add" data-act="add-target">+ add target</button>'
+    buttons = ('<button class="add" data-act="add-target">+ add target</button>'
+               '<button class="mini" data-act="import-targets" style="margin-left:6px">import</button>')
     return panel("targets", "Targets", len(targets),
                  table("tbl-targets", headers, rows, meta), head_buttons=buttons)
 
@@ -1333,6 +1364,10 @@ def make_handler(paths: Paths):
                     code, res = open_explorer(unquote(parts[2]), unquote(parts[4]))
                     self._json(code, res)
                     return
+                if len(parts) == 3 and parts[2] == "import":
+                    code, res = import_targets(data)
+                    self._json(code, res)
+                    return
                 if len(parts) >= 4 and parts[3] == "probe":
                     code, res = reprobe_target(unquote(parts[2]))
                 else:
@@ -1519,6 +1554,36 @@ PAGE = r"""<!DOCTYPE html>
     <div class="mfoot">
       <button class="btn-cancel" id="cno">Cancel</button>
       <button class="btn-danger" id="cyes">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- import targets modal -->
+<div class="overlay" id="ioverlay">
+  <div class="modal">
+    <h3>Import targets</h3>
+    <div class="mbody">
+      <div class="errs" id="ierrs"></div>
+      <div class="frow"><label>domains file</label>
+        <div style="display:flex;gap:6px;align-items:center">
+          <button class="mini" id="ifile-btn" type="button">Choose file&hellip;</button>
+          <span id="ifile-name" style="color:#8b949e;font-size:12px">no file chosen</span>
+        </div>
+        <input type="file" id="ifile-input" accept=".txt,.csv,.list,text/plain" style="display:none">
+        <span class="hint">plain text, one domain per line; blank lines and # comments ignored</span>
+      </div>
+      <div class="frow"><label for="i_domains">domains</label>
+        <textarea id="i_domains" class="mono" rows="8" placeholder="example.com&#10;another.com&#10;# comment lines ignored"></textarea>
+      </div>
+      <div class="frow"><label for="i_program">program</label>
+        <input type="text" id="i_program" placeholder="HackerOne / Bugcrowd program name (applied to all)" spellcheck="false"></div>
+      <div class="frow"><label for="i_status">status</label>
+        <select id="i_status"></select></div>
+      <div id="iresults" style="display:none;margin-top:10px;padding:8px 10px;background:#161b22;border:1px solid #30363d;border-radius:4px;font-size:12px;line-height:1.7"></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn-cancel" id="icancel">Cancel</button>
+      <button class="btn-save" id="isave">Import</button>
     </div>
   </div>
 </div>
@@ -2034,6 +2099,54 @@ document.getElementById('msave').addEventListener('click', submitTarget);
 document.getElementById('mcancel').addEventListener('click', closeModal);
 overlay.addEventListener('mousedown', function(ev){ if(ev.target===overlay) closeModal(); });
 
+/* ---- import targets modal ---- */
+var ioverlay=document.getElementById('ioverlay'), ierrs=document.getElementById('ierrs'),
+    iresults=document.getElementById('iresults');
+(function(){
+  var sel=document.getElementById('i_status');
+  STATUSES.forEach(function(s){ var o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
+})();
+function openImport(){
+  ierrs.style.display='none'; iresults.style.display='none';
+  document.getElementById('i_domains').value='';
+  document.getElementById('i_program').value='';
+  document.getElementById('i_status').value='active';
+  document.getElementById('ifile-name').textContent='no file chosen';
+  document.getElementById('ifile-input').value='';
+  ioverlay.style.display='flex'; modalOpen=true; schedule();
+}
+function closeImport(){ ioverlay.style.display='none'; modalOpen=false; schedule(); }
+document.getElementById('ifile-btn').addEventListener('click', function(){
+  document.getElementById('ifile-input').click();
+});
+document.getElementById('ifile-input').addEventListener('change', function(){
+  var f=this.files[0]; if(!f) return;
+  document.getElementById('ifile-name').textContent=f.name;
+  var reader=new FileReader();
+  reader.onload=function(ev){ document.getElementById('i_domains').value=ev.target.result; };
+  reader.readAsText(f);
+});
+document.getElementById('isave').addEventListener('click', function(){
+  var content=document.getElementById('i_domains').value.trim();
+  if(!content){ ierrs.textContent='Paste or choose a file with domains.'; ierrs.style.display='block'; return; }
+  ierrs.style.display='none'; iresults.style.display='none';
+  var payload={content:content, program:document.getElementById('i_program').value,
+               status:document.getElementById('i_status').value};
+  fetch('/api/targets/import',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      var html='';
+      if(res.added&&res.added.length) html+='<span style="color:#3fb950">&#10003; Added '+res.added.length+':</span> '+res.added.map(function(d){return escd(d);}).join(', ')+'<br>';
+      if(res.skipped&&res.skipped.length) html+='<span style="color:#8b949e">&#8594; Skipped '+res.skipped.length+' (already exist):</span> '+res.skipped.map(function(d){return escd(d);}).join(', ')+'<br>';
+      if(res.errors&&res.errors.length) html+='<span style="color:#f85149">&#10007; Invalid '+res.errors.length+':</span> '+res.errors.map(function(d){return escd(d);}).join(', ')+'<br>';
+      if(!html) html='<span style="color:#8b949e">Nothing to import.</span>';
+      iresults.innerHTML=html; iresults.style.display='block';
+      if(res.added&&res.added.length){ document.getElementById('i_domains').value=''; setTimeout(function(){ location.reload(); }, 1200); }
+    }).catch(function(e){ ierrs.textContent=String(e); ierrs.style.display='block'; });
+});
+document.getElementById('icancel').addEventListener('click', closeImport);
+ioverlay.addEventListener('mousedown', function(ev){ if(ev.target===ioverlay) closeImport(); });
+
 /* ---- confirm ---- */
 var coverlay=document.getElementById('coverlay'), cmsg=document.getElementById('cmsg'), _onYes=null;
 function openConfirm(msg, onYes){ cmsg.textContent=msg; _onYes=onYes; coverlay.style.display='flex'; confirmOpen=true; schedule(); }
@@ -2061,6 +2174,7 @@ document.addEventListener('click', function(ev){
   if(b){
     var act=b.getAttribute('data-act'), domain=b.getAttribute('data-domain');
     if(act==='add-target') openAdd();
+    else if(act==='import-targets') openImport();
     else if(act==='edit') openEdit(domain);
     else if(act==='del') delTarget(domain);
     else if(act==='probe') reprobe(domain);
@@ -2427,6 +2541,7 @@ document.addEventListener('keydown', function(ev){ if(ev.key==='Escape'){
   else if(aoverlay.style.display==='flex') closeAsset();
   else if(roverlay.style.display==='flex') closeRunDetail();
   else if(poverlay.style.display==='flex') closePanelsDlg();
+  else if(ioverlay.style.display==='flex') closeImport();
   else if(modalOpen) closeModal();
 } });
 function tick(){ var age=Math.floor(Date.now()/1000)-GEN; var a=document.getElementById('ago'); if(a) a.textContent=age+'s'+(age>STALE?' STALE':''); }
