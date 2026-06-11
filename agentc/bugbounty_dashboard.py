@@ -26,6 +26,7 @@ import json
 import os
 import re
 import shutil
+import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, parse_qs, unquote
@@ -556,6 +557,35 @@ def read_asset(rel: str):
     return data, ctype
 
 
+def _runs_cleared_path(paths: Paths) -> str:
+    return os.path.join(paths.state_dir, "bb_runs_cleared.json")
+
+
+def load_cleared_before(paths: Paths) -> float:
+    d = _load_json(_runs_cleared_path(paths))
+    if isinstance(d, dict):
+        return float(d.get("cleared_before", 0) or 0)
+    return 0.0
+
+
+def save_cleared_before(paths: Paths, epoch: float) -> None:
+    p = _runs_cleared_path(paths)
+    try:
+        with open(p, "w", encoding="utf-8") as fh:
+            json.dump({"cleared_before": epoch}, fh)
+    except OSError:
+        pass
+
+
+def restart_dashboard_service() -> None:
+    import subprocess
+    def _do():
+        time.sleep(0.5)
+        subprocess.run(["systemctl", "--user", "restart", "agentc-bugbounty"],
+                       capture_output=True)
+    threading.Thread(target=_do, daemon=True).start()
+
+
 # --------------------------------------------------------------------------- #
 # Rendering
 # --------------------------------------------------------------------------- #
@@ -674,6 +704,10 @@ def render_activity_panel(paths, eng, rate, pend_by_dom, runs) -> str:
     rows, meta = [], []
     from .dashboard import status_badge
     now = time.time()
+    cleared_before = load_cleared_before(paths)
+    cutoff_24h = now - 86400
+    runs = [r for r in runs
+            if (r.get("started") or r.get("finished") or 0) > max(cleared_before, cutoff_24h)]
     for r in runs:
         started = r.get("started", 0)
         finished = r.get("finished")
@@ -689,13 +723,18 @@ def render_activity_panel(paths, eng, rate, pend_by_dom, runs) -> str:
             fmt_ts(started), dur, e(r.get("trigger", "")),
         ])
         meta.append({"kind": "run", "run": r.get("id", ""), "_class": "rrow"})
+    head = '<button class="mini" data-act="clear-runs">Clear</button>'
     return panel("activity", "Activity", len(runs),
-                 table("tbl-activity", headers, rows, meta), filter_for="tbl-activity")
+                 table("tbl-activity", headers, rows, meta),
+                 head_buttons=head, filter_for="tbl-activity")
 
+
+_FEED_LEVEL = {'ok': 'info', 'running': 'info', 'failed': 'error', 'fail': 'error',
+               'interrupted': 'warning', 'skipped': 'debug'}
 
 def render_feed_panel(feed) -> str:
     headers = ["time", "task", "", "activity"]
-    rows = []
+    rows, meta = [], []
     for f in feed:
         cls = {"ok": "ok", "fail": "bad", "running": "run",
                "interrupted": "warn", "skipped": "mut"}.get(f["status"], "mut")
@@ -705,8 +744,16 @@ def render_feed_panel(feed) -> str:
             badge("●", cls),
             f'<span title="{e(f["text"])}">{e(f["text"][:200])}</span>',
         ])
+        meta.append({"level": _FEED_LEVEL.get(f["status"], "info")})
+    head = ('<select id="feedlevel" class="logsel" title="minimum log level">'
+            '<option value="debug">all levels</option>'
+            '<option value="info">info+</option>'
+            '<option value="warning">warning+</option>'
+            '<option value="error">errors only</option>'
+            '</select>')
     return panel("feed", "Activity feed", len(feed),
-                 table("tbl-feed", headers, rows), filter_for="tbl-feed")
+                 table("tbl-feed", headers, rows, meta),
+                 head_buttons=head, filter_for="tbl-feed")
 
 
 def render_rate_panel(rate, pend_by_dom) -> str:
@@ -898,6 +945,18 @@ def make_handler(paths: Paths):
                     code, res = add_target(data)
                 self._json(code, res)
                 return
+            if parts[:2] == ["api", "runs"] and len(parts) >= 3 and parts[2] == "clear":
+                save_cleared_before(paths, time.time())
+                self._json(200, {"ok": True})
+                return
+            if parts[:2] == ["api", "dashboard"]:
+                data = self._body() or {}
+                if data.get("action") == "restart":
+                    restart_dashboard_service()
+                    self._json(200, {"ok": True, "message": "restarting"})
+                else:
+                    self._json(400, {"ok": False, "errors": ["unknown action"]})
+                return
             self._json(404, {"errors": ["not found"]})
 
         def do_PUT(self):
@@ -999,6 +1058,9 @@ PAGE = r"""<!DOCTYPE html>
     <button class="eng eon" id="eng-start" title="start engine">start</button>
     <button class="eng eoff" id="eng-stop" title="stop engine">stop</button>
     <button class="eng" id="eng-restart" title="restart engine">restart</button>
+  </span>
+  <span class="svcctl" id="svcctl">
+    <button class="eng" id="svc-restart-bb" title="restart bugbounty dashboard service">restart dashboard</button>
   </span>
   <label class="pause"><input type="checkbox" id="pause"> pause</label>
   <span class="hi">upd <span id="ago">0s</span></span>
@@ -1145,7 +1207,9 @@ document.querySelectorAll('table.dt').forEach(function(tbl){
       setSort(tbl, idx, dir);
     });
   })(i); }
-  var st=L('sort:'+tbl.id); if(st && typeof st.idx==='number') setSort(tbl, st.idx, st.dir, true);
+  var st=L('sort:'+tbl.id);
+  if(st && typeof st.idx==='number') setSort(tbl, st.idx, st.dir, true);
+  else if(tbl.id==='tbl-feed') setSort(tbl, 0, 'desc');
 });
 document.querySelectorAll('input.filter').forEach(function(inp){
   var tbl=document.getElementById(inp.getAttribute('data-t')); if(!tbl) return;
@@ -1377,6 +1441,32 @@ function toggleSubRow(tr){
     clearSel(document.getElementById('tbl-targets')); selectTarget(null); });
 })();
 
+/* feed level filter */
+var LEVEL_ORD={debug:0,info:1,warning:2,error:3};
+function applyFeedLevel(minLevel){
+  var minVal=LEVEL_ORD[minLevel]!=null?LEVEL_ORD[minLevel]:0;
+  var tbl=document.getElementById('tbl-feed'); if(!tbl||!tbl.tBodies[0]) return;
+  [].forEach.call(tbl.tBodies[0].rows,function(r){
+    if(r.classList.contains('empty')) return;
+    var lvl=r.getAttribute('data-level')||'info';
+    if(LEVEL_ORD[lvl]!=null&&LEVEL_ORD[lvl]<minVal) r.style.display='none';
+  });
+}
+(function(){
+  var sel=document.getElementById('feedlevel'); if(!sel) return;
+  var saved=L('feedlevel'); if(saved) sel.value=saved;
+  sel.addEventListener('change',function(){
+    var tbl=document.getElementById('tbl-feed');
+    var qi=document.querySelector('input.filter[data-t="tbl-feed"]');
+    if(tbl&&qi) applyFilter(tbl,qi.value);
+    S('feedlevel',sel.value); applyFeedLevel(sel.value);
+  });
+  sel.addEventListener('dblclick',function(ev){ ev.stopPropagation(); });
+  applyFeedLevel(sel.value);
+  var qi=document.querySelector('input.filter[data-t="tbl-feed"]');
+  if(qi) qi.addEventListener('input',function(){ applyFeedLevel(sel.value); });
+})();
+
 /* restore persisted selection/scope, then load the virtual data */
 (function(){
   var tg=L('sel:target');
@@ -1545,6 +1635,12 @@ document.addEventListener('click', function(ev){
     else if(act==='edit') openEdit(domain);
     else if(act==='del') delTarget(domain);
     else if(act==='probe') reprobe(domain);
+    else if(act==='clear-runs'){
+      fetch('/api/runs/clear',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'})
+        .then(function(r){ return r.json(); })
+        .then(function(res){ if(res.ok){ toast('Run history cleared'); setTimeout(function(){ location.reload(); },400); }
+          else { toast('Clear failed'); } });
+    }
     return;
   }
   var al=ev.target.closest('a.olink[data-asset]');
@@ -1681,6 +1777,28 @@ document.getElementById('reload').addEventListener('click', function(){ location
   bStart.addEventListener('click', function(){ ctl('start', bStart); });
   bStop.addEventListener('click', function(){ ctl('stop', bStop); });
   bRestart.addEventListener('click', function(){ ctl('restart', bRestart); });
+})();
+
+/* ---- dashboard service restart ---- */
+(function(){
+  var btn=document.getElementById('svc-restart-bb'); if(!btn) return;
+  btn.addEventListener('click',function(){
+    btn.disabled=true; var old=btn.textContent; btn.textContent='…';
+    fetch('/api/dashboard',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'restart'})})
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        if(res.ok){
+          toast('Dashboard restarting…'); btn.textContent='wait…';
+          var attempts=0, t=setInterval(function(){
+            attempts++;
+            if(attempts>30){ clearInterval(t); btn.disabled=false; btn.textContent=old; toast('Restart timed out'); return; }
+            fetch('/api/engine').then(function(r){ if(r.ok){ clearInterval(t); toast('Dashboard restarted'); setTimeout(function(){ location.reload(); },300); } }).catch(function(){});
+          },2000);
+        } else {
+          toast('Restart failed: '+(res.message||'error')); btn.disabled=false; btn.textContent=old;
+        }
+      }).catch(function(e){ toast('Restart error: '+e); btn.disabled=false; btn.textContent=old; });
+  });
 })();
 
 document.addEventListener('keydown', function(ev){ if(ev.key==='Escape'){

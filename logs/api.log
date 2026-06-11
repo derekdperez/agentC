@@ -315,3 +315,6 @@ Let me explore the codebase structure to understand the existing conventions.
 [0m• [0mDesign subdomain enumeration task[90m Explore Agent[0m
 
 --- end ---
+2026-06-11 11:37:15 INFO    agentc.api: REQUEST agent=code-review cli=opencode model=mistralai/mistral-large-3-675b-instruct-2512
+  argv: ['opencode', 'run', 'Review the following staged changes for large-scale rewrites, code degradation, and standard issues:\n\n{{ git_diff_staged }}', '-m', 'nvidia/mistralai/mistral-large-3-675b-instruct-2512']
+  env: ['NVIDIA_API_KEY', 'OPENCODE_BASE_URL']

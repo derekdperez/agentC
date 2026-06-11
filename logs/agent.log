@@ -12384,3 +12384,462 @@
 2026-06-12 00:09:30 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 30.26s: exit 1
 2026-06-12 00:09:30 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
 2026-06-12 00:09:30 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 30.33s: exit 1
+2026-06-11 11:37:15 INFO    agentc.progress: task 'git-pre-commit' started [run cb577716c619, trigger event]
+2026-06-11 11:37:15 INFO    agentc.progress: agent 'code-review' calling opencode (nvidia/mistralai/mistral-large-3-675b-instruct-2512)…
+2026-06-11 11:37:34 INFO    agentc.progress: task 'bugbounty-critical-detect' started [run acf1297d8852, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/cpanel.lillylibrary.org/assets/html/root.body)
+2026-06-11 11:37:34 INFO    agentc.progress: task 'bugbounty-dom-spider' started [run 49007bf79f5d, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/cpanel.lillylibrary.org/assets/html/root.body)
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-critical-detect' started [run 424c427f7a09, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/webmail.lillylibrary.org/assets/html/root.body)
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-dom-spider' started [run a21859343d9d, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/webmail.lillylibrary.org/assets/html/root.body)
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-critical-detect' started [run e3d44cff67e3, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/webmail.lillylibrary.org/assets/images/cPanel_magic_revision_1615493801_unprotected_cpanel_images_webmail-logo.svg.body)
+2026-06-11 11:37:35 INFO    agentc.progress:   action 'check-critical' (python) ok in 0.32s
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-critical-detect' completed in 0.32s
+2026-06-11 11:37:35 INFO    agentc.progress:   action 'check-critical' (python) ok in 0.51s
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-critical-detect' completed in 0.52s
+2026-06-11 11:37:35 INFO    agentc.progress:   action 'check-critical' (python) ok in 0.43s
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-critical-detect' completed in 0.43s
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-critical-detect' started [run 378c5cbda828, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/library-policies_community-room-policy.body)
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-dom-spider' started [run 665bd690755d, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/library-policies_community-room-policy.body)
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-critical-detect' started [run aa7e3d65bf7d, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/library-policies_lost-materials-policy.body)
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-dom-spider' started [run 9dd7f2f4653f, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/library-policies_lost-materials-policy.body)
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-critical-detect' started [run 1d537f6151af, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/library-policies_programming-policy.body)
+2026-06-11 11:37:35 INFO    agentc.progress:   action 'extract-links' (python) ok in 0.96s
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-dom-spider' completed in 0.97s
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-dom-spider' started [run 473eb51f3d90, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/library-policies_programming-policy.body)
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-critical-detect' started [run e64572677ab0, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/library-policies_community-bulletin.body)
+2026-06-11 11:37:35 INFO    agentc.progress: task 'bugbounty-dom-spider' started [run 8afabb2ef290, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/library-policies_community-bulletin.body)
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'extract-links' (python) ok in 0.25s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dom-spider' completed in 0.25s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' started [run b3c43658f4e4, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/fa5a9eb3022e40e9973899a5bc5eba76.json)
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'check-critical' (python) ok in 0.27s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-critical-detect' completed in 0.27s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 48c4d8ff94cb, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/fa5a9eb3022e40e9973899a5bc5eba76.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' started [run ea851eccea68, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b7b9aa55b95641dab7a94fa1a0568f78.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 6300a2db53d9, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b7b9aa55b95641dab7a94fa1a0568f78.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' started [run 4028c8a2a0d6, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/5521685fd08845d3983df2b569366eb8.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 418d335e3bcc, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/5521685fd08845d3983df2b569366eb8.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' started [run 546aa2944c89, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/349fa51b6d4b4b0089c57bfc73200d58.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 44b8c190e53d, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/349fa51b6d4b4b0089c57bfc73200d58.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' started [run 5773432ce9b5, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/73051e15f266403e8f689e8d724dc6cd.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run f6d4cb661065, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/73051e15f266403e8f689e8d724dc6cd.json)
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.25s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.26s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' started [run b2b90f002317, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/c9599aead92d44ccaea2089cad25c756.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run c8696cc5d1ce, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/c9599aead92d44ccaea2089cad25c756.json)
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'check-critical' (python) ok in 0.52s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-critical-detect' completed in 0.52s
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'extract-links' (python) ok in 1.44s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dom-spider' completed in 1.44s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' started [run 24b7a77e1ee3, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/bdcf8290bb6c47798601b46c68d5761a.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 9163df5bcbed, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/bdcf8290bb6c47798601b46c68d5761a.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' started [run 67d182786ca7, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b38b6ff8f2bb4e1d9f4f2896bff0e04e.json)
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.25s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.26s
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.33s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.49s
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'check-critical' (python) ok in 1.02s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-critical-detect' completed in 1.07s
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'check-critical' (python) ok in 0.87s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-critical-detect' completed in 0.89s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run d618ad94e400, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b38b6ff8f2bb4e1d9f4f2896bff0e04e.json)
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.78s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.80s
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.72s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.72s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' started [run 5876d53e5938, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/4e333bad883b4f6b9da3c41b29e31655.json)
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'extract-links' (python) ok in 1.03s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dom-spider' completed in 1.03s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run dc74551d1961, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/4e333bad883b4f6b9da3c41b29e31655.json)
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.28s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.28s
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.73s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.73s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' started [run 448bbbf4d8a4, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b3b5c7b07475401bb2480ab96c017d52.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 241daf6a51eb, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b3b5c7b07475401bb2480ab96c017d52.json)
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.44s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.44s
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'extract-links' (python) ok in 1.00s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dom-spider' completed in 1.01s
+2026-06-11 11:37:36 INFO    agentc.progress:   action 'extract-links' (python) ok in 0.98s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' started [run 55ab8be0af30, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/13bdadb492ef43b1b23a522bb883f388.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dom-spider' completed in 0.99s
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run f37cfee74504, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/13bdadb492ef43b1b23a522bb883f388.json)
+2026-06-11 11:37:36 INFO    agentc.progress: task 'bugbounty-dedup' started [run f0439fc0bf54, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/ac07f267256b4126a48bc083393e7485.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.08s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run fbbec2d46b71, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/ac07f267256b4126a48bc083393e7485.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.09s
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.14s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.14s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 846c95f735c5, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/c1c7be8a1dd842e3bb8b0ac600a84ad4.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 73f0f0d11d20, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/c1c7be8a1dd842e3bb8b0ac600a84ad4.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 9b92520f9266, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/76ac53ea35f34d82be6cdad008c240e8.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 514661d2fe75, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/76ac53ea35f34d82be6cdad008c240e8.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 5c2f0c17443d, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/969330f9d30047a9ba1eb3f736b675e2.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 0b9e21c8d472, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/969330f9d30047a9ba1eb3f736b675e2.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.18s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.19s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 650c7c66e608, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/a09d2fd2ff974e25ae79a5920dd08cb8.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.11s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.11s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run ee49dc8cbcfe, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/a09d2fd2ff974e25ae79a5920dd08cb8.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 9448f982312a, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/3b06d846b288400fabfa35860acaf5c2.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.21s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.23s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 086de554f8b4, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/3b06d846b288400fabfa35860acaf5c2.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.21s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.21s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 6b8c94dde239, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/26453edba1f4420581d006640e28be59.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 41efee9533f2, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/26453edba1f4420581d006640e28be59.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 92569ceac2d9, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/caba1b2700514e749fc9bcc20a303219.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.14s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.14s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 806abf26bf3a, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/caba1b2700514e749fc9bcc20a303219.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run e01d0497e9e6, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/c9e452dab9a94741bdee3d44430480b8.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 69f9aa701d10, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/c9e452dab9a94741bdee3d44430480b8.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.13s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.13s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 9d9db27b3717, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/9fc03eead16043b88c3b6ba8a2544123.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 9e0a84717bc6, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/9fc03eead16043b88c3b6ba8a2544123.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 789ca75ef029, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d7389f917c79479da5ca04ca517841ba.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.08s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.12s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run d81c5d0342cd, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d7389f917c79479da5ca04ca517841ba.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.20s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.21s
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.21s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.22s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 58fdeeba9707, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/add4585875c64df0ba1a3288e1b8afc6.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run efb2ee881e17, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/add4585875c64df0ba1a3288e1b8afc6.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.08s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.09s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 9a3bc8cc12b4, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b8ac31d0c83b4eefabec702349814c05.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.24s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.25s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run c08128f481ff, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b8ac31d0c83b4eefabec702349814c05.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 6c7e0c245c42, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/eba294877f484ee29680e98f3ebc36bd.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run b7ab6ce08930, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/eba294877f484ee29680e98f3ebc36bd.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 9c87e7266bd8, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/600fbecdcc484b339d4f1bab5d627e79.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.11s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.11s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 0acb16caffae, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/600fbecdcc484b339d4f1bab5d627e79.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.21s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.21s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 5c2aab935802, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/7deca541ba764b3bafe11beeee581d3c.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run c6d110dd600d, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/7deca541ba764b3bafe11beeee581d3c.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run a7a108192e7f, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/f8e1fa02e7344479b85921bf79d4eb12.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.10s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.11s
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.15s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.15s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 649de3a89408, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/f8e1fa02e7344479b85921bf79d4eb12.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run d6b44a951ad4, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/4bd0a81e87664adaa914f7f70e3b1ce1.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 134b4f0cebd7, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/4bd0a81e87664adaa914f7f70e3b1ce1.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run d528439809bf, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/93da53a37d614321ae9b01fc78fc7c10.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run a71ac065f37b, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/93da53a37d614321ae9b01fc78fc7c10.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.25s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 59e6d4553ff0, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/67f15d27e4694ecd91c3750b876e8ed3.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.25s
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.34s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.34s
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.38s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.38s
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.13s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.13s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 822fef0c9e58, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/67f15d27e4694ecd91c3750b876e8ed3.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run e8eae2dc433b, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/c4dc12243491429f96bb3351186b2d89.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run ddd8b390232d, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/c4dc12243491429f96bb3351186b2d89.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run 6aff6344e495, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b7daedc16730456cb21af8a5440c2428.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 747d7bcf5ab5, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b7daedc16730456cb21af8a5440c2428.json)
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' started [run fe81afad141e, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d6b5db0f9bdf49f4b10cea4493142e0c.json)
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.11s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.12s
+2026-06-11 11:37:37 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.19s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.19s
+2026-06-11 11:37:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 5b8040e08a5b, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d6b5db0f9bdf49f4b10cea4493142e0c.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.10s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.12s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run e21f9659e799, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/8801410fb3ae45749b8562f5d39f2ba8.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 461f1b95a657, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/8801410fb3ae45749b8562f5d39f2ba8.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.10s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.11s
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.15s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.15s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 43886f2cfb4f, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/42034fde93fb4187a3cb2900ece2b761.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run a6d3ab83ec4e, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/42034fde93fb4187a3cb2900ece2b761.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 3bc70010f0b8, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/90e5c39936b44d78a62adc09f5dbb7bb.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run af8360976a27, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/90e5c39936b44d78a62adc09f5dbb7bb.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 915230164525, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/94f21406bd754019b431493ae746a8ff.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 6c4e0630e4f5, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/94f21406bd754019b431493ae746a8ff.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run d9b03bd4dd43, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/43018f33b15d47f69a70e647da4d31cc.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 95046123d5b2, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/43018f33b15d47f69a70e647da4d31cc.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 3fbb4ffea898, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/3c64cf122a814fc7bf7ed03d2678ec7f.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run d9d4a04e1814, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/3c64cf122a814fc7bf7ed03d2678ec7f.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run d15047573f2b, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/74e23371c5434baf8165d3370baedd00.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 6cf0d5564192, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/74e23371c5434baf8165d3370baedd00.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.09s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.09s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 3e18a245c9b4, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/879d09cd85264387b9daf227e6ba439e.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 5f8d49589718, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/879d09cd85264387b9daf227e6ba439e.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.08s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.08s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 923e245fc7ee, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/f6f7707b1e414d579c8b5f24500d7166.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.29s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.30s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run d474a7cd16f4, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/f6f7707b1e414d579c8b5f24500d7166.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.27s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.27s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 823410b46022, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/aed6ff93b9924286954e1b94c78bf4ca.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run a0e78b1345ca, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/aed6ff93b9924286954e1b94c78bf4ca.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 0947008b5ff0, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/32ba8d734d9b4f2a9cdb369990ddbcfd.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.30s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.30s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 910229cacf0f, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/32ba8d734d9b4f2a9cdb369990ddbcfd.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.32s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.34s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 6a76b16f3c28, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/31217905e41d49089a95c67f8ebd1e84.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 6f34ec08bba5, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/31217905e41d49089a95c67f8ebd1e84.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.16s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.16s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 6196808bf718, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d62a0f39d9b54da5bb30fc000389e520.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 4a1da015c706, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d62a0f39d9b54da5bb30fc000389e520.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run f1a7cadb949e, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/62868db0c1d84964b19fb59ae06c80f7.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.36s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.37s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 638106fe2b2f, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/18f9eeab1f5843eb83a544463a2c2f85.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 71446505523a, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/62868db0c1d84964b19fb59ae06c80f7.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.26s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.32s
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.17s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.17s
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.27s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.27s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run bb10cf0e3ca2, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/79b16a5eee7b4fc3b15327dc3a519bb3.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run a6069d075ae6, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/18f9eeab1f5843eb83a544463a2c2f85.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run a72953529ebd, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/79b16a5eee7b4fc3b15327dc3a519bb3.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.27s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.28s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 5662ba7766e9, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/6e8ab87f5805446586dbc25230ce16ab.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run db44ba32103a, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/6e8ab87f5805446586dbc25230ce16ab.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 76090e7829c4, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/48fd21c1710242758ab5d729be1e5d21.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.20s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.21s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run ef56216a0153, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/48fd21c1710242758ab5d729be1e5d21.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 789f01c4aba7, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/5bd65a9a5df04aa89ee7b85c9cb7e6a2.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 1ff1e2b68bc6, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/5bd65a9a5df04aa89ee7b85c9cb7e6a2.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run b9ba5fcfc35f, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/5a244e72d20e4dcdb0b2049144d48f53.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 4d2925a614a1, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/5a244e72d20e4dcdb0b2049144d48f53.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 4155ccb067e4, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/c6e25486716b4cad80fb70fe0929af6d.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.33s
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.26s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run a53c11923efd, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/c6e25486716b4cad80fb70fe0929af6d.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.20s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.22s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.28s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.40s
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.39s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.42s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run 3cb7122a5e7d, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/54fe354f02e84a31869eedfda8b539d8.json)
+2026-06-11 11:37:38 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.18s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.21s
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run a7405f699ad3, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/9b00edae9dce4d8ba95f0e28eaadc06a.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run a802f7b6109f, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/54fe354f02e84a31869eedfda8b539d8.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 3a868a19a490, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/9b00edae9dce4d8ba95f0e28eaadc06a.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-dedup' started [run c689fcfd71dc, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/42f0723d66874cdbae1b63ce6e6a707e.json)
+2026-06-11 11:37:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 78db93c9618e, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/42f0723d66874cdbae1b63ce6e6a707e.json)
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.23s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.23s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 6dd7eb29a2e7, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/6e40affd1b624209bde1c190501b7dde.json)
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.33s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.33s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 7a810cb1435d, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/6e40affd1b624209bde1c190501b7dde.json)
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.24s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.24s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 93e5a1e4d1cf, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/fcee08b71e534b6ca9be19cb30c13570.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 11a91937f047, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/fcee08b71e534b6ca9be19cb30c13570.json)
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.17s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.18s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run c35d96dda149, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/117c829669a64e03a42d05d080134113.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run cdd47a061b46, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/117c829669a64e03a42d05d080134113.json)
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.29s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.31s
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.30s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.31s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 1c83ad8d3230, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/14b8fc0cb0944ffbabefddc545159fdf.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 6cc6d09dcb9b, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/14b8fc0cb0944ffbabefddc545159fdf.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 9895104d607a, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/925c5eef03c04008af0fc14335d34588.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run c5435f4871fc, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/925c5eef03c04008af0fc14335d34588.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 124bce4ff5dc, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/e327652c10a44c1fafc779b43c1b924b.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 1933cc9680d2, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/e327652c10a44c1fafc779b43c1b924b.json)
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.29s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.29s
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.11s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.11s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 0b9272781d60, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d78e30e5d2b54ef080652266d31f929f.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 7ba0eb4b726a, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d78e30e5d2b54ef080652266d31f929f.json)
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.23s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.23s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 68a97c9e17a5, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/2899a4f235464c77b914b48e28b7a1d8.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 60ddbc6c3205, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/2899a4f235464c77b914b48e28b7a1d8.json)
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.13s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.13s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 4f7425888db6, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/72e0b6aa906a418685a14d192906dbb5.json)
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.20s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.20s
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.39s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.39s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 6f18b6125411, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/9265a787dc9647e298870fced554f7df.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run de9797809079, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/72e0b6aa906a418685a14d192906dbb5.json)
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.11s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 7685ba5a5851, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/9265a787dc9647e298870fced554f7df.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.27s
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.23s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.25s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 139985ccd759, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/597c88c7ab4b4008b8e038e92e0aa51d.json)
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.21s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.21s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 1854382a9544, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/597c88c7ab4b4008b8e038e92e0aa51d.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 32973ad67c52, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/144e63df273d466e974a05d8b7be8c6b.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 6a6b92dd251e, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/144e63df273d466e974a05d8b7be8c6b.json)
+2026-06-11 11:37:39 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.08s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.09s
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 3603075ca41a, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d3d839cfd0a94866a82e97658bc7e8b1.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 61fe4c328425, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d3d839cfd0a94866a82e97658bc7e8b1.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run e0c1eec8f24c, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/9dc21e6c0f714e43aa2d9a37550725da.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run a0eddbbf758b, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/9dc21e6c0f714e43aa2d9a37550725da.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run e4f212a68fa8, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/5e7652ceb4fe42ec82b46cddccb9db56.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 79ff4e6c8ae4, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/5e7652ceb4fe42ec82b46cddccb9db56.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 189eb3285732, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/715e6447eebc4d36b75e82dec5992a1f.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 14546680ba03, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/715e6447eebc4d36b75e82dec5992a1f.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 02c8de210459, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/3289cd9761a5499bbb8efc55ab45997e.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run d6249be71ac7, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/3289cd9761a5499bbb8efc55ab45997e.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-dedup' started [run 19443c41770e, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/9c2bcb92e89146e1920ed68f6ef2c721.json)
+2026-06-11 11:37:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 70a34b5fe697, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/9c2bcb92e89146e1920ed68f6ef2c721.json)
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.11s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.13s
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.36s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.52s
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.30s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.32s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run 2cd80af52163, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/258a5c49e12549b6bd8ab9ad104b7ad5.json)
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.14s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.14s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 8c8f36ddc0c9, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/258a5c49e12549b6bd8ab9ad104b7ad5.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run e3b5c6ee1d57, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/a899555116574032aafba3561421ee56.json)
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.36s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.38s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 81088ed89a34, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/a899555116574032aafba3561421ee56.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run 439f16222979, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/be25f0f6cb4f4e0f968f986ee6568f93.json)
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.49s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.50s
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.25s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.26s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run c311a1144794, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/be25f0f6cb4f4e0f968f986ee6568f93.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run b3d1649b34de, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/52c1632492284cdca295fab9e7627d65.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 617572325bc9, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/52c1632492284cdca295fab9e7627d65.json)
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.60s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.60s
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.21s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.21s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run 0126f2624db1, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/25555ef72348405989ba8f9d3c1f2bfc.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 8c2a36a802e7, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/25555ef72348405989ba8f9d3c1f2bfc.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run 34c9f917be5d, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/f5e24075c30048e5ab2b9a88fa888de1.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 7a3990e0850e, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/f5e24075c30048e5ab2b9a88fa888de1.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run f29b8b79356b, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/580cf104bfe846bebbf4a32d68893f2f.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run da1faac393a1, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/580cf104bfe846bebbf4a32d68893f2f.json)
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.61s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.61s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run de4fa9271cf9, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/cb8eaf89387c4c40b28348b36de23046.json)
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.75s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.75s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 6698dd84900c, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/cb8eaf89387c4c40b28348b36de23046.json)
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.27s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.27s
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.16s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.17s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run 809f88f5202c, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d0fae04470be4df39dc9ee6e9fefd81e.json)
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.39s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.40s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 9682660ac523, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d0fae04470be4df39dc9ee6e9fefd81e.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run 80e00c91bcbe, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/bf11d9d81d0d464faaf1ed1c62ea2bbf.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run bb9df32bc2c0, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/bf11d9d81d0d464faaf1ed1c62ea2bbf.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run f4ee25beaa52, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/fee1c244d5ad431496c76fa3751cf5cc.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 9849fcf07966, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/fee1c244d5ad431496c76fa3751cf5cc.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run 37515db00ccd, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/baabcc32f5f543958a0017b3d3af8144.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run e14783744e88, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/baabcc32f5f543958a0017b3d3af8144.json)
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.27s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.28s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run 7a90c82a32ff, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/da07e2610ea646b3823f7a7da21be1e6.json)
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run e7ed4d97a964, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/da07e2610ea646b3823f7a7da21be1e6.json)
+2026-06-11 11:37:40 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.25s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.26s
+2026-06-11 11:37:40 INFO    agentc.progress: task 'bugbounty-dedup' started [run 2efed1c10680, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/c0649729887241d9a1d3ca572138d18d.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run e1a2bdf74b2a, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/c0649729887241d9a1d3ca572138d18d.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' started [run 150bc2ef5865, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b9faf26cb38a493bb9fa6e7b4b97538e.json)
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.31s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.31s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 7cc4c193c968, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b9faf26cb38a493bb9fa6e7b4b97538e.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' started [run 012eac37dcb3, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b8e598346c244a18b3286a7b19182af8.json)
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.10s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.14s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 21a1003b67ea, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b8e598346c244a18b3286a7b19182af8.json)
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.19s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.20s
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.34s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.34s
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.39s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.40s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' started [run 140b9812fec5, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/e44caf5ca34a4eb6ad35aaa6bac7d20e.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 2aa5847b7762, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/e44caf5ca34a4eb6ad35aaa6bac7d20e.json)
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.36s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.37s
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.43s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.43s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' started [run 9231aa7d3bd4, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/84e68d4cc893432fad644db0e8f7b2ea.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 912274e7dc07, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/84e68d4cc893432fad644db0e8f7b2ea.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' started [run 591edbb628d0, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/fe5109471d8847aaa0bdcb87ba5b8175.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run f1b8305d5a7a, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/fe5109471d8847aaa0bdcb87ba5b8175.json)
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.12s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.19s
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.43s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.45s
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.17s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.17s
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.38s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.39s
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.23s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.26s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' started [run 592a13ca3935, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/1cb84571f3d54c5eb1e38a5f8d5e6910.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 8b63c6eaa404, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/1cb84571f3d54c5eb1e38a5f8d5e6910.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' started [run 66cbbc7c7dd1, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d17c2acd13b14a2fb2ce84e7cf0404f3.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run e9b773fe1685, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/d17c2acd13b14a2fb2ce84e7cf0404f3.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' started [run da3f09da0967, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/2b71d004311b4a89a1b45191cbb72e6b.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run e3012d4e8c42, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/2b71d004311b4a89a1b45191cbb72e6b.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' started [run 88b80530980a, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/81a9c00307e54a32866f45cbed9bd4bf.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 44bc25ea2cf2, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/81a9c00307e54a32866f45cbed9bd4bf.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' started [run f386848c7301, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/1041e512f5c74a0c9265c1632653bd0d.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 63fa7cfdd779, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/1041e512f5c74a0c9265c1632653bd0d.json)
+2026-06-11 11:37:41 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.38s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.42s
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-dedup' started [run e6113062be50, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b4692ccf5b55415e97ccf7f3bb9a8b87.json)
+2026-06-11 11:37:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run bb17a9eca1d0, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/b4692ccf5b55415e97ccf7f3bb9a8b87.json)
+2026-06-11 11:37:42 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.23s
+2026-06-11 11:37:42 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.24s
+2026-06-11 11:37:42 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.29s
+2026-06-11 11:37:42 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.29s
+2026-06-11 11:37:42 INFO    agentc.progress: task 'bugbounty-dedup' started [run 11deec1eed24, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/87e0edcb518f4aac9da71b6f017e19cc.json)
+2026-06-11 11:37:42 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' started [run 4d52d985ea82, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/requests/pending/87e0edcb518f4aac9da71b6f017e19cc.json)
+2026-06-11 11:37:42 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.33s
+2026-06-11 11:37:42 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.34s
+2026-06-11 11:37:42 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.38s
+2026-06-11 11:37:42 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.38s
+2026-06-11 11:37:42 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.40s
+2026-06-11 11:37:42 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.41s
+2026-06-11 11:37:42 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.34s
+2026-06-11 11:37:42 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.35s
+2026-06-11 11:37:42 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.36s
+2026-06-11 11:37:42 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.40s
+2026-06-11 11:37:42 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.42s
+2026-06-11 11:37:42 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.43s
+2026-06-11 11:37:42 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 0.47s
+2026-06-11 11:37:42 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 0.48s
+2026-06-11 11:37:42 INFO    agentc.progress:   action 'check-and-track' (python) ok in 0.32s
+2026-06-11 11:37:42 INFO    agentc.progress: task 'bugbounty-dedup' completed in 0.33s

@@ -1,0 +1,16 @@
+{
+    "name": "git-pre-commit",
+    "description": "Run the code-review agent on all staged files before commit.",
+    "trigger": {
+        "type": "event",
+        "event": "git:pre-commit"
+    },
+    "actions": [
+        {
+            "type": "agent",
+            "agent": "code-review",
+            "prompt": "Review the following staged changes for large-scale rewrites, code degradation, and standard issues:\n\n{{ git_diff_staged }}"
+        }
+    ],
+    "enabled": true
+}
