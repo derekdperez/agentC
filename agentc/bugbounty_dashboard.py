@@ -694,8 +694,9 @@ def run_task_for_target(domain: str, task: str):
         return 404, {"ok": False, "errors": ["target not found"]}
     if task == "subfinder":
         try:
-            # Use our new wrapper to trigger subfinder
-            subprocess.Popen([sys.executable, "bugbounty/scripts/trigger_subfinder.py", domain], cwd=_root())
+            queue_dir = os.path.join(_root(), "bugbounty/targets/subfinder_queue")
+            os.makedirs(queue_dir, exist_ok=True)
+            open(os.path.join(queue_dir, domain), "w").close()
             return 200, {"ok": True, "domain": domain, "message": "subfinder triggered"}
         except Exception as e:
             return 500, {"ok": False, "errors": [str(e)]}

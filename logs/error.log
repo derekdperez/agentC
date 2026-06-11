@@ -183,3 +183,5 @@
 2026-06-11 18:14:49 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.58s: exit 1
 2026-06-11 18:14:49 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
 2026-06-11 18:14:49 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.60s: exit 1
+2026-06-11 18:34:05 WARNING agentc.progress:   action 'render' (python) FAILED: exit -15
+2026-06-11 18:34:05 WARNING agentc.progress: task 'dashboard' FAILED after 3.03s: exit -15
