@@ -206,7 +206,7 @@ def render_targets_panel(targets) -> str:
                 f'<button class="mini bad" data-act="del" data-domain="{e(t["domain"])}">del</button>'
                 f'</span>')
         rows.append([e(t["domain"]), _status_badge(t["status"]), e(t["program"] or "—"), _tag_chips(t["tags"]), t["n_sub"], t["n_assets"], t["requested"], t["discovered"], fmt_ts(_ts(t["created_at"])), acts])
-        meta.append({"kind": "target", "domain": t["domain"]})
+        meta.append({"kind": "target", "domain": t["domain"], "_class": "selectable"})
     buttons = '<button class="add" data-act="add-target">+ add target</button>'
     return panel("targets", "Targets", len(targets), table("tbl-targets", headers, rows, meta), head_buttons=buttons)
 def render_subdomains_panel(subs) -> str:
