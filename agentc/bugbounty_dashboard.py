@@ -243,21 +243,44 @@ def _asset_selector(targets) -> str:
         dom = t["domain"]; opts.append(f'<option value="{e(dom)}||*">{e(dom)} (all)</option>')
         for host in t["subdomains"]: opts.append(f'<option value="{e(dom)}||{e(host)}">&nbsp;&nbsp;{e(host)}</option>')
     return f'<select id="assetsel" class="logsel">{"".join(opts)}</select>'
-def render_assets_panel(assets, targets) -> str:
+def render_assets_panel(assets, targets, page: int = 0, page_size: int = ASSET_VIRTUAL_PAGE_SIZE) -> str:
     headers = ["target", "host", "type", "name", "st", "ctype", "size", "url", "fetched", ""]
+    total = len(assets)
+    start = page * page_size
+    end = start + page_size
+    page_assets = assets[start:end]
+    
     rows = []
-    for a in assets[:MAX_ROWS]:
+    for a in page_assets:
         acts = f'<a class="olink" data-asset="{e(a["path"])}">view</a>'
         rows.append([e(a["target"]), e(a["hostname"]), e(a["type"]), e(a["name"]), _http_badge(a["status"]), e(a["content_type"]), fmt_size(a["size"]), e(a["url"]), fmt_ts(_ts(a["fetched"])), acts])
-    return panel("assets", "Assets", len(assets), table("tbl-assets", headers, rows), head_buttons=_asset_selector(targets))
-def render_requests_panel(summary, completed) -> str:
+    
+    table_html = table("tbl-assets", headers, rows)
+    # Add virtualization wrapper
+    table_html = (f'<div class="virtual-table" data-total="{total}" data-page="{page}" data-page-size="{page_size}">'
+                  f'{table_html}'
+                  f'<div class="virtual-pager" id="asset-pager"></div>'
+                  f'</div>')
+    return panel("assets", "Assets", total, table_html, head_buttons=_asset_selector(targets))
+def render_requests_panel(summary, completed, page: int = 0, page_size: int = ASSET_VIRTUAL_PAGE_SIZE) -> str:
     headers = ["id", "domain", "url", "status", "finished", ""]
+    total = len(completed)
+    start = page * page_size
+    end = start + page_size
+    page_completed = completed[start:end]
+    
     rows = []
-    for r in completed[:MAX_ROWS]:
+    for r in page_completed:
         err = f' <span class="bad" title="{e(r["error"])}">!</span>' if r["error"] else ""
         rows.append([e(r["id"]), e(r["domain"]), e(r["url"]), _http_badge(r["status"]) + err, fmt_ts(r["mtime"]), ""])
     head = f'<span class="hi"><b>{summary["pending"]}</b> pend · <b>{summary["ready"]}</b> ready · <b>{summary["completed"]}</b> done</span>'
-    return panel("requests", "Requests", summary["completed"], table("tbl-requests", headers, rows), head_buttons=head)
+    
+    table_html = table("tbl-requests", headers, rows)
+    table_html = (f'<div class="virtual-table" data-total="{total}" data-page="{page}" data-page-size="{page_size}">'
+                  f'{table_html}'
+                  f'<div class="virtual-pager" id="request-pager"></div>'
+                  f'</div>')
+    return panel("requests", "Requests", total, table_html, head_buttons=head)
 def render_activity_panel(feed) -> str:
     headers = ["time", "task", "event"]
     rows = []
@@ -277,10 +300,24 @@ def _header_stats(targets, subs, assets, reqs, eng) -> str:
             f'<span class="hi"><b>{len(assets)}</b> assets</span>'
             f'<span class="hi"><b>{reqs["pending"]}</b> pending</span>'
             f'<span class="hi mode {"eon" if alive else "eoff"}">engine {"up" if alive else "down"}</span>')
-def render_page(paths: Paths, interactive=True) -> str:
-    targets = load_targets(); subs = load_subdomains(targets); assets = load_assets(); summary = load_request_summary(); completed = load_recent_completed(); feed = load_activity_feed(); rate = load_rate_state(); eng = engine_status();
-    panels = (render_targets_panel(targets) + render_subdomains_panel(subs) + render_assets_panel(assets, targets) + render_requests_panel(summary, completed) + render_activity_panel(feed) + render_rate_panel(rate, {}))
-    stats = _header_stats(targets, subs, assets, summary, eng); alive = bool(eng.get("active") or eng.get("running"))
+def render_page(paths: Paths, interactive=True, selected_target: str = None) -> str:
+    targets = load_targets()
+    subs = load_subdomains(targets, filter_target=selected_target)
+    assets = load_assets()
+    summary = load_request_summary()
+    completed = load_recent_completed()
+    feed = load_activity_feed()
+    rate = load_rate_state()
+    eng = engine_status()
+    
+    panels = (render_targets_panel(targets, selected_target) 
+              + render_subdomains_panel(subs, selected_target) 
+              + render_assets_panel(assets, targets) 
+              + render_requests_panel(summary, completed) 
+              + render_activity_panel(feed) 
+              + render_rate_panel(rate, {}))
+    stats = _header_stats(targets, subs, assets, summary, eng)
+    alive = bool(eng.get("active") or eng.get("running"))
     html = PAGE.replace("__PANELS__", panels).replace("__STATS__", stats).replace("__REFRESH__", str(REFRESH_SECONDS)).replace("__GENEPOCH__", str(int(time.time()))).replace("__STALE__", str(STALE_AFTER)).replace("__ENGINEALIVE__", "true" if alive else "false").replace("__STATUSES__", json.dumps(list(TARGET_STATUSES))).replace("__ASSETSVER__", json.dumps(assets_version(assets))).replace("__REQVER__", json.dumps(requests_version(summary)))
     return html
 def make_handler(paths: Paths):
