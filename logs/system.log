@@ -19500,3 +19500,62 @@ subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate
 2026-06-11 12:37:24 INFO    agentc.engine:   [ok] render (python) 1.675s
 2026-06-11 12:37:27 INFO    agentc.engine: === run 64ac54e172f4 : task dashboard (trigger=schedule) ===
 2026-06-11 12:37:29 INFO    agentc.engine:   [ok] render (python) 1.592s
+2026-06-11 12:37:32 INFO    agentc.engine: === run 0d356fb284f4 : task dashboard (trigger=schedule) ===
+2026-06-11 12:37:34 INFO    agentc.engine:   [ok] render (python) 1.487s
+2026-06-11 12:37:37 INFO    agentc.engine: === run defb250eaf6c : task dashboard (trigger=schedule) ===
+2026-06-11 12:37:39 INFO    agentc.engine:   [ok] render (python) 1.492s
+2026-06-11 12:37:42 INFO    agentc.engine: === run 194a35bcc4c8 : task dashboard (trigger=schedule) ===
+2026-06-11 12:37:44 INFO    agentc.engine:   [ok] render (python) 1.692s
+2026-06-11 12:37:47 INFO    agentc.engine: === run 283b00762062 : task dashboard (trigger=schedule) ===
+2026-06-11 12:37:49 INFO    agentc.engine:   [ok] render (python) 1.801s
+2026-06-11 12:37:50 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 12:37:50 INFO    agentc.engine: === run 08187497ca49 : task bugbounty-spider-init (trigger=file) ===
+2026-06-11 12:37:50 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 12:37:50 INFO    agentc.progress: task 'bugbounty-spider-init' started [run 08187497ca49, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/queue/crawler-test.com)
+2026-06-11 12:37:50 INFO    agentc.engine: === run dacdfc170b46 : task monitor-files (trigger=file) ===
+2026-06-11 12:37:50 INFO    agentc.engine:   [ok] noop (shell) 0.014s
+2026-06-11 12:37:50 INFO    agentc.engine:   [ok] create-domain-state (python) 0.064s
+2026-06-11 12:37:50 INFO    agentc.progress:   action 'create-domain-state' (python) ok in 0.06s
+2026-06-11 12:37:50 INFO    agentc.engine:   [FAIL] run-subfinder (python) 0.052s
+2026-06-11 12:37:50 WARNING agentc.progress:   action 'run-subfinder' (python) FAILED: exit 1
+2026-06-11 12:37:50 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.12s: exit 1
+2026-06-11 12:37:50 INFO    agentc.engine: emit file.modified (watcher)
+2026-06-11 12:37:50 INFO    agentc.engine: === run 147fe96d56f9 : task monitor-files (trigger=file) ===
+2026-06-11 12:37:50 INFO    agentc.engine:   [ok] noop (shell) 0.008s
+2026-06-11 12:37:52 INFO    agentc.engine: === run d4f22b12fb75 : task dashboard (trigger=schedule) ===
+2026-06-11 12:37:54 INFO    agentc.engine:   [ok] render (python) 1.604s
+2026-06-11 12:37:57 INFO    agentc.engine: === run 50c379617dd3 : task dashboard (trigger=schedule) ===
+2026-06-11 12:37:59 INFO    agentc.engine:   [ok] render (python) 1.467s
+2026-06-11 12:38:02 INFO    agentc.engine: === run 2e19903c5e98 : task dashboard (trigger=schedule) ===
+2026-06-11 12:38:04 INFO    agentc.engine:   [ok] render (python) 1.639s
+2026-06-11 12:38:07 INFO    agentc.engine: === run 8146f19c61d2 : task dashboard (trigger=schedule) ===
+2026-06-11 12:38:09 INFO    agentc.engine:   [ok] render (python) 1.653s
+2026-06-11 12:38:12 INFO    agentc.engine: === run f3b8fa0f75ce : task dashboard (trigger=schedule) ===
+2026-06-11 12:38:14 INFO    agentc.engine:   [ok] render (python) 1.704s
+2026-06-11 12:38:17 INFO    agentc.engine: === run e7ccefaa35e5 : task dashboard (trigger=schedule) ===
+2026-06-11 12:38:19 INFO    agentc.engine:   [ok] render (python) 1.558s
+2026-06-11 12:38:22 INFO    agentc.engine: === run f5ef1b4b9f97 : task dashboard (trigger=schedule) ===
+2026-06-11 12:38:24 INFO    agentc.engine:   [ok] render (python) 1.791s
+2026-06-11 12:38:27 INFO    agentc.engine: === run a3695c86b1a1 : task dashboard (trigger=schedule) ===
+2026-06-11 12:38:29 INFO    agentc.engine:   [ok] render (python) 1.565s
+2026-06-11 12:38:32 INFO    agentc.engine: === run 2bea3d150c15 : task dashboard (trigger=schedule) ===
+2026-06-11 12:38:34 INFO    agentc.engine:   [ok] render (python) 1.540s
+2026-06-11 12:38:37 INFO    agentc.engine: === run 6dfe5bb397ab : task dashboard (trigger=schedule) ===
+2026-06-11 12:38:39 INFO    agentc.engine:   [ok] render (python) 1.515s
+2026-06-11 12:38:42 INFO    agentc.engine: === run 432fdaaa6ece : task dashboard (trigger=schedule) ===
+2026-06-11 12:38:44 INFO    agentc.engine:   [ok] render (python) 2.002s
+2026-06-11 12:38:47 INFO    agentc.engine: === run 640c542e32a8 : task dashboard (trigger=schedule) ===
+2026-06-11 12:38:49 INFO    agentc.engine:   [ok] render (python) 1.468s
+2026-06-11 12:38:52 INFO    agentc.engine: === run a2f55f5b9760 : task dashboard (trigger=schedule) ===
+2026-06-11 12:38:54 INFO    agentc.engine:   [ok] render (python) 1.422s
+2026-06-11 12:38:57 INFO    agentc.engine: === run f7ccc2ee6242 : task dashboard (trigger=schedule) ===
+2026-06-11 12:38:59 INFO    agentc.engine:   [ok] render (python) 1.651s
+2026-06-11 12:39:02 INFO    agentc.engine: === run 5ab8a2b55580 : task dashboard (trigger=schedule) ===
+2026-06-11 12:39:04 INFO    agentc.engine:   [ok] render (python) 1.973s
+2026-06-11 12:39:07 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 12:39:07 INFO    agentc.engine: === run b77a23399bce : task monitor-files (trigger=file) ===
+2026-06-11 12:39:07 INFO    agentc.engine:   [ok] noop (shell) 0.003s
+2026-06-11 12:39:07 INFO    agentc.engine: === run f7d20cab92cb : task dashboard (trigger=schedule) ===
+2026-06-11 12:39:09 INFO    agentc.engine:   [ok] render (python) 1.514s
+2026-06-11 12:39:12 INFO    agentc.engine: === run e8cc32398859 : task dashboard (trigger=schedule) ===
+2026-06-11 12:39:14 INFO    agentc.engine:   [ok] render (python) 1.483s

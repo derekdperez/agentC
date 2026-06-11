@@ -9492,3 +9492,5 @@ subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate
 2026-06-11 12:30:03 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.19s: exit 1
 2026-06-11 12:37:16 WARNING agentc.progress:   action 'render' (python) FAILED: exit -15
 2026-06-11 12:37:16 WARNING agentc.progress: task 'dashboard' FAILED after 1.33s: exit -15
+2026-06-11 12:37:50 WARNING agentc.progress:   action 'run-subfinder' (python) FAILED: exit 1
+2026-06-11 12:37:50 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.12s: exit 1

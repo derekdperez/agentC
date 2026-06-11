@@ -13050,3 +13050,7 @@
 2026-06-11 12:30:03 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.19s: exit 1
 2026-06-11 12:37:16 WARNING agentc.progress:   action 'render' (python) FAILED: exit -15
 2026-06-11 12:37:16 WARNING agentc.progress: task 'dashboard' FAILED after 1.33s: exit -15
+2026-06-11 12:37:50 INFO    agentc.progress: task 'bugbounty-spider-init' started [run 08187497ca49, trigger file] (file.created: /home/cisco/repo/agentC/bugbounty/targets/queue/crawler-test.com)
+2026-06-11 12:37:50 INFO    agentc.progress:   action 'create-domain-state' (python) ok in 0.06s
+2026-06-11 12:37:50 WARNING agentc.progress:   action 'run-subfinder' (python) FAILED: exit 1
+2026-06-11 12:37:50 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.12s: exit 1
