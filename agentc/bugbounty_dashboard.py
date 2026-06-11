@@ -182,6 +182,21 @@ def load_subdomains(targets: list) -> list:
     return rows
 
 
+def _find_original_meta(target: str, hostname: str, filename: str) -> dict:
+    """For CRITICAL assets, look up the original HTTP metadata by filename."""
+    base = os.path.join(targets_dir(), target, hostname, "assets")
+    stem = filename[:-5] if filename.endswith(".body") else filename
+    for atype in ASSET_TYPES:
+        if atype == "critical":
+            continue
+        p = os.path.join(base, atype, stem + ".json")
+        if os.path.exists(p):
+            d = _load_json(p)
+            if isinstance(d, dict) and d.get("url"):
+                return d
+    return {}
+
+
 def load_assets() -> list:
     rows = []
     for body in glob.glob(os.path.join(targets_dir(), "*", "*", "assets", "*", "*.body")):
@@ -194,7 +209,14 @@ def load_assets() -> list:
             continue
         atype = os.path.basename(os.path.dirname(body))
         name = os.path.basename(body)[:-5]  # strip .body
-        meta = _load_json(body[:-5] + ".json") or {}
+        # CRITICAL assets use {name}.body.json as the sidecar; normal assets use {name}.json
+        if name.startswith("CRITICAL_"):
+            meta = _load_json(body + ".json") or {}
+            orig = _find_original_meta(target, hostname, meta.get("filename", ""))
+            if orig:
+                meta = orig
+        else:
+            meta = _load_json(body[:-5] + ".json") or {}
         try:
             size = os.path.getsize(body)
             mtime = os.path.getmtime(body)
@@ -204,6 +226,8 @@ def load_assets() -> list:
             "target": target, "hostname": hostname, "type": atype, "name": name,
             "url": meta.get("url", ""), "status": meta.get("status_code", ""),
             "content_type": (meta.get("content_type", "") or "").split(";")[0],
+            "response_size": meta.get("content_length", ""),
+            "asset_id": meta.get("id", ""),
             "size": size, "fetched": meta.get("requested_at", "") or mtime,
             "mtime": mtime, "path": body,
         })
@@ -229,16 +253,29 @@ def assets_version(assets: list) -> str:
 def asset_rows_json(assets: list) -> list:
     """Compact per-asset row arrays for the virtualized client table.
 
-    Column order must match render_assets_panel() headers:
-    [target, host, type, name, status, ctype, size, url, fetched_epoch, relpath]
+    Column order must match render_assets_panel() / AssetsVT:
+    [target, fetched_epoch, type, name, status, ctype, size, resp_size,
+     duration, url, relpath, asset_id, hostname]
+    Indices 10-12 are not displayed but are used for asset viewer, raw-request
+    modal, and scope filtering respectively.
     """
     rows = []
     for a in assets:
         rel = os.path.relpath(a["path"], _root())
         rows.append([
-            a["target"], a["hostname"], a["type"], a["name"],
-            a["status"], a["content_type"], a["size"], a["url"],
-            _epoch(a["fetched"]) or a["mtime"], rel,
+            a["target"],
+            _epoch(a["fetched"]) or a["mtime"],
+            a["type"],
+            a["name"],
+            a["status"],
+            a["content_type"],
+            a["size"],
+            a["response_size"],
+            "",                          # duration — not stored yet
+            a["url"],
+            rel,                         # [10] relpath for asset viewer
+            a["asset_id"],               # [11] id for raw-request modal
+            a["hostname"],               # [12] hostname for scope filter
         ])
     return rows
 
@@ -306,6 +343,38 @@ def load_recent_completed(limit=MAX_ROWS) -> list:
             "when": os.path.getmtime(p) if os.path.exists(p) else 0,
         })
     return rows
+
+
+def load_asset_raw(asset_id: str) -> dict:
+    """Return the full request+response record for an asset, keyed by id.
+
+    The completed request JSON at requests/completed/{status}/{id}.json stores
+    the original request headers/body and the response headers/status; the
+    response body lives in the .body file referenced by body_file."""
+    if not asset_id or not re.match(r"^[a-f0-9]{1,64}$", asset_id):
+        return {"error": "invalid id"}
+    comp = os.path.join(requests_dir(), "completed")
+    try:
+        for st in sorted(os.listdir(comp)):
+            p = os.path.join(comp, st, asset_id + ".json")
+            if os.path.exists(p):
+                d = _load_json(p) or {}
+                resp = d.get("response") or d
+                body_file = resp.get("body_file")
+                body_text = None
+                if body_file:
+                    full = os.path.join(_root(), body_file)
+                    try:
+                        with open(full, "rb") as fh:
+                            raw = fh.read(65536)
+                        body_text = raw.decode("utf-8", errors="replace")
+                    except OSError:
+                        pass
+                d["_body_text"] = body_text
+                return d
+    except OSError:
+        pass
+    return {"error": "not found"}
 
 
 def load_rate_state() -> dict:
@@ -674,8 +743,8 @@ def render_assets_panel(assets, targets) -> str:
     # The body is rendered client-side as a *virtualized* table fed by
     # /api/assets (no row cap — only the visible window is in the DOM). The
     # server emits just an empty shell + headers so the look/feel matches.
-    headers = ["target", "host", "type", "name", "status", "ctype", "size",
-               "url", "fetched"]
+    headers = ["target", "fetched", "type", "name", "code", "ctype",
+               "size", "resp size", "duration", "url", "raw"]
     head = (_asset_selector(targets)
             + '<input id="assetq" class="filter" placeholder="search…" '
               'spellcheck="false" autocomplete="off">')
@@ -899,6 +968,10 @@ def make_handler(paths: Paths):
                 assets = load_assets()
                 self._json(200, {"version": assets_version(assets),
                                  "rows": asset_rows_json(assets)})
+                return
+            if parts[:2] == ["api", "asset-raw"]:
+                aid = parse_qs(urlparse(self.path).query).get("id", [""])[0]
+                self._json(200, load_asset_raw(unquote(aid)))
                 return
             if parts[:2] == ["api", "requests"]:
                 summary = load_request_summary()
@@ -1134,6 +1207,22 @@ PAGE = r"""<!DOCTYPE html>
   </div>
 </div>
 
+<!-- raw request / response viewer -->
+<div class="overlay" id="rawoverlay">
+  <div class="modal wide">
+    <h3 id="rawdtitle">Request / Response</h3>
+    <div class="mbody" style="padding:0;overflow-y:auto;max-height:75vh">
+      <div class="rd-sec">Request</div>
+      <pre class="rd-out" id="rawreq" style="max-height:28vh;overflow-y:auto">loading…</pre>
+      <div class="rd-sec">Response headers</div>
+      <pre class="rd-out" id="rawresp" style="max-height:20vh;overflow-y:auto"></pre>
+      <div class="rd-sec">Response body <span id="rawbodylabel" style="font-weight:normal;color:#6e7681"></span></div>
+      <pre class="rd-out" id="rawbody" style="max-height:30vh;overflow-y:auto"></pre>
+    </div>
+    <div class="mfoot"><button class="btn-cancel" id="rawclose">Close</button></div>
+  </div>
+</div>
+
 <!-- asset viewer -->
 <div class="overlay" id="aoverlay">
   <div class="modal wide">
@@ -1321,22 +1410,25 @@ function loadVT(vt, url, version, cacheKey){
   }).catch(function(){ if(cached) vt.setRows(cached.rows||[]); });
 }
 
-/* asset row: [target,host,type,name,status,ctype,size,url,fetched,relpath] */
+/* asset row: [target,fetched,type,name,status,ctype,size,resp_size,duration,url,relpath,asset_id,hostname]
+   Indices 10-12 are not display columns but are used for viewer, raw modal, and scope filter. */
 var AssetsVT=VTable({ tableId:'tbl-assets', scrollId:'scroll-assets',
   cols:[
-    {h:'target', get:function(r){return r[0];}},
-    {h:'host',   get:function(r){return r[1];}},
-    {h:'type',   get:function(r){return r[2];}},
-    {h:'name',   get:function(r){return r[3];}, render:function(r){return esc(String(r[3]).slice(0,48));}},
-    {h:'status', num:true, get:function(r){return r[4];}, render:function(r){return (r[4]===''||r[4]==null)?'—':httpBadge(r[4]);}},
-    {h:'ctype',  get:function(r){return r[5];}, render:function(r){return esc(r[5]||'—');}},
-    {h:'size',   num:true, get:function(r){return r[6];}, render:function(r){return fmtSize(r[6]);}},
-    {h:'url',    get:function(r){return r[7]||r[3];}, render:function(r){return '<a class="olink" data-asset="'+esc(r[9])+'" title="'+esc(r[7]||'')+'">'+esc(r[7]||r[3])+'</a>';}},
-    {h:'fetched',num:true, get:function(r){return r[8];}, render:function(r){return fmtTs(r[8]);}}
+    {h:'target',   get:function(r){return r[0];}},
+    {h:'fetched',  num:true, get:function(r){return r[1];}, render:function(r){return fmtTs(r[1]);}},
+    {h:'type',     get:function(r){return r[2];}},
+    {h:'name',     get:function(r){return r[3];}, render:function(r){return esc(String(r[3]).slice(0,48));}},
+    {h:'code',     num:true, get:function(r){return r[4];}, render:function(r){return (r[4]===''||r[4]==null)?'—':httpBadge(r[4]);}},
+    {h:'ctype',    get:function(r){return r[5];}, render:function(r){return esc(r[5]||'—');}},
+    {h:'size',     num:true, get:function(r){return r[6];}, render:function(r){return fmtSize(r[6]);}},
+    {h:'resp size',num:true, get:function(r){return r[7];}, render:function(r){return r[7]!==''&&r[7]!=null?fmtSize(r[7]):'—';}},
+    {h:'duration', get:function(r){return r[8];}, render:function(r){return r[8]||'—';}},
+    {h:'url',      get:function(r){return r[9];}, render:function(r){return '<a class="olink" data-asset="'+esc(r[10])+'" title="'+esc(r[9]||'')+'">'+esc(r[9]||'—')+'</a>';}},
+    {h:'raw',      get:function(r){return r[11];}, render:function(r){return r[11]?'<button class="mini" data-rawid="'+esc(r[11])+'">raw</button>':'—';}}
   ],
-  key:function(r){return r[9];},
-  search:function(r){return [r[0],r[1],r[2],r[3],r[5],r[7]].join(' ');},
-  sort:{i:8,dir:'desc'},
+  key:function(r){return r[10];},
+  search:function(r){return [r[0],r[2],r[3],r[5],r[9],r[12]].join(' ');},
+  sort:{i:1,dir:'desc'},
   onCount:function(n){ var c=document.getElementById('count-assets'); if(c) c.textContent=n; }
 });
 
@@ -1364,7 +1456,7 @@ function findRow(tbl, attrs){ if(!tbl||!tbl.tBodies[0]) return null; var rs=tbl.
 
 function assetScopeFn(target, host){
   if(!target || target==='all') return null;
-  return function(r){ return r[0]===target && (host==='*'||!host||r[1]===host); };
+  return function(r){ return r[0]===target && (host==='*'||!host||r[12]===host); };
 }
 function setAssetScope(target, host){
   var sel=document.getElementById('assetsel');
@@ -1643,6 +1735,8 @@ document.addEventListener('click', function(ev){
     }
     return;
   }
+  var rb=ev.target.closest('button[data-rawid]');
+  if(rb){ openAssetRaw(rb.getAttribute('data-rawid')); return; }
   var al=ev.target.closest('a.olink[data-asset]');
   if(al){ ev.preventDefault(); openAsset(al.getAttribute('data-asset')); return; }
   var tr=ev.target.closest('tbody tr');
@@ -1697,6 +1791,46 @@ function renderRunDetail(d){
 function closeRunDetail(){ roverlay.style.display='none'; modalOpen=false; schedule(); }
 document.getElementById('rdclose').addEventListener('click', closeRunDetail);
 roverlay.addEventListener('mousedown', function(ev){ if(ev.target===roverlay) closeRunDetail(); });
+
+/* ---- raw request / response viewer ---- */
+var rawoverlay=document.getElementById('rawoverlay');
+function statusText(code){ var t={200:'OK',201:'Created',204:'No Content',
+  301:'Moved Permanently',302:'Found',304:'Not Modified',400:'Bad Request',
+  401:'Unauthorized',403:'Forbidden',404:'Not Found',405:'Method Not Allowed',
+  429:'Too Many Requests',500:'Internal Server Error',502:'Bad Gateway',
+  503:'Service Unavailable'}; return t[code]||''; }
+function openAssetRaw(id){
+  if(!id) return; modalOpen=true; schedule();
+  document.getElementById('rawdtitle').textContent='Request / Response — '+id;
+  document.getElementById('rawreq').textContent='loading…';
+  document.getElementById('rawresp').textContent='';
+  document.getElementById('rawbody').textContent='';
+  document.getElementById('rawbodylabel').textContent='';
+  rawoverlay.style.display='flex';
+  fetch('/api/asset-raw?id='+encodeURIComponent(id))
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if(d.error){ document.getElementById('rawreq').textContent='Not available: '+d.error; return; }
+      var req=d.request||{}, resp=d.response||d;
+      // Format raw request
+      var rl=[(req.method||'GET')+' '+(req.url||'')+' HTTP/1.1'];
+      var rh=req.headers||{}; Object.keys(rh).forEach(function(k){ rl.push(k+': '+rh[k]); });
+      if(req.body) rl.push('',req.body);
+      document.getElementById('rawreq').textContent=rl.join('\n');
+      // Format response status + headers
+      var sl=['HTTP/1.1 '+(resp.status_code||'')+' '+statusText(resp.status_code||0)];
+      var sh=resp.headers||{}; Object.keys(sh).forEach(function(k){ sl.push(k+': '+sh[k]); });
+      document.getElementById('rawresp').textContent=sl.join('\n');
+      // Response body
+      var bt=d._body_text||resp.body_preview||null;
+      document.getElementById('rawbody').textContent=bt||'(no body stored)';
+      if(bt) document.getElementById('rawbodylabel').textContent='('+bt.length+' chars shown)';
+    })
+    .catch(function(e){ document.getElementById('rawreq').textContent='failed: '+e; });
+}
+function closeAssetRaw(){ rawoverlay.style.display='none'; modalOpen=false; schedule(); }
+document.getElementById('rawclose').addEventListener('click', closeAssetRaw);
+rawoverlay.addEventListener('mousedown', function(ev){ if(ev.target===rawoverlay) closeAssetRaw(); });
 
 /* ---- asset viewer ---- */
 var aoverlay=document.getElementById('aoverlay'), adbody=document.getElementById('adbody'),
@@ -1803,6 +1937,7 @@ document.getElementById('reload').addEventListener('click', function(){ location
 
 document.addEventListener('keydown', function(ev){ if(ev.key==='Escape'){
   if(confirmOpen) closeConfirm();
+  else if(rawoverlay && rawoverlay.style.display==='flex') closeAssetRaw();
   else if(aoverlay.style.display==='flex') closeAsset();
   else if(roverlay.style.display==='flex') closeRunDetail();
   else if(poverlay.style.display==='flex') closePanelsDlg();

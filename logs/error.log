@@ -7155,3 +7155,2333 @@ ValueError: embedded null byte
 2026-06-12 00:09:30 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 30.26s: exit 1
 2026-06-12 00:09:30 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
 2026-06-12 00:09:30 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 30.33s: exit 1
+2026-06-11 11:42:36 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.15s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.15s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:36 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.10s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.15s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.10s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:37 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:38 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.18s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.10s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.26s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.25s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:39 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.10s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.10s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.15s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.08s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:40 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.15s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:41 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:42 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:42 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:42 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:42 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:42 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:42 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:42 ERROR   agentc.action: action 'rate-limit-and-queue' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:42 WARNING agentc.progress:   action 'rate-limit-and-queue' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:42:42 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
+2026-06-11 11:46:46 WARNING agentc.progress:   action 'run-subfinder' (python) FAILED: exit 1
+2026-06-11 11:46:46 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.16s: exit 1
