@@ -557,24 +557,42 @@ def _humanize(line: str) -> str:
     return line
 
 
+def _run_hint(r: dict) -> str:
+    """Short context string extracted from a run's variables (domain, URL, etc.)."""
+    v = r.get("variables") or {}
+    domain = v.get("domain") or ""
+    url = v.get("url") or ""
+    trigger = v.get("event_filename") or ""
+    if url:
+        return f" {url}"
+    if domain:
+        return f" [{domain}]"
+    if trigger and not trigger.endswith(".json"):
+        return f" [{trigger}]"
+    return ""
+
+
 def load_feed(paths: Paths, limit=400) -> list:
     """A unified, time-ordered activity stream built from every task's run
-    records: each meaningful stdout line (and any failure) becomes one entry."""
+    records.  Every run produces at least one entry so every task is visible."""
     entries = []
     for r in load_recent_runs(paths, n=500):
         task = r.get("task", "")
         if task in _FEED_SKIP:
             continue
         t = r.get("finished") or r.get("started") or 0
+        status = r.get("status", "")
         results = r.get("results") or []
+
         if not results:
-            status = r.get("status", "")
             if status in ("running", "failed", "interrupted", "skipped"):
                 verb = {"running": "running", "failed": "failed",
                         "interrupted": "interrupted", "skipped": "skipped"}[status]
                 entries.append({"time": t, "task": task, "status": status,
                                 "text": f"task {verb}" + (f": {r['error']}" if r.get("error") else "")})
             continue
+
+        run_has_entry = False
         for a in results:
             ok = a.get("success")
             for raw in (a.get("stdout") or "").splitlines():
@@ -586,6 +604,7 @@ def load_feed(paths: Paths, limit=400) -> list:
                 entries.append({"time": t, "task": task,
                                 "status": "ok" if ok else "fail",
                                 "text": _humanize(line)})
+                run_has_entry = True
             if not ok:
                 err = _clean((a.get("stderr") or a.get("error") or ""))
                 lines = [l for l in err.splitlines() if _clean(l)
@@ -593,6 +612,26 @@ def load_feed(paths: Paths, limit=400) -> list:
                 if lines:
                     entries.append({"time": t, "task": task, "status": "fail",
                                     "text": lines[-1][:240]})
+                    run_has_entry = True
+
+        # Fallback: every run gets at least one entry so nothing is invisible.
+        if not run_has_entry:
+            hint = _run_hint(r)
+            if status == "ok":
+                dur = ""
+                s, f = r.get("started"), r.get("finished")
+                if s and f:
+                    dur = f" ({f - s:.1f}s)"
+                entries.append({"time": t, "task": task, "status": "ok",
+                                "text": f"completed{hint}{dur}"})
+            elif status in ("failed", "interrupted"):
+                entries.append({"time": t, "task": task, "status": status,
+                                "text": f"{status}{hint}" + (
+                                    f": {r['error']}" if r.get("error") else "")})
+            elif status == "running":
+                entries.append({"time": t, "task": task, "status": "running",
+                                "text": f"running{hint}"})
+
     entries.sort(key=lambda x: x["time"], reverse=True)
     return entries[:limit]
 
