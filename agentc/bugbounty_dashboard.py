@@ -16,7 +16,8 @@ from .dashboard import (
 )
 REFRESH_SECONDS = 5
 STALE_AFTER = 12
-MAX_ROWS = 600
+MAX_ROWS = 0
+ASSET_VIRTUAL_PAGE_SIZE = 100
 ASSET_TYPES = ("html", "scripts", "stylesheets", "images", "archives", "bin", "critical")
 TARGET_STATUSES = ("active", "paused", "archived")
 def _root() -> str: return os.environ.get("AGENTC_ROOT") or os.getcwd()
@@ -198,7 +199,7 @@ def _status_badge(status) -> str: return badge(status or "?", {"active": "ok", "
 def _http_badge(code) -> str:
     s = str(code); cls = "ok" if s.startswith("2") else "run" if s.startswith("3") else "bad" if (s.startswith("4") or s.startswith("5")) else "mut"
     return badge(s or "?", cls)
-def render_targets_panel(targets) -> str:
+def render_targets_panel(targets, selected_target: str = None) -> str:
     headers = ["domain", "status", "program", "tags", "subs", "assets", "requested", "discovered", "created", ""]
     rows, meta = [], []
     for t in targets:
@@ -207,8 +208,10 @@ def render_targets_panel(targets) -> str:
                 f'<button class="mini" data-act="probe" data-domain="{e(t["domain"])}">re-probe</button>'
                 f'<button class="mini bad" data-act="del" data-domain="{e(t["domain"])}">del</button>'
                 f'</span>')
+        is_selected = t["domain"] == selected_target
+        row_class = "selectable" + (" selected" if is_selected else "")
         rows.append([e(t["domain"]), _status_badge(t["status"]), e(t["program"] or "—"), _tag_chips(t["tags"]), t["n_sub"], t["n_assets"], t["requested"], t["discovered"], fmt_ts(_ts(t["created_at"])), acts])
-        meta.append({"kind": "target", "domain": t["domain"], "_class": "selectable"})
+        meta.append({"kind": "target", "domain": t["domain"], "_class": row_class})
     buttons = '<button class="add" data-act="add-target">+ add target</button>'
     return panel("targets", "Targets", len(targets), table("tbl-targets", headers, rows, meta), head_buttons=buttons)
 def render_subdomains_panel(subs, selected_target: str = None) -> str:
