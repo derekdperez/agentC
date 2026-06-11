@@ -115,8 +115,11 @@ def _asset_counts(target_path: str) -> dict:
     counts = {t: 0 for t in ASSET_TYPES}
     total = 0
     for body in glob.glob(os.path.join(target_path, "*", "assets", "*", "*.body")):
-        total += 1
         atype = os.path.basename(os.path.dirname(body))
+        name = os.path.basename(body)[:-5]
+        if atype == "critical" and name.startswith("CRITICAL_"):
+            continue  # skip old content-matched duplicate copies
+        total += 1
         if atype in counts:
             counts[atype] += 1
     counts["total"] = total
@@ -169,8 +172,11 @@ def load_subdomains(targets: list) -> list:
             total = 0
             last = 0.0
             for body in glob.glob(os.path.join(hpath, "assets", "*", "*.body")):
-                total += 1
                 at = os.path.basename(os.path.dirname(body))
+                nm = os.path.basename(body)[:-5]
+                if at == "critical" and nm.startswith("CRITICAL_"):
+                    continue  # skip old content-matched duplicate copies
+                total += 1
                 if at in counts:
                     counts[at] += 1
                 try:
@@ -182,19 +188,32 @@ def load_subdomains(targets: list) -> list:
     return rows
 
 
-def _find_original_meta(target: str, hostname: str, filename: str) -> dict:
-    """For CRITICAL assets, look up the original HTTP metadata by filename."""
-    base = os.path.join(targets_dir(), target, hostname, "assets")
-    stem = filename[:-5] if filename.endswith(".body") else filename
-    for atype in ASSET_TYPES:
-        if atype == "critical":
-            continue
-        p = os.path.join(base, atype, stem + ".json")
-        if os.path.exists(p):
-            d = _load_json(p)
-            if isinstance(d, dict) and d.get("url"):
-                return d
-    return {}
+def _source_type_label(st: str) -> str:
+    return {
+        "dom": "DOM Spider", "script": "Script Spider", "seed": "Seed",
+        "subfinder": "Subfinder", "critical_probe": "Critical Probe",
+        "manual": "Manual", "critical": "Critical Probe",
+    }.get(st or "", st or "")
+
+
+def _build_source_type_map() -> dict:
+    """Build {asset_id: source_type} from completed/200 request records.
+
+    Fallback for assets whose sidecar pre-dates the source_type field."""
+    out = {}
+    d200 = os.path.join(requests_dir(), "completed", "200")
+    try:
+        for fname in os.listdir(d200):
+            if not fname.endswith(".json"):
+                continue
+            rec = _load_json(os.path.join(d200, fname)) or {}
+            req = rec.get("request") or {}
+            aid = req.get("id") or fname[:-5]
+            if aid:
+                out[aid] = req.get("source_type", "")
+    except OSError:
+        pass
+    return out
 
 
 def load_assets() -> list:
@@ -209,14 +228,10 @@ def load_assets() -> list:
             continue
         atype = os.path.basename(os.path.dirname(body))
         name = os.path.basename(body)[:-5]  # strip .body
-        # CRITICAL assets use {name}.body.json as the sidecar; normal assets use {name}.json
-        if name.startswith("CRITICAL_"):
-            meta = _load_json(body + ".json") or {}
-            orig = _find_original_meta(target, hostname, meta.get("filename", ""))
-            if orig:
-                meta = orig
-        else:
-            meta = _load_json(body[:-5] + ".json") or {}
+        # Skip old content-matched CRITICAL_ copies (they duplicate assets/html/ entries)
+        if atype == "critical" and name.startswith("CRITICAL_"):
+            continue
+        meta = _load_json(body[:-5] + ".json") or {}
         try:
             size = os.path.getsize(body)
             mtime = os.path.getmtime(body)
@@ -224,9 +239,10 @@ def load_assets() -> list:
             size, mtime = 0, 0
         rows.append({
             "target": target, "hostname": hostname, "type": atype, "name": name,
+            "source_type": meta.get("source_type", ""),
             "url": meta.get("url", ""), "status": meta.get("status_code", ""),
             "content_type": (meta.get("content_type", "") or "").split(";")[0],
-            "response_size": meta.get("content_length", ""),
+            "duration_s": meta.get("duration_s", ""),
             "asset_id": meta.get("id", ""),
             "size": size, "fetched": meta.get("requested_at", "") or mtime,
             "mtime": mtime, "path": body,
@@ -242,40 +258,43 @@ def _epoch(val) -> float:
 
 
 def assets_version(assets: list) -> str:
-    """A cheap change-token for the asset set: schema version + count + newest mtime.
+    """Change-token: schema version prefix + count + newest mtime.
 
-    The schema prefix (v2) invalidates any sessionStorage cache built by an
-    older column layout so the client always re-fetches after a schema change."""
+    Incrementing the schema prefix (v3) invalidates cached sessionStorage rows
+    after column layout changes so the client always re-fetches."""
     mx = max((a["mtime"] for a in assets), default=0)
-    return f"v2:{len(assets)}:{int(mx)}"
+    return f"v3:{len(assets)}:{int(mx)}"
 
 
 def asset_rows_json(assets: list) -> list:
     """Compact per-asset row arrays for the virtualized client table.
 
     Column order must match render_assets_panel() / AssetsVT:
-    [target, fetched_epoch, type, name, status, ctype, size, resp_size,
-     duration, url, relpath, asset_id, hostname]
-    Indices 10-12 are not displayed but are used for asset viewer, raw-request
-    modal, and scope filtering respectively.
+    [target, fetched_epoch, type, found_by, status, ctype, size, duration,
+     url, relpath, asset_id, hostname]
+    Indices 9-11 are not displayed but used for viewer, raw-request modal,
+    and scope filtering respectively.
     """
+    src_map = _build_source_type_map()
     rows = []
     for a in assets:
         rel = os.path.relpath(a["path"], _root())
+        st = a.get("source_type") or src_map.get(a.get("asset_id", ""), "")
+        found_by = _source_type_label(st)
+        dur = a.get("duration_s", "")
         rows.append([
             a["target"],
             _epoch(a["fetched"]) or a["mtime"],
             a["type"],
-            a["name"],
+            found_by,
             a["status"],
             a["content_type"],
             a["size"],
-            a["response_size"],
-            "",                          # duration — not stored yet
+            f"{dur}s" if dur else "",
             a["url"],
-            rel,                         # [10] relpath for asset viewer
-            a["asset_id"],               # [11] id for raw-request modal
-            a["hostname"],               # [12] hostname for scope filter
+            rel,                # [9]  relpath for asset viewer
+            a["asset_id"],      # [10] id for raw-request modal
+            a["hostname"],      # [11] hostname for scope filter
         ])
     return rows
 
@@ -529,6 +548,7 @@ def add_target(data: dict):
     # Create the root domain as a subdomain stub so it appears in the
     # Subdomains panel and can be spidered/scoped like any other host.
     os.makedirs(os.path.join(targets_dir(), domain, domain, "assets"), exist_ok=True)
+    init_rate_config_for_domain(domain)
     _drop_queue(domain)  # fires bugbounty-spider-init (state + initial + probes)
     return 200, {"ok": True, "domain": domain}
 
@@ -746,8 +766,8 @@ def render_assets_panel(assets, targets) -> str:
     # The body is rendered client-side as a *virtualized* table fed by
     # /api/assets (no row cap — only the visible window is in the DOM). The
     # server emits just an empty shell + headers so the look/feel matches.
-    headers = ["target", "fetched", "type", "name", "code", "ctype",
-               "size", "resp size", "duration", "url", "raw"]
+    headers = ["target", "fetched", "type", "found by", "code", "ctype",
+               "size", "duration", "url", "raw"]
     head = (_asset_selector(targets)
             + '<input id="assetq" class="filter" placeholder="search…" '
               'spellcheck="false" autocomplete="off">')
@@ -846,6 +866,142 @@ def render_rate_panel(rate, pend_by_dom) -> str:
                  table("tbl-rate", headers, rows))
 
 
+# --------------------------------------------------------------------------- #
+# Queue management
+# --------------------------------------------------------------------------- #
+def _paused_path() -> str:
+    return os.path.join(requests_dir(), "PAUSED")
+
+
+def is_paused() -> bool:
+    return os.path.exists(_paused_path())
+
+
+def set_pause(paused: bool) -> None:
+    p = _paused_path()
+    if paused:
+        open(p, "w").close()
+    else:
+        try:
+            os.remove(p)
+        except OSError:
+            pass
+
+
+def load_queue() -> list:
+    """Load pending + ready queue items sorted newest first."""
+    items = []
+    rd = requests_dir()
+    for qstatus in ("ready", "pending"):
+        qdir = os.path.join(rd, qstatus)
+        try:
+            for fname in os.listdir(qdir):
+                if not fname.endswith(".json"):
+                    continue
+                p = os.path.join(qdir, fname)
+                d = _load_json(p) or {}
+                if not d:
+                    continue
+                try:
+                    mtime = os.path.getmtime(p)
+                except OSError:
+                    mtime = 0
+                items.append({
+                    "id": d.get("id", fname[:-5]),
+                    "qstatus": qstatus,
+                    "domain": d.get("domain", ""),
+                    "url": d.get("url", ""),
+                    "source_type": d.get("source_type", ""),
+                    "created_at": d.get("created_at", ""),
+                    "mtime": mtime,
+                })
+        except OSError:
+            pass
+    items.sort(key=lambda x: x["mtime"], reverse=True)
+    return items
+
+
+def delete_queue_items(ids: list) -> int:
+    """Delete specific pending/ready queue items by request id."""
+    id_set = set(ids)
+    rd = requests_dir()
+    deleted = 0
+    for qstatus in ("pending", "ready"):
+        qdir = os.path.join(rd, qstatus)
+        try:
+            for fname in os.listdir(qdir):
+                if not fname.endswith(".json"):
+                    continue
+                p = os.path.join(qdir, fname)
+                d = _load_json(p) or {}
+                req_id = d.get("id", fname[:-5])
+                if req_id in id_set or fname[:-5] in id_set:
+                    try:
+                        os.remove(p)
+                        deleted += 1
+                    except OSError:
+                        pass
+        except OSError:
+            pass
+    return deleted
+
+
+def render_queue_panel(items: list, paused: bool) -> str:
+    headers = ["", "status", "domain", "url", "source", "created"]
+    rows, meta = [], []
+    for item in items:
+        src = _source_type_label(item.get("source_type", "")) or item.get("source_type", "") or "—"
+        qid = item["id"]
+        qstatus = item["qstatus"]
+        rows.append([
+            f'<input type="checkbox" class="q-chk" value="{e(qid)}">',
+            badge("ready", "ok") if qstatus == "ready" else badge("pending", "run"),
+            e(item.get("domain", "")),
+            f'<span title="{e(item.get("url",""))}">{e((item.get("url","") or "")[:80])}</span>',
+            src,
+            fmt_ts(_ts(item.get("created_at", ""))),
+        ])
+        meta.append({"qid": qid, "qstatus": qstatus})
+    pause_cls = "bad" if paused else ""
+    pause_lbl = "Resume queue" if paused else "Pause queue"
+    pending_ct = sum(1 for i in items if i.get("qstatus") == "pending")
+    ready_ct = sum(1 for i in items if i.get("qstatus") == "ready")
+    ct = (f'<span class="badge run" title="pending">{pending_ct}p</span> '
+          f'<span class="badge ok" title="ready">{ready_ct}r</span>')
+    head = (f'<button class="mini" id="q-all">All</button> '
+            f'<button class="mini {pause_cls}" id="q-pause">{pause_lbl}</button> '
+            f'<button class="mini bad" id="q-del" disabled>Delete Selected</button> '
+            + ct)
+    return panel("queue", "Queue", len(items),
+                 table("tbl-queue", headers, rows, meta),
+                 head_buttons=head, filter_for="tbl-queue")
+
+
+# --------------------------------------------------------------------------- #
+# Rate config helpers
+# --------------------------------------------------------------------------- #
+def _rate_config_path() -> str:
+    return os.path.join(requests_dir(), "rate_config.json")
+
+
+def load_rate_config() -> dict:
+    return _load_json(_rate_config_path()) or {}
+
+
+def save_rate_config(cfg: dict) -> None:
+    p = _rate_config_path()
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    with open(p, "w", encoding="utf-8") as fh:
+        json.dump(cfg, fh, indent=2)
+
+
+def init_rate_config_for_domain(domain: str, rps: int = 2) -> None:
+    cfg = load_rate_config()
+    if domain not in cfg:
+        cfg[domain] = rps
+        save_rate_config(cfg)
+
+
 def _ts(val):
     """Accept either epoch float or ISO string; return something fmt_ts handles."""
     if isinstance(val, (int, float)):
@@ -858,10 +1014,11 @@ def _ts(val):
     return ""
 
 
-def _header_stats(targets, subs, assets, summary, eng):
+def _header_stats(targets, subs, assets, summary, eng, paused=False):
     alive = eng.get("active") or eng.get("running")
     eng_txt = "engine up" if alive else "engine down"
     eng_cls = "ok" if alive else "bad"
+    pause_badge = '<span class="badge bad">QUEUE PAUSED</span>' if paused else ''
     return (
         f'<span class="hi"><b>{len(targets)}</b> targets</span>'
         f'<span class="hi"><b>{len(subs)}</b> subdomains</span>'
@@ -870,6 +1027,7 @@ def _header_stats(targets, subs, assets, summary, eng):
         f'<span class="hi">ready <b>{summary["ready"]}</b></span>'
         f'<span class="hi">done <b>{summary["completed_total"]}</b></span>'
         f'<span class="badge {eng_cls}">{eng_txt}</span>'
+        + pause_badge
     )
 
 
@@ -883,6 +1041,8 @@ def render_page(paths: Paths) -> str:
     runs = load_bb_runs(paths)
     feed = load_feed(paths)
     eng = engine_status()
+    paused = is_paused()
+    queue = load_queue()
 
     panels = (
         render_feed_panel(feed)
@@ -892,8 +1052,9 @@ def render_page(paths: Paths) -> str:
         + render_requests_panel(summary)
         + render_activity_panel(paths, eng, rate, pend_by_dom, runs)
         + render_rate_panel(rate, pend_by_dom)
+        + render_queue_panel(queue, paused)
     )
-    stats = _header_stats(targets, subs, assets, summary, eng)
+    stats = _header_stats(targets, subs, assets, summary, eng, paused)
     alive = bool(eng.get("active") or eng.get("running"))
 
     html = PAGE
@@ -906,6 +1067,7 @@ def render_page(paths: Paths) -> str:
     html = html.replace("__STATUSES__", json.dumps(list(TARGET_STATUSES)))
     html = html.replace("__ASSETSVER__", json.dumps(assets_version(assets)))
     html = html.replace("__REQVER__", json.dumps(requests_version(summary)))
+    html = html.replace("__ISPAUSED__", "true" if paused else "false")
     return html
 
 
@@ -982,6 +1144,9 @@ def make_handler(paths: Paths):
                 self._json(200, {"version": requests_version(summary),
                                  "rows": request_rows_json(completed)})
                 return
+            if parts[:2] == ["api", "queue"]:
+                self._json(200, {"items": load_queue(), "paused": is_paused()})
+                return
             self._json(404, {"errors": ["not found"]})
 
         def do_POST(self):
@@ -1033,6 +1198,12 @@ def make_handler(paths: Paths):
                 else:
                     self._json(400, {"ok": False, "errors": ["unknown action"]})
                 return
+            if parts[:3] == ["api", "queue", "pause"]:
+                data = self._body() or {}
+                paused = bool(data.get("pause", True))
+                set_pause(paused)
+                self._json(200, {"ok": True, "paused": paused})
+                return
             self._json(404, {"errors": ["not found"]})
 
         def do_PUT(self):
@@ -1052,6 +1223,15 @@ def make_handler(paths: Paths):
             if parts[:2] == ["api", "targets"] and len(parts) >= 3:
                 code, res = delete_target(unquote(parts[2]))
                 self._json(code, res)
+                return
+            if parts[:2] == ["api", "queue"]:
+                data = self._body() or {}
+                ids = data.get("ids", [])
+                if not isinstance(ids, list):
+                    self._json(400, {"ok": False, "errors": ["ids must be a list"]})
+                    return
+                deleted = delete_queue_items(ids)
+                self._json(200, {"ok": True, "deleted": deleted})
                 return
             self._json(404, {"errors": ["not found"]})
 
@@ -1122,6 +1302,8 @@ PAGE = r"""<!DOCTYPE html>
     padding:0; border:0; background:transparent; }
   #tbl-assets tbody tr.vrow:hover td, #tbl-requests tbody tr.vrow:hover td {
     background:#161b22; }
+  #panel-queue { width: 100%; }
+  #tbl-queue td:first-child { width: 24px; text-align: center; }
 </style>
 </head>
 <body>
@@ -1253,8 +1435,8 @@ PAGE = r"""<!DOCTYPE html>
 
 <script>
 var REFRESH=__REFRESH__, GEN=__GENEPOCH__, STALE=__STALE__, ENGINE_ALIVE=__ENGINEALIVE__;
-var STATUSES=__STATUSES__;
-var modalOpen=false, confirmOpen=false, dragging=false, EMODE='add', EDOMAIN='';
+var STATUSES=__STATUSES__, ISPAUSED=__ISPAUSED__;
+var modalOpen=false, confirmOpen=false, dragging=false, queueSelecting=false, EMODE='add', EDOMAIN='';
 var ctxOpen=false, ctxTarget=null;
 
 function S(k,v){ try{ localStorage.setItem('agentcbb:'+k, JSON.stringify(v)); }catch(e){} }
@@ -1413,24 +1595,23 @@ function loadVT(vt, url, version, cacheKey){
   }).catch(function(){ if(cached) vt.setRows(cached.rows||[]); });
 }
 
-/* asset row: [target,fetched,type,name,status,ctype,size,resp_size,duration,url,relpath,asset_id,hostname]
-   Indices 10-12 are not display columns but are used for viewer, raw modal, and scope filter. */
+/* asset row: [target,fetched,type,found_by,status,ctype,size,duration,url,relpath,asset_id,hostname]
+   Indices 9-11 are not display columns: relpath (viewer), asset_id (raw modal), hostname (scope). */
 var AssetsVT=VTable({ tableId:'tbl-assets', scrollId:'scroll-assets',
   cols:[
     {h:'target',   get:function(r){return r[0];}},
     {h:'fetched',  num:true, get:function(r){return r[1];}, render:function(r){return fmtTs(r[1]);}},
     {h:'type',     get:function(r){return r[2];}},
-    {h:'name',     get:function(r){return r[3];}, render:function(r){return esc(String(r[3]).slice(0,48));}},
+    {h:'found by', get:function(r){return r[3];}, render:function(r){return esc(r[3]||'—');}},
     {h:'code',     num:true, get:function(r){return r[4];}, render:function(r){return (r[4]===''||r[4]==null)?'—':httpBadge(r[4]);}},
     {h:'ctype',    get:function(r){return r[5];}, render:function(r){return esc(r[5]||'—');}},
     {h:'size',     num:true, get:function(r){return r[6];}, render:function(r){return fmtSize(r[6]);}},
-    {h:'resp size',num:true, get:function(r){return r[7];}, render:function(r){return r[7]!==''&&r[7]!=null?fmtSize(r[7]):'—';}},
-    {h:'duration', get:function(r){return r[8];}, render:function(r){return r[8]||'—';}},
-    {h:'url',      get:function(r){return r[9];}, render:function(r){return '<a class="olink" data-asset="'+esc(r[10])+'" title="'+esc(r[9]||'')+'">'+esc(r[9]||'—')+'</a>';}},
-    {h:'raw',      get:function(r){return r[11];}, render:function(r){return r[11]?'<button class="mini" data-rawid="'+esc(r[11])+'">raw</button>':'—';}}
+    {h:'duration', get:function(r){return r[7];}, render:function(r){return r[7]||'—';}},
+    {h:'url',      get:function(r){return r[8];}, render:function(r){return '<a class="olink" data-asset="'+esc(r[9])+'" title="'+esc(r[8]||'')+'">'+esc(r[8]||'—')+'</a>';}},
+    {h:'raw',      get:function(r){return r[10];}, render:function(r){return r[10]?'<button class="mini" data-rawid="'+esc(r[10])+'">raw</button>':'—';}}
   ],
-  key:function(r){return r[10];},
-  search:function(r){return [r[0],r[2],r[3],r[5],r[9],r[12]].join(' ');},
+  key:function(r){return r[9];},
+  search:function(r){return [r[0],r[2],r[3],r[5],r[8],r[11]].join(' ');},
   sort:{i:1,dir:'desc'},
   onCount:function(n){ var c=document.getElementById('count-assets'); if(c) c.textContent=n; }
 });
@@ -1459,7 +1640,7 @@ function findRow(tbl, attrs){ if(!tbl||!tbl.tBodies[0]) return null; var rs=tbl.
 
 function assetScopeFn(target, host){
   if(!target || target==='all') return null;
-  return function(r){ return r[0]===target && (host==='*'||!host||r[12]===host); };
+  return function(r){ return r[0]===target && (host==='*'||!host||r[11]===host); };
 }
 function setAssetScope(target, host){
   var sel=document.getElementById('assetsel');
@@ -1857,10 +2038,54 @@ function toast(msg){ toastEl.textContent=msg; toastEl.classList.add('show'); cle
 /* ---- auto-refresh ---- */
 var pause=document.getElementById('pause'); pause.checked=!!L('paused');
 function schedule(){ if(window._t) clearTimeout(window._t);
-  if(pause.checked || modalOpen || confirmOpen || dragging) return;
+  if(pause.checked || modalOpen || confirmOpen || dragging || queueSelecting) return;
   window._t=setTimeout(function(){ location.reload(); }, REFRESH*1000); }
 pause.addEventListener('change', function(){ S('paused', pause.checked); schedule(); });
 document.getElementById('reload').addEventListener('click', function(){ location.reload(); });
+
+/* ---- queue management ---- */
+(function(){
+  function getChecked(){ return [].slice.call(document.querySelectorAll('.q-chk:checked')); }
+  function updateQueueState(){
+    var checked=getChecked(); queueSelecting=checked.length>0;
+    var delBtn=document.getElementById('q-del');
+    if(delBtn){ delBtn.disabled=!queueSelecting;
+      delBtn.textContent=queueSelecting?'Delete Selected ('+checked.length+')':'Delete Selected'; }
+    schedule();
+  }
+  document.addEventListener('change', function(ev){
+    if(ev.target.classList.contains('q-chk')) updateQueueState();
+  });
+  var qAllBtn=document.getElementById('q-all');
+  if(qAllBtn) qAllBtn.addEventListener('click', function(){
+    var chks=document.querySelectorAll('.q-chk');
+    var anyUnchecked=[].some.call(chks, function(c){ return !c.checked; });
+    [].forEach.call(chks, function(c){ c.checked=anyUnchecked; });
+    updateQueueState();
+  });
+  var qpause=document.getElementById('q-pause');
+  if(qpause) qpause.addEventListener('click', function(){
+    qpause.disabled=true;
+    fetch('/api/queue/pause',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({pause:!ISPAUSED})})
+      .then(function(r){ return r.json(); })
+      .then(function(res){ toast(res.paused?'Queue paused':'Queue resumed');
+        setTimeout(function(){ location.reload(); },300); })
+      .catch(function(e){ toast('Pause failed: '+e); qpause.disabled=false; });
+  });
+  var qdel=document.getElementById('q-del');
+  if(qdel) qdel.addEventListener('click', function(){
+    var ids=getChecked().map(function(c){ return c.value; });
+    if(!ids.length) return;
+    qdel.disabled=true;
+    fetch('/api/queue',{method:'DELETE',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({ids:ids})})
+      .then(function(r){ return r.json(); })
+      .then(function(res){ toast('Deleted '+res.deleted+' queue items');
+        queueSelecting=false; setTimeout(function(){ location.reload(); },300); })
+      .catch(function(e){ toast('Delete failed: '+e); qdel.disabled=false; });
+  });
+})();
 
 /* ---- context menus ---- */
 (function(){

@@ -9485,3 +9485,6 @@ subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/rate
 2026-06-11 11:42:42 WARNING agentc.progress: task 'bugbounty-rate-orchestrator' FAILED after 300.11s: Command '['/usr/bin/python3', 'bugbounty/scripts/rate_limit_orchestrator.py']' timed out after 300 seconds
 2026-06-11 11:46:46 WARNING agentc.progress:   action 'run-subfinder' (python) FAILED: exit 1
 2026-06-11 11:46:46 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.16s: exit 1
+2026-06-11 12:23:54 WARNING agentc.progress: agent 'code-review' exited -15 in 2798.79s
+2026-06-11 12:23:54 WARNING agentc.progress:   action 'agent' (agent) FAILED: exit -15
+2026-06-11 12:23:54 WARNING agentc.progress: task 'git-pre-commit' FAILED after 2798.79s: exit -15
