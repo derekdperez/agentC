@@ -9,4 +9,4 @@ cd ~/repo/agentC/bugbounty
 git add .
 git commit -m "Auto-commit"
 cd ~/repo/agentC
-echo "commit.sh run complete"
+echo "git_commit.sh run complete"
