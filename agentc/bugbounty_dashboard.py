@@ -332,18 +332,41 @@ def make_handler(paths: Paths):
             except: return None
         def do_GET(self):
             path = urlparse(self.path).path
-            if path in ("/", "/index.html"): self._send(200, "text/html; charset=utf-8", render_page(paths)); return
+            query = parse_qs(urlparse(self.path).query)
+            if path in ("/", "/index.html"):
+                selected = query.get("selected", [None])[0]
+                self._send(200, "text/html; charset=utf-8", render_page(paths, selected_target=selected)); return
             parts = [p for p in path.split("/") if p]
             if parts[:2] == ["api", "engine"]: self._json(200, engine_status()); return
             if parts[:2] == ["api", "asset"]:
-                rel = parse_qs(urlparse(self.path).query).get("path", [""])[0]; data, ctype = read_asset(unquote(rel))
+                rel = query.get("path", [""])[0]; data, ctype = read_asset(unquote(rel))
                 if data is None: self._json(404, {"errors": ["asset not found"]})
                 else: self._send(200, ctype, data); return
             if parts[:2] == ["api", "run"] and len(parts) >= 3:
                 detail = get_run_detail(paths.state_dir, paths.logs_dir, unquote(parts[2])); self._json(200 if detail else 404, detail or {"errors": ["run not found"]}); return
             if parts[:2] == ["api", "targets"]: self._json(200, {"items": load_targets()}); return
-            if parts[:2] == ["api", "assets"]: assets = load_assets(); self._json(200, {"version": assets_version(assets), "rows": asset_rows_json(assets)}); return
-            if parts[:2] == ["api", "requests"]: summary = load_request_summary(); completed = load_recent_completed(limit=5000); self._json(200, {"version": requests_version(summary), "rows": request_rows_json(completed)}); return
+            if parts[:2] == ["api", "assets"]:
+                assets = load_assets()
+                page = int(query.get("page", ["0"])[0])
+                page_size = int(query.get("page_size", [str(ASSET_VIRTUAL_PAGE_SIZE)])[0])
+                start = page * page_size
+                end = start + page_size
+                page_assets = assets[start:end]
+                self._json(200, {"version": assets_version(assets), "rows": asset_rows_json(page_assets), "total": len(assets), "page": page, "page_size": page_size}); return
+            if parts[:2] == ["api", "requests"]:
+                summary = load_request_summary()
+                completed = load_recent_completed(limit=5000)
+                page = int(query.get("page", ["0"])[0])
+                page_size = int(query.get("page_size", [str(ASSET_VIRTUAL_PAGE_SIZE)])[0])
+                start = page * page_size
+                end = start + page_size
+                page_completed = completed[start:end]
+                self._json(200, {"version": requests_version(summary), "rows": request_rows_json(page_completed), "total": len(completed), "page": page, "page_size": page_size}); return
+            if parts[:2] == ["api", "subdomains"]:
+                targets = load_targets()
+                filter_target = query.get("filter_target", [None])[0]
+                subs = load_subdomains(targets, filter_target=filter_target)
+                self._json(200, {"items": subs, "filtered": filter_target is not None, "filtered_by": filter_target or ""}); return
             self._json(404, {"errors": ["not found"]})
         def do_POST(self):
             parts = [p for p in urlparse(self.path).path.split("/") if p]
