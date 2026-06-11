@@ -26,6 +26,8 @@ import json
 import os
 import re
 import shutil
+import subprocess
+import sys
 import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -691,7 +693,6 @@ def run_task_for_target(domain: str, task: str):
     if not os.path.isdir(os.path.join(targets_dir(), domain)):
         return 404, {"ok": False, "errors": ["target not found"]}
     if task == "subfinder":
-        import subprocess
         try:
             # Use our new wrapper to trigger subfinder
             subprocess.Popen([sys.executable, "bugbounty/scripts/trigger_subfinder.py", domain], cwd=_root())
@@ -704,7 +705,6 @@ def run_task_for_target(domain: str, task: str):
 def run_task_for_sub(domain: str, host: str, task: str):
     domain = normalize_domain(domain)
     host = normalize_domain(host)
-    import subprocess
     try:
         subprocess.Popen([sys.executable, "bugbounty/scripts/trigger_sub_task.py", task, host, domain], cwd=_root())
         return 200, {"ok": True, "domain": domain, "host": host, "message": f"{task} triggered"}
@@ -713,7 +713,6 @@ def run_task_for_sub(domain: str, host: str, task: str):
 
 
 def open_explorer(domain: str, host: str):
-    import subprocess
     target_path = os.path.join(targets_dir(), domain, host)
     try:
         # Try xdg-open for Linux, explorer for Win, open for Mac
