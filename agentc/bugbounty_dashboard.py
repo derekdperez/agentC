@@ -58,9 +58,11 @@ def load_targets() -> list:
         meta = load_meta(name); hostnames = _hostnames_for(os.path.join(base, name)); assets = _asset_counts(os.path.join(base, name))
         out.append({"domain": name, "program": meta["program"], "status": meta["status"], "tags": meta["tags"], "scope_in": meta["scope_in"], "scope_out": meta["scope_out"], "notes": meta["notes"], "subdomains": hostnames, "n_sub": len(hostnames), "assets": assets, "n_assets": assets["total"], "requested": len(state.get("requested_urls", []) or []), "discovered": len(state.get("discovered_urls", []) or []), "created_at": state.get("created_at", "")})
     return out
-def load_subdomains(targets: list) -> list:
+def load_subdomains(targets: list, filter_target: str = None) -> list:
     rows = []; base = targets_dir()
     for t in targets:
+        if filter_target and t["domain"] != filter_target:
+            continue
         for host in t["subdomains"]:
             hpath = os.path.join(base, t["domain"], host); counts = {at: 0 for at in ASSET_TYPES}; total = 0; last = 0.0
             for body in glob.glob(os.path.join(hpath, "assets", "*", "*.body")):
@@ -209,15 +211,29 @@ def render_targets_panel(targets) -> str:
         meta.append({"kind": "target", "domain": t["domain"], "_class": "selectable"})
     buttons = '<button class="add" data-act="add-target">+ add target</button>'
     return panel("targets", "Targets", len(targets), table("tbl-targets", headers, rows, meta), head_buttons=buttons)
-def render_subdomains_panel(subs) -> str:
+def render_subdomains_panel(subs, selected_target: str = None) -> str:
     headers = ["target", "hostname", "assets", "html", "scripts", "css", "img", "critical", "last seen"]
     rows, meta = [], []
+    filtered = selected_target is not None
+    target_filter = selected_target or ""
+
     for s in subs:
         c = s["counts"]
         rows.append([e(s["target"]), e(s["hostname"]), s["n_assets"], c["html"], c["scripts"], c["stylesheets"], c["images"], c["critical"], fmt_ts(s["last"])])
-        meta.append({"kind": "sub", "target": s["target"], "host": s["hostname"], "_class": "selectable"})
-    head = '<input id="subq" class="filter" placeholder="search…" spellcheck="false" autocomplete="off">'
-    return panel("subdomains", "Subdomains", len(subs), table("tbl-subdomains", headers, rows, meta), head_buttons=head, filter_for=False)
+        meta.append({
+            "kind": "sub", 
+            "target": s["target"], 
+            "host": s["hostname"], 
+            "_class": "selectable",
+            "filtered": filtered,
+            "filtered_by": target_filter
+        })
+
+    head_buttons = '<input id="subq" class="filter" placeholder="search…" spellcheck="false" autocomplete="off">'
+    if filtered:
+        head_buttons += f'<span class="filter-badge">Filtered by {e(target_filter)} <button id="clear-filter">×</button></span>'
+    
+    return panel("subdomains", "Subdomains", len(subs), table("tbl-subdomains", headers, rows, meta), head_buttons=head_buttons, filter_for=False)
 def _asset_selector(targets) -> str:
     opts = ['<option value="all">all assets</option>']
     for t in targets:
