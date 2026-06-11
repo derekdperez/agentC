@@ -1,7 +1,7 @@
 {
-  "event_path": "/home/cisco/repo/agentC/bugbounty/wordlists/critical_body_regex_patterns.txt",
-  "event_kind": "created",
-  "event_filename": "critical_body_regex_patterns.txt",
+  "event_path": "/home/cisco/repo/agentC/bugbounty/requests/rate_state.json",
+  "event_kind": "modified",
+  "event_filename": "rate_state.json",
   "system": "agentC",
   "now": "2026-06-10 16:55:00",
   "event_task": "watch-inbox",
