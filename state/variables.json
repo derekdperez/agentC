@@ -1,7 +1,7 @@
 {
-  "event_path": "/home/cisco/repo/agentC/subfinder",
+  "event_path": "/home/cisco/repo/agentC/bugbounty/requests/pending/db7c1532aaa149c18a7c42c969734ef9.json",
   "event_kind": "created",
-  "event_filename": "subfinder",
+  "event_filename": "db7c1532aaa149c18a7c42c969734ef9.json",
   "system": "agentC",
   "now": "2026-06-10 16:55:00",
   "event_task": "watch-inbox",
