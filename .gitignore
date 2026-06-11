@@ -2,3 +2,5 @@ todo/
 .*/
 ai-usage-hacks.py
 .*
+logs/
+*.log
