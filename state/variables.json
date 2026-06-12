@@ -1,7 +1,7 @@
 {
-  "event_path": "/home/cisco/repo/agentC/bugbounty/targets/queue/import-test-two.com",
-  "event_kind": "created",
-  "event_filename": "import-test-two.com",
+  "event_path": "/home/cisco/repo/agentC/bugbounty/requests/pump.lock",
+  "event_kind": "modified",
+  "event_filename": "pump.lock",
   "system": "agentC",
   "now": "2026-06-10 16:55:00",
   "event_task": "watch-inbox",

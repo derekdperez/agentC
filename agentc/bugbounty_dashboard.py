@@ -1019,7 +1019,8 @@ def render_rate_panel(rate, pend_by_dom) -> str:
     domains = sorted(set(list(rate.keys()) + list(pend_by_dom.keys())))
     rows = []
     for d in domains:
-        last = rate.get(d, 0)
+        slot = rate.get(d, 0)
+        last = slot.get("last", 0) if isinstance(slot, dict) else (slot or 0)
         queued = pend_by_dom.get(d, 0)
         if last and last > now:
             nxt = f'<span class="runtime">in {last - now:.1f}s</span>'
