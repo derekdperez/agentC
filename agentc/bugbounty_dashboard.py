@@ -1054,10 +1054,32 @@ def set_pause(paused: bool) -> None:
             pass
 
 
-def load_queue() -> list:
-    """Load pending + ready queue items sorted newest first."""
-    items = []
+def queue_totals() -> dict:
+    """Cheap pending/ready/total counts via ``listdir`` (no JSON parse).
+
+    Used for panel badges/counts so they stay accurate even though only the
+    newest ``cap`` items are actually parsed for display by ``load_queue``."""
     rd = requests_dir()
+    out = {"pending": 0, "ready": 0}
+    for qstatus in ("pending", "ready"):
+        try:
+            out[qstatus] = sum(1 for n in os.listdir(os.path.join(rd, qstatus))
+                               if n.endswith(".json"))
+        except OSError:
+            pass
+    out["total"] = out["pending"] + out["ready"]
+    return out
+
+
+def load_queue(cap: int = MAX_ROWS) -> list:
+    """Load the newest ``cap`` pending+ready queue items (newest first).
+
+    Only the newest ``cap`` files are JSON-parsed — every file is ``stat``-ed for
+    its mtime (cheap), but a flood of thousands of queued requests must not turn
+    each render/refresh into thousands of JSON reads. Full counts come from
+    ``queue_totals()``."""
+    rd = requests_dir()
+    stated = []
     for qstatus in ("ready", "pending"):
         qdir = os.path.join(rd, qstatus)
         try:
@@ -1065,25 +1087,28 @@ def load_queue() -> list:
                 if not fname.endswith(".json"):
                     continue
                 p = os.path.join(qdir, fname)
-                d = _load_json(p) or {}
-                if not d:
-                    continue
                 try:
                     mtime = os.path.getmtime(p)
                 except OSError:
                     mtime = 0
-                items.append({
-                    "id": d.get("id", fname[:-5]),
-                    "qstatus": qstatus,
-                    "domain": d.get("domain", ""),
-                    "url": d.get("url", ""),
-                    "source_type": d.get("source_type", ""),
-                    "created_at": d.get("created_at", ""),
-                    "mtime": mtime,
-                })
+                stated.append((mtime, qstatus, p, fname))
         except OSError:
             pass
-    items.sort(key=lambda x: x["mtime"], reverse=True)
+    stated.sort(key=lambda x: x[0], reverse=True)
+    items = []
+    for mtime, qstatus, p, fname in stated[:cap]:
+        d = _load_json(p) or {}
+        if not d:
+            continue
+        items.append({
+            "id": d.get("id", fname[:-5]),
+            "qstatus": qstatus,
+            "domain": d.get("domain", ""),
+            "url": d.get("url", ""),
+            "source_type": d.get("source_type", ""),
+            "created_at": d.get("created_at", ""),
+            "mtime": mtime,
+        })
     return items
 
 
@@ -1112,7 +1137,8 @@ def delete_queue_items(ids: list) -> int:
     return deleted
 
 
-def render_queue_panel(items: list, paused: bool, metrics: dict = None) -> str:
+def render_queue_panel(items: list, paused: bool, metrics: dict = None,
+                       totals: dict = None) -> str:
     headers = ["", "status", "domain", "url", "source", "created"]
     rows, meta = [], []
     for item in items:
@@ -1130,19 +1156,28 @@ def render_queue_panel(items: list, paused: bool, metrics: dict = None) -> str:
         meta.append({"qid": qid, "qstatus": qstatus})
     pause_cls = "bad" if paused else ""
     pause_lbl = "Resume queue" if paused else "Pause queue"
-    pending_ct = sum(1 for i in items if i.get("qstatus") == "pending")
-    ready_ct = sum(1 for i in items if i.get("qstatus") == "ready")
+    if totals is None:
+        pending_ct = sum(1 for i in items if i.get("qstatus") == "pending")
+        ready_ct = sum(1 for i in items if i.get("qstatus") == "ready")
+        total_ct = len(items)
+    else:
+        pending_ct = totals.get("pending", 0)
+        ready_ct = totals.get("ready", 0)
+        total_ct = totals.get("total", pending_ct + ready_ct)
     ct_html = (f'<span class="badge run" title="pending">{pending_ct}p</span> '
                f'<span class="badge ok" title="ready">{ready_ct}r</span>')
+    # When the queue is larger than what we display, say so explicitly.
+    trunc = (f'<span class="count" title="showing newest {len(items)} of {total_ct}">'
+             f'newest {len(items)} of {total_ct}</span> ') if total_ct > len(items) else ""
     metrics_html = _queue_metrics_html(metrics) if metrics else ""
     head = (
-        f'<span id="queue-metrics">{metrics_html}</span> '
+        f'<span id="queue-metrics">{metrics_html}</span> {trunc}'
         f'<button class="mini" id="q-all">All</button> '
         f'<button class="mini {pause_cls}" id="q-pause">{pause_lbl}</button> '
         f'<button class="mini bad" id="q-del" disabled>Delete Selected</button> '
         f'<span id="queue-counts">{ct_html}</span>'
     )
-    return panel("queue", "Queue", len(items),
+    return panel("queue", "Queue", total_ct,
                  table("tbl-queue", headers, rows, meta),
                  head_buttons=head, filter_for="tbl-queue")
 
@@ -1213,6 +1248,7 @@ def render_page(paths: Paths) -> str:
     eng = engine_status()
     paused = is_paused()
     queue = load_queue()
+    qtotals = queue_totals()
     metrics = load_request_metrics()
 
     panels = (
@@ -1223,7 +1259,7 @@ def render_page(paths: Paths) -> str:
         + render_requests_panel(summary)
         + render_activity_panel(paths, eng, rate, pend_by_dom, runs)
         + render_rate_panel(rate, pend_by_dom)
-        + render_queue_panel(queue, paused, metrics)
+        + render_queue_panel(queue, paused, metrics, qtotals)
     )
     stats = _header_stats(targets, subs, assets, summary, eng, paused)
     alive = bool(eng.get("active") or eng.get("running"))
@@ -1330,6 +1366,7 @@ def make_handler(paths: Paths):
                 eng = engine_status()
                 paused = is_paused()
                 queue = load_queue()
+                qtotals = queue_totals()
                 metrics = load_request_metrics()
 
                 def _tbody(html: str) -> str:
@@ -1341,8 +1378,8 @@ def make_handler(paths: Paths):
                     m = re.search(r'class="count"[^>]*>([^<]+)', html)
                     return m.group(1).strip() if m else "0"
 
-                pending_ct = sum(1 for i in queue if i.get("qstatus") == "pending")
-                ready_ct = sum(1 for i in queue if i.get("qstatus") == "ready")
+                pending_ct = qtotals["pending"]
+                ready_ct = qtotals["ready"]
                 ct_html = (f'<span class="badge run" title="pending">{pending_ct}p</span> '
                            f'<span class="badge ok" title="ready">{ready_ct}r</span>')
 
@@ -1351,7 +1388,7 @@ def make_handler(paths: Paths):
                 subs_html = render_subdomains_panel(subs_list)
                 act_html = render_activity_panel(paths, eng, rate, pend_by_dom, runs)
                 rate_html = render_rate_panel(rate, pend_by_dom)
-                queue_html = render_queue_panel(queue, paused, metrics)
+                queue_html = render_queue_panel(queue, paused, metrics, qtotals)
 
                 self._json(200, {
                     "gen_epoch": int(time.time()),

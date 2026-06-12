@@ -245,3 +245,15 @@
 2026-06-11 18:50:46 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 30.76s: exit 1
 2026-06-11 18:50:46 WARNING agentc.progress:   action 'create-initial-requests' (python) FAILED: exit 1
 2026-06-11 18:50:46 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 30.77s: exit 1
+2026-06-12 18:31:59 WARNING agentc.progress:   action 'add_commit_push' (shell) FAILED: exit 1
+2026-06-12 18:31:59 WARNING agentc.progress: task 'git_commit_push' FAILED after 3.21s: exit 1
+2026-06-12 18:38:15 WARNING agentc.progress:   action 'render' (python) FAILED: exit -15
+2026-06-12 18:38:15 WARNING agentc.progress: task 'dashboard' FAILED after 0.65s: exit -15
+2026-06-12 18:38:15 WARNING agentc.progress:   action 'render' (python) FAILED: exit -15
+2026-06-12 18:38:15 WARNING agentc.progress: task 'dashboard' FAILED after 10.94s: exit -15
+2026-06-12 18:38:15 WARNING agentc.progress:   action 'render' (python) FAILED: exit -15
+2026-06-12 18:38:15 WARNING agentc.progress: task 'dashboard' FAILED after 5.85s: exit -15
+2026-06-12 18:42:32 WARNING agentc.progress:   action 'render' (python) FAILED: exit -15
+2026-06-12 18:42:32 WARNING agentc.progress: task 'dashboard' FAILED after 0.49s: exit -15
+2026-06-12 18:42:32 WARNING agentc.progress:   action 'render' (python) FAILED: exit -15
+2026-06-12 18:42:32 WARNING agentc.progress: task 'dashboard' FAILED after 5.55s: exit -15
