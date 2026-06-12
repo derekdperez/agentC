@@ -3760,3 +3760,1211 @@ ValueError: embedded null byte
 2026-06-11 21:57:58 WARNING agentc.progress: agent 'junior-developer' exited -15 in 313.54s
 2026-06-11 21:57:58 WARNING agentc.progress:   action 'implement' (agent) FAILED: exit -15
 2026-06-11 21:57:58 WARNING agentc.progress: task 'minor-dev-items' FAILED after 313.54s: exit -15
+2026-06-11 22:16:53 WARNING agentc.progress:   action 'create-domain-state' (python) FAILED: exit 1
+2026-06-11 22:16:53 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.06s: exit 1
+2026-06-11 22:16:53 WARNING agentc.progress:   action 'create-domain-state' (python) FAILED: exit 1
+2026-06-11 22:16:53 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.07s: exit 1
+2026-06-11 22:22:20 WARNING agentc.progress:   action 'create-domain-state' (python) FAILED: exit 1
+2026-06-11 22:22:20 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.89s: exit 1
+2026-06-11 22:34:16 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:16 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.48s: exit 1
+2026-06-11 22:34:16 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:16 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.50s: exit 1
+2026-06-11 22:34:16 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:16 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.30s: exit 1
+2026-06-11 22:34:17 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:17 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.09s: exit 1
+2026-06-11 22:34:17 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:17 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.04s: exit 1
+2026-06-11 22:34:17 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:17 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.15s: exit 1
+2026-06-11 22:34:18 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:18 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.02s: exit 1
+2026-06-11 22:34:18 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:18 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:18 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.27s: exit 1
+2026-06-11 22:34:18 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.37s: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.60s: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.87s: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.63s: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.23s: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.28s: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.44s: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.37s: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.12s: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.29s: exit 1
+2026-06-11 22:34:20 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:20 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.14s: exit 1
+2026-06-11 22:34:20 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:20 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.51s: exit 1
+2026-06-11 22:34:20 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:20 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.11s: exit 1
+2026-06-11 22:34:20 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:20 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.51s: exit 1
+2026-06-11 22:34:20 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:20 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.26s: exit 1
+2026-06-11 22:34:20 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:20 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.24s: exit 1
+2026-06-11 22:34:26 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:26 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.99s: exit 1
+2026-06-11 22:34:28 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:28 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.47s: exit 1
+2026-06-11 22:34:29 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:29 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.53s: exit 1
+2026-06-11 22:34:29 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:29 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.43s: exit 1
+2026-06-11 22:34:30 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:30 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.11s: exit 1
+2026-06-11 22:34:30 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:30 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.60s: exit 1
+2026-06-11 22:34:30 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:30 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.37s: exit 1
+2026-06-11 22:34:30 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:30 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.28s: exit 1
+2026-06-11 22:34:30 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:30 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.31s: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.79s: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.59s: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.08s: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.95s: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.76s: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.23s: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.50s: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.68s: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.14s: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.58s: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.41s: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:31 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.38s: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.56s: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.32s: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.19s: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.48s: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.38s: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.27s: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:32 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.31s: exit 1
+2026-06-11 22:34:33 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:33 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.26s: exit 1
+2026-06-11 22:34:33 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:33 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.31s: exit 1
+2026-06-11 22:34:33 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:33 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.41s: exit 1
+2026-06-11 22:34:34 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:34 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.92s: exit 1
+2026-06-11 22:34:34 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:34 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.18s: exit 1
+2026-06-11 22:34:35 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:35 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.39s: exit 1
+2026-06-11 22:34:35 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:35 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.31s: exit 1
+2026-06-11 22:34:35 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:35 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.48s: exit 1
+2026-06-11 22:34:35 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:35 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.44s: exit 1
+2026-06-11 22:34:36 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:36 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.31s: exit 1
+2026-06-11 22:34:36 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:36 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.12s: exit 1
+2026-06-11 22:34:36 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:36 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.36s: exit 1
+2026-06-11 22:34:36 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:36 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.35s: exit 1
+2026-06-11 22:34:36 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:36 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.50s: exit 1
+2026-06-11 22:34:36 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:36 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.85s: exit 1
+2026-06-11 22:34:37 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:37 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 2.19s: exit 1
+2026-06-11 22:34:37 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:37 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.72s: exit 1
+2026-06-11 22:34:38 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:38 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.36s: exit 1
+2026-06-11 22:34:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.37s: exit 1
+2026-06-11 22:34:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.31s: exit 1
+2026-06-11 22:34:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.48s: exit 1
+2026-06-11 22:34:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.45s: exit 1
+2026-06-11 22:34:39 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:39 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.36s: exit 1
+2026-06-11 22:34:40 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:40 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.58s: exit 1
+2026-06-11 22:34:40 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:40 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.94s: exit 1
+2026-06-11 22:34:41 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:41 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.79s: exit 1
+2026-06-11 22:34:41 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:41 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.80s: exit 1
+2026-06-11 22:34:42 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:42 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.95s: exit 1
+2026-06-11 22:34:42 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:42 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.27s: exit 1
+2026-06-11 22:34:44 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:44 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.47s: exit 1
+2026-06-11 22:34:46 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:46 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.39s: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.93s: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.60s: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.20s: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.24s: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.30s: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.13s: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:47 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.98s: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.15s: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.16s: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.29s: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.40s: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.39s: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.55s: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.45s: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.37s: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.20s: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.40s: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.66s: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.64s: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.69s: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.58s: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.64s: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.51s: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.98s: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.73s: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:49 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.12s: exit 1
+2026-06-11 22:34:50 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:50 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.07s: exit 1
+2026-06-11 22:34:50 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:50 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.28s: exit 1
+2026-06-11 22:34:51 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:51 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.07s: exit 1
+2026-06-11 22:34:51 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:51 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.37s: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.61s: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.54s: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.48s: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.49s: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.35s: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.43s: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.65s: exit 1
+2026-06-11 22:34:53 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:53 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.81s: exit 1
+2026-06-11 22:34:53 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:53 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.39s: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.79s: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.06s: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.25s: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.27s: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.31s: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.16s: exit 1
+2026-06-11 22:34:55 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:55 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.94s: exit 1
+2026-06-11 22:34:56 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:56 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.41s: exit 1
+2026-06-11 22:34:57 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:57 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:57 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.83s: exit 1
+2026-06-11 22:34:57 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.58s: exit 1
+2026-06-11 22:34:57 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:57 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.22s: exit 1
+2026-06-11 22:34:57 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:57 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.15s: exit 1
+2026-06-11 22:34:58 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:58 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.24s: exit 1
+2026-06-11 22:34:58 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:58 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.67s: exit 1
+2026-06-11 22:34:59 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:59 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.35s: exit 1
+2026-06-11 22:34:59 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:59 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.99s: exit 1
+2026-06-11 22:34:59 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:59 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.50s: exit 1
+2026-06-11 22:34:59 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:59 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.07s: exit 1
+2026-06-11 22:34:59 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:59 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.42s: exit 1
+2026-06-11 22:34:59 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:34:59 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.32s: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.66s: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.51s: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.35s: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.34s: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.26s: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.32s: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:00 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.27s: exit 1
+2026-06-11 22:35:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.13s: exit 1
+2026-06-11 22:35:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.43s: exit 1
+2026-06-11 22:35:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.40s: exit 1
+2026-06-11 22:35:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.47s: exit 1
+2026-06-11 22:35:02 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:02 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.52s: exit 1
+2026-06-11 22:35:02 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:02 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.23s: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.07s: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.24s: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.19s: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.77s: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.47s: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.34s: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.36s: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:03 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.32s: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.68s: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.81s: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.75s: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.44s: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.44s: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.26s: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:04 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.24s: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.46s: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.63s: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.62s: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.68s: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.60s: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.29s: exit 1
+2026-06-11 22:35:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:06 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.46s: exit 1
+2026-06-11 22:35:06 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:06 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.72s: exit 1
+2026-06-11 22:35:06 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:06 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.31s: exit 1
+2026-06-11 22:35:06 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:06 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.35s: exit 1
+2026-06-11 22:35:11 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:11 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.10s: exit 1
+2026-06-11 22:35:12 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:12 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.52s: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.63s: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.61s: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.16s: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.85s: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.63s: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.81s: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:13 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.23s: exit 1
+2026-06-11 22:35:17 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:17 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.41s: exit 1
+2026-06-11 22:35:17 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:17 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.46s: exit 1
+2026-06-11 22:35:18 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:18 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.25s: exit 1
+2026-06-11 22:35:18 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:18 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:35:18 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:18 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.44s: exit 1
+2026-06-11 22:35:18 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:18 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.42s: exit 1
+2026-06-11 22:35:18 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:18 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:35:20 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:35:20 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.37s: exit 1
+2026-06-11 22:35:20 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:20 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.99s: exit 1
+2026-06-11 22:35:21 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:21 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.86s: exit 1
+2026-06-11 22:35:22 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:22 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.54s: exit 1
+2026-06-11 22:35:23 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:23 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.23s: exit 1
+2026-06-11 22:35:23 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:23 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.45s: exit 1
+2026-06-11 22:35:23 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:23 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.78s: exit 1
+2026-06-11 22:35:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.07s: exit 1
+2026-06-11 22:35:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.13s: exit 1
+2026-06-11 22:35:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.45s: exit 1
+2026-06-11 22:35:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.97s: exit 1
+2026-06-11 22:35:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.76s: exit 1
+2026-06-11 22:35:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.25s: exit 1
+2026-06-11 22:35:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.42s: exit 1
+2026-06-11 22:35:26 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:26 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.80s: exit 1
+2026-06-11 22:35:26 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:26 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.94s: exit 1
+2026-06-11 22:35:27 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:27 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.88s: exit 1
+2026-06-11 22:35:27 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:27 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.87s: exit 1
+2026-06-11 22:35:27 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:27 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.14s: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.32s: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.48s: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.68s: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.12s: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.34s: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.11s: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:28 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.24s: exit 1
+2026-06-11 22:35:29 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:29 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.25s: exit 1
+2026-06-11 22:35:29 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:29 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.16s: exit 1
+2026-06-11 22:35:29 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:29 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.39s: exit 1
+2026-06-11 22:35:29 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:29 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.38s: exit 1
+2026-06-11 22:35:29 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:29 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.38s: exit 1
+2026-06-11 22:35:30 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:30 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.40s: exit 1
+2026-06-11 22:35:30 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:30 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.24s: exit 1
+2026-06-11 22:35:30 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:30 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.19s: exit 1
+2026-06-11 22:35:30 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:30 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.40s: exit 1
+2026-06-11 22:35:30 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:30 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.66s: exit 1
+2026-06-11 22:35:30 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:30 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.39s: exit 1
+2026-06-11 22:35:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.37s: exit 1
+2026-06-11 22:35:32 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:32 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.74s: exit 1
+2026-06-11 22:35:32 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:32 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.62s: exit 1
+2026-06-11 22:35:32 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:32 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.64s: exit 1
+2026-06-11 22:35:33 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:33 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.38s: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.13s: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.99s: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.15s: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.12s: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.92s: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.88s: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:34 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.66s: exit 1
+2026-06-11 22:35:35 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:35 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.99s: exit 1
+2026-06-11 22:35:36 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:36 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.04s: exit 1
+2026-06-11 22:35:37 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:37 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.19s: exit 1
+2026-06-11 22:35:37 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:37 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.85s: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.61s: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.65s: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.70s: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.61s: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.69s: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.08s: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.16s: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.13s: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:39 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.44s: exit 1
+2026-06-11 22:35:40 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:40 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.64s: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.16s: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.22s: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.79s: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.49s: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.07s: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.07s: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.15s: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:41 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.08s: exit 1
+2026-06-11 22:35:42 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:42 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.97s: exit 1
+2026-06-11 22:35:43 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:43 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.15s: exit 1
+2026-06-11 22:35:43 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:43 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.27s: exit 1
+2026-06-11 22:35:43 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:43 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.28s: exit 1
+2026-06-11 22:35:45 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:45 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.72s: exit 1
+2026-06-11 22:35:45 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:45 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.69s: exit 1
+2026-06-11 22:35:45 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:45 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.36s: exit 1
+2026-06-11 22:35:46 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:46 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.61s: exit 1
+2026-06-11 22:35:46 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:46 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.84s: exit 1
+2026-06-11 22:35:46 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:46 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.97s: exit 1
+2026-06-11 22:35:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.74s: exit 1
+2026-06-11 22:35:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.22s: exit 1
+2026-06-11 22:35:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.63s: exit 1
+2026-06-11 22:35:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.31s: exit 1
+2026-06-11 22:35:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.29s: exit 1
+2026-06-11 22:35:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.33s: exit 1
+2026-06-11 22:35:50 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:50 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.01s: exit 1
+2026-06-11 22:35:51 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:51 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.96s: exit 1
+2026-06-11 22:35:51 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:51 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:35:51 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:51 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.32s: exit 1
+2026-06-11 22:35:51 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:51 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.13s: exit 1
+2026-06-11 22:35:51 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:51 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.09s: exit 1
+2026-06-11 22:35:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.17s: exit 1
+2026-06-11 22:35:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.15s: exit 1
+2026-06-11 22:35:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.84s: exit 1
+2026-06-11 22:35:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.28s: exit 1
+2026-06-11 22:35:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.83s: exit 1
+2026-06-11 22:35:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.76s: exit 1
+2026-06-11 22:35:53 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:53 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.31s: exit 1
+2026-06-11 22:35:53 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:53 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.30s: exit 1
+2026-06-11 22:35:53 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:53 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.56s: exit 1
+2026-06-11 22:35:53 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:53 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.44s: exit 1
+2026-06-11 22:35:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.69s: exit 1
+2026-06-11 22:35:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.92s: exit 1
+2026-06-11 22:35:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.81s: exit 1
+2026-06-11 22:35:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.56s: exit 1
+2026-06-11 22:35:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.40s: exit 1
+2026-06-11 22:35:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:35:55 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:55 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.12s: exit 1
+2026-06-11 22:35:55 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:55 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.12s: exit 1
+2026-06-11 22:35:55 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:55 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.26s: exit 1
+2026-06-11 22:35:55 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:55 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.78s: exit 1
+2026-06-11 22:35:56 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:56 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.32s: exit 1
+2026-06-11 22:35:56 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:56 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.34s: exit 1
+2026-06-11 22:35:56 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:56 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.34s: exit 1
+2026-06-11 22:35:56 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:56 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.42s: exit 1
+2026-06-11 22:35:57 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:57 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.15s: exit 1
+2026-06-11 22:35:57 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:57 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.51s: exit 1
+2026-06-11 22:35:58 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:58 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.20s: exit 1
+2026-06-11 22:35:59 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:59 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.13s: exit 1
+2026-06-11 22:35:59 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:59 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.56s: exit 1
+2026-06-11 22:35:59 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:35:59 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.70s: exit 1
+2026-06-11 22:36:00 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:00 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.81s: exit 1
+2026-06-11 22:36:00 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:00 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.15s: exit 1
+2026-06-11 22:36:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.41s: exit 1
+2026-06-11 22:36:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.35s: exit 1
+2026-06-11 22:36:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.32s: exit 1
+2026-06-11 22:36:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.43s: exit 1
+2026-06-11 22:36:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.51s: exit 1
+2026-06-11 22:36:02 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:02 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.45s: exit 1
+2026-06-11 22:36:02 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:02 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:36:02 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:02 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.06s: exit 1
+2026-06-11 22:36:03 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:03 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.31s: exit 1
+2026-06-11 22:36:03 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:03 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.44s: exit 1
+2026-06-11 22:36:03 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:03 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.64s: exit 1
+2026-06-11 22:36:04 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:04 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.23s: exit 1
+2026-06-11 22:36:04 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:04 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.46s: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.19s: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.04s: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.09s: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.23s: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.79s: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.17s: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.48s: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.81s: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.20s: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.36s: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.26s: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.34s: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.41s: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.33s: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:07 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.64s: exit 1
+2026-06-11 22:36:08 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:36:08 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.85s: exit 1
+2026-06-11 22:36:08 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:36:08 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.83s: exit 1
+2026-06-11 22:36:08 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:08 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.64s: exit 1
+2026-06-11 22:36:08 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:08 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.11s: exit 1
+2026-06-11 22:36:08 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:08 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.21s: exit 1
+2026-06-11 22:36:09 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:09 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.20s: exit 1
+2026-06-11 22:36:09 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:09 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.41s: exit 1
+2026-06-11 22:36:10 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:10 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.10s: exit 1
+2026-06-11 22:36:10 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:10 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.50s: exit 1
+2026-06-11 22:36:10 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:10 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.10s: exit 1
+2026-06-11 22:36:10 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:10 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.48s: exit 1
+2026-06-11 22:36:10 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:10 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.56s: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.20s: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.41s: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.88s: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.94s: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.93s: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.17s: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:11 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.82s: exit 1
+2026-06-11 22:36:12 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:12 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.01s: exit 1
+2026-06-11 22:36:12 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:12 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.32s: exit 1
+2026-06-11 22:36:14 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:14 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.23s: exit 1
+2026-06-11 22:36:15 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:15 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.21s: exit 1
+2026-06-11 22:36:17 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:17 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.43s: exit 1
+2026-06-11 22:36:18 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:18 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:18 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.11s: exit 1
+2026-06-11 22:36:18 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.06s: exit 1
+2026-06-11 22:36:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.28s: exit 1
+2026-06-11 22:36:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.24s: exit 1
+2026-06-11 22:36:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.79s: exit 1
+2026-06-11 22:36:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.51s: exit 1
+2026-06-11 22:36:19 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:19 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.75s: exit 1
+2026-06-11 22:36:20 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:20 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.03s: exit 1
+2026-06-11 22:36:20 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:20 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.00s: exit 1
+2026-06-11 22:36:20 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:20 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.18s: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.07s: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.71s: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.64s: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.50s: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.54s: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.02s: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.50s: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.90s: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.85s: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.11s: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:21 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.70s: exit 1
+2026-06-11 22:36:22 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:22 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.88s: exit 1
+2026-06-11 22:36:22 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:22 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.07s: exit 1
+2026-06-11 22:36:23 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:23 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.28s: exit 1
+2026-06-11 22:36:23 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:23 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.33s: exit 1
+2026-06-11 22:36:23 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:23 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.30s: exit 1
+2026-06-11 22:36:23 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:23 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.44s: exit 1
+2026-06-11 22:36:23 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:23 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.67s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.32s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.43s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.38s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.46s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.52s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.09s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.25s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.31s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.30s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.28s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.41s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.33s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.48s: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:24 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.08s: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.10s: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.18s: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.17s: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.29s: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.35s: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.34s: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.42s: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.25s: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.24s: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.42s: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.39s: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.60s: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.50s: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.63s: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.55s: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.09s: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.78s: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:26 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.44s: exit 1
+2026-06-11 22:36:27 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:27 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:27 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.24s: exit 1
+2026-06-11 22:36:27 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:27 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.58s: exit 1
+2026-06-11 22:36:27 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.71s: exit 1
+2026-06-11 22:36:27 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:27 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.28s: exit 1
+2026-06-11 22:36:27 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:27 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.30s: exit 1
+2026-06-11 22:36:28 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:28 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.44s: exit 1
+2026-06-11 22:36:28 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:36:28 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.70s: exit 1
+2026-06-11 22:36:29 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:29 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.75s: exit 1
+2026-06-11 22:36:29 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:29 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.08s: exit 1
+2026-06-11 22:36:30 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:30 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.09s: exit 1
+2026-06-11 22:36:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.55s: exit 1
+2026-06-11 22:36:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.50s: exit 1
+2026-06-11 22:36:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.54s: exit 1
+2026-06-11 22:36:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.78s: exit 1
+2026-06-11 22:36:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.26s: exit 1
+2026-06-11 22:36:32 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:32 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit -15
+2026-06-11 22:36:32 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:32 WARNING agentc.progress:   action 'extract-links' (python) FAILED: exit -15
+2026-06-11 22:36:32 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.82s: exit 1
+2026-06-11 22:36:32 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.78s: exit 1
+2026-06-11 22:36:32 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.36s: exit -15
+2026-06-11 22:36:32 WARNING agentc.progress: task 'bugbounty-dom-spider' FAILED after 127.16s: exit -15
+2026-06-11 22:36:32 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:32 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.88s: exit 1
+2026-06-11 22:36:33 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:36:33 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.08s: exit 1
+2026-06-11 22:36:36 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:36 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.01s: exit 1
+2026-06-11 22:36:37 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:36:37 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.95s: exit 1
+2026-06-11 22:36:39 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:36:39 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.50s: exit 1
+2026-06-11 22:36:41 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:36:41 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.62s: exit 1
+2026-06-11 22:36:45 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:45 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.65s: exit 1
+2026-06-11 22:36:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.65s: exit 1
+2026-06-11 22:36:53 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:53 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.72s: exit 1
+2026-06-11 22:36:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.66s: exit 1
+2026-06-11 22:36:54 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:54 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.55s: exit 1
+2026-06-11 22:36:57 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:36:57 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.38s: exit 1
+2026-06-11 22:37:00 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:00 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.43s: exit 1
+2026-06-11 22:37:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.51s: exit 1
+2026-06-11 22:37:12 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:12 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.58s: exit 1
+2026-06-11 22:37:13 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:13 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:37:22 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:22 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.63s: exit 1
+2026-06-11 22:37:22 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:22 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.51s: exit 1
+2026-06-11 22:37:22 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:22 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.71s: exit 1
+2026-06-11 22:37:26 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:26 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.32s: exit 1
+2026-06-11 22:37:27 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:27 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.48s: exit 1
+2026-06-11 22:37:28 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:28 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.65s: exit 1
+2026-06-11 22:37:35 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:35 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.54s: exit 1
+2026-06-11 22:37:36 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:36 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.52s: exit 1
+2026-06-11 22:37:36 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:36 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.42s: exit 1
+2026-06-11 22:37:38 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:38 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:37:39 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:39 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.54s: exit 1
+2026-06-11 22:37:39 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:39 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.72s: exit 1
+2026-06-11 22:37:39 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:39 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.63s: exit 1
+2026-06-11 22:37:39 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:39 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.48s: exit 1
+2026-06-11 22:37:39 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:39 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.90s: exit 1
+2026-06-11 22:37:40 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:40 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.37s: exit 1
+2026-06-11 22:37:40 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:40 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.57s: exit 1
+2026-06-11 22:37:40 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:40 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.57s: exit 1
+2026-06-11 22:37:40 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:40 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.74s: exit 1
+2026-06-11 22:37:41 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:41 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.71s: exit 1
+2026-06-11 22:37:41 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:41 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.68s: exit 1
+2026-06-11 22:37:41 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:41 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.98s: exit 1
+2026-06-11 22:37:41 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:41 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.04s: exit 1
+2026-06-11 22:37:41 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:41 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.24s: exit 1
+2026-06-11 22:37:42 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:42 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.66s: exit 1
+2026-06-11 22:37:42 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:42 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.06s: exit 1
+2026-06-11 22:37:42 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:42 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.51s: exit 1
+2026-06-11 22:37:42 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:42 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.22s: exit 1
+2026-06-11 22:37:42 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:42 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.96s: exit 1
+2026-06-11 22:37:42 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:42 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.04s: exit 1
+2026-06-11 22:37:43 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:43 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.59s: exit 1
+2026-06-11 22:37:43 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:43 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.06s: exit 1
+2026-06-11 22:37:43 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:43 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.46s: exit 1
+2026-06-11 22:37:43 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:43 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.27s: exit 1
+2026-06-11 22:37:43 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:43 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.68s: exit 1
+2026-06-11 22:37:44 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:44 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.39s: exit 1
+2026-06-11 22:37:44 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:44 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.48s: exit 1
+2026-06-11 22:37:44 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:44 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.44s: exit 1
+2026-06-11 22:37:44 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:44 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.30s: exit 1
+2026-06-11 22:37:45 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:45 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.51s: exit 1
+2026-06-11 22:37:46 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:46 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.95s: exit 1
+2026-06-11 22:37:46 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:46 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.14s: exit 1
+2026-06-11 22:37:46 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:37:46 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.18s: exit 1
+2026-06-11 22:37:56 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:56 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.61s: exit 1
+2026-06-11 22:37:58 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:58 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.56s: exit 1
+2026-06-11 22:37:58 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:37:58 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.74s: exit 1
+2026-06-11 22:38:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.61s: exit 1
+2026-06-11 22:38:05 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:05 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.75s: exit 1
+2026-06-11 22:38:06 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:06 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.12s: exit 1
+2026-06-11 22:38:09 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:38:09 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.38s: exit 1
+2026-06-11 22:38:10 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:38:10 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.15s: exit 1
+2026-06-11 22:38:10 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:10 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.46s: exit 1
+2026-06-11 22:38:13 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:38:13 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.55s: exit 1
+2026-06-11 22:38:17 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:17 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.70s: exit 1
+2026-06-11 22:38:17 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:17 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.64s: exit 1
+2026-06-11 22:38:18 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:38:18 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.54s: exit 1
+2026-06-11 22:38:32 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:38:32 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.35s: exit 1
+2026-06-11 22:38:35 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:35 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.68s: exit 1
+2026-06-11 22:38:37 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:37 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.54s: exit 1
+2026-06-11 22:38:42 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:38:42 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.08s: exit 1
+2026-06-11 22:38:43 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:38:43 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.25s: exit 1
+2026-06-11 22:38:43 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:38:43 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.23s: exit 1
+2026-06-11 22:38:43 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:38:43 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.84s: exit 1
+2026-06-11 22:38:43 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:38:43 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.83s: exit 1
+2026-06-11 22:38:44 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:44 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.64s: exit 1
+2026-06-11 22:38:44 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:38:44 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.03s: exit 1
+2026-06-11 22:38:44 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:38:44 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.34s: exit 1
+2026-06-11 22:38:46 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:46 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.04s: exit 1
+2026-06-11 22:38:48 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:48 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.65s: exit 1
+2026-06-11 22:38:55 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:55 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.51s: exit 1
+2026-06-11 22:38:58 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:38:58 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.42s: exit 1
+2026-06-11 22:39:00 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:00 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.67s: exit 1
+2026-06-11 22:39:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.46s: exit 1
+2026-06-11 22:39:03 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:03 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.65s: exit 1
+2026-06-11 22:39:10 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:10 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.79s: exit 1
+2026-06-11 22:39:12 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:12 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.66s: exit 1
+2026-06-11 22:39:13 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:13 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.42s: exit 1
+2026-06-11 22:39:13 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:13 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.71s: exit 1
+2026-06-11 22:39:14 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:14 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.64s: exit 1
+2026-06-11 22:39:16 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:16 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.59s: exit 1
+2026-06-11 22:39:16 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:16 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.56s: exit 1
+2026-06-11 22:39:18 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:18 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.80s: exit 1
+2026-06-11 22:39:22 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:22 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.89s: exit 1
+2026-06-11 22:39:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.53s: exit 1
+2026-06-11 22:39:25 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:25 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.62s: exit 1
+2026-06-11 22:39:26 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:26 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.00s: exit 1
+2026-06-11 22:39:27 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:27 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.54s: exit 1
+2026-06-11 22:39:28 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:28 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.71s: exit 1
+2026-06-11 22:39:30 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:30 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.29s: exit 1
+2026-06-11 22:39:30 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:30 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.52s: exit 1
+2026-06-11 22:39:31 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:31 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.55s: exit 1
+2026-06-11 22:39:33 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:33 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.96s: exit 1
+2026-06-11 22:39:36 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:36 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.83s: exit 1
+2026-06-11 22:39:38 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:38 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.76s: exit 1
+2026-06-11 22:39:41 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:41 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.12s: exit 1
+2026-06-11 22:39:45 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:45 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.64s: exit 1
+2026-06-11 22:39:46 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:46 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.06s: exit 1
+2026-06-11 22:39:50 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:50 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.51s: exit 1
+2026-06-11 22:39:51 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:51 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.96s: exit 1
+2026-06-11 22:39:51 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:51 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.06s: exit 1
+2026-06-11 22:39:51 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:51 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.43s: exit 1
+2026-06-11 22:39:52 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:39:52 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.66s: exit 1
+2026-06-11 22:39:53 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:53 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.40s: exit 1
+2026-06-11 22:39:55 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:55 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.91s: exit 1
+2026-06-11 22:39:55 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:55 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.29s: exit 1
+2026-06-11 22:39:55 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:55 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.65s: exit 1
+2026-06-11 22:39:55 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:55 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.60s: exit 1
+2026-06-11 22:39:56 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:56 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.34s: exit 1
+2026-06-11 22:39:59 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:39:59 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.64s: exit 1
+2026-06-11 22:40:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:40:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.66s: exit 1
+2026-06-11 22:40:01 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:40:01 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.78s: exit 1
+2026-06-11 22:40:02 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:40:02 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.40s: exit 1
+2026-06-11 22:40:02 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:40:02 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.51s: exit 1
+2026-06-11 22:40:03 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:40:03 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.59s: exit 1
+2026-06-11 22:40:08 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:40:08 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.71s: exit 1
+2026-06-11 22:40:12 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:40:12 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.72s: exit 1
+2026-06-11 22:40:12 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:40:12 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.64s: exit 1
+2026-06-11 22:40:13 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:40:13 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.71s: exit 1
+2026-06-11 22:40:14 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:40:14 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.86s: exit 1
+2026-06-11 22:40:15 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:40:15 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.36s: exit 1
+2026-06-11 22:40:15 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:40:15 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.90s: exit 1
+2026-06-11 22:40:15 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:40:15 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.72s: exit 1
+2026-06-11 22:40:16 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 22:40:16 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.36s: exit 1
+2026-06-11 22:40:20 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:40:20 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 1.10s: exit 1
+2026-06-11 22:40:22 WARNING agentc.progress:   action 'check-and-track' (python) FAILED: exit 1
+2026-06-11 22:40:22 WARNING agentc.progress: task 'bugbounty-dedup' FAILED after 0.68s: exit 1
+2026-06-11 22:42:48 ERROR   agentc.engine: another engine is already running (pid ); refusing to start
+2026-06-11 22:43:19 ERROR   agentc.engine: another engine is already running (pid 2436401); refusing to start
+2026-06-11 22:59:08 WARNING agentc.progress:   action 'render' (python) FAILED: exit -15
+2026-06-11 22:59:08 WARNING agentc.progress: task 'dashboard' FAILED after 0.00s: exit -15

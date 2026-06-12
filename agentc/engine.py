@@ -57,6 +57,7 @@ class WorkflowEngine:
         self._trigger_times: Dict[tuple, float] = {}
         self._trigger_lock = threading.Lock()
         self._DEBOUNCE = 2.0  # seconds
+        self._lock_fd = None  # singleton flock fd; held for the process lifetime
 
     # ------------------------------------------------------------------ #
     # Loading
@@ -233,8 +234,44 @@ class WorkflowEngine:
             "heartbeat": time.time(),
         })
 
+    def _acquire_singleton_lock(self) -> bool:
+        """Take an exclusive, process-lifetime lock so only one engine runs.
+
+        Multiple concurrent engines each drive the full pipeline independently,
+        multiplying outbound request rate and defeating per-domain rate limits.
+        The flock is advisory and released automatically when this process exits
+        (or is killed), so a crashed engine never leaves a stale lock behind.
+        Returns False if another live engine already holds it.
+        """
+        import fcntl
+        lock_path = os.path.join(self.store.root, "engine.lock")
+        # "a+" so we don't truncate the holder's pid before we can read it.
+        self._lock_fd = open(lock_path, "a+")
+        try:
+            fcntl.flock(self._lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except (OSError, BlockingIOError):
+            try:
+                self._lock_fd.seek(0)
+                other = self._lock_fd.read().strip() or "?"
+            except OSError:
+                other = "?"
+            log.error("another engine is already running (pid %s); refusing to start", other)
+            self._lock_fd.close()
+            self._lock_fd = None
+            return False
+        self._lock_fd.seek(0)
+        self._lock_fd.truncate(0)
+        self._lock_fd.write(str(os.getpid()))
+        self._lock_fd.flush()
+        return True
+
     def start(self) -> None:
         """Start schedulers + watchers and block until interrupted."""
+        if not self._acquire_singleton_lock():
+            raise SystemExit(
+                "agentC engine is already running; only one instance is allowed. "
+                "Stop the existing one first (systemctl --user stop agentc-engine)."
+            )
         self._started = time.time()
         # Close out any zombie 'running' records left by a previous hard crash
         # so the dashboard's Running panel only shows what is truly active.
@@ -277,4 +314,10 @@ class WorkflowEngine:
         except Exception:  # noqa: BLE001
             pass
         self._write_status("stopped")
+        if self._lock_fd is not None:
+            try:
+                self._lock_fd.close()  # releases the flock
+            except OSError:
+                pass
+            self._lock_fd = None
         log.info("engine stopped")

@@ -120,6 +120,7 @@ IN_MOVED_FROM = 0x00000040
 IN_MOVED_TO = 0x00000080
 IN_CREATE = 0x00000100
 IN_DELETE = 0x00000200
+IN_ISDIR = 0x40000000
 
 _MASK = IN_MODIFY | IN_CLOSE_WRITE | IN_MOVED_FROM | IN_MOVED_TO | IN_CREATE | IN_DELETE
 _EVENT_HEADER = struct.calcsize("iIII")
@@ -142,6 +143,7 @@ class InotifyWatcher(_BaseWatcher):
         self._libc = ctypes.CDLL("libc.so.6", use_errno=True)
         self._fd = -1
         self._wd_to_dir: dict[int, str] = {}
+        self._watched: set[str] = set()
         self._thread: Optional[threading.Thread] = None
         self._stop = threading.Event()
 
@@ -149,18 +151,45 @@ class InotifyWatcher(_BaseWatcher):
         self._fd = self._libc.inotify_init1(0o4000)  # IN_NONBLOCK
         if self._fd < 0:
             raise OSError(ctypes.get_errno(), "inotify_init1 failed")
-        seen: set[str] = set()
         for w in self.watches:
             for directory in self._dirs_for(w):
-                if directory in seen:
-                    continue
-                seen.add(directory)
-                wd = self._libc.inotify_add_watch(self._fd, directory.encode(), _MASK)
-                if wd >= 0:
-                    self._wd_to_dir[wd] = directory
+                self._add_watch(directory)
         self._thread = threading.Thread(target=self._loop, name="agentc-inotify", daemon=True)
         self._thread.start()
         log.info("inotify watching %d director(ies)", len(self._wd_to_dir))
+
+    def _add_watch(self, directory: str) -> None:
+        if directory in self._watched:
+            return
+        wd = self._libc.inotify_add_watch(self._fd, directory.encode(), _MASK)
+        if wd >= 0:
+            self._wd_to_dir[wd] = directory
+            self._watched.add(directory)
+
+    def _covering_watch(self, path: str) -> Optional["_Watch"]:
+        """Return a recursive watch that covers *path* and doesn't ignore it."""
+        ap = os.path.abspath(path)
+        for w in self.watches:
+            if not w.recursive:
+                continue
+            if ap == w.dir or ap.startswith(w.dir + os.sep):
+                if not _ignored(ap, w.ignore):
+                    return w
+        return None
+
+    def _watch_new_tree(self, directory: str) -> None:
+        """A directory just appeared under a recursive watch: start watching it
+        (and any descendants), and replay files that were created inside it
+        before the watch landed — inotify can't have captured those."""
+        if self._covering_watch(directory) is None:
+            return
+        for root, subdirs, files in os.walk(directory):
+            if self._covering_watch(root) is None:
+                subdirs[:] = []
+                continue
+            self._add_watch(root)
+            for name in files:
+                self._dispatch(root, name, "created")
 
     def _dirs_for(self, w: _Watch) -> List[str]:
         if not w.recursive:
@@ -193,6 +222,10 @@ class InotifyWatcher(_BaseWatcher):
             if not directory or not raw_name:
                 continue
             filename = raw_name.decode(errors="replace")
+            # A new subdirectory under a recursive watch must itself be watched,
+            # or files created inside it never generate events.
+            if mask & IN_ISDIR and mask & (IN_CREATE | IN_MOVED_TO):
+                self._watch_new_tree(os.path.join(directory, filename))
             for bit, kind in _MASK_TO_KIND:
                 if mask & bit:
                     self._dispatch(directory, filename, kind)
