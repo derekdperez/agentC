@@ -4,3 +4,7 @@ ai-usage-hacks.py
 .*
 logs/
 *.log
+state/
+configs/tasks/bug*
+bugbounty/
+log/

@@ -75,3 +75,67 @@ ValueError: embedded null byte
 2026-06-11 00:26:30 WARNING agentc.progress: agent 'junior-developer' timed out after 240s
 2026-06-11 00:26:30 WARNING agentc.progress:   action 'implement' (agent) FAILED: agent timed out after 240s
 2026-06-11 00:26:30 WARNING agentc.progress: task 'minor-dev-items' FAILED after 240.18s: agent timed out after 240s
+2026-06-11 18:35:24 WARNING agentc.progress:   action 'create-domain-state' (python) FAILED: exit 1
+2026-06-11 18:35:24 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.09s: exit 1
+2026-06-11 18:42:44 WARNING agentc.progress:   action 'create-initial-requests' (python) FAILED: exit 1
+2026-06-11 18:42:44 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.16s: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.21s: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.24s: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.22s: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.62s: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.18s: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.79s: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:20 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.48s: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.75s: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.77s: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.47s: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.45s: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.83s: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.55s: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.66s: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.75s: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.38s: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.37s: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.48s: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:21 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.87s: exit 1
+2026-06-11 20:33:22 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:22 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.47s: exit 1
+2026-06-11 20:33:22 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:22 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.63s: exit 1
+2026-06-11 20:33:22 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:22 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.40s: exit 1
+2026-06-11 20:33:22 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 20:33:22 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.64s: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress:   action 'create-domain-state' (python) FAILED: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.12s: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress:   action 'create-domain-state' (python) FAILED: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.16s: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress:   action 'create-domain-state' (python) FAILED: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.18s: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress:   action 'create-domain-state' (python) FAILED: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.11s: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress:   action 'create-domain-state' (python) FAILED: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.23s: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress:   action 'create-domain-state' (python) FAILED: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.20s: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress:   action 'create-domain-state' (python) FAILED: exit 1
+2026-06-11 20:58:01 WARNING agentc.progress: task 'bugbounty-spider-init' FAILED after 0.18s: exit 1
