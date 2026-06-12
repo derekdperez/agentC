@@ -693,3 +693,2381 @@ Traceback (most recent call last):
 subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
 2026-06-12 19:02:38 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
 2026-06-12 19:02:38 WARNING agentc.progress: task 'dashboard' FAILED after 301.53s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:02:45 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:02:45 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:02:45 WARNING agentc.progress: task 'dashboard' FAILED after 302.94s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:02:49 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:02:49 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:02:49 WARNING agentc.progress: task 'dashboard' FAILED after 300.94s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:02:54 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:02:54 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:02:54 WARNING agentc.progress: task 'dashboard' FAILED after 300.93s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:00 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:00 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:00 WARNING agentc.progress: task 'dashboard' FAILED after 301.14s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:06 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:06 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:06 WARNING agentc.progress: task 'dashboard' FAILED after 300.38s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:12 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:12 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:12 WARNING agentc.progress: task 'dashboard' FAILED after 300.65s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:17 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:17 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:17 WARNING agentc.progress: task 'dashboard' FAILED after 300.39s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:23 WARNING agentc.progress:   action 'add_commit_push' (shell) FAILED: exit 1
+2026-06-12 19:03:23 WARNING agentc.progress: task 'git_commit_push' FAILED after 43.86s: exit 1
+2026-06-12 19:03:24 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:24 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:24 WARNING agentc.progress: task 'dashboard' FAILED after 301.85s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:29 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:29 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:29 WARNING agentc.progress: task 'dashboard' FAILED after 301.47s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:34 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:34 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:34 WARNING agentc.progress: task 'dashboard' FAILED after 301.18s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:39 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:39 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:39 WARNING agentc.progress: task 'dashboard' FAILED after 300.73s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:45 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:45 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:45 WARNING agentc.progress: task 'dashboard' FAILED after 301.38s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:53 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:53 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:03:53 WARNING agentc.progress: task 'dashboard' FAILED after 304.30s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:02 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:03 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:03 WARNING agentc.progress: task 'dashboard' FAILED after 302.45s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:08 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:10 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:10 WARNING agentc.progress: task 'dashboard' FAILED after 302.95s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:14 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:14 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:14 WARNING agentc.progress: task 'dashboard' FAILED after 302.37s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:20 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:20 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:20 WARNING agentc.progress: task 'dashboard' FAILED after 302.00s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:26 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:26 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:26 WARNING agentc.progress: task 'dashboard' FAILED after 302.29s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:31 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:31 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:31 WARNING agentc.progress: task 'dashboard' FAILED after 301.87s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:35 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:35 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:35 WARNING agentc.progress: task 'dashboard' FAILED after 300.59s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:41 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:41 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:41 WARNING agentc.progress: task 'dashboard' FAILED after 301.80s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:47 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:47 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:49 WARNING agentc.progress: task 'dashboard' FAILED after 303.25s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:51 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:51 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:51 WARNING agentc.progress: task 'dashboard' FAILED after 300.67s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:56 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:56 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:04:56 WARNING agentc.progress: task 'dashboard' FAILED after 300.30s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:10 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:10 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:10 WARNING agentc.progress: task 'dashboard' FAILED after 306.12s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:15 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:16 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:16 WARNING agentc.progress: task 'dashboard' FAILED after 300.72s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:17 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:17 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:17 WARNING agentc.progress: task 'dashboard' FAILED after 300.18s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:28 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:28 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:28 WARNING agentc.progress: task 'dashboard' FAILED after 303.72s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:46 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:48 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:48 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:50 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:50 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:51 WARNING agentc.progress: task 'dashboard' FAILED after 315.10s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:50 WARNING agentc.progress: task 'dashboard' FAILED after 308.30s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:51 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:51 WARNING agentc.progress: task 'dashboard' FAILED after 303.75s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:54 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:54 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:05:54 WARNING agentc.progress: task 'dashboard' FAILED after 301.41s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:01 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:01 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:01 WARNING agentc.progress: task 'dashboard' FAILED after 301.90s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:08 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:08 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:08 WARNING agentc.progress: task 'dashboard' FAILED after 302.64s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:14 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:14 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:15 WARNING agentc.progress: task 'dashboard' FAILED after 304.49s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:17 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:17 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:17 WARNING agentc.progress: task 'dashboard' FAILED after 301.31s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:22 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:22 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:22 WARNING agentc.progress: task 'dashboard' FAILED after 301.08s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:30 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:30 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:30 WARNING agentc.progress: task 'dashboard' FAILED after 301.98s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:46 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:46 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:46 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:46 WARNING agentc.progress: task 'dashboard' FAILED after 303.82s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:46 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:46 WARNING agentc.progress: task 'dashboard' FAILED after 305.47s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:50 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:50 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:50 WARNING agentc.progress: task 'dashboard' FAILED after 302.56s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:58 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:06:58 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:01 WARNING agentc.progress: task 'dashboard' FAILED after 304.85s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:05 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:05 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:05 WARNING agentc.progress: task 'dashboard' FAILED after 304.11s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:08 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:08 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:08 WARNING agentc.progress: task 'dashboard' FAILED after 301.02s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:16 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:17 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:17 WARNING agentc.progress: task 'dashboard' FAILED after 303.91s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:19 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:19 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:19 WARNING agentc.progress: task 'dashboard' FAILED after 300.53s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:25 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:25 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:25 WARNING agentc.progress: task 'dashboard' FAILED after 300.90s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:30 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:30 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:30 WARNING agentc.progress: task 'dashboard' FAILED after 300.37s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:36 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:36 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:36 WARNING agentc.progress: task 'dashboard' FAILED after 300.85s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:42 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:42 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:42 WARNING agentc.progress: task 'dashboard' FAILED after 301.23s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:49 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:49 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:49 WARNING agentc.progress: task 'dashboard' FAILED after 300.19s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:53 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:53 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:53 WARNING agentc.progress: task 'dashboard' FAILED after 300.43s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:58 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:58 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:07:58 WARNING agentc.progress: task 'dashboard' FAILED after 300.61s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:03 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:03 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:03 WARNING agentc.progress: task 'dashboard' FAILED after 300.19s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:09 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:09 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:09 WARNING agentc.progress: task 'dashboard' FAILED after 300.29s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:14 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:14 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:14 WARNING agentc.progress: task 'dashboard' FAILED after 300.53s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:21 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:21 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:21 WARNING agentc.progress: task 'dashboard' FAILED after 302.55s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:26 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:26 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:26 WARNING agentc.progress: task 'dashboard' FAILED after 300.26s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:31 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:31 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:31 WARNING agentc.progress: task 'dashboard' FAILED after 300.31s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:36 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:36 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:36 WARNING agentc.progress: task 'dashboard' FAILED after 300.92s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:43 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:43 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:43 WARNING agentc.progress: task 'dashboard' FAILED after 301.47s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:48 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:48 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:48 WARNING agentc.progress: task 'dashboard' FAILED after 300.48s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:55 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:55 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:08:55 WARNING agentc.progress: task 'dashboard' FAILED after 300.63s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:01 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:01 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:01 WARNING agentc.progress: task 'dashboard' FAILED after 301.62s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:11 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:11 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:11 WARNING agentc.progress: task 'dashboard' FAILED after 304.28s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:12 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:12 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:12 WARNING agentc.progress: task 'dashboard' FAILED after 300.45s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:17 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:17 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:17 WARNING agentc.progress: task 'dashboard' FAILED after 300.50s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:23 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:23 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:23 WARNING agentc.progress: task 'dashboard' FAILED after 300.50s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:29 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:31 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:31 WARNING agentc.progress: task 'dashboard' FAILED after 303.92s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:33 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:33 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:33 WARNING agentc.progress: task 'dashboard' FAILED after 300.47s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:40 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:40 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:41 WARNING agentc.progress: task 'dashboard' FAILED after 302.58s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:43 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:43 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:43 WARNING agentc.progress: task 'dashboard' FAILED after 300.21s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:50 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:50 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:50 WARNING agentc.progress: task 'dashboard' FAILED after 300.98s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:57 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:58 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:09:58 WARNING agentc.progress: task 'dashboard' FAILED after 304.15s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:02 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:02 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:02 WARNING agentc.progress: task 'dashboard' FAILED after 303.28s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:12 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:12 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:12 WARNING agentc.progress: task 'dashboard' FAILED after 302.68s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:14 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:14 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:14 WARNING agentc.progress: task 'dashboard' FAILED after 300.37s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:20 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:20 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:20 WARNING agentc.progress: task 'dashboard' FAILED after 301.28s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:28 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:28 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:28 WARNING agentc.progress: task 'dashboard' FAILED after 300.40s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:32 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:32 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:32 WARNING agentc.progress: task 'dashboard' FAILED after 300.20s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:54 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:55 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:55 WARNING agentc.progress: task 'dashboard' FAILED after 306.20s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:55 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:55 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:10:55 WARNING agentc.progress: task 'dashboard' FAILED after 300.43s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:01 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:01 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:01 WARNING agentc.progress: task 'dashboard' FAILED after 300.18s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:06 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:07 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:07 WARNING agentc.progress: task 'dashboard' FAILED after 300.42s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:13 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:13 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:13 WARNING agentc.progress: task 'dashboard' FAILED after 300.84s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:19 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:21 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:21 WARNING agentc.progress: task 'dashboard' FAILED after 304.55s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:25 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:25 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:25 WARNING agentc.progress: task 'dashboard' FAILED after 302.76s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:34 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:34 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:34 WARNING agentc.progress: task 'dashboard' FAILED after 300.23s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:43 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:43 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:43 WARNING agentc.progress: task 'dashboard' FAILED after 300.20s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:49 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:49 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:49 WARNING agentc.progress: task 'dashboard' FAILED after 302.03s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:56 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:56 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:11:56 WARNING agentc.progress: task 'dashboard' FAILED after 302.73s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:00 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:00 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:00 WARNING agentc.progress: task 'dashboard' FAILED after 300.49s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:09 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:09 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:09 WARNING agentc.progress: task 'dashboard' FAILED after 302.48s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:13 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:13 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:13 WARNING agentc.progress: task 'dashboard' FAILED after 301.16s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:18 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:18 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:18 WARNING agentc.progress: task 'dashboard' FAILED after 300.88s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:24 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:24 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:24 WARNING agentc.progress: task 'dashboard' FAILED after 302.07s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:29 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:29 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:29 WARNING agentc.progress: task 'dashboard' FAILED after 301.00s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:34 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:34 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:34 WARNING agentc.progress: task 'dashboard' FAILED after 300.76s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:40 ERROR   agentc.action: action 'render' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:40 WARNING agentc.progress:   action 'render' (python) FAILED: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds
+2026-06-12 19:12:40 WARNING agentc.progress: task 'dashboard' FAILED after 301.06s: Command '['/usr/bin/python3', 'scripts/render_dashboard.py']' timed out after 300 seconds

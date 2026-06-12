@@ -1,7 +1,7 @@
 {
-  "event_path": "/home/cisco/repo/agentC/bugbounty/requests/ready/f01d5e22480a4f6ca552d486743f419f.json",
-  "event_kind": "moved_to",
-  "event_filename": "f01d5e22480a4f6ca552d486743f419f.json",
+  "event_path": "/home/cisco/repo/agentC/bugbounty/requests/pending/robjecter.aiven.io",
+  "event_kind": "deleted",
+  "event_filename": "robjecter.aiven.io",
   "system": "agentC",
   "now": "2026-06-10 16:55:00",
   "event_task": "watch-inbox",

@@ -45,6 +45,27 @@ MAX_ROWS = 600          # cap rows per table so a huge crawl can't bloat the pag
 ASSET_TYPES = ("html", "scripts", "stylesheets", "images", "archives", "bin", "critical")
 TARGET_STATUSES = ("active", "paused", "archived")
 
+# --------------------------------------------------------------------------- #
+# Tiny TTL cache — shields the every-few-seconds refresh from re-scanning huge
+# on-disk directories (the runs dir can hold tens of thousands of files). A few
+# seconds of staleness on a live dashboard is invisible; re-statting 50k+ files
+# on every poll is not. Thread-safe for the ThreadingHTTPServer workers.
+# --------------------------------------------------------------------------- #
+_CACHE_LOCK = threading.Lock()
+_CACHE: dict = {}
+
+
+def _cached(key, ttl: float, producer):
+    now = time.time()
+    with _CACHE_LOCK:
+        ent = _CACHE.get(key)
+        if ent and ent[0] > now:
+            return ent[1]
+    val = producer()
+    with _CACHE_LOCK:
+        _CACHE[key] = (now + ttl, val)
+    return val
+
 
 # --------------------------------------------------------------------------- #
 # Paths
@@ -498,8 +519,7 @@ def load_request_metrics() -> dict:
     }
 
 
-def load_pending_by_domain(limit=4000) -> dict:
-    """Count pending+ready requests per domain (filename-cheap parse, capped)."""
+def _scan_pending_by_domain(limit: int) -> dict:
     counts = {}
     for sub in ("pending", "ready"):
         d = os.path.join(requests_dir(), sub)
@@ -516,6 +536,12 @@ def load_pending_by_domain(limit=4000) -> dict:
     return counts
 
 
+def load_pending_by_domain(limit=4000) -> dict:
+    """Count pending+ready requests per domain (capped parse, TTL-cached)."""
+    return _cached(("pend_by_dom", limit), 6.0,
+                   lambda: _scan_pending_by_domain(limit))
+
+
 def load_bb_runs(paths: Paths, limit=40, recent: list = None) -> list:
     """Newest bugbounty runs. Scans only recent run records (never the full
     runs dir, which can hold tens of thousands of files). Pass ``recent`` to
@@ -526,13 +552,12 @@ def load_bb_runs(paths: Paths, limit=40, recent: list = None) -> list:
     return runs[:limit]
 
 
-def load_recent_runs(paths: Paths, n=500) -> list:
+def _scan_recent_runs(rdir: str, n: int) -> list:
     """Load the *n* most-recently-modified run records (cheap, bounded).
 
     Uses ``os.scandir`` so the runs dir is enumerated in a single pass and only
     the newest *n* files are actually JSON-parsed — the directory can hold tens
     of thousands of records (every task run leaves one)."""
-    rdir = os.path.join(paths.state_dir, "runs")
     ents = []
     try:
         with os.scandir(rdir) as it:
@@ -553,6 +578,13 @@ def load_recent_runs(paths: Paths, n=500) -> list:
         if d:
             out.append(d)
     return out
+
+
+def load_recent_runs(paths: Paths, n=500) -> list:
+    """Cached wrapper over :func:`_scan_recent_runs` (TTL bounded)."""
+    rdir = os.path.join(paths.state_dir, "runs")
+    return _cached(("recent_runs", rdir, n), 6.0,
+                   lambda: _scan_recent_runs(rdir, n))
 
 
 # Noise tasks excluded from the activity feed (they fire every few seconds).
@@ -1039,11 +1071,21 @@ def render_feed_panel(feed) -> str:
 def render_rate_panel(rate, pend_by_dom) -> str:
     headers = ["domain", "queued", "last slot", "next ready"]
     now = time.time()
-    domains = sorted(set(list(rate.keys()) + list(pend_by_dom.keys())))
+    all_domains = set(list(rate.keys()) + list(pend_by_dom.keys()))
+
+    def _last(d):
+        slot = rate.get(d, 0)
+        return slot.get("last", 0) if isinstance(slot, dict) else (slot or 0)
+
+    # The rate map can hold thousands of domains; show only the most relevant —
+    # those with items queued first, then most-recently active — capped so the
+    # panel never balloons into a multi-thousand-row table.
+    domains = sorted(all_domains,
+                     key=lambda d: (pend_by_dom.get(d, 0), _last(d)),
+                     reverse=True)[:MAX_ROWS]
     rows = []
     for d in domains:
-        slot = rate.get(d, 0)
-        last = slot.get("last", 0) if isinstance(slot, dict) else (slot or 0)
+        last = _last(d)
         queued = pend_by_dom.get(d, 0)
         if last and last > now:
             nxt = f'<span class="runtime">in {last - now:.1f}s</span>'
@@ -1051,7 +1093,7 @@ def render_rate_panel(rate, pend_by_dom) -> str:
             nxt = "ready"
         rows.append([e(d), queued, fmt_ts(last) if last else "—",
                      nxt if queued else "—"])
-    return panel("rate", "Rate limits", len(domains),
+    return panel("rate", "Rate limits", len(all_domains),
                  table("tbl-rate", headers, rows))
 
 
