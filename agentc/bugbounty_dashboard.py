@@ -516,19 +516,39 @@ def load_pending_by_domain(limit=4000) -> dict:
     return counts
 
 
-def load_bb_runs(paths: Paths, limit=40) -> list:
-    runs = [r for r in load_runs(paths.state_dir)
-            if str(r.get("task", "")).startswith("bugbounty")]
+def load_bb_runs(paths: Paths, limit=40, recent: list = None) -> list:
+    """Newest bugbounty runs. Scans only recent run records (never the full
+    runs dir, which can hold tens of thousands of files). Pass ``recent`` to
+    reuse an already-loaded ``load_recent_runs`` list."""
+    if recent is None:
+        recent = load_recent_runs(paths, n=1200)
+    runs = [r for r in recent if str(r.get("task", "")).startswith("bugbounty")]
     return runs[:limit]
 
 
 def load_recent_runs(paths: Paths, n=500) -> list:
-    """Load the *n* most-recently-modified run records (cheap, bounded)."""
-    files = glob.glob(os.path.join(paths.state_dir, "runs", "*.json"))
-    files.sort(key=lambda p: os.path.getmtime(p) if os.path.exists(p) else 0,
-               reverse=True)
+    """Load the *n* most-recently-modified run records (cheap, bounded).
+
+    Uses ``os.scandir`` so the runs dir is enumerated in a single pass and only
+    the newest *n* files are actually JSON-parsed — the directory can hold tens
+    of thousands of records (every task run leaves one)."""
+    rdir = os.path.join(paths.state_dir, "runs")
+    ents = []
+    try:
+        with os.scandir(rdir) as it:
+            for de in it:
+                if not de.name.endswith(".json"):
+                    continue
+                try:
+                    mt = de.stat().st_mtime
+                except OSError:
+                    mt = 0
+                ents.append((mt, de.path))
+    except OSError:
+        return []
+    ents.sort(key=lambda x: x[0], reverse=True)
     out = []
-    for p in files[:n]:
+    for mt, p in ents[:n]:
         d = _load_json(p)
         if d:
             out.append(d)
@@ -572,11 +592,14 @@ def _run_hint(r: dict) -> str:
     return ""
 
 
-def load_feed(paths: Paths, limit=400) -> list:
+def load_feed(paths: Paths, limit=400, recent: list = None) -> list:
     """A unified, time-ordered activity stream built from every task's run
-    records.  Every run produces at least one entry so every task is visible."""
+    records.  Every run produces at least one entry so every task is visible.
+    Pass ``recent`` to reuse an already-loaded ``load_recent_runs`` list."""
     entries = []
-    for r in load_recent_runs(paths, n=500):
+    if recent is None:
+        recent = load_recent_runs(paths, n=1200)
+    for r in recent:
         task = r.get("task", "")
         if task in _FEED_SKIP:
             continue
@@ -1243,8 +1266,9 @@ def render_page(paths: Paths) -> str:
     summary = load_request_summary()
     rate = load_rate_state()
     pend_by_dom = load_pending_by_domain()
-    runs = load_bb_runs(paths)
-    feed = load_feed(paths)
+    recent_runs = load_recent_runs(paths, n=1200)
+    runs = load_bb_runs(paths, recent=recent_runs)
+    feed = load_feed(paths, recent=recent_runs)
     eng = engine_status()
     paused = is_paused()
     queue = load_queue()
@@ -1361,8 +1385,9 @@ def make_handler(paths: Paths):
                 summary = load_request_summary()
                 rate = load_rate_state()
                 pend_by_dom = load_pending_by_domain()
-                runs = load_bb_runs(paths)
-                feed = load_feed(paths)
+                recent_runs = load_recent_runs(paths, n=1200)
+                runs = load_bb_runs(paths, recent=recent_runs)
+                feed = load_feed(paths, recent=recent_runs)
                 eng = engine_status()
                 paused = is_paused()
                 queue = load_queue()
