@@ -1,0 +1,20 @@
+{
+  "name": "git_commit_push",
+  "description": "Runs every 10 minutes to automatically commit and push all changes to the git repository.",
+  "enabled": true,
+  "persist": false,
+  "trigger": {
+    "type": "schedule",
+    "interval": 600
+  },
+  "variables": {},
+  "emits": [],
+  "actions": [
+    {
+      "name": "add_commit_push",
+      "type": "shell",
+      "command": "git add . && git commit -m \"Automatic Scheduled Commit/Push\" && git push",
+      "cwd": "/home/cisco/repo/agentC"
+    }
+  ]
+}
