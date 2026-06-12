@@ -1,7 +1,7 @@
 {
-  "event_path": "/home/cisco/repo/agentC/.gitignore",
+  "event_path": "/home/cisco/repo/agentC/bugbounty/wordlists/critical_paths.txt",
   "event_kind": "closed_write",
-  "event_filename": ".gitignore",
+  "event_filename": "critical_paths.txt",
   "system": "agentC",
   "now": "2026-06-10 16:55:00",
   "event_task": "watch-inbox",
