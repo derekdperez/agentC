@@ -10717,3 +10717,124 @@
 2026-06-11 23:48:00 INFO    agentc.engine:   [ok] render (python) 1.483s
 2026-06-11 23:48:04 INFO    agentc.engine: === run 8990e7278a06 : task dashboard (trigger=schedule) ===
 2026-06-11 23:48:05 INFO    agentc.engine:   [ok] render (python) 1.532s
+2026-06-11 23:48:09 INFO    agentc.engine: === run 3ec39f18cb18 : task dashboard (trigger=schedule) ===
+2026-06-11 23:48:10 INFO    agentc.engine:   [ok] render (python) 1.456s
+2026-06-11 23:48:14 INFO    agentc.engine: === run 647f6df61f61 : task dashboard (trigger=schedule) ===
+2026-06-11 23:48:15 INFO    agentc.engine:   [ok] render (python) 1.424s
+2026-06-11 23:48:19 INFO    agentc.engine: === run 067e950cf775 : task dashboard (trigger=schedule) ===
+2026-06-11 23:48:20 INFO    agentc.engine:   [ok] render (python) 1.553s
+2026-06-11 23:48:24 INFO    agentc.engine: === run 60a579ddabab : task dashboard (trigger=schedule) ===
+2026-06-11 23:48:25 INFO    agentc.engine:   [ok] render (python) 1.451s
+2026-06-11 23:48:29 INFO    agentc.engine: === run a76603640f79 : task dashboard (trigger=schedule) ===
+2026-06-11 23:48:30 INFO    agentc.engine:   [ok] render (python) 1.470s
+2026-06-11 23:48:34 INFO    agentc.engine: === run c6650b5020c1 : task dashboard (trigger=schedule) ===
+2026-06-11 23:48:35 INFO    agentc.engine:   [ok] render (python) 1.477s
+2026-06-11 23:48:39 INFO    agentc.engine: === run 09f645a0c37d : task dashboard (trigger=schedule) ===
+2026-06-11 23:48:40 INFO    agentc.engine:   [ok] render (python) 1.530s
+2026-06-11 23:48:44 INFO    agentc.engine: === run b488d769a41b : task dashboard (trigger=schedule) ===
+2026-06-11 23:48:45 INFO    agentc.engine:   [ok] render (python) 1.418s
+2026-06-11 23:48:49 INFO    agentc.engine: === run 9c17d1c26116 : task dashboard (trigger=schedule) ===
+2026-06-11 23:48:50 INFO    agentc.engine:   [ok] render (python) 1.407s
+2026-06-11 23:48:54 INFO    agentc.engine: === run 8866e6a082ad : task dashboard (trigger=schedule) ===
+2026-06-11 23:48:55 INFO    agentc.engine:   [ok] render (python) 1.687s
+2026-06-11 23:48:59 INFO    agentc.engine: === run 590348d118f9 : task dashboard (trigger=schedule) ===
+2026-06-11 23:49:00 INFO    agentc.engine:   [ok] render (python) 1.388s
+2026-06-11 23:49:04 INFO    agentc.engine: === run 0637a9928a1c : task dashboard (trigger=schedule) ===
+2026-06-11 23:49:05 INFO    agentc.engine:   [ok] render (python) 1.425s
+2026-06-11 23:49:09 INFO    agentc.engine: === run 260da65a416b : task dashboard (trigger=schedule) ===
+2026-06-11 23:49:10 INFO    agentc.engine:   [ok] render (python) 1.679s
+2026-06-11 23:49:14 INFO    agentc.engine: === run 0b8e3efae5ea : task dashboard (trigger=schedule) ===
+2026-06-11 23:49:15 INFO    agentc.engine:   [ok] render (python) 1.443s
+2026-06-11 23:49:19 INFO    agentc.engine: === run 8b7c06e01f22 : task dashboard (trigger=schedule) ===
+2026-06-11 23:49:20 INFO    agentc.engine:   [ok] render (python) 1.431s
+2026-06-11 23:49:24 INFO    agentc.engine: === run 6f5be5d76f4d : task dashboard (trigger=schedule) ===
+2026-06-11 23:49:25 INFO    agentc.engine:   [ok] render (python) 1.453s
+2026-06-11 23:49:29 INFO    agentc.engine: === run 02f978e440f4 : task dashboard (trigger=schedule) ===
+2026-06-11 23:49:30 INFO    agentc.engine:   [ok] render (python) 1.500s
+2026-06-11 23:49:34 INFO    agentc.engine: === run a6159b675138 : task dashboard (trigger=schedule) ===
+2026-06-11 23:49:35 INFO    agentc.engine:   [ok] render (python) 1.424s
+2026-06-11 23:49:39 INFO    agentc.engine: === run cb7f6ae6cbdc : task dashboard (trigger=schedule) ===
+2026-06-11 23:49:40 INFO    agentc.engine:   [ok] render (python) 1.421s
+2026-06-11 23:49:44 INFO    agentc.engine: === run 76a409723e6c : task dashboard (trigger=schedule) ===
+2026-06-11 23:49:45 INFO    agentc.engine:   [ok] render (python) 1.540s
+2026-06-11 23:49:49 INFO    agentc.engine: === run fbe32d84dea2 : task dashboard (trigger=schedule) ===
+2026-06-11 23:49:50 INFO    agentc.engine:   [ok] render (python) 1.485s
+2026-06-11 23:49:54 INFO    agentc.engine: === run 8fb533abf7b8 : task dashboard (trigger=schedule) ===
+2026-06-11 23:49:55 INFO    agentc.engine:   [ok] render (python) 1.476s
+2026-06-11 23:49:59 INFO    agentc.engine: === run 55a8798ea96a : task dashboard (trigger=schedule) ===
+2026-06-11 23:50:00 INFO    agentc.engine:   [ok] render (python) 1.458s
+2026-06-11 23:50:04 INFO    agentc.engine: === run ae513fea3f41 : task dashboard (trigger=schedule) ===
+2026-06-11 23:50:05 INFO    agentc.engine:   [ok] render (python) 1.762s
+2026-06-11 23:50:09 INFO    agentc.engine: === run d01e353c531e : task dashboard (trigger=schedule) ===
+2026-06-11 23:50:10 INFO    agentc.engine:   [ok] render (python) 1.678s
+2026-06-11 23:50:14 INFO    agentc.engine: === run 652269c8cd99 : task dashboard (trigger=schedule) ===
+2026-06-11 23:50:15 INFO    agentc.engine:   [ok] render (python) 1.555s
+2026-06-11 23:50:19 INFO    agentc.engine: === run a40654d0bf77 : task dashboard (trigger=schedule) ===
+2026-06-11 23:50:21 INFO    agentc.engine:   [ok] render (python) 1.945s
+2026-06-11 23:50:24 INFO    agentc.engine: === run 7428a21a7c5c : task dashboard (trigger=schedule) ===
+2026-06-11 23:50:25 INFO    agentc.engine:   [ok] render (python) 1.863s
+2026-06-11 23:50:29 INFO    agentc.engine: === run c6f8afb0d28a : task dashboard (trigger=schedule) ===
+2026-06-11 23:50:30 INFO    agentc.engine:   [ok] render (python) 1.662s
+2026-06-11 23:50:34 INFO    agentc.engine: === run 24e9df2e52e1 : task dashboard (trigger=schedule) ===
+2026-06-11 23:50:35 INFO    agentc.engine:   [ok] render (python) 1.491s
+2026-06-11 23:50:39 INFO    agentc.engine: === run 2883117a553b : task dashboard (trigger=schedule) ===
+2026-06-11 23:50:40 INFO    agentc.engine:   [ok] render (python) 1.410s
+2026-06-11 23:50:44 INFO    agentc.engine: === run 0459d5263574 : task dashboard (trigger=schedule) ===
+2026-06-11 23:50:45 INFO    agentc.engine:   [ok] render (python) 1.434s
+2026-06-11 23:50:49 INFO    agentc.engine: === run 2440077e2285 : task dashboard (trigger=schedule) ===
+2026-06-11 23:50:50 INFO    agentc.engine:   [ok] render (python) 1.593s
+2026-06-11 23:50:54 INFO    agentc.engine: === run c211df3b8501 : task dashboard (trigger=schedule) ===
+2026-06-11 23:50:55 INFO    agentc.engine:   [ok] render (python) 1.475s
+2026-06-11 23:50:59 INFO    agentc.engine: === run b91d0a9d4fea : task dashboard (trigger=schedule) ===
+2026-06-11 23:51:00 INFO    agentc.engine:   [ok] render (python) 1.452s
+2026-06-11 23:51:04 INFO    agentc.engine: === run 8774fc0d4bcc : task dashboard (trigger=schedule) ===
+2026-06-11 23:51:05 INFO    agentc.engine:   [ok] render (python) 1.497s
+2026-06-11 23:51:06 INFO    agentc.engine: emit file.created (watcher)
+2026-06-11 23:51:06 INFO    agentc.engine: === run 3633dd375e2b : task monitor-files (trigger=file) ===
+2026-06-11 23:51:06 INFO    agentc.engine:   [ok] noop (shell) 0.002s
+2026-06-11 23:51:09 INFO    agentc.engine: === run 5f91cbd239b7 : task dashboard (trigger=schedule) ===
+2026-06-11 23:51:10 INFO    agentc.engine:   [ok] render (python) 1.487s
+2026-06-11 23:51:14 INFO    agentc.engine: === run 3879b908f135 : task dashboard (trigger=schedule) ===
+2026-06-11 23:51:15 INFO    agentc.engine:   [ok] render (python) 1.441s
+2026-06-11 23:51:19 INFO    agentc.engine: === run 5d4598d27037 : task dashboard (trigger=schedule) ===
+2026-06-11 23:51:20 INFO    agentc.engine:   [ok] render (python) 1.405s
+2026-06-11 23:51:24 INFO    agentc.engine: === run 552af6911309 : task dashboard (trigger=schedule) ===
+2026-06-11 23:51:25 INFO    agentc.engine:   [ok] render (python) 1.548s
+2026-06-11 23:51:29 INFO    agentc.engine: === run 6c05eb87e834 : task dashboard (trigger=schedule) ===
+2026-06-11 23:51:30 INFO    agentc.engine:   [ok] render (python) 1.432s
+2026-06-11 23:51:34 INFO    agentc.engine: === run 3603fa298eba : task dashboard (trigger=schedule) ===
+2026-06-11 23:51:35 INFO    agentc.engine:   [ok] render (python) 1.468s
+2026-06-11 23:51:39 INFO    agentc.engine: === run 229d9c003e4e : task dashboard (trigger=schedule) ===
+2026-06-11 23:51:40 INFO    agentc.engine:   [ok] render (python) 1.559s
+2026-06-11 23:51:44 INFO    agentc.engine: === run 8c233e71ce12 : task dashboard (trigger=schedule) ===
+2026-06-11 23:51:45 INFO    agentc.engine:   [ok] render (python) 1.435s
+2026-06-11 23:51:49 INFO    agentc.engine: === run e2eda1ab7fc8 : task dashboard (trigger=schedule) ===
+2026-06-11 23:51:50 INFO    agentc.engine:   [ok] render (python) 1.418s
+2026-06-11 23:51:54 INFO    agentc.engine: === run dcc5c30d73dc : task dashboard (trigger=schedule) ===
+2026-06-11 23:51:55 INFO    agentc.engine:   [ok] render (python) 1.600s
+2026-06-11 23:51:59 INFO    agentc.engine: === run c02ea5f6923c : task dashboard (trigger=schedule) ===
+2026-06-11 23:52:01 INFO    agentc.engine:   [ok] render (python) 1.943s
+2026-06-11 23:52:04 INFO    agentc.engine: === run 2f2eee546125 : task dashboard (trigger=schedule) ===
+2026-06-11 23:52:05 INFO    agentc.engine:   [ok] render (python) 1.433s
+2026-06-11 23:52:09 INFO    agentc.engine: === run 853d26e0a73e : task dashboard (trigger=schedule) ===
+2026-06-11 23:52:10 INFO    agentc.engine:   [ok] render (python) 1.421s
+2026-06-11 23:52:14 INFO    agentc.engine: === run 5fac20d3f29f : task dashboard (trigger=schedule) ===
+2026-06-11 23:52:15 INFO    agentc.engine:   [ok] render (python) 1.496s
+2026-06-11 23:52:19 INFO    agentc.engine: === run 714df91a5d8c : task dashboard (trigger=schedule) ===
+2026-06-11 23:52:20 INFO    agentc.engine:   [ok] render (python) 1.409s
+2026-06-11 23:52:24 INFO    agentc.engine: === run 6cc100ebda37 : task dashboard (trigger=schedule) ===
+2026-06-11 23:52:25 INFO    agentc.engine:   [ok] render (python) 1.426s
+2026-06-11 23:52:29 INFO    agentc.engine: === run 1c83743d8e56 : task dashboard (trigger=schedule) ===
+2026-06-11 23:52:30 INFO    agentc.engine:   [ok] render (python) 1.500s
+2026-06-11 23:52:34 INFO    agentc.engine: === run 0a35b27d709f : task dashboard (trigger=schedule) ===
+2026-06-11 23:52:35 INFO    agentc.engine:   [ok] render (python) 1.488s
+2026-06-11 23:52:39 INFO    agentc.engine: === run db18488fd7eb : task dashboard (trigger=schedule) ===
+2026-06-11 23:52:40 INFO    agentc.engine:   [ok] render (python) 1.416s
+2026-06-11 23:52:41 INFO    agentc.engine: emit file.modified (watcher)
+2026-06-11 23:52:41 INFO    agentc.engine: === run 7b9a57109cae : task monitor-files (trigger=file) ===
+2026-06-11 23:52:41 INFO    agentc.engine:   [ok] noop (shell) 0.002s
+2026-06-11 23:52:44 INFO    agentc.engine: === run fe4a733a5522 : task dashboard (trigger=schedule) ===
+2026-06-11 23:52:45 INFO    agentc.engine:   [ok] render (python) 1.465s
+2026-06-11 23:52:49 INFO    agentc.engine: === run 003e7cd52503 : task dashboard (trigger=schedule) ===
+2026-06-11 23:52:50 INFO    agentc.engine:   [ok] render (python) 1.567s
+2026-06-11 23:52:54 INFO    agentc.engine: === run b2b8d046cc9a : task dashboard (trigger=schedule) ===
