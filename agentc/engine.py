@@ -52,6 +52,11 @@ class WorkflowEngine:
         self.globals = VariableStore(self.store.load_variables())
         self._running = threading.Event()
         self._started: float = 0.0
+        # (task_name, filepath) -> last trigger time; prevents double-fire from
+        # editors that emit IN_CREATE then rename a temp file (IN_MOVED_TO).
+        self._trigger_times: Dict[tuple, float] = {}
+        self._trigger_lock = threading.Lock()
+        self._DEBOUNCE = 2.0  # seconds
 
     # ------------------------------------------------------------------ #
     # Loading
@@ -200,6 +205,14 @@ class WorkflowEngine:
                          name, t.path, t.on, t.pattern, t.recursive)
 
     def _on_file_event(self, task_name: str, filepath: str, kind: str) -> None:
+        key = (task_name, filepath)
+        now = time.time()
+        with self._trigger_lock:
+            last = self._trigger_times.get(key, 0.0)
+            if now - last < self._DEBOUNCE:
+                log.debug("debounce: skipping %s for %s (%.2fs since last)", kind, filepath, now - last)
+                return
+            self._trigger_times[key] = now
         event = self.emit("file." + kind, {"path": filepath, "kind": kind,
                           "filename": filepath.rsplit("/", 1)[-1]}, source="watcher")
         self._run_task_async(task_name, event)

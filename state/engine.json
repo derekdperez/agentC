@@ -1,10 +1,10 @@
 {
   "status": "running",
-  "pid": 2299896,
-  "started": 1781227851.021109,
+  "pid": 1619139,
+  "started": 1781157985.2968059,
   "scheduler_backend": "thread",
   "watcher_backend": "inotify",
   "agents": 3,
-  "tasks": 12,
-  "heartbeat": 1781227977.1557724
+  "tasks": 5,
+  "heartbeat": 1781230281.4650226
 }

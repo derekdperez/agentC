@@ -513,14 +513,18 @@ def render_folder_browser(paths):
         entries = list_dir(paths, rel) or []
         items = []
         for ent in entries:
-            icon = "&#128193;" if ent["dir"] else "&#128196;"
-            meta = "dir" if ent["dir"] else fmt_size(ent["size"])
-            klass = "fitem dir" if ent["dir"] else "fitem"
-            items.append(
-                f'<div class="{klass}" data-rel="{e(ent["rel"])}"'
-                f'{" data-isdir=1" if ent["dir"] else ""}>'
-                f'<span class="fname">{icon} {e(ent["name"])}</span>'
-                f'<span class="fmeta">{e(meta)}</span></div>')
+            if ent["dir"]:
+                items.append(
+                    f'<div class="folder subfolder" data-path="{e(ent["rel"])}">'
+                    f'<div class="fhead" tabindex="0">'
+                    f'<span class="fcaret">&#9656;</span>'
+                    f'<span class="fname">&#128193; {e(ent["name"])}</span>'
+                    f'</div><div class="fbody"></div></div>')
+            else:
+                items.append(
+                    f'<div class="fitem" data-rel="{e(ent["rel"])}">'
+                    f'<span class="fname">&#128196; {e(ent["name"])}</span>'
+                    f'<span class="fmeta">{fmt_size(ent["size"])}</span></div>')
         inner = "".join(items) or '<div class="fitem dim">(empty)</div>'
         blocks.append(
             f'<div class="folder" data-path="{e(rel)}">'
@@ -529,7 +533,7 @@ def render_folder_browser(paths):
             f'<span class="fpath">{e(rel)}</span>'
             f'<span class="ftask">{e(m["task"])}</span>'
             f'<span class="fcount">{len(entries)}</span></div>'
-            f'<div class="fbody" style="display:none">{inner}</div>'
+            f'<div class="fbody">{inner}</div>'
             f'</div>')
     return '<div class="fbrowse">' + "".join(blocks) + '</div>'
 
@@ -1000,13 +1004,17 @@ PAGE = r"""<!DOCTYPE html>
     overflow: hidden; text-overflow: ellipsis; }
   .ftask { color: #6e7681; font-size: 10px; }
   .fcount { color: #58a6ff; font-size: 10px; min-width: 16px; text-align: right; }
-  .fbody { padding: 1px 0 3px 16px; }
+  .fbody { display: none; padding: 1px 0 3px 16px; }
+  .folder.open > .fbody { display: block; }
+  .subfolder { border-bottom: none; }
+  .subfolder > .fhead { background: transparent; padding: 1px 6px; font-weight: normal; }
+  .subfolder > .fhead:hover { background: #161b22; }
+  .subfolder > .fhead .fname { color: #58a6ff; flex: 1; overflow: hidden; text-overflow: ellipsis; }
   .fitem { display: flex; align-items: center; gap: 6px; padding: 0 6px;
     white-space: nowrap; }
   .fitem .fname { flex: 1; overflow: hidden; text-overflow: ellipsis; }
   .fitem .fmeta { color: #6e7681; font-size: 10px; }
   .fitem.dim { color: #6e7681; font-style: italic; }
-  .fitem.dir .fname { color: #58a6ff; }
   /* run-detail modal */
   .modal.wide { width: 760px; }
   .rd-meta { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-bottom: 10px; }
@@ -1563,15 +1571,49 @@ roverlay.addEventListener('mousedown', function(ev){ if(ev.target===roverlay) cl
 
 /* ---- folder browser (Monitored folders panel) ---- */
 var SELECTED_FOLDER = L('selfolder') || null;
-var OPEN_FOLDERS = L('openfolders') || [];   // monitored folders the user expanded
+var OPEN_FOLDERS = L('openfolders') || [];   // all expanded folder paths (top-level and sub)
 function saveOpenFolders(){ S('openfolders', OPEN_FOLDERS); }
+function fmtSize(n){ n=+n; if(isNaN(n)) return '—';
+  var u=['B','K','M','G']; for(var i=0;i<3&&n>=1024;i++) n/=1024;
+  return (i===0?n:n.toFixed(1))+u[i]; }
+function renderItems(entries){
+  if(!entries||!entries.length) return '<div class="fitem dim">(empty)</div>';
+  return entries.map(function(ent){
+    if(ent.dir) return '<div class="folder subfolder" data-path="'+esc(ent.rel)+'">'
+      +'<div class="fhead" tabindex="0"><span class="fcaret">&#9656;</span>'
+      +'<span class="fname">&#128193; '+esc(ent.name)+'</span>'
+      +'</div><div class="fbody"></div></div>';
+    return '<div class="fitem" data-rel="'+esc(ent.rel)+'">'
+      +'<span class="fname">&#128196; '+esc(ent.name)+'</span>'
+      +'<span class="fmeta">'+fmtSize(ent.size)+'</span></div>';
+  }).join('');
+}
+function restoreOpenFolders(root){
+  // Re-open any .folder elements (within root) whose path is in OPEN_FOLDERS.
+  [].slice.call((root||document).querySelectorAll('.folder')).forEach(function(f){
+    if(OPEN_FOLDERS.indexOf(f.getAttribute('data-path'))>=0) setFolderOpen(f, true);
+  });
+}
 function setFolderOpen(folder, open){
   folder.classList.toggle('open', open);
-  var b=folder.querySelector('.fbody'); if(b) b.style.display=open?'':'none';
   var path=folder.getAttribute('data-path'), i=OPEN_FOLDERS.indexOf(path);
   if(open && i<0) OPEN_FOLDERS.push(path);
   if(!open && i>=0) OPEN_FOLDERS.splice(i,1);
   saveOpenFolders();
+  // Lazy-load subfolder contents on first open
+  if(open && folder.classList.contains('subfolder')){
+    var body=folder.querySelector('.fbody');
+    if(body && !body.firstChild){
+      body.innerHTML='<div class="fitem dim">loading…</div>';
+      fetch('/api/fs?path='+encodeURIComponent(path))
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          body.innerHTML=renderItems(d.entries||[]);
+          restoreOpenFolders(body);
+        })
+        .catch(function(){ body.innerHTML='<div class="fitem dim">error loading</div>'; });
+    }
+  }
 }
 (function(){
   var bs=document.querySelector('.fbrowse'); if(!bs) return;
@@ -1579,22 +1621,17 @@ function setFolderOpen(folder, open){
     [].forEach.call(document.querySelectorAll('.folder.selected'), function(f){ f.classList.remove('selected'); });
     folder.classList.add('selected'); SELECTED_FOLDER=folder.getAttribute('data-path'); S('selfolder', SELECTED_FOLDER);
   }
-  var folders=[].slice.call(document.querySelectorAll('.folder'));
-  // restore expanded folders across the auto-refresh
-  folders.forEach(function(folder){
-    if(OPEN_FOLDERS.indexOf(folder.getAttribute('data-path'))>=0){
-      folder.classList.add('open');
-      var b=folder.querySelector('.fbody'); if(b) b.style.display='';
-    }
-  });
-  // restore selection / first folder as default target
-  var match=folders.filter(function(f){ return f.getAttribute('data-path')===SELECTED_FOLDER; })[0];
-  if(match) match.classList.add('selected'); else if(folders[0]){ SELECTED_FOLDER=folders[0].getAttribute('data-path'); }
+  // restore expanded folders across the auto-refresh (top-level first; subfolders fetch lazily)
+  restoreOpenFolders();
+  // restore selection / first top-level folder as default target
+  var topFolders=[].slice.call(document.querySelectorAll('.fbrowse > .folder'));
+  var match=topFolders.filter(function(f){ return f.getAttribute('data-path')===SELECTED_FOLDER; })[0];
+  if(match) match.classList.add('selected'); else if(topFolders[0]){ SELECTED_FOLDER=topFolders[0].getAttribute('data-path'); }
   bs.addEventListener('click', function(ev){
     var fh=ev.target.closest('.fhead'); if(!fh) return;
     var folder=fh.closest('.folder');
     setFolderOpen(folder, !folder.classList.contains('open'));
-    selectFolder(folder);
+    if(!folder.classList.contains('subfolder')) selectFolder(folder);
   });
 })();
 function openFolders(dir){
