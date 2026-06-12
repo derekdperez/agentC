@@ -10878,3 +10878,96 @@
 2026-06-11 23:32:24 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 180.28s
 2026-06-11 23:32:25 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 180.71s
 2026-06-11 23:32:25 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 180.72s
+2026-06-11 23:32:25 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 180.75s
+2026-06-11 23:32:25 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 180.81s
+2026-06-11 23:32:26 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 181.49s
+2026-06-11 23:32:26 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 181.49s
+2026-06-11 23:32:26 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 181.91s
+2026-06-11 23:32:26 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 181.92s
+2026-06-11 23:32:27 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 182.70s
+2026-06-11 23:32:27 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 182.71s
+2026-06-11 23:32:27 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 182.73s
+2026-06-11 23:32:27 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 182.73s
+2026-06-11 23:32:28 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 183.17s
+2026-06-11 23:32:28 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 183.17s
+2026-06-11 23:32:28 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 183.49s
+2026-06-11 23:32:28 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 183.49s
+2026-06-11 23:32:29 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 183.85s
+2026-06-11 23:32:29 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 183.88s
+2026-06-11 23:32:29 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 184.22s
+2026-06-11 23:32:29 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 184.24s
+2026-06-11 23:32:30 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 184.68s
+2026-06-11 23:32:30 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 184.69s
+2026-06-11 23:32:30 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 185.11s
+2026-06-11 23:32:30 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 185.13s
+2026-06-11 23:32:31 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 185.54s
+2026-06-11 23:32:31 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 185.55s
+2026-06-11 23:32:31 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 185.91s
+2026-06-11 23:32:31 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 185.94s
+2026-06-11 23:32:32 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 186.50s
+2026-06-11 23:32:32 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 186.51s
+2026-06-11 23:32:32 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 186.82s
+2026-06-11 23:32:32 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 186.82s
+2026-06-11 23:32:33 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 187.19s
+2026-06-11 23:32:33 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 187.21s
+2026-06-11 23:32:33 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 187.57s
+2026-06-11 23:32:33 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 187.57s
+2026-06-11 23:32:34 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 187.90s
+2026-06-11 23:32:34 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 187.91s
+2026-06-11 23:32:34 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 188.52s
+2026-06-11 23:32:34 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 188.52s
+2026-06-11 23:32:35 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 188.95s
+2026-06-11 23:32:35 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 188.96s
+2026-06-11 23:32:35 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 189.19s
+2026-06-11 23:32:35 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 189.19s
+2026-06-11 23:32:36 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 189.72s
+2026-06-11 23:32:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 189.72s
+2026-06-11 23:32:36 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 190.24s
+2026-06-11 23:32:36 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 190.25s
+2026-06-11 23:32:37 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 190.57s
+2026-06-11 23:32:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 190.57s
+2026-06-11 23:32:37 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 190.99s
+2026-06-11 23:32:37 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 191.00s
+2026-06-11 23:32:38 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 191.40s
+2026-06-11 23:32:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 191.40s
+2026-06-11 23:32:38 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 191.93s
+2026-06-11 23:32:38 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 191.94s
+2026-06-11 23:32:39 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 192.28s
+2026-06-11 23:32:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 192.31s
+2026-06-11 23:32:39 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 192.71s
+2026-06-11 23:32:39 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 192.71s
+2026-06-11 23:32:40 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 193.12s
+2026-06-11 23:32:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 193.14s
+2026-06-11 23:32:40 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 193.53s
+2026-06-11 23:32:40 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 193.54s
+2026-06-11 23:32:41 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 193.98s
+2026-06-11 23:32:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 193.98s
+2026-06-11 23:32:41 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 194.37s
+2026-06-11 23:32:41 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 194.39s
+2026-06-11 23:32:42 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 194.84s
+2026-06-11 23:32:42 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 194.86s
+2026-06-11 23:32:42 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 195.17s
+2026-06-11 23:32:42 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 195.20s
+2026-06-11 23:32:43 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 195.71s
+2026-06-11 23:32:43 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 195.72s
+2026-06-11 23:32:43 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 196.17s
+2026-06-11 23:32:43 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 196.17s
+2026-06-11 23:32:44 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 196.78s
+2026-06-11 23:32:44 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 196.79s
+2026-06-11 23:32:44 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 196.98s
+2026-06-11 23:32:44 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 196.98s
+2026-06-11 23:32:45 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 197.29s
+2026-06-11 23:32:45 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 197.29s
+2026-06-11 23:32:45 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 197.99s
+2026-06-11 23:32:45 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 198.00s
+2026-06-11 23:32:46 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 198.19s
+2026-06-11 23:32:46 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 198.19s
+2026-06-11 23:32:46 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 198.80s
+2026-06-11 23:32:46 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 198.90s
+2026-06-11 23:32:47 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 199.00s
+2026-06-11 23:32:47 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 199.01s
+2026-06-11 23:32:47 INFO    agentc.progress:   action 'rate-limit-and-queue' (python) ok in 117.92s
+2026-06-11 23:32:47 INFO    agentc.progress: task 'bugbounty-rate-orchestrator' completed in 117.94s
+2026-06-11 23:32:47 INFO    agentc.progress: task 'bugbounty-http-request' started [run 04a2636a3fcd, trigger file] (file.moved_to: /home/cisco/repo/agentC/bugbounty/requests/ready/4417fd011bc34619aa97b6435ccbe079.json)
+2026-06-11 23:32:47 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit 1
+2026-06-11 23:32:47 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.20s: exit 1

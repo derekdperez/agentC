@@ -498,6 +498,48 @@ def reprobe_target(domain: str):
     return 200, {"ok": True, "domain": domain}
 
 
+def run_task_for_target(domain: str, task: str):
+    domain = normalize_domain(domain)
+    if not os.path.isdir(os.path.join(targets_dir(), domain)):
+        return 404, {"ok": False, "errors": ["target not found"]}
+    if task == "subfinder":
+        import subprocess
+        try:
+            # Use our new wrapper to trigger subfinder
+            subprocess.Popen([sys.executable, "bugbounty/scripts/trigger_subfinder.py", domain], cwd=_root())
+            return 200, {"ok": True, "domain": domain, "message": "subfinder triggered"}
+        except Exception as e:
+            return 500, {"ok": False, "errors": [str(e)]}
+    return 400, {"ok": False, "errors": ["unknown task"]}
+
+
+def run_task_for_sub(domain: str, host: str, task: str):
+    domain = normalize_domain(domain)
+    host = normalize_domain(host)
+    import subprocess
+    try:
+        subprocess.Popen([sys.executable, "bugbounty/scripts/trigger_sub_task.py", task, host, domain], cwd=_root())
+        return 200, {"ok": True, "domain": domain, "host": host, "message": f"{task} triggered"}
+    except Exception as e:
+        return 500, {"ok": False, "errors": [str(e)]}
+
+
+def open_explorer(domain: str, host: str):
+    import subprocess
+    target_path = os.path.join(targets_dir(), domain, host)
+    try:
+        # Try xdg-open for Linux, explorer for Win, open for Mac
+        if os.name == "nt":
+            subprocess.Popen(["explorer", target_path])
+        elif sys.platform == "darwin":
+            subprocess.Popen(["open", target_path])
+        else:
+            subprocess.Popen(["xdg-open", target_path])
+        return 200, {"ok": True}
+    except Exception as e:
+        return 500, {"ok": False, "errors": [str(e)]}
+
+
 def read_asset(rel: str):
     """Return (content_bytes, content_type) for an asset body inside targets/."""
     base = os.path.realpath(targets_dir())
@@ -544,7 +586,7 @@ def render_targets_panel(targets) -> str:
                "requested", "discovered", "created", ""]
     rows, meta = [], []
     for t in targets:
-        acts = (f'<span class="act">'
+        acts = (f'<span class="act" data-domain="{e(t["domain"])}">'
                 f'<button class="mini" data-act="edit" data-domain="{e(t["domain"])}">edit</button>'
                 f'<button class="mini" data-act="probe" data-domain="{e(t["domain"])}">re-probe</button>'
                 f'<button class="mini bad" data-act="del" data-domain="{e(t["domain"])}">del</button>'
@@ -581,7 +623,7 @@ def render_subdomains_panel(subs) -> str:
             '<input id="subq" class="filter" placeholder="search…" '
             'spellcheck="false" autocomplete="off">')
     return panel("subdomains", "Subdomains", len(subs),
-                 table("tbl-subdomains", headers, rows, meta),
+                 table("tbl-subdomains", headers, rows, meta), _class="selectable",
                  head_buttons=head, filter_for=False)
 
 
@@ -834,6 +876,21 @@ def make_handler(paths: Paths):
                     self._json(400, {"ok": False, "errors": ["invalid JSON body"]})
                     return
                 # /api/targets/<domain>/probe  → re-drop queue trigger
+                # /api/targets/<domain>/task/<name>  → run a custom task
+                if len(parts) >= 5 and parts[3] == "task":
+                    code, res = run_task_for_target(unquote(parts[2]), unquote(parts[4]))
+                    self._json(code, res)
+                    return
+                # /api/targets/<domain>/sub/<host>/task/<name>  → run a sub task
+                if len(parts) >= 7 and parts[3] == "sub" and parts[5] == "task":
+                    code, res = run_task_for_sub(unquote(parts[2]), unquote(parts[4]), unquote(parts[6]))
+                    self._json(code, res)
+                    return
+                # /api/targets/<domain>/sub/<host>/explore
+                if len(parts) >= 6 and parts[3] == "sub" and parts[5] == "explore":
+                    code, res = open_explorer(unquote(parts[2]), unquote(parts[4]))
+                    self._json(code, res)
+                    return
                 if len(parts) >= 4 and parts[3] == "probe":
                     code, res = reprobe_target(unquote(parts[2]))
                 else:
@@ -1008,12 +1065,24 @@ PAGE = r"""<!DOCTYPE html>
   </div>
 </div>
 
+<!-- context menus -->
+<div class="ctxmenu" id="ctx-target">
+  <div class="ci" data-act="enum-subs">Enumerate Subdomains</div>
+</div>
+<div class="ctxmenu" id="ctx-sub">
+  <div class="ci" data-act="sub-all">Run All Spiders</div>
+  <div class="ci" data-act="sub-dom">Run DOM Spider</div>
+  <div class="ci" data-act="sub-script">Run Script Spider</div>
+  <div class="ci" data-act="sub-critical">Run Critical Asset Scan</div>
+  <div class="ci" data-act="sub-explore">Explore Folder</div>
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
 var REFRESH=__REFRESH__, GEN=__GENEPOCH__, STALE=__STALE__, ENGINE_ALIVE=__ENGINEALIVE__;
 var STATUSES=__STATUSES__;
 var modalOpen=false, confirmOpen=false, dragging=false, EMODE='add', EDOMAIN='';
+var ctxOpen=false, ctxTarget=null;
 
 function S(k,v){ try{ localStorage.setItem('agentcbb:'+k, JSON.stringify(v)); }catch(e){} }
 function L(k){ try{ var v=localStorage.getItem('agentcbb:'+k); return v?JSON.parse(v):null; }catch(e){ return null; } }
@@ -1333,6 +1402,43 @@ function schedule(){ if(window._t) clearTimeout(window._t);
   window._t=setTimeout(function(){ location.reload(); }, REFRESH*1000); }
 pause.addEventListener('change', function(){ S('paused', pause.checked); schedule(); });
 document.getElementById('reload').addEventListener('click', function(){ location.reload(); });
+
+/* ---- context menus ---- */
+(function(){
+  var mTarget=document.getElementById('ctx-target'), mSub=document.getElementById('ctx-sub');
+  function hide(){ [mTarget, mSub].forEach(function(m){ if(m) m.style.display='none'; }); ctxOpen=false; ctxTarget=null; schedule(); }
+  document.addEventListener('contextmenu', function(ev){
+    var tr=ev.target.closest('tbody tr'); if(!tr) return;
+    var kind=tr.getAttribute('data-kind'), m=null;
+    if(kind==='target') m=mTarget; else if(kind==='sub') m=mSub;
+    if(!m) return;
+    ev.preventDefault(); ctxTarget=tr;
+    m.style.left=ev.pageX+'px'; m.style.top=ev.pageY+'px'; m.style.display='block';
+    ctxOpen=true; if(window._t) clearTimeout(window._t);
+  });
+  document.addEventListener('click', function(ev){
+    var ci=ev.target.closest('.ci'); if(ci && ctxTarget){
+      var act=ci.getAttribute('data-act');
+      if(act==='enum-subs'){
+        var dom=ctxTarget.getAttribute('data-domain');
+        fetch('/api/targets/'+encodeURIComponent(dom)+'/task/subfinder', {method:'POST'}).then(function(r){ return r.json(); })
+          .then(function(res){ toast(res.ok?'Subfinder triggered':'Trigger failed'); });
+      } else if(act.startsWith('sub-')){
+        var dom=ctxTarget.getAttribute('data-target'), host=ctxTarget.getAttribute('data-host');
+        if(act==='sub-explore'){
+          fetch('/api/targets/'+encodeURIComponent(dom)+'/sub/'+encodeURIComponent(host)+'/explore', {method:'POST'});
+        } else {
+          var t={'sub-all':'all_spiders','sub-dom':'dom_spider','sub-script':'script_spider','sub-critical':'critical'}[act];
+          fetch('/api/targets/'+encodeURIComponent(dom)+'/sub/'+encodeURIComponent(host)+'/task/'+t, {method:'POST'}).then(function(r){ return r.json(); })
+            .then(function(res){ toast(res.ok?'Task triggered':'Trigger failed'); });
+        }
+      }
+    }
+    hide();
+  });
+  document.addEventListener('scroll', hide, true);
+  window.addEventListener('blur', hide);
+})();
 
 /* ---- engine on/off ---- */
 (function(){
