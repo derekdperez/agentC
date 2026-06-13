@@ -1,5 +1,5 @@
 {
-  "event_path": "/home/cisco/repo/agentC/bugbounty/targets/subfinder_queue/yahoo.com",
-  "event_kind": "deleted",
-  "event_filename": "yahoo.com"
+  "event_path": "/home/cisco/repo/agentC/bugbounty/requests/ready/12b28aa4fa764f5ca40a31ab9552643c.json",
+  "event_kind": "moved_from",
+  "event_filename": "12b28aa4fa764f5ca40a31ab9552643c.json"
 }

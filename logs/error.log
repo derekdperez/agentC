@@ -4611,3 +4611,2523 @@ subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboa
 2026-06-13 02:46:25 WARNING agentc.progress: task 'git_commit_push' FAILED after 1.13s: exit 1
 2026-06-13 02:56:24 WARNING agentc.progress:   action 'add_commit_push' (shell) FAILED: exit 1
 2026-06-13 02:56:24 WARNING agentc.progress: task 'git_commit_push' FAILED after 0.96s: exit 1
+2026-06-13 14:42:02 ERROR   agentc.action: action 'run-subfinder' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/run_subfinder.py']' timed out after 300 seconds
+2026-06-13 14:42:02 WARNING agentc.progress:   action 'run-subfinder' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/run_subfinder.py']' timed out after 300 seconds
+2026-06-13 14:42:02 WARNING agentc.progress: task 'bugbounty-subfinder-rerun' FAILED after 300.19s: Command '['/usr/bin/python3', 'bugbounty/scripts/run_subfinder.py']' timed out after 300 seconds
+2026-06-13 14:42:19 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:42:19 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:42:19 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:42:22 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:42:22 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:42:22 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.28s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:02 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:02 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:02 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.15s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:02 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:02 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:02 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:02 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:02 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:02 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.09s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:03 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:03 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:03 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.33s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:03 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:03 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:03 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.23s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:03 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:03 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:03 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:03 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:03 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:03 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.16s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:04 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:04 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:04 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.31s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:04 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:04 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:04 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.19s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:04 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:04 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:04 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.16s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:05 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:05 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:05 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:05 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.16s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:06 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:06 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:06 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.15s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:07 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.28s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:07 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.15s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:08 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:08 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:08 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.23s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:09 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:09 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:09 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:09 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:09 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:09 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:14 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:14 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:14 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.25s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:14 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:14 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:14 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.25s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:15 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:15 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:15 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:15 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:15 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:15 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:15 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:15 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:15 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:18 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:18 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:18 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:18 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:18 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:18 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:18 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:18 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:18 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:18 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:18 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:18 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:24 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:24 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:24 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.19s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:26 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:26 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:26 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.16s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:27 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:27 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:27 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.16s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:30 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:30 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:30 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:30 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:30 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:30 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.50s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:32 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:32 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:32 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:33 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:33 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:33 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.31s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:35 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:35 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:35 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:35 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:35 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:35 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.16s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:37 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:37 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:37 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:38 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:38 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:38 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:38 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.24s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:38 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:38 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.16s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:38 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:38 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:38 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:40 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:40 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:40 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.20s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:40 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:40 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:40 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.20s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:45 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:45 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:45 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.33s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:48 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:48 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:48 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.19s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:49 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:49 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:49 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:51 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:51 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:51 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.51s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:51 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:51 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:51 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.20s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:53 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:53 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:53 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.40s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:53 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:53 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:53 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.24s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:58 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:58 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:58 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.16s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:58 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:58 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:58 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:43:59 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:00 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:00 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.56s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:01 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:01 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:01 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:01 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:01 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:01 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:04 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:04 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:04 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:05 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:05 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:05 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:06 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.20s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:07 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.16s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:08 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:08 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:08 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:10 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:10 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:10 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.16s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:10 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:10 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:10 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:10 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.30s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:10 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:10 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.55s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:16 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:16 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:16 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.27s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:17 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:17 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:17 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.20s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:18 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:18 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:18 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.25s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:19 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:19 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:19 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.15s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:20 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:20 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:20 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.22s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:20 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:20 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:20 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:25 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:25 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:25 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.15s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:25 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:25 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:25 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.15s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:25 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:25 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:25 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:25 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:25 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:25 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:26 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:26 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:26 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.25s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.30s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.20s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:28 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.21s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:29 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:29 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:29 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.15s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:29 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:29 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:29 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.25s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:30 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:30 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:30 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.26s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:30 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:30 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:30 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:31 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:31 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:31 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.21s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:34 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:34 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:34 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:34 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:34 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:34 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.32s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:37 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:37 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:37 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.12s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:39 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:39 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:39 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:57 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:57 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:44:57 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:00 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:00 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:00 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.20s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:01 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:01 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:01 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.20s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:14 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:14 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:14 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:16 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:16 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:16 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.05s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:18 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:18 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:18 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.16s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:19 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:19 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:19 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.14s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:22 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:22 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:22 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.32s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:23 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:23 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:23 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.34s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:31 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:31 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:31 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.22s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:31 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:31 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:45:31 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.17s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:46:57 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:46:57 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:46:57 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.13s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:46:58 ERROR   agentc.action: action 'scan-body-patterns' crashed
+Traceback (most recent call last):
+  File "/home/cisco/repo/agentC/agentc/actions/base.py", line 66, in run
+    result = self.execute(context)
+  File "/home/cisco/repo/agentC/agentc/actions/python_action.py", line 61, in execute
+    proc = subprocess.run([sys.executable, target, *args],
+                          capture_output=True, text=True,
+                          env=env, timeout=timeout)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2155, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:46:58 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:46:58 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.26s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
