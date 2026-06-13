@@ -375,6 +375,49 @@ def load_assets() -> list:
     return rows
 
 
+def load_critical_assets() -> list:
+    """Critical findings flagged by check_critical.py: asset bodies that matched
+    a critical-paths pattern (.env, etc.), combined across ALL targets. Read from
+    the ``assets/critical/*.json`` detection sidecars."""
+    out = []
+    for side in glob.glob(os.path.join(targets_dir(), "*", "*", "assets",
+                                       "critical", "*.json")):
+        parts = side.split(os.sep)
+        try:
+            idx = parts.index("targets")
+            target, host = parts[idx + 1], parts[idx + 2]
+        except (ValueError, IndexError):
+            continue
+        meta = _load_json(side) or {}
+        body = side[:-5] + ".body"
+        try:
+            mtime = os.path.getmtime(side)
+            size = os.path.getsize(body) if os.path.exists(body) else 0
+        except OSError:
+            mtime, size = 0, 0
+        out.append({
+            "target": target, "host": host,
+            "matched": meta.get("matched_pattern", ""),
+            "filename": meta.get("filename", os.path.basename(body)[:-5]),
+            "original": meta.get("original_path", ""),
+            "detected": _epoch(meta.get("detected_at")) or mtime,
+            "size": size, "relpath": os.path.relpath(body, _root()), "mtime": mtime,
+        })
+    out.sort(key=lambda r: r["detected"], reverse=True)
+    return out
+
+
+def critical_version(crit: list) -> str:
+    mx = max((c["detected"] for c in crit), default=0)
+    return f"cr:{len(crit)}:{int(mx)}"
+
+
+def critical_rows_json(crit: list) -> list:
+    """[target, host, matched, filename, relpath, size, detected_epoch]."""
+    return [[c["target"], c["host"], c["matched"], c["filename"], c["relpath"],
+             c["size"], c["detected"]] for c in crit]
+
+
 def _epoch(val) -> float:
     """Coerce a fetched/created value (epoch float or ISO string) to epoch secs."""
     v = _ts(val)
@@ -1080,6 +1123,16 @@ def render_assets_panel(assets, targets) -> str:
                  head_buttons=head, filter_for=False)
 
 
+def render_critical_panel(crit=None) -> str:
+    # Virtualized grid fed by /api/critical — critical findings across ALL targets.
+    headers = ["target", "host", "matched", "file", "size", "detected", ""]
+    head = ('<input id="critq" class="filter" placeholder="search…" '
+            'spellcheck="false" autocomplete="off">')
+    return panel("critical", "Critical findings", len(crit or []),
+                 table("tbl-critical", headers, [], None),
+                 head_buttons=head, filter_for=False)
+
+
 def _scan_request_rates() -> dict:
     """Completed-request throughput from completed/* file mtimes: req/s over the
     last 3s ('now'), and per-second averages over the last 1 min and 10 min."""
@@ -1548,6 +1601,7 @@ def render_page(paths: Paths) -> str:
     queue = load_queue()
     qtotals = queue_totals()
     metrics = load_request_metrics()
+    crit = load_critical_assets()
 
     # Activity + Feed consolidated into the single Activity panel (run rows;
     # click a row for its feed lines). Requests + Queue consolidated into the
@@ -1556,6 +1610,7 @@ def render_page(paths: Paths) -> str:
         render_targets_panel(targets)
         + render_subdomains_panel(subs)
         + render_assets_panel(assets, targets)
+        + render_critical_panel(crit)
         + render_requests_panel(summary, queue, qtotals, paused, metrics)
         + render_activity_panel(paths, eng, rate, pend_by_dom, runs)
         + render_rate_panel(rate, pend_by_dom)
