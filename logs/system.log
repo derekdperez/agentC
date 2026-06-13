@@ -10361,3 +10361,14 @@
 2026-06-13 03:04:56 INFO    agentc.engine: === run 8bd5a238dec5 : task monitor-files (trigger=file) ===
 2026-06-13 03:04:56 INFO    agentc.engine:   [ok] noop (shell) 0.004s
 2026-06-13 03:06:24 INFO    agentc.engine: === run 74772995d849 : task git_commit_push (trigger=schedule) ===
+2026-06-13 03:28:54 INFO    agentc.engine: loaded 5 agent(s), 20 task(s)
+2026-06-13 03:28:54 INFO    agentc.engine: task 'design-work' watches todo/needs_design_work (on=created pattern=* recursive=False)
+2026-06-13 03:28:54 INFO    agentc.engine: task 'devops-tasks' watches todo/ad-hoc_system_tasks (on=created pattern=* recursive=False)
+2026-06-13 03:28:54 INFO    agentc.engine: task 'git-pre-commit' subscribed to event 'git:pre-commit'
+2026-06-13 03:28:54 INFO    agentc.engine: scheduled 'git_commit_push' every 600s
+2026-06-13 03:28:54 INFO    agentc.engine: task 'minor-dev-items' watches todo/minor_dev_items (on=created pattern=* recursive=False)
+2026-06-13 03:28:54 INFO    agentc.engine: task 'monitor-files' watches . (on=any pattern=* recursive=True)
+2026-06-13 03:28:54 INFO    agentc.scheduler: scheduler started (backend=thread)
+2026-06-13 03:28:54 INFO    agentc.watcher: inotify watching 2168 director(ies)
+2026-06-13 03:28:54 INFO    agentc.engine: engine running (scheduler=thread, watcher=inotify) — Ctrl-C to stop
+2026-06-13 03:38:54 INFO    agentc.engine: === run 9a4532347adf : task git_commit_push (trigger=schedule) ===
