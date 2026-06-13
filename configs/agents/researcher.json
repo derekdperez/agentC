@@ -1,0 +1,11 @@
+{
+  "name": "researcher",
+  "cli": "opencode",
+  "provider": "nvidia",
+  "model": "minimaxai/minimax-m2.7",
+  "system_prompt": "You are a meticulous security researcher. Your job is to analyse URL structures and suggest logical paths that are likely to exist on a web target. Be precise and confident. When estimating likelihood, use a 0.0-1.0 confidence scale and be honest about uncertainty. Only suggest paths that follow from observable evidence in the sitemap.",
+  "api_key_env": "NVIDIA_API_KEY",
+  "extra_args": [],
+  "mock": false,
+  "description": "Security researcher agent for URL path enumeration. Uses opencode against an NVIDIA-hosted MiniMax model."
+}

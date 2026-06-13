@@ -1091,6 +1091,7 @@ def render_requests_panel(summary, queue=None, qtotals=None,
     total = qtotals.get("pending", 0) + qtotals.get("ready", 0) + summary["completed_total"]
     head = (f'<span id="req-counts" class="count">{request_counts_html(summary, qtotals)}</span> '
             f'<button class="mini {pause_cls}" id="q-pause">{pause_lbl}</button> '
+            f'<button class="mini" id="q-all" title="select/clear all queued (deletable) requests in view">All</button> '
             f'<button class="mini bad" id="q-del" disabled>Delete Selected</button> '
             '<input id="reqq" class="filter" placeholder="search…" '
             'spellcheck="false" autocomplete="off">')
@@ -1461,8 +1462,7 @@ def render_page(paths: Paths) -> str:
     html = html.replace("__ENGINEALIVE__", "true" if alive else "false")
     html = html.replace("__STATUSES__", json.dumps(list(TARGET_STATUSES)))
     html = html.replace("__ASSETSVER__", json.dumps(assets_version(assets)))
-    html = html.replace("__REQVER__", json.dumps(requests_version(summary)))
-    html = html.replace("__QUEUEVER__", json.dumps(queue_version(queue, qtotals)))
+    html = html.replace("__REQVER__", json.dumps(requests_grid_version(summary, queue, qtotals)))
     html = html.replace("__RATEVER__", json.dumps(rate_version(rate, pend_by_dom)))
     html = html.replace("__FEEDVER__", json.dumps(feed_version(feed)))
     html = html.replace("__ACTVER__", json.dumps(activity_version(paths, runs)))
@@ -1572,8 +1572,13 @@ def make_handler(paths: Paths):
             if parts[:2] == ["api", "requests"]:
                 summary = load_request_summary()
                 completed = load_recent_completed(limit=5000)
-                self._json(200, {"version": requests_version(summary),
-                                 "rows": request_rows_json(completed)})
+                queue = load_queue()
+                qtotals = queue_totals()
+                self._json(200, {
+                    "version": requests_grid_version(summary, queue, qtotals),
+                    "rows": requests_grid_rows(queue, request_rows_json(completed)),
+                    "counts_html": request_counts_html(summary, qtotals),
+                    "paused": is_paused()})
                 return
             if parts[:2] == ["api", "queue"]:
                 items = load_queue()
@@ -1612,8 +1617,6 @@ def make_handler(paths: Paths):
                 paused = is_paused()
                 queue = load_queue()
                 qtotals = queue_totals()
-                metrics = load_request_metrics()
-
                 def _tbody(html: str) -> str:
                     s = html.find("<tbody>") + 7
                     ee = html.rfind("</tbody>")
@@ -1623,11 +1626,6 @@ def make_handler(paths: Paths):
                     m = re.search(r'class="count"[^>]*>([^<]+)', html)
                     return m.group(1).strip() if m else "0"
 
-                pending_ct = qtotals["pending"]
-                ready_ct = qtotals["ready"]
-                ct_html = (f'<span class="badge run" title="pending">{pending_ct}p</span> '
-                           f'<span class="badge ok" title="ready">{ready_ct}r</span>')
-
                 tgts_html = render_targets_panel(tgts)
                 subs_html = render_subdomains_panel(subs_list)
 
@@ -1635,15 +1633,12 @@ def make_handler(paths: Paths):
                     "gen_epoch": int(time.time()),
                     "is_paused": paused,
                     "assets_ver": assets_version(assets),
-                    "req_ver": requests_version(summary),
-                    "queue_ver": queue_version(queue, qtotals),
-                    "queue_count": qtotals["total"],
+                    "req_ver": requests_grid_version(summary, queue, qtotals),
+                    "req_counts_html": request_counts_html(summary, qtotals),
                     "rate_ver": rate_version(rate, pend_by_dom),
                     "feed_ver": feed_version(feed),
                     "activity_ver": activity_version(paths, runs),
                     "stats": _header_stats(tgts, subs_list, assets, summary, eng, paused),
-                    "metrics_html": _queue_metrics_html(metrics),
-                    "queue_counts_html": ct_html,
                     "panels": {
                         "targets":    {"count": _count(tgts_html),   "tbody": _tbody(tgts_html)},
                         "subdomains": {"count": _count(subs_html),   "tbody": _tbody(subs_html)},
@@ -2039,7 +2034,7 @@ document.querySelectorAll('.pbody').forEach(function(sc){
 /* ============================================================= *
  *  Virtualized tables (assets, requests) + cross-panel selection *
  * ============================================================= */
-var ASSETSVER=__ASSETSVER__, REQVER=__REQVER__, QUEUEVER=__QUEUEVER__, RATEVER=__RATEVER__, FEEDVER=__FEEDVER__, ACTVER=__ACTVER__;
+var ASSETSVER=__ASSETSVER__, REQVER=__REQVER__, RATEVER=__RATEVER__, FEEDVER=__FEEDVER__, ACTVER=__ACTVER__;
 
 /* client-side mirrors of the server formatters so look/feel matches */
 function fmtSize(n){ n=Number(n); if(!isFinite(n)) return '—';
@@ -2074,7 +2069,7 @@ function VTable(opt){
       if(sc && !sc(r)) continue;
       if(q && r._s.indexOf(q)<0) continue;
       out.push(r); }
-    if(V.sort.i>=0){ var c=opt.cols[V.sort.i], dir=(V.sort.dir==='desc')?-1:1;
+    if(V.sort.i>=0 && opt.cols[V.sort.i] && opt.cols[V.sort.i].get){ var c=opt.cols[V.sort.i], dir=(V.sort.dir==='desc')?-1:1;
       out.sort(function(a,b){ var x=c.get(a), y=c.get(b), rr;
         if(c.num){ rr=(Number(x)||0)-(Number(y)||0); } else { rr=String(x).localeCompare(String(y)); }
         return dir*rr; }); }
@@ -2139,7 +2134,11 @@ function VTable(opt){
   // checkbox helpers (queue)
   V.checkedKeys=function(){ return Object.keys(V.checked); };
   V.clearChecked=function(){ V.checked={}; render(); if(opt.onCheck) opt.onCheck(V); };
-  V.toggleAll=function(){ var keys=V.view.map(opt.key);
+  // Select-all / none over the *currently filtered view*, restricted to rows
+  // that are actually checkable (the chk column's chkIf, if any).
+  function _chkCol(){ for(var j=0;j<opt.cols.length;j++){ if(opt.cols[j].chk) return opt.cols[j]; } return null; }
+  V.toggleAll=function(){ var col=_chkCol();
+    var keys=V.view.filter(function(r){ return !col||!col.chkIf||col.chkIf(r); }).map(opt.key);
     var allOn=keys.length>0 && keys.every(function(k){ return V.checked[k]; });
     V.checked={}; if(!allOn) keys.forEach(function(k){ V.checked[k]=1; });
     render(); if(opt.onCheck) opt.onCheck(V); };
@@ -2179,18 +2178,28 @@ var AssetsVT=VTable({ tableId:'tbl-assets', scrollId:'scroll-assets',
   onCount:function(n){ var c=document.getElementById('count-assets'); if(c) c.textContent=n; }
 });
 
-/* request row: [status,domain,url,source,when] */
-var ReqVT=VTable({ tableId:'tbl-requests', scrollId:'scroll-requests',
+/* unified request row: [key, kind, status, domain, url, source, when_epoch]
+   kind ∈ {pending, ready, done}. Queued rows (pending/ready) are checkbox-
+   selectable for deletion; completed (done) rows are not. */
+function updateQueueDelBtn(V){
+  var n=V?V.checkedKeys().length:0, b=document.getElementById('q-del');
+  if(b){ b.disabled=(n===0); b.textContent=n>0?'Delete Selected ('+n+')':'Delete Selected'; }
+}
+var ReqVT=VTable({ tableId:'tbl-requests', scrollId:'scroll-requests', select:false, checkbox:true,
   cols:[
-    {h:'status', num:true, get:function(r){return r[0];}, render:function(r){return httpBadge(r[0]);}},
-    {h:'domain', get:function(r){return r[1];}},
-    {h:'url',    get:function(r){return r[2];}, render:function(r){return '<span title="'+esc(r[2])+'">'+esc(String(r[2]).slice(0,80))+'</span>';}},
-    {h:'source', get:function(r){return r[3];}},
-    {h:'when',   num:true, get:function(r){return r[4];}, render:function(r){return fmtTs(r[4]);}}
+    {chk:true, chkIf:function(r){return r[1]!=='done';}},
+    {h:'status', get:function(r){return r[2];}, render:function(r){
+        if(r[1]==='done') return httpBadge(r[2]);
+        return r[1]==='ready'?'<span class="badge ok">ready</span>':'<span class="badge run">pending</span>'; }},
+    {h:'domain', get:function(r){return r[3];}},
+    {h:'url',    get:function(r){return r[4];}, render:function(r){return '<span title="'+esc(r[4])+'">'+esc(String(r[4]).slice(0,80))+'</span>';}},
+    {h:'source', get:function(r){return r[5]||'—';}},
+    {h:'when',   num:true, get:function(r){return r[6];}, render:function(r){return fmtTs(r[6]);}}
   ],
-  key:function(r){return r[1]+'|'+r[2]+'|'+r[4];},
-  search:function(r){return [r[0],r[1],r[2],r[3]].join(' ');},
-  sort:{i:4,dir:'desc'},
+  key:function(r){return r[0];},
+  search:function(r){return [r[1],r[3],r[4],r[5]].join(' ');},
+  sort:{i:5,dir:'desc'},
+  onCheck:updateQueueDelBtn,
   onCount:function(n){ var c=document.getElementById('count-requests'); if(c) c.textContent=n; }
 });
 
@@ -2209,26 +2218,6 @@ var RateVT=VTable({ tableId:'tbl-rate', scrollId:'scroll-rate', select:false,
   search:function(r){return r[0];},
   sort:{i:1,dir:'desc'},
   onCount:function(n){ var c=document.getElementById('count-rate'); if(c) c.textContent=n; }
-});
-
-/* queue row: [id, qstatus, domain, url, source, created_epoch] */
-function updateQueueDelBtn(V){
-  var n=V?V.checkedKeys().length:0, b=document.getElementById('q-del');
-  if(b){ b.disabled=(n===0); b.textContent=n>0?'Delete Selected ('+n+')':'Delete Selected'; }
-}
-var QueueVT=VTable({ tableId:'tbl-queue', scrollId:'scroll-queue', select:false, checkbox:true,
-  cols:[
-    {chk:true},
-    {h:'status', get:function(r){return r[1];}, render:function(r){return r[1]==='ready'?'<span class="badge ok">ready</span>':'<span class="badge run">pending</span>';}},
-    {h:'domain', get:function(r){return r[2];}},
-    {h:'url',    get:function(r){return r[3];}, render:function(r){return '<span title="'+esc(r[3])+'">'+esc(String(r[3]).slice(0,80))+'</span>';}},
-    {h:'source', get:function(r){return r[4]||'—';}},
-    {h:'created',num:true, get:function(r){return r[5];}, render:function(r){return fmtTs(r[5]);}}
-  ],
-  key:function(r){return r[0];},
-  search:function(r){return [r[1],r[2],r[3],r[4]].join(' ');},
-  sort:{i:5,dir:'desc'},
-  onCheck:updateQueueDelBtn
 });
 
 /* feed row: [time_epoch, task, status, text, level] */
@@ -2367,10 +2356,6 @@ function toggleSubRow(tr){
   if(rateq){ var rtq=L('rateq'); if(rtq) rateq.value=rtq;
     rateq.addEventListener('input', function(){ S('rateq', rateq.value); if(RateVT) RateVT.setQuery(rateq.value); });
     rateq.addEventListener('dblclick', function(ev){ ev.stopPropagation(); }); }
-  var queueq=document.getElementById('queueq');
-  if(queueq){ var qqv=L('queueq'); if(qqv) queueq.value=qqv;
-    queueq.addEventListener('input', function(){ S('queueq', queueq.value); if(QueueVT) QueueVT.setQuery(queueq.value); });
-    queueq.addEventListener('dblclick', function(ev){ ev.stopPropagation(); }); }
   var feedq=document.getElementById('feedq');
   if(feedq){ var fqv=L('feedq'); if(fqv) feedq.value=fqv;
     feedq.addEventListener('input', function(){ S('feedq', feedq.value); if(FeedVT) FeedVT.setQuery(feedq.value); });
@@ -2419,7 +2404,6 @@ function toggleSubRow(tr){
 loadVT(AssetsVT, '/api/assets', ASSETSVER, 'agentcbb:assets');
 loadVT(ReqVT, '/api/requests', REQVER, 'agentcbb:requests');
 loadVT(RateVT, '/api/rate', RATEVER, 'agentcbb:rate');
-loadVT(QueueVT, '/api/queue', QUEUEVER, 'agentcbb:queue');
 loadVT(FeedVT, '/api/feed', FEEDVER, 'agentcbb:feed');
 loadVT(ActivityVT, '/api/activity', ACTVER, 'agentcbb:activity');
 
@@ -2788,17 +2772,12 @@ function applyRefresh(data){
     var qp=document.getElementById('q-pause');
     if(qp){ qp.className='mini'+(ISPAUSED?' bad':''); qp.textContent=ISPAUSED?'Resume queue':'Pause queue'; }
   }
-  /* queue metrics & counts (always update — independent of selection state) */
-  var qm=document.getElementById('queue-metrics');
-  if(qm && data.metrics_html!=null) qm.innerHTML=data.metrics_html;
-  var qc=document.getElementById('queue-counts');
-  if(qc && data.queue_counts_html!=null) qc.innerHTML=data.queue_counts_html;
+  /* consolidated Requests panel: clean queue-count summary in the header */
+  var rc=document.getElementById('req-counts');
+  if(rc && data.req_counts_html!=null) rc.innerHTML=data.req_counts_html;
   /* panel bodies */
   var panels=data.panels||{};
   for(var pid in panels) applyPanelBody(pid, panels[pid]);
-  /* queue total count badge (true total, independent of the windowed rows) */
-  var cq=document.getElementById('count-queue');
-  if(cq && data.queue_count!=null) cq.textContent=data.queue_count;
   /* virtual tables: only re-fetch when server version changed */
   if(data.assets_ver && data.assets_ver!==ASSETSVER){
     ASSETSVER=data.assets_ver; loadVT(AssetsVT,'/api/assets',ASSETSVER,'agentcbb:assets'); }
@@ -2806,8 +2785,6 @@ function applyRefresh(data){
     REQVER=data.req_ver; loadVT(ReqVT,'/api/requests',REQVER,'agentcbb:requests'); }
   if(data.rate_ver && data.rate_ver!==RATEVER){
     RATEVER=data.rate_ver; loadVT(RateVT,'/api/rate',RATEVER,'agentcbb:rate'); }
-  if(data.queue_ver && data.queue_ver!==QUEUEVER){
-    QUEUEVER=data.queue_ver; loadVT(QueueVT,'/api/queue',QUEUEVER,'agentcbb:queue'); }
   if(data.feed_ver && data.feed_ver!==FEEDVER){
     FEEDVER=data.feed_ver; loadVT(FeedVT,'/api/feed',FEEDVER,'agentcbb:feed'); }
   if(data.activity_ver && data.activity_ver!==ACTVER){
@@ -2852,12 +2829,11 @@ function applyPanelBody(panelId, data){
 pause.addEventListener('change', function(){ S('paused', pause.checked); schedule(); });
 document.getElementById('reload').addEventListener('click', function(){ location.reload(); });
 
-/* ---- queue management (virtualized: selection lives in QueueVT.checked) ---- */
+/* ---- queue controls in the consolidated Requests panel (select-all / delete
+       act on ReqVT.checked — only queued pending/ready rows are checkable) ---- */
 (function(){
   var qAllBtn=document.getElementById('q-all');
-  if(qAllBtn) qAllBtn.addEventListener('click', function(){
-    if(QueueVT) QueueVT.toggleAll();
-  });
+  if(qAllBtn) qAllBtn.addEventListener('click', function(){ if(ReqVT) ReqVT.toggleAll(); });
   var qpause=document.getElementById('q-pause');
   if(qpause) qpause.addEventListener('click', function(){
     qpause.disabled=true;
@@ -2866,7 +2842,6 @@ document.getElementById('reload').addEventListener('click', function(){ location
       .then(function(r){ return r.json(); })
       .then(function(res){
         toast(res.paused?'Queue paused':'Queue resumed');
-        /* update button state immediately without full reload */
         ISPAUSED=res.paused;
         qpause.className='mini'+(ISPAUSED?' bad':'');
         qpause.textContent=ISPAUSED?'Resume queue':'Pause queue';
@@ -2876,7 +2851,7 @@ document.getElementById('reload').addEventListener('click', function(){ location
   });
   var qdel=document.getElementById('q-del');
   if(qdel) qdel.addEventListener('click', function(){
-    var ids=QueueVT?QueueVT.checkedKeys():[];
+    var ids=ReqVT?ReqVT.checkedKeys():[];
     if(!ids.length) return;
     qdel.disabled=true;
     fetch('/api/queue',{method:'DELETE',headers:{'Content-Type':'application/json'},
@@ -2884,9 +2859,8 @@ document.getElementById('reload').addEventListener('click', function(){ location
       .then(function(r){ return r.json(); })
       .then(function(res){
         toast('Deleted '+res.deleted+' queue items');
-        if(QueueVT) QueueVT.clearChecked();
-        /* force the queue table to re-fetch on next refresh */
-        QUEUEVER=null;
+        if(ReqVT) ReqVT.clearChecked();
+        REQVER=null;                               /* force re-fetch next refresh */
         if(window._t) clearTimeout(window._t);
         setTimeout(doRefresh, 300);
       })

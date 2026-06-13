@@ -1,5 +1,5 @@
 {
-  "event_path": "/home/cisco/repo/agentC/bugbounty/requests/ready/9b6eea9d54e7459081fd506b752226f0.json",
-  "event_kind": "moved_to",
-  "event_filename": "9b6eea9d54e7459081fd506b752226f0.json"
+  "event_path": "/home/cisco/repo/agentC/configs/agents/researcher.json",
+  "event_kind": "created",
+  "event_filename": "researcher.json"
 }

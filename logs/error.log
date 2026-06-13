@@ -4595,3 +4595,15 @@ subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboa
 2026-06-13 00:40:55 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.22s: exit -15
 2026-06-13 00:40:55 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit -15
 2026-06-13 00:40:55 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.23s: exit -15
+2026-06-13 02:03:45 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 02:03:45 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 02:03:45 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 13.08s: exit -15
+2026-06-13 02:03:45 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 103.79s: exit -15
+2026-06-13 02:03:45 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 02:03:45 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 02:03:45 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 237.75s: exit -15
+2026-06-13 02:03:45 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 02:03:45 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 222.69s: exit -15
+2026-06-13 02:03:45 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 23.14s: exit -15
+2026-06-13 02:03:45 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 49.18s: exit -15
+2026-06-13 02:03:45 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.96s: exit -15
