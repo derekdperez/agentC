@@ -1880,6 +1880,12 @@ PAGE = r"""<!DOCTYPE html>
     font-size:10px; font-weight:600; }
   .filterbar b { color:#e6edf3; }
   .filterbar .mini { height:14px; line-height:12px; }
+  /* per-column resize grips on virtualized grids */
+  table.dt th { position: relative; }
+  .cgrip { position:absolute; top:0; right:0; width:7px; height:100%;
+    cursor:col-resize; user-select:none; z-index:2; }
+  .cgrip:hover, .cgrip:active { background:#58a6ff66; }
+  table.dt td { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   /* automation (reactive-task) modal */
   .rsub { color:#8b949e; font-size:11px; padding:0 2px 8px; line-height:1.4; }
   .rrow { display:grid; grid-template-columns:48px 1fr auto; align-items:center;
@@ -2168,6 +2174,43 @@ function isControl(el){ return !!(el && el.closest && el.closest('button,a,input
 /* A virtual table: only the rows in the viewport (+buffer) live in the DOM.
    It owns sorting, text filtering, an optional scope predicate, selection
    and the spacer math. Data is an array of compact row-arrays. */
+/* Per-column resizing for a .dt table: a drag grip on each header's right edge.
+   Uses a <colgroup> + table-layout:fixed so widths stick across VTable's tbody
+   re-renders, and persists per-table/column to localStorage. */
+function colResize(tbl, key){
+  if(!tbl || !tbl.tHead || !tbl.tHead.rows[0]) return;
+  var ths=tbl.tHead.rows[0].cells, n=ths.length;
+  var cg=tbl.querySelector('colgroup');
+  if(!cg){ cg=document.createElement('colgroup');
+    for(var i=0;i<n;i++) cg.appendChild(document.createElement('col'));
+    tbl.insertBefore(cg, tbl.firstChild); }
+  var cols=cg.children, saved=L('colw:'+key)||{};
+  function applyAll(){ for(var i=0;i<n;i++){ if(saved[i]!=null) cols[i].style.width=saved[i]+'px'; } }
+  // Seed any unsaved widths from the current auto-layout, then lock to fixed.
+  requestAnimationFrame(function(){
+    for(var i=0;i<n;i++){ if(saved[i]==null && ths[i].offsetWidth) saved[i]=ths[i].offsetWidth; }
+    tbl.style.tableLayout='fixed'; applyAll();
+  });
+  for(var i=0;i<n;i++){ (function(idx){
+    var th=ths[idx];
+    if(th.querySelector('.cgrip')) return;
+    th.style.position='relative';
+    var g=document.createElement('span'); g.className='cgrip'; th.appendChild(g);
+    g.addEventListener('click', function(ev){ ev.stopPropagation(); });   // don't sort
+    g.addEventListener('mousedown', function(ev){
+      ev.preventDefault(); ev.stopPropagation();
+      var startX=ev.pageX, startW=(cols[idx].offsetWidth||ths[idx].offsetWidth);
+      if(!tbl.style.tableLayout){ tbl.style.tableLayout='fixed'; applyAll(); }
+      document.body.style.userSelect='none'; document.body.style.cursor='col-resize';
+      function mm(e){ var w=Math.max(36, startW+(e.pageX-startX));
+        saved[idx]=w; cols[idx].style.width=w+'px'; }
+      function mu(){ document.removeEventListener('mousemove',mm); document.removeEventListener('mouseup',mu);
+        document.body.style.userSelect=''; document.body.style.cursor=''; S('colw:'+key, saved); }
+      document.addEventListener('mousemove',mm); document.addEventListener('mouseup',mu);
+    });
+  })(i); }
+}
+
 function VTable(opt){
   var tbl=document.getElementById(opt.tableId); if(!tbl) return null;
   var scroll=document.getElementById(opt.scrollId), tb=tbl.tBodies[0], ncol=opt.cols.length;
@@ -2219,6 +2262,7 @@ function VTable(opt){
       S('vsort:'+opt.tableId, V.sort); markHdr(); rebuild();
     }); })(i); }
   markHdr();
+  colResize(tbl, opt.tableId);
   var raf=0;
   scroll.addEventListener('scroll', function(){ if(raf) return;
     raf=requestAnimationFrame(function(){ raf=0; render(); }); });
