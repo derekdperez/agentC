@@ -8597,3 +8597,200 @@ Traceback (most recent call last):
 subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
 2026-06-13 14:56:31 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
 2026-06-13 14:56:31 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 300.24s: Command '['/usr/bin/python3', 'bugbounty/scripts/check_body_patterns.py']' timed out after 300 seconds
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'noop' (shell) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 160.00s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 101.24s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 161.94s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 150.48s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 47.39s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 270.69s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 181.75s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 246.15s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 178.61s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 175.46s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 63.09s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 58.72s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 58.39s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 133.54s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.40s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 167.73s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 200.16s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 246.99s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.47s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 149.42s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 256.80s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 99.77s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 167.34s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 152.07s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 2.59s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 163.89s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'check-critical' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-critical-detect' FAILED after 0.61s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 96.18s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 143.15s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 250.40s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 242.16s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 1.41s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 180.64s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 155.71s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 177.35s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 47.81s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 244.87s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 274.87s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 33.63s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 281.78s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 179.60s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 265.74s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 224.50s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 269.26s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'extract-links' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 229.51s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 169.37s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 262.45s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 260.01s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 100.80s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 49.18s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 145.85s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 134.44s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 154.43s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 216.66s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 139.29s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 181.05s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 130.92s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 132.65s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 157.34s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 137.96s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 43.71s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 20.41s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 266.06s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 76.75s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 73.09s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 209.56s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 232.47s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 189.05s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 221.15s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 207.41s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 132.17s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'monitor-files' FAILED after 0.40s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 176.01s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 185.39s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 166.79s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 246.28s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 18.34s: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 27.81s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 76.02s: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:06 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
+2026-06-13 14:57:07 WARNING agentc.progress:   action 'scan-body-patterns' (python) FAILED: exit -15
