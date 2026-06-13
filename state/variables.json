@@ -1,5 +1,5 @@
 {
-  "event_path": "/home/cisco/repo/agentC/bugbounty/.gitignore",
-  "event_kind": "moved_from",
-  "event_filename": ".gitignore"
+  "event_path": "/home/cisco/repo/agentC/git_commit.sh",
+  "event_kind": "modified",
+  "event_filename": "git_commit.sh"
 }

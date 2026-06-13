@@ -9,6 +9,7 @@ configs/tasks/bug*
 bugbounty/targets/*
 bugbounty/assets/*
 bugbounty/requests/*
+bugbounty/findings/*
 bugbounty/.*
 bugbounty/.*/
 log/
