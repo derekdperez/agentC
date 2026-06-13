@@ -1252,6 +1252,61 @@ def set_pause(paused: bool) -> None:
             pass
 
 
+# --------------------------------------------------------------------------- #
+# Reactive-task automation toggles (same file the engine's gate reads, so
+# changes take effect immediately without an engine restart).
+# --------------------------------------------------------------------------- #
+def _reactions_path() -> str:
+    return os.path.join(_root(), "state", "reactive_tasks.json")
+
+
+def load_reactions_state() -> dict:
+    cfg = _load_json(_reactions_path()) or {}
+    return {"paused_all": bool(cfg.get("paused_all", False)),
+            "paused_tasks": list(cfg.get("paused_tasks", []) or [])}
+
+
+def save_reactions_state(cfg: dict) -> None:
+    p = _reactions_path()
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    with open(p, "w", encoding="utf-8") as fh:
+        json.dump({"paused_all": bool(cfg.get("paused_all", False)),
+                   "paused_tasks": sorted(set(cfg.get("paused_tasks", []) or []))},
+                  fh, indent=2)
+
+
+def load_reactive_tasks() -> list:
+    """Event/file-triggered tasks (the 'reactions') + their paused state, read
+    from configs/tasks/*.json. These are what auto-run on a target add, a new
+    request, etc."""
+    state = load_reactions_state()
+    paused_all = state["paused_all"]
+    paused = set(state["paused_tasks"])
+    tdir = os.path.join(_root(), "configs", "tasks")
+    out = []
+    try:
+        names = sorted(os.listdir(tdir))
+    except OSError:
+        names = []
+    for fn in names:
+        if not fn.endswith(".json"):
+            continue
+        d = _load_json(os.path.join(tdir, fn)) or {}
+        trig = d.get("trigger", {}) or {}
+        if trig.get("type") not in ("event", "file"):
+            continue
+        name = d.get("name", fn[:-5])
+        out.append({
+            "name": name,
+            "trigger": trig.get("type"),
+            "src": trig.get("event") or trig.get("path") or "",
+            "desc": d.get("description", ""),
+            "enabled": bool(d.get("enabled", True)),
+            "paused": paused_all or (name in paused),
+        })
+    return out
+
+
 def queue_totals() -> dict:
     """Cheap pending/ready/total counts via ``listdir`` (no JSON parse).
 
@@ -1582,6 +1637,11 @@ def make_handler(paths: Paths):
                 self._json(200, {"version": subs_version(subs),
                                  "rows": subs_rows_json(subs)})
                 return
+            if parts[:2] == ["api", "reactions"]:
+                st = load_reactions_state()
+                self._json(200, {"paused_all": st["paused_all"],
+                                 "tasks": load_reactive_tasks()})
+                return
             if parts[:2] == ["api", "assets"]:
                 assets = load_assets()
                 self._json(200, {"version": assets_version(assets),
@@ -1715,6 +1775,24 @@ def make_handler(paths: Paths):
                 set_pause(paused)
                 self._json(200, {"ok": True, "paused": paused})
                 return
+            if parts[:2] == ["api", "reactions"]:
+                data = self._body() or {}
+                action = data.get("action", "")
+                task = data.get("task", "")
+                st = load_reactions_state()
+                if action in ("pause-all", "resume-all"):
+                    st["paused_all"] = (action == "pause-all")
+                elif action in ("pause", "resume") and task:
+                    s = set(st["paused_tasks"])
+                    s.add(task) if action == "pause" else s.discard(task)
+                    st["paused_tasks"] = sorted(s)
+                else:
+                    self._json(400, {"ok": False, "errors": ["bad action/task"]})
+                    return
+                save_reactions_state(st)
+                self._json(200, {"ok": True, "paused_all": st["paused_all"],
+                                 "tasks": load_reactive_tasks()})
+                return
             self._json(404, {"errors": ["not found"]})
 
         def do_PUT(self):
@@ -1802,6 +1880,18 @@ PAGE = r"""<!DOCTYPE html>
     font-size:10px; font-weight:600; }
   .filterbar b { color:#e6edf3; }
   .filterbar .mini { height:14px; line-height:12px; }
+  /* automation (reactive-task) modal */
+  .rsub { color:#8b949e; font-size:11px; padding:0 2px 8px; line-height:1.4; }
+  .rrow { display:grid; grid-template-columns:48px 1fr auto; align-items:center;
+    gap:8px; padding:6px 2px; border-top:1px solid #21262d; }
+  .rrow.rdis { opacity:.5; }
+  .rrow .rname { color:#e6edf3; font-weight:600; font-size:12px; }
+  .rrow .rmeta { color:#6e7681; font-size:10px; font-family:monospace; }
+  .rrow .rdesc { grid-column:2/4; color:#8b949e; font-size:10px; margin-top:2px; }
+  .toggle { grid-row:1; width:44px; height:20px; border-radius:10px; border:none;
+    cursor:pointer; font-size:9px; font-weight:700; color:#fff; background:#6e2230; }
+  .toggle.on { background:#1f6f3f; }
+  .toggle:disabled { cursor:not-allowed; }
   /* virtualized tables: fixed row height so the spacer math is exact */
   #tbl-assets tbody tr.vrow, #tbl-requests tbody tr.vrow { height:18px; }
   #tbl-assets tbody tr.vrow td, #tbl-requests tbody tr.vrow td {
@@ -1834,6 +1924,7 @@ PAGE = r"""<!DOCTYPE html>
   </span>
   <label class="pause"><input type="checkbox" id="pause"> pause</label>
   <span class="hi">upd <span id="ago">0s</span></span>
+  <button id="reactbtn" title="automation: turn event-reaction tasks (auto enumerate/spider) on or off">&#9889; automation</button>
   <button id="panelsbtn" title="show / hide / reorder panels">&#9776; panels</button>
   <button id="reload" title="reload now">&#x21bb;</button>
 </header>
@@ -1921,6 +2012,21 @@ PAGE = r"""<!DOCTYPE html>
       <button class="btn-cancel" id="preset">Reset to default</button>
       <span style="flex:1"></span>
       <button class="btn-cancel" id="pclose">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- automation: reactive-task toggles -->
+<div class="overlay" id="aroverlay">
+  <div class="modal" style="width:560px">
+    <h3>Automation &mdash; event-reaction tasks</h3>
+    <div class="rsub">Off = the task won't auto-run when its event fires (e.g. adding a target won't auto-enumerate). Ad-hoc runs and scheduled tasks are unaffected. Takes effect immediately.</div>
+    <div class="mbody" id="rlist"></div>
+    <div class="mfoot">
+      <button class="btn-cancel bad" id="rpauseall">Disable all</button>
+      <button class="btn-cancel" id="rresumeall">Enable all</button>
+      <span style="flex:1"></span>
+      <button class="btn-cancel" id="rclose">Close</button>
     </div>
   </div>
 </div>
@@ -2523,6 +2629,44 @@ document.getElementById('preset').addEventListener('click', function(){
   pcfg=defaultCfg(); saveCfg(); applyCfg(pcfg); renderPlist();
 });
 poverlay.addEventListener('mousedown', function(ev){ if(ev.target===poverlay) closePanelsDlg(); });
+
+/* ---- automation: event-reaction task toggles ---- */
+(function(){
+  var aro=document.getElementById('aroverlay'), rlist=document.getElementById('rlist');
+  if(!aro) return;
+  function closeR(){ aro.style.display='none'; modalOpen=false; schedule(); }
+  function render(data){
+    var tasks=(data&&data.tasks)||[];
+    if(!tasks.length){ rlist.innerHTML='<div class="rsub">no event/file-triggered tasks</div>'; return; }
+    rlist.innerHTML=tasks.map(function(t){
+      var on=!t.paused;
+      return '<div class="rrow'+(t.enabled?'':' rdis')+'">'
+        +'<button class="toggle'+(on?' on':'')+'" data-task="'+esc(t.name)+'" data-on="'+(on?1:0)+'" '
+          +(t.enabled?'':'disabled title="task is disabled in its config"')+'>'+(on?'ON':'OFF')+'</button>'
+        +'<span class="rname">'+esc(t.name)+'</span>'
+        +'<span class="rmeta">'+esc(t.trigger)+': '+esc(t.src)+'</span>'
+        +(t.desc?'<div class="rdesc">'+esc(t.desc)+'</div>':'')
+        +'</div>';
+    }).join('');
+  }
+  function load(){ fetch('/api/reactions').then(function(r){return r.json();}).then(render)
+    .catch(function(){ rlist.innerHTML='<div class="rsub">failed to load</div>'; }); }
+  function post(body){ return fetch('/api/reactions',{method:'POST',
+      headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){return r.json();}).then(render); }
+  document.getElementById('reactbtn').addEventListener('click', function(){
+    aro.style.display='flex'; modalOpen=true; if(window._t) clearTimeout(window._t); load(); });
+  document.getElementById('rclose').addEventListener('click', closeR);
+  document.getElementById('rpauseall').addEventListener('click', function(){ post({action:'pause-all'}); });
+  document.getElementById('rresumeall').addEventListener('click', function(){ post({action:'resume-all'}); });
+  rlist.addEventListener('click', function(ev){
+    var b=ev.target.closest('button.toggle'); if(!b||b.disabled) return;
+    var task=b.getAttribute('data-task'), on=b.getAttribute('data-on')==='1';
+    post({action: on?'pause':'resume', task:task})
+      .then(function(){ toast((on?'Disabled ':'Enabled ')+task); });
+  });
+  aro.addEventListener('mousedown', function(ev){ if(ev.target===aro) closeR(); });
+})();
 
 /* ---- target add/edit modal ---- */
 var overlay=document.getElementById('overlay'), merrs=document.getElementById('merrs'),
