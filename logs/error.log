@@ -3488,3 +3488,5 @@ subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'bugbounty/scripts/chec
 2026-06-13 15:20:54 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 143.32s: exit -15
 2026-06-13 15:20:54 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 288.86s: exit -15
 2026-06-13 15:20:54 WARNING agentc.progress: task 'bugbounty-body-pattern-scan' FAILED after 122.78s: exit -15
+2026-06-13 15:40:41 WARNING agentc.progress:   action 'extract-links' (python) FAILED: exit 1
+2026-06-13 15:40:41 WARNING agentc.progress: task 'bugbounty-dom-spider' FAILED after 7.33s: exit 1
