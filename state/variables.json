@@ -1,5 +1,5 @@
 {
-  "event_path": "/home/cisco/repo/agentC/bugbounty/scripts/generate_sitemap.py",
+  "event_path": "/home/cisco/repo/agentC/configs/tasks/bugbounty_ai_spider.json",
   "event_kind": "modified",
-  "event_filename": "generate_sitemap.py"
+  "event_filename": "bugbounty_ai_spider.json"
 }
