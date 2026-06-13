@@ -40,6 +40,7 @@ PENDING = os.path.join(REQ_DIR, "pending")
 READY = os.path.join(REQ_DIR, "ready")
 RATE_CONFIG = os.path.join(REQ_DIR, "rate_config.json")
 RATE_STATE = os.path.join(REQ_DIR, "rate_state.json")
+HOST_DOMAINS = os.path.join(REQ_DIR, "host_domains.json")  # host -> apex domain cache
 PUMP_LOCK = os.path.join(REQ_DIR, "pump.lock")
 PAUSED = os.path.join(REQ_DIR, "PAUSED")
 TARGETS = "bugbounty/targets"
@@ -108,15 +109,28 @@ def _run_tick():
     burst = limits["burst"]
     domain_rate = limits["default_rate_per_domain"]
     domain_burst = limits["domain_burst"]
+    system_rate = limits["default_rate_per_system"]
+    system_burst = limits["system_burst"]
     batch = limits["pump_batch"]
     rate_config = _load_json(RATE_CONFIG, {})
-    rate_state = _load_json(RATE_STATE, {})  # {host|@dom: {tokens, last}} — crash-safe
+    rate_state = _load_json(RATE_STATE, {})  # {host|@dom|@system: {tokens, last}}
     if not isinstance(rate_state, dict):
         rate_state = {}
+    # host -> apex-domain cache so promotion never re-reads a file per bucket.
+    hostdom = _load_json(HOST_DOMAINS, {})
+    if not isinstance(hostdom, dict):
+        hostdom = {}
+    hd_before = len(hostdom)
 
-    intake, duplicates = _phase_intake(batch)
+    intake, duplicates = _phase_intake(batch, hostdom)
     promoted, deferred = _phase_promote(now, default_rate, burst, domain_rate,
-                                        domain_burst, rate_config, rate_state)
+                                        domain_burst, system_rate, system_burst,
+                                        rate_config, rate_state, hostdom)
+    if len(hostdom) != hd_before:               # persist cache once new hosts appeared
+        try:
+            _atomic_write(HOST_DOMAINS, hostdom)
+        except OSError:
+            pass
 
     try:
         _atomic_write(RATE_STATE, rate_state)
@@ -132,8 +146,10 @@ def _run_tick():
     print(f"::set pump_deferred={deferred}")
 
 
-def _phase_intake(batch):
-    """Read new flat pending/ files once; dedup and file into per-host buckets."""
+def _phase_intake(batch, hostdom):
+    """Read new flat pending/ files once; dedup and file into per-host buckets.
+    Records each host's apex domain into ``hostdom`` so promotion never has to
+    re-read a request file just to learn the domain."""
     try:
         entries = sorted(os.listdir(PENDING))
     except FileNotFoundError:
@@ -174,6 +190,7 @@ def _phase_intake(batch):
             continue
 
         host = urlparse(url).netloc or domain
+        hostdom[_bucket_name(host)] = domain     # cache host bucket -> apex domain
         bucket = os.path.join(PENDING, _bucket_name(host))
         os.makedirs(bucket, exist_ok=True)
         try:
@@ -218,16 +235,21 @@ def _refill(state, key, rps, cap, now):
     return min(cap, st.get("tokens", rps) + (now - st.get("last", now)) * rps)
 
 
+_SYSTEM_KEY = "@system"     # rate_state key for the global system-wide bucket
+
+
 def _phase_promote(now, default_rate, burst, domain_rate, domain_burst,
-                   rate_config, rate_state):
-    """Promote pending → ready honoring TWO token buckets:
+                   system_rate, system_burst, rate_config, rate_state, hostdom):
+    """Promote pending → ready honoring THREE token buckets:
 
-      * **per host (subdomain):** default 2 req/s  (``default_rate_per_host``)
-      * **per apex domain:** default 10 req/s aggregate (``default_rate_per_domain``)
+      * **per host (subdomain):** ``default_rate_per_host`` (polite, default 2/s)
+      * **per apex domain:** ``default_rate_per_domain`` aggregate
+      * **per system (global):** ``default_rate_per_system`` ceiling across all
 
-    Within a domain, promotion is round-robin across its host buckets, so the
-    domain ceiling is shared fairly (≈5 subdomains × 2 req/s = 10 req/s) instead
-    of one busy subdomain starving its siblings."""
+    The host→domain map (``hostdom``) means we never re-read a request file just
+    to learn a bucket's domain — that per-bucket read was the throughput killer
+    at thousands of buckets. Within a domain, promotion is round-robin across its
+    host buckets so the domain ceiling is shared fairly."""
     try:
         buckets = [d for d in os.listdir(PENDING)
                    if os.path.isdir(os.path.join(PENDING, d))]
@@ -248,27 +270,32 @@ def _phase_promote(now, default_rate, burst, domain_rate, domain_burst,
             except OSError:
                 pass
             continue
-        domain = _bucket_domain(bdir, files) or host
+        domain = hostdom.get(host) or _bucket_domain(bdir, files) or host
+        hostdom.setdefault(host, domain)        # backfill cache for pre-existing buckets
         rps = max(float(rate_config.get(host, default_rate)), 0.01)
         e = {"host": host, "bdir": bdir, "files": files, "idx": 0, "moved": 0,
              "htokens": _refill(rate_state, host, rps, burst, now)}
         work.append(e)
         by_domain.setdefault(domain, []).append(e)
 
-    # Refill each domain's aggregate bucket once for this tick.
+    # Refill each domain's aggregate bucket + the global system bucket once.
     dtokens = {}
     for domain in by_domain:
         drps = max(float(rate_config.get(_DOMAIN_KEY + domain, domain_rate)), 0.01)
         dtokens[domain] = _refill(rate_state, _DOMAIN_KEY + domain, drps,
                                   domain_burst, now)
+    stokens = _refill(rate_state, _SYSTEM_KEY, max(system_rate, 0.01),
+                      system_burst, now)
 
     promoted = 0
     for domain, entries in by_domain.items():
+        if stokens < 1:
+            break
         progressing = True
-        while dtokens[domain] >= 1 and progressing:
+        while dtokens[domain] >= 1 and stokens >= 1 and progressing:
             progressing = False
             for e in entries:
-                if dtokens[domain] < 1:
+                if dtokens[domain] < 1 or stokens < 1:
                     break
                 if e["htokens"] < 1 or e["idx"] >= len(e["files"]):
                     continue
@@ -282,6 +309,7 @@ def _phase_promote(now, default_rate, burst, domain_rate, domain_burst,
                 e["moved"] += 1
                 e["htokens"] -= 1
                 dtokens[domain] -= 1
+                stokens -= 1
                 promoted += 1
                 progressing = True
 
@@ -291,6 +319,7 @@ def _phase_promote(now, default_rate, burst, domain_rate, domain_burst,
         deferred += max(0, len(e["files"]) - e["moved"])
     for domain, toks in dtokens.items():
         rate_state[_DOMAIN_KEY + domain] = {"tokens": toks, "last": now}
+    rate_state[_SYSTEM_KEY] = {"tokens": stokens, "last": now}
 
     return promoted, deferred
 

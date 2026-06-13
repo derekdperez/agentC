@@ -22,10 +22,12 @@ CONFIG_PATH = "bugbounty/requests/limits.json"
 
 # key -> (default, type)
 DEFAULTS = {
-    "default_rate_per_host": (2.0, float),    # req/s per subdomain (host)
-    "burst": (2.0, float),                    # max requests a host may bank
-    "default_rate_per_domain": (10.0, float), # req/s aggregate per apex domain
-    "domain_burst": (10.0, float),            # max requests a domain may bank
+    "default_rate_per_host": (2.0, float),    # req/s per subdomain (host) — stays polite
+    "burst": (6.0, float),                    # max requests a host may bank (catch-up headroom)
+    "default_rate_per_domain": (50.0, float), # req/s aggregate per apex domain
+    "domain_burst": (100.0, float),           # max requests a domain may bank (catch-up headroom)
+    "default_rate_per_system": (100.0, float),# req/s ceiling across ALL domains
+    "system_burst": (200.0, float),           # max requests the system may bank
     "pump_batch": (1500, int),                # pending files inspected per tick
     "http_timeout_seconds": (12.0, float),    # per-request network timeout
 }
