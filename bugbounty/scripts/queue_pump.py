@@ -250,78 +250,79 @@ def _phase_promote(now, default_rate, burst, domain_rate, domain_burst,
     to learn a bucket's domain — that per-bucket read was the throughput killer
     at thousands of buckets. Within a domain, promotion is round-robin across its
     host buckets so the domain ceiling is shared fairly."""
+    # One scandir to list host buckets (uses d_type — no per-entry stat), then
+    # group by domain purely from the cache (zero file reads).
     try:
-        buckets = [d for d in os.listdir(PENDING)
-                   if os.path.isdir(os.path.join(PENDING, d))]
+        with os.scandir(PENDING) as it:
+            buckets = [en.name for en in it if en.is_dir()]
     except FileNotFoundError:
         return 0, 0
 
-    work, by_domain = [], {}
-    for bucket in buckets:
-        host = bucket  # bucket dir name IS the hostname (see _bucket_name)
-        bdir = os.path.join(PENDING, bucket)
-        try:
-            files = sorted(f for f in os.listdir(bdir) if f.endswith(".json"))
-        except FileNotFoundError:
-            continue
-        if not files:
-            try:
-                os.rmdir(bdir)            # tidy a drained host bucket
-            except OSError:
-                pass
-            continue
-        domain = hostdom.get(host) or _bucket_domain(bdir, files) or host
-        hostdom.setdefault(host, domain)        # backfill cache for pre-existing buckets
-        rps = max(float(rate_config.get(host, default_rate)), 0.01)
-        e = {"host": host, "bdir": bdir, "files": files, "idx": 0, "moved": 0,
-             "htokens": _refill(rate_state, host, rps, burst, now)}
-        work.append(e)
-        by_domain.setdefault(domain, []).append(e)
+    by_domain = {}
+    for host in buckets:
+        by_domain.setdefault(hostdom.get(host) or host, []).append(host)
 
-    # Refill each domain's aggregate bucket + the global system bucket once.
-    dtokens = {}
-    for domain in by_domain:
-        drps = max(float(rate_config.get(_DOMAIN_KEY + domain, domain_rate)), 0.01)
-        dtokens[domain] = _refill(rate_state, _DOMAIN_KEY + domain, drps,
-                                  domain_burst, now)
     stokens = _refill(rate_state, _SYSTEM_KEY, max(system_rate, 0.01),
                       system_burst, now)
-
     promoted = 0
-    for domain, entries in by_domain.items():
+    htok, files = {}, {}            # lazily filled only for hosts we actually visit
+
+    def _files(host):
+        if host not in files:
+            try:
+                files[host] = sorted(f for f in os.listdir(os.path.join(PENDING, host))
+                                     if f.endswith(".json"))
+            except FileNotFoundError:
+                files[host] = []
+        return files[host]
+
+    def _htokens(host):
+        if host not in htok:
+            rps = max(float(rate_config.get(host, default_rate)), 0.01)
+            htok[host] = _refill(rate_state, host, rps, burst, now)
+        return htok[host]
+
+    for domain, hosts in by_domain.items():
         if stokens < 1:
             break
+        drps = max(float(rate_config.get(_DOMAIN_KEY + domain, domain_rate)), 0.01)
+        dtok = _refill(rate_state, _DOMAIN_KEY + domain, drps, domain_burst, now)
+        active = list(hosts)
         progressing = True
-        while dtokens[domain] >= 1 and stokens >= 1 and progressing:
+        while dtok >= 1 and stokens >= 1 and active and progressing:
             progressing = False
-            for e in entries:
-                if dtokens[domain] < 1 or stokens < 1:
+            for host in list(active):
+                if dtok < 1 or stokens < 1:
                     break
-                if e["htokens"] < 1 or e["idx"] >= len(e["files"]):
+                if _htokens(host) < 1:
+                    active.remove(host)        # host throttled this tick
                     continue
-                name = e["files"][e["idx"]]
-                e["idx"] += 1
+                fl = _files(host)
+                if not fl:
+                    try:
+                        os.rmdir(os.path.join(PENDING, host))   # tidy drained bucket
+                    except OSError:
+                        pass
+                    active.remove(host)
+                    continue
+                name = fl.pop(0)
                 try:
-                    os.replace(os.path.join(e["bdir"], name),
+                    os.replace(os.path.join(PENDING, host, name),
                                os.path.join(READY, name))
                 except FileNotFoundError:
-                    continue          # file vanished (deduped/raced) — no token spent
-                e["moved"] += 1
-                e["htokens"] -= 1
-                dtokens[domain] -= 1
+                    continue          # raced/deduped — no token spent
+                htok[host] -= 1
+                dtok -= 1
                 stokens -= 1
                 promoted += 1
                 progressing = True
+        rate_state[_DOMAIN_KEY + domain] = {"tokens": dtok, "last": now}
 
-    deferred = 0
-    for e in work:
-        rate_state[e["host"]] = {"tokens": e["htokens"], "last": now}
-        deferred += max(0, len(e["files"]) - e["moved"])
-    for domain, toks in dtokens.items():
-        rate_state[_DOMAIN_KEY + domain] = {"tokens": toks, "last": now}
+    # Persist only the host buckets we touched (+ the system bucket).
+    for host, tok in htok.items():
+        rate_state[host] = {"tokens": tok, "last": now}
     rate_state[_SYSTEM_KEY] = {"tokens": stokens, "last": now}
-
-    return promoted, deferred
+    return promoted, 0
 
 
 def _safe_remove(path):
