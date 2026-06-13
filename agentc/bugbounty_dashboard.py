@@ -31,6 +31,7 @@ import sys
 import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from queue import Queue, Empty
 from urllib.parse import urlparse, parse_qs, unquote
 
 from .dashboard import (
@@ -65,6 +66,78 @@ def _cached(key, ttl: float, producer):
     with _CACHE_LOCK:
         _CACHE[key] = (now + ttl, val)
     return val
+
+
+# --------------------------------------------------------------------------- #
+# Real-time push (SSE). The engine appends to ``state/events.jsonl``; a watcher
+# thread tails it and fans new events out to all connected dashboards, which
+# then do an immediate (version-checked) refresh — so panels update the moment
+# something happens instead of waiting for the next poll.
+# --------------------------------------------------------------------------- #
+class _SSEBroker:
+    def __init__(self):
+        self._subs = set()
+        self._lock = threading.Lock()
+
+    def subscribe(self) -> Queue:
+        q: Queue = Queue(maxsize=200)
+        with self._lock:
+            self._subs.add(q)
+        return q
+
+    def unsubscribe(self, q: Queue) -> None:
+        with self._lock:
+            self._subs.discard(q)
+
+    def publish(self, msg: dict) -> None:
+        with self._lock:
+            subs = list(self._subs)
+        for q in subs:
+            try:
+                q.put_nowait(msg)
+            except Exception:  # noqa: BLE001 — full queue: drop, client catches up via fallback poll
+                pass
+
+    def count(self) -> int:
+        with self._lock:
+            return len(self._subs)
+
+
+_SSE = _SSEBroker()
+
+
+def _event_watcher(paths: "Paths") -> None:
+    """Tail ``events.jsonl`` and publish each new engine event to SSE clients."""
+    ev_path = os.path.join(paths.state_dir, "events.jsonl")
+    try:
+        last_size = os.path.getsize(ev_path)
+    except OSError:
+        last_size = 0
+    while True:
+        try:
+            try:
+                sz = os.path.getsize(ev_path)
+            except OSError:
+                sz = 0
+            if sz < last_size:           # log truncated/rotated — start over
+                last_size = 0
+            if sz > last_size:
+                with open(ev_path, "r", encoding="utf-8", errors="ignore") as fh:
+                    fh.seek(last_size)
+                    for line in fh:
+                        line = line.strip()
+                        if not line:
+                            continue
+                        try:
+                            ev = json.loads(line)
+                        except ValueError:
+                            continue
+                        _SSE.publish({"type": "event", "name": ev.get("name", ""),
+                                      "ts": ev.get("ts")})
+                last_size = sz
+        except Exception:  # noqa: BLE001 — never let the watcher die
+            pass
+        time.sleep(0.6)
 
 
 # --------------------------------------------------------------------------- #
@@ -1340,6 +1413,8 @@ def render_page(paths: Paths) -> str:
     html = html.replace("__STATUSES__", json.dumps(list(TARGET_STATUSES)))
     html = html.replace("__ASSETSVER__", json.dumps(assets_version(assets)))
     html = html.replace("__REQVER__", json.dumps(requests_version(summary)))
+    html = html.replace("__QUEUEVER__", json.dumps(queue_version(queue, qtotals)))
+    html = html.replace("__RATEVER__", json.dumps(rate_version(rate, pend_by_dom)))
     html = html.replace("__ISPAUSED__", "true" if paused else "false")
     return html
 
@@ -1364,6 +1439,35 @@ def make_handler(paths: Paths):
         def _json(self, code, obj):
             self._send(code, "application/json", json.dumps(obj))
 
+        def _sse(self):
+            """Server-Sent Events stream: pushes engine events as they happen."""
+            try:
+                self.send_response(200)
+                self.send_header("Content-Type", "text/event-stream")
+                self.send_header("Cache-Control", "no-cache")
+                self.send_header("Connection", "keep-alive")
+                self.send_header("X-Accel-Buffering", "no")
+                self.end_headers()
+                self.wfile.write(b"event: hello\ndata: {}\n\n")
+                self.wfile.flush()
+            except (BrokenPipeError, ConnectionResetError, OSError):
+                return
+            q = _SSE.subscribe()
+            try:
+                while True:
+                    try:
+                        msg = q.get(timeout=20)
+                    except Empty:
+                        self.wfile.write(b": ping\n\n")   # heartbeat / dead-client detect
+                        self.wfile.flush()
+                        continue
+                    self.wfile.write(("data: " + json.dumps(msg) + "\n\n").encode("utf-8"))
+                    self.wfile.flush()
+            except (BrokenPipeError, ConnectionResetError, OSError):
+                pass
+            finally:
+                _SSE.unsubscribe(q)
+
         def _body(self):
             try:
                 n = int(self.headers.get("Content-Length", 0))
@@ -1378,6 +1482,9 @@ def make_handler(paths: Paths):
                 self._send(200, "text/html; charset=utf-8", render_page(paths))
                 return
             parts = [p for p in path.split("/") if p]
+            if parts[:2] == ["api", "stream"]:
+                self._sse()
+                return
             if parts[:2] == ["api", "engine"]:
                 self._json(200, engine_status())
                 return
@@ -1580,6 +1687,7 @@ def make_handler(paths: Paths):
 
 
 def serve(paths: Paths, host="127.0.0.1", port=8766, quiet=False):
+    threading.Thread(target=_event_watcher, args=(paths,), daemon=True).start()
     httpd = ThreadingHTTPServer((host, port), make_handler(paths))
     if not quiet:
         print(f"bugbounty dashboard serving at http://{host}:{port}/  (Ctrl-C to stop)")
@@ -1805,7 +1913,7 @@ PAGE = r"""<!DOCTYPE html>
 <div class="toast" id="toast"></div>
 
 <script>
-var REFRESH=__REFRESH__, GEN=__GENEPOCH__, STALE=__STALE__, ENGINE_ALIVE=__ENGINEALIVE__;
+var REFRESH=__REFRESH__, GEN=__GENEPOCH__, STALE=__STALE__, ENGINE_ALIVE=__ENGINEALIVE__, SSE_LIVE=false;
 var STATUSES=__STATUSES__, ISPAUSED=__ISPAUSED__;
 var modalOpen=false, confirmOpen=false, dragging=false, queueSelecting=false, EMODE='add', EDOMAIN='';
 var ctxOpen=false, ctxTarget=null;
@@ -1842,7 +1950,7 @@ function applyFilter(tbl, q){
     r.style.display = (!q || r.textContent.toLowerCase().indexOf(q)>=0) ? '' : 'none';
   });
 }
-var VIRTUAL_TABLES={'tbl-assets':1, 'tbl-requests':1};  // sorted/filtered by VTable, not the DOM helpers
+var VIRTUAL_TABLES={'tbl-assets':1, 'tbl-requests':1, 'tbl-queue':1, 'tbl-rate':1};  // sorted/filtered by VTable, not the DOM helpers
 document.querySelectorAll('table.dt').forEach(function(tbl){
   if(VIRTUAL_TABLES[tbl.id]) return;  // virtual tables manage their own header sort
   var ths=tbl.tHead.rows[0].cells;
@@ -1872,7 +1980,7 @@ document.querySelectorAll('.pbody').forEach(function(sc){
 /* ============================================================= *
  *  Virtualized tables (assets, requests) + cross-panel selection *
  * ============================================================= */
-var ASSETSVER=__ASSETSVER__, REQVER=__REQVER__;
+var ASSETSVER=__ASSETSVER__, REQVER=__REQVER__, QUEUEVER=__QUEUEVER__, RATEVER=__RATEVER__;
 
 /* client-side mirrors of the server formatters so look/feel matches */
 function fmtSize(n){ n=Number(n); if(!isFinite(n)) return '—';
@@ -2027,6 +2135,43 @@ var ReqVT=VTable({ tableId:'tbl-requests', scrollId:'scroll-requests',
   onCount:function(n){ var c=document.getElementById('count-requests'); if(c) c.textContent=n; }
 });
 
+/* rate row: [domain, queued, last_epoch] */
+var RateVT=VTable({ tableId:'tbl-rate', scrollId:'scroll-rate', select:false,
+  cols:[
+    {h:'domain',   get:function(r){return r[0];}},
+    {h:'queued',   num:true, get:function(r){return r[1];}},
+    {h:'last slot',num:true, get:function(r){return r[2];}, render:function(r){return r[2]?fmtTs(r[2]):'—';}},
+    {h:'next ready', get:function(r){return r[2];}, render:function(r){
+        var last=Number(r[2])||0, now=Date.now()/1000;
+        if(r[1] && last>now) return '<span class="runtime">in '+(last-now).toFixed(1)+'s</span>';
+        return r[1]?'ready':'—'; }}
+  ],
+  key:function(r){return r[0];},
+  search:function(r){return r[0];},
+  sort:{i:1,dir:'desc'},
+  onCount:function(n){ var c=document.getElementById('count-rate'); if(c) c.textContent=n; }
+});
+
+/* queue row: [id, qstatus, domain, url, source, created_epoch] */
+function updateQueueDelBtn(V){
+  var n=V?V.checkedKeys().length:0, b=document.getElementById('q-del');
+  if(b){ b.disabled=(n===0); b.textContent=n>0?'Delete Selected ('+n+')':'Delete Selected'; }
+}
+var QueueVT=VTable({ tableId:'tbl-queue', scrollId:'scroll-queue', select:false, checkbox:true,
+  cols:[
+    {chk:true},
+    {h:'status', get:function(r){return r[1];}, render:function(r){return r[1]==='ready'?'<span class="badge ok">ready</span>':'<span class="badge run">pending</span>';}},
+    {h:'domain', get:function(r){return r[2];}},
+    {h:'url',    get:function(r){return r[3];}, render:function(r){return '<span title="'+esc(r[3])+'">'+esc(String(r[3]).slice(0,80))+'</span>';}},
+    {h:'source', get:function(r){return r[4]||'—';}},
+    {h:'created',num:true, get:function(r){return r[5];}, render:function(r){return fmtTs(r[5]);}}
+  ],
+  key:function(r){return r[0];},
+  search:function(r){return [r[1],r[2],r[3],r[4]].join(' ');},
+  sort:{i:5,dir:'desc'},
+  onCheck:updateQueueDelBtn
+});
+
 /* ---- cross-panel selection: targets ⇒ subdomain filter ⇒ asset scope ---- */
 function clearSel(tbl){ if(!tbl) return;
   [].forEach.call(tbl.querySelectorAll('tr.selected'), function(r){ r.classList.remove('selected'); }); }
@@ -2116,6 +2261,14 @@ function toggleSubRow(tr){
   if(rq){ var rsq=L('reqq'); if(rsq) rq.value=rsq;
     rq.addEventListener('input', function(){ S('reqq', rq.value); if(ReqVT) ReqVT.setQuery(rq.value); });
     rq.addEventListener('dblclick', function(ev){ ev.stopPropagation(); }); }
+  var rateq=document.getElementById('rateq');
+  if(rateq){ var rtq=L('rateq'); if(rtq) rateq.value=rtq;
+    rateq.addEventListener('input', function(){ S('rateq', rateq.value); if(RateVT) RateVT.setQuery(rateq.value); });
+    rateq.addEventListener('dblclick', function(ev){ ev.stopPropagation(); }); }
+  var queueq=document.getElementById('queueq');
+  if(queueq){ var qqv=L('queueq'); if(qqv) queueq.value=qqv;
+    queueq.addEventListener('input', function(){ S('queueq', queueq.value); if(QueueVT) QueueVT.setQuery(queueq.value); });
+    queueq.addEventListener('dblclick', function(ev){ ev.stopPropagation(); }); }
   var subq=document.getElementById('subq');
   if(subq){ var ssv=L('subq'); if(ssv) subq.value=ssv;
     subq.addEventListener('input', function(){ S('subq', subq.value); applySubView(); });
@@ -2169,6 +2322,8 @@ function applyFeedLevel(minLevel){
 
 loadVT(AssetsVT, '/api/assets', ASSETSVER, 'agentcbb:assets');
 loadVT(ReqVT, '/api/requests', REQVER, 'agentcbb:requests');
+loadVT(RateVT, '/api/rate', RATEVER, 'agentcbb:rate');
+loadVT(QueueVT, '/api/queue', QUEUEVER, 'agentcbb:queue');
 
 /* ---- resize + collapse + reorder panels ---- */
 var panels=[].slice.call(document.querySelectorAll('.panel'));
@@ -2507,7 +2662,8 @@ function isRecentlyActive(){ return (Date.now()-lastActivity)<1500; }
 function schedule(){
   if(window._t) clearTimeout(window._t);
   if(pause.checked||modalOpen||confirmOpen||dragging) return;
-  window._t=setTimeout(doRefresh, REFRESH*1000);
+  /* When SSE is live, events drive refreshes; the timer is just a slow fallback. */
+  window._t=setTimeout(doRefresh, (SSE_LIVE?20:REFRESH)*1000);
 }
 
 function doRefresh(){
@@ -2542,11 +2698,18 @@ function applyRefresh(data){
   /* panel bodies */
   var panels=data.panels||{};
   for(var pid in panels) applyPanelBody(pid, panels[pid]);
+  /* queue total count badge (true total, independent of the windowed rows) */
+  var cq=document.getElementById('count-queue');
+  if(cq && data.queue_count!=null) cq.textContent=data.queue_count;
   /* virtual tables: only re-fetch when server version changed */
   if(data.assets_ver && data.assets_ver!==ASSETSVER){
     ASSETSVER=data.assets_ver; loadVT(AssetsVT,'/api/assets',ASSETSVER,'agentcbb:assets'); }
   if(data.req_ver && data.req_ver!==REQVER){
     REQVER=data.req_ver; loadVT(ReqVT,'/api/requests',REQVER,'agentcbb:requests'); }
+  if(data.rate_ver && data.rate_ver!==RATEVER){
+    RATEVER=data.rate_ver; loadVT(RateVT,'/api/rate',RATEVER,'agentcbb:rate'); }
+  if(data.queue_ver && data.queue_ver!==QUEUEVER){
+    QUEUEVER=data.queue_ver; loadVT(QueueVT,'/api/queue',QUEUEVER,'agentcbb:queue'); }
 }
 
 function applyPanelBody(panelId, data){
@@ -2558,8 +2721,6 @@ function applyPanelBody(panelId, data){
   /* update count badge */
   var cc=panel.querySelector('#count-'+panelId);
   if(cc && data.count!=null) cc.textContent=data.count;
-  /* skip queue tbody while user has selections */
-  if(panelId==='queue' && queueSelecting) return;
   /* locate table */
   var pbody=panel.querySelector('.pbody');
   var tbl=pbody && pbody.querySelector('table.dt');
@@ -2588,31 +2749,16 @@ function applyPanelBody(panelId, data){
     var fl=document.getElementById('feedlevel');
     if(fl) applyFeedLevel(fl.value);
   }
-  /* queue: reset selection state after tbody replaced */
-  if(panelId==='queue'){ queueSelecting=false; updateQueueState(); }
 }
 
 pause.addEventListener('change', function(){ S('paused', pause.checked); schedule(); });
 document.getElementById('reload').addEventListener('click', function(){ location.reload(); });
 
-/* ---- queue management ---- */
-function getQueueChecked(){ return [].slice.call(document.querySelectorAll('.q-chk:checked')); }
-function updateQueueState(){
-  var checked=getQueueChecked(); queueSelecting=checked.length>0;
-  var delBtn=document.getElementById('q-del');
-  if(delBtn){ delBtn.disabled=!queueSelecting;
-    delBtn.textContent=queueSelecting?'Delete Selected ('+checked.length+')':'Delete Selected'; }
-}
+/* ---- queue management (virtualized: selection lives in QueueVT.checked) ---- */
 (function(){
-  document.addEventListener('change', function(ev){
-    if(ev.target.classList.contains('q-chk')) updateQueueState();
-  });
   var qAllBtn=document.getElementById('q-all');
   if(qAllBtn) qAllBtn.addEventListener('click', function(){
-    var chks=document.querySelectorAll('.q-chk');
-    var anyUnchecked=[].some.call(chks, function(c){ return !c.checked; });
-    [].forEach.call(chks, function(c){ c.checked=anyUnchecked; });
-    updateQueueState(); // hoisted to module scope
+    if(QueueVT) QueueVT.toggleAll();
   });
   var qpause=document.getElementById('q-pause');
   if(qpause) qpause.addEventListener('click', function(){
@@ -2632,7 +2778,7 @@ function updateQueueState(){
   });
   var qdel=document.getElementById('q-del');
   if(qdel) qdel.addEventListener('click', function(){
-    var ids=getQueueChecked().map(function(c){ return c.value; });
+    var ids=QueueVT?QueueVT.checkedKeys():[];
     if(!ids.length) return;
     qdel.disabled=true;
     fetch('/api/queue',{method:'DELETE',headers:{'Content-Type':'application/json'},
@@ -2640,8 +2786,9 @@ function updateQueueState(){
       .then(function(r){ return r.json(); })
       .then(function(res){
         toast('Deleted '+res.deleted+' queue items');
-        queueSelecting=false;
-        /* trigger an immediate refresh to show updated queue */
+        if(QueueVT) QueueVT.clearChecked();
+        /* force the queue table to re-fetch on next refresh */
+        QUEUEVER=null;
         if(window._t) clearTimeout(window._t);
         setTimeout(doRefresh, 300);
       })
@@ -2736,6 +2883,23 @@ document.addEventListener('keydown', function(ev){ if(ev.key==='Escape'){
 } });
 function tick(){ var age=Math.floor(Date.now()/1000)-GEN; var a=document.getElementById('ago'); if(a) a.textContent=age+'s'+(age>STALE?' STALE':''); }
 tick(); setInterval(tick, 1000); schedule();
+
+/* ---- realtime push: subscribe to engine events via SSE (falls back to the
+       timer poll above if EventSource is unavailable or the stream drops) ---- */
+(function(){
+  if(!window.EventSource) return;
+  var deb=null;
+  function kick(){ if(deb) clearTimeout(deb);
+    deb=setTimeout(function(){ deb=null;
+      if(_refreshing||modalOpen||confirmOpen||dragging||isRecentlyActive()){ kick(); return; }
+      doRefresh();
+    }, 500); }
+  var es;
+  try{ es=new EventSource('/api/stream'); }catch(e){ return; }
+  es.onopen=function(){ SSE_LIVE=true; };
+  es.onmessage=function(){ kick(); };        // any engine event -> refresh shortly
+  es.onerror=function(){ SSE_LIVE=false; };  // EventSource reconnects automatically
+})();
 </script>
 </body>
 </html>

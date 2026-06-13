@@ -4509,3 +4509,5 @@ subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboa
 2026-06-12 19:17:52 WARNING agentc.progress: task 'dashboard' FAILED after 245.38s: exit -15
 2026-06-12 19:17:52 WARNING agentc.progress:   action 'render' (python) FAILED: exit -15
 2026-06-12 19:17:52 WARNING agentc.progress: task 'dashboard' FAILED after 206.19s: exit -15
+2026-06-12 21:42:32 WARNING agentc.progress:   action 'add_commit_push' (shell) FAILED: exit 1
+2026-06-12 21:42:32 WARNING agentc.progress: task 'git_commit_push' FAILED after 0.77s: exit 1
