@@ -10485,3 +10485,9 @@
 2026-06-13 12:49:01 INFO    agentc.engine:   [ok] add_commit_push (shell) 1.003s
 2026-06-13 12:59:00 INFO    agentc.engine: === run 8be5203408f2 : task git_commit_push (trigger=schedule) ===
 2026-06-13 12:59:01 INFO    agentc.engine:   [ok] add_commit_push (shell) 1.042s
+2026-06-13 13:05:39 INFO    agentc.engine: emit file.modified (watcher)
+2026-06-13 13:05:39 INFO    agentc.engine: === run 922ba944ea77 : task monitor-files (trigger=file) ===
+2026-06-13 13:05:39 INFO    agentc.engine:   [ok] noop (shell) 0.004s
+2026-06-13 13:06:02 INFO    agentc.engine: emit file.moved_from (watcher)
+2026-06-13 13:06:02 INFO    agentc.engine: === run 40ab3e4dc3ff : task monitor-files (trigger=file) ===
+2026-06-13 13:06:02 INFO    agentc.engine:   [ok] noop (shell) 0.002s

@@ -6,5 +6,9 @@ logs/
 *.log
 state/
 configs/tasks/bug*
-bugbounty/
+bugbounty/targets/*
+bugbounty/assets/*
+bugbounty/requests/*
+bugbounty/.*
+bugbounty/.*/
 log/
