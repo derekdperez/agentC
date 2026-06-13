@@ -1,11 +1,11 @@
 {
   "name": "dashboard",
   "description": "Regenerates dashboard.html from current engine state on a fixed interval, giving a refreshable, regularly-updated view of the whole system.",
-  "enabled": true,
+  "enabled": false,
   "persist": false,
   "trigger": {
     "type": "schedule",
-    "interval": 5,
+    "interval": 60,
     "recursive": false,
     "ignore": []
   },

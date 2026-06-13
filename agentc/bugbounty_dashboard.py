@@ -1068,33 +1068,33 @@ def render_feed_panel(feed) -> str:
                  head_buttons=head, filter_for="tbl-feed")
 
 
-def render_rate_panel(rate, pend_by_dom) -> str:
+def _rate_last(rate, d):
+    slot = rate.get(d, 0)
+    return slot.get("last", 0) if isinstance(slot, dict) else (slot or 0)
+
+
+def rate_rows_json(rate, pend_by_dom) -> list:
+    """Compact rows for the virtualized rate table: [domain, queued, last_epoch].
+    The client renders 'last slot' and the live 'next ready' countdown."""
+    domains = set(list(rate.keys()) + list(pend_by_dom.keys()))
+    return [[d, pend_by_dom.get(d, 0), _rate_last(rate, d)] for d in domains]
+
+
+def rate_version(rate, pend_by_dom) -> str:
+    domains = set(list(rate.keys()) + list(pend_by_dom.keys()))
+    return f"rt:{len(domains)}:{sum(pend_by_dom.values())}"
+
+
+def render_rate_panel(rate=None, pend_by_dom=None) -> str:
+    # Body is a client-side virtualized table fed by /api/rate (no row cap —
+    # the rate map can hold thousands of domains; the client windows them).
     headers = ["domain", "queued", "last slot", "next ready"]
-    now = time.time()
-    all_domains = set(list(rate.keys()) + list(pend_by_dom.keys()))
-
-    def _last(d):
-        slot = rate.get(d, 0)
-        return slot.get("last", 0) if isinstance(slot, dict) else (slot or 0)
-
-    # The rate map can hold thousands of domains; show only the most relevant —
-    # those with items queued first, then most-recently active — capped so the
-    # panel never balloons into a multi-thousand-row table.
-    domains = sorted(all_domains,
-                     key=lambda d: (pend_by_dom.get(d, 0), _last(d)),
-                     reverse=True)[:MAX_ROWS]
-    rows = []
-    for d in domains:
-        last = _last(d)
-        queued = pend_by_dom.get(d, 0)
-        if last and last > now:
-            nxt = f'<span class="runtime">in {last - now:.1f}s</span>'
-        else:
-            nxt = "ready"
-        rows.append([e(d), queued, fmt_ts(last) if last else "—",
-                     nxt if queued else "—"])
-    return panel("rate", "Rate limits", len(all_domains),
-                 table("tbl-rate", headers, rows))
+    n = len(set(list((rate or {}).keys()) + list((pend_by_dom or {}).keys())))
+    head = ('<input id="rateq" class="filter" placeholder="search…" '
+            'spellcheck="false" autocomplete="off">')
+    return panel("rate", "Rate limits", n,
+                 table("tbl-rate", headers, [], None),
+                 head_buttons=head, filter_for=False)
 
 
 # --------------------------------------------------------------------------- #
@@ -1202,49 +1202,49 @@ def delete_queue_items(ids: list) -> int:
     return deleted
 
 
-def render_queue_panel(items: list, paused: bool, metrics: dict = None,
-                       totals: dict = None) -> str:
-    headers = ["", "status", "domain", "url", "source", "created"]
-    rows, meta = [], []
+def queue_rows_json(items: list) -> list:
+    """Compact rows for the virtualized queue table:
+    [id, qstatus, domain, url, source_label, created_epoch]."""
+    rows = []
     for item in items:
         src = _source_type_label(item.get("source_type", "")) or item.get("source_type", "") or "—"
-        qid = item["id"]
-        qstatus = item["qstatus"]
         rows.append([
-            f'<input type="checkbox" class="q-chk" value="{e(qid)}">',
-            badge("ready", "ok") if qstatus == "ready" else badge("pending", "run"),
-            e(item.get("domain", "")),
-            f'<span title="{e(item.get("url",""))}">{e((item.get("url","") or "")[:80])}</span>',
-            src,
-            fmt_ts(_ts(item.get("created_at", ""))),
+            item["id"], item["qstatus"], item.get("domain", ""),
+            item.get("url", "") or "", src, _ts(item.get("created_at", "")) or item.get("mtime", 0),
         ])
-        meta.append({"qid": qid, "qstatus": qstatus})
+    return rows
+
+
+def queue_version(items: list, totals: dict) -> str:
+    newest = int(items[0]["mtime"]) if items else 0
+    return f"q:{totals.get('total', len(items))}:{newest}"
+
+
+def render_queue_panel(items=None, paused: bool = False, metrics: dict = None,
+                       totals: dict = None) -> str:
+    # Body is a client-side virtualized table fed by /api/queue; only the head
+    # controls (metrics / All / pause / delete / counts) render server-side.
+    headers = ["", "status", "domain", "url", "source", "created"]
+    totals = totals or {}
+    pending_ct = totals.get("pending", 0)
+    ready_ct = totals.get("ready", 0)
+    total_ct = totals.get("total", pending_ct + ready_ct)
     pause_cls = "bad" if paused else ""
     pause_lbl = "Resume queue" if paused else "Pause queue"
-    if totals is None:
-        pending_ct = sum(1 for i in items if i.get("qstatus") == "pending")
-        ready_ct = sum(1 for i in items if i.get("qstatus") == "ready")
-        total_ct = len(items)
-    else:
-        pending_ct = totals.get("pending", 0)
-        ready_ct = totals.get("ready", 0)
-        total_ct = totals.get("total", pending_ct + ready_ct)
     ct_html = (f'<span class="badge run" title="pending">{pending_ct}p</span> '
                f'<span class="badge ok" title="ready">{ready_ct}r</span>')
-    # When the queue is larger than what we display, say so explicitly.
-    trunc = (f'<span class="count" title="showing newest {len(items)} of {total_ct}">'
-             f'newest {len(items)} of {total_ct}</span> ') if total_ct > len(items) else ""
     metrics_html = _queue_metrics_html(metrics) if metrics else ""
     head = (
-        f'<span id="queue-metrics">{metrics_html}</span> {trunc}'
+        f'<span id="queue-metrics">{metrics_html}</span> '
+        f'<input id="queueq" class="filter" placeholder="search…" spellcheck="false" autocomplete="off"> '
         f'<button class="mini" id="q-all">All</button> '
         f'<button class="mini {pause_cls}" id="q-pause">{pause_lbl}</button> '
         f'<button class="mini bad" id="q-del" disabled>Delete Selected</button> '
         f'<span id="queue-counts">{ct_html}</span>'
     )
     return panel("queue", "Queue", total_ct,
-                 table("tbl-queue", headers, rows, meta),
-                 head_buttons=head, filter_for="tbl-queue")
+                 table("tbl-queue", headers, [], None),
+                 head_buttons=head, filter_for=False)
 
 
 # --------------------------------------------------------------------------- #
@@ -1418,7 +1418,17 @@ def make_handler(paths: Paths):
                                  "rows": request_rows_json(completed)})
                 return
             if parts[:2] == ["api", "queue"]:
-                self._json(200, {"items": load_queue(), "paused": is_paused()})
+                items = load_queue()
+                qtotals = queue_totals()
+                self._json(200, {"version": queue_version(items, qtotals),
+                                 "rows": queue_rows_json(items),
+                                 "paused": is_paused()})
+                return
+            if parts[:2] == ["api", "rate"]:
+                rate = load_rate_state()
+                pend_by_dom = load_pending_by_domain()
+                self._json(200, {"version": rate_version(rate, pend_by_dom),
+                                 "rows": rate_rows_json(rate, pend_by_dom)})
                 return
             if parts[:2] == ["api", "refresh"]:
                 tgts = load_targets()
@@ -1454,14 +1464,15 @@ def make_handler(paths: Paths):
                 tgts_html = render_targets_panel(tgts)
                 subs_html = render_subdomains_panel(subs_list)
                 act_html = render_activity_panel(paths, eng, rate, pend_by_dom, runs)
-                rate_html = render_rate_panel(rate, pend_by_dom)
-                queue_html = render_queue_panel(queue, paused, metrics, qtotals)
 
                 self._json(200, {
                     "gen_epoch": int(time.time()),
                     "is_paused": paused,
                     "assets_ver": assets_version(assets),
                     "req_ver": requests_version(summary),
+                    "queue_ver": queue_version(queue, qtotals),
+                    "queue_count": qtotals["total"],
+                    "rate_ver": rate_version(rate, pend_by_dom),
                     "stats": _header_stats(tgts, subs_list, assets, summary, eng, paused),
                     "metrics_html": _queue_metrics_html(metrics),
                     "queue_counts_html": ct_html,
@@ -1470,8 +1481,6 @@ def make_handler(paths: Paths):
                         "targets":    {"count": _count(tgts_html),   "tbody": _tbody(tgts_html)},
                         "subdomains": {"count": _count(subs_html),   "tbody": _tbody(subs_html)},
                         "activity":   {"count": _count(act_html),    "tbody": _tbody(act_html)},
-                        "rate":       {"count": _count(rate_html),   "tbody": _tbody(rate_html)},
-                        "queue":      {"count": _count(queue_html),  "tbody": _tbody(queue_html)},
                     },
                 })
                 return
@@ -1887,8 +1896,9 @@ function VTable(opt){
   var scroll=document.getElementById(opt.scrollId), tb=tbl.tBodies[0], ncol=opt.cols.length;
   var ths=tbl.tHead.rows[0].cells;
   var ss=L('vsort:'+opt.tableId)||opt.sort||{i:-1,dir:'asc'};
+  var selectable=(opt.select!==false);
   var V={rows:[], view:[], sort:{i:ss.i, dir:ss.dir}, q:'', scope:null,
-         sel:L('vsel:'+opt.tableId), rowh:18, measured:false};
+         sel:(selectable?L('vsel:'+opt.tableId):null), checked:{}, rowh:18, measured:false};
   function markHdr(){ for(var k=0;k<ths.length;k++) ths[k].classList.remove('asc','desc');
     if(V.sort.i>=0 && ths[V.sort.i]) ths[V.sort.i].classList.add(V.sort.dir); }
   function rebuild(){
@@ -1913,8 +1923,12 @@ function VTable(opt){
     var html='', i, c;
     if(start>0) html+='<tr class="vsp"><td colspan="'+ncol+'" style="height:'+(start*V.rowh)+'px"></td></tr>';
     for(i=start;i<end;i++){ var r=V.view[i], key=opt.key(r), seld=(V.sel!=null && key===V.sel);
-      html+='<tr class="vrow'+((i&1)?' alt':'')+(seld?' selected':'')+'" data-key="'+esc(key)+'" tabindex="0">';
-      for(c=0;c<ncol;c++){ var col=opt.cols[c]; html+='<td>'+(col.render?col.render(r):esc(col.get(r)))+'</td>'; }
+      var extra=opt.rowAttrs?opt.rowAttrs(r):'';
+      var xcls=opt.rowClass?(' '+opt.rowClass(r)):'';
+      html+='<tr class="vrow'+((i&1)?' alt':'')+(seld?' selected':'')+xcls+'" data-key="'+esc(key)+'"'+extra+' tabindex="0">';
+      for(c=0;c<ncol;c++){ var col=opt.cols[c];
+        if(col.chk){ html+='<td><input type="checkbox" class="vchk"'+(V.checked[key]?' checked':'')+'></td>'; continue; }
+        html+='<td>'+(col.render?col.render(r):esc(col.get(r)))+'</td>'; }
       html+='</tr>'; }
     if(end<total) html+='<tr class="vsp"><td colspan="'+ncol+'" style="height:'+((total-end)*V.rowh)+'px"></td></tr>';
     tb.innerHTML=html;
@@ -1935,13 +1949,33 @@ function VTable(opt){
     if(isControl(ev.target)) return;             // clicking a link/control never toggles
     var tr=ev.target.closest('tr.vrow'); if(!tr) return;
     var key=tr.getAttribute('data-key');
+    if(opt.onRowClick && opt.onRowClick(key, tr, ev)===true) return;  // consumed (e.g. opened a modal)
+    if(!selectable) return;
     V.sel=(V.sel===key)?null:key; S('vsel:'+opt.tableId, V.sel); render();
+    if(opt.onSelect) opt.onSelect(V.sel, tr);
   });
+  if(opt.checkbox){
+    tb.addEventListener('change', function(ev){
+      if(!ev.target.classList || !ev.target.classList.contains('vchk')) return;
+      var tr=ev.target.closest('tr.vrow'); if(!tr) return;
+      var key=tr.getAttribute('data-key');
+      if(ev.target.checked) V.checked[key]=1; else delete V.checked[key];
+      if(opt.onCheck) opt.onCheck(V);
+    });
+  }
   V.setRows=function(rows){ V.rows=rows||[];
     for(var k=0;k<V.rows.length;k++){ V.rows[k]._s=opt.search(V.rows[k]).toLowerCase(); }
     rebuild(); };
   V.setScope=function(fn){ V.scope=fn; rebuild(); };
   V.setQuery=function(q){ V.q=(q||'').toLowerCase(); rebuild(); };
+  V.rerender=render;
+  // checkbox helpers (queue)
+  V.checkedKeys=function(){ return Object.keys(V.checked); };
+  V.clearChecked=function(){ V.checked={}; render(); if(opt.onCheck) opt.onCheck(V); };
+  V.toggleAll=function(){ var keys=V.view.map(opt.key);
+    var allOn=keys.length>0 && keys.every(function(k){ return V.checked[k]; });
+    V.checked={}; if(!allOn) keys.forEach(function(k){ V.checked[k]=1; });
+    render(); if(opt.onCheck) opt.onCheck(V); };
   return V;
 }
 
@@ -2007,8 +2041,20 @@ function assetScopeFn(target, host){
 function setAssetScope(target, host){
   var sel=document.getElementById('assetsel');
   var v=(!target||target==='all')?'all':(target+'||'+(host||'*'));
-  if(sel){ var ok=false; for(var i=0;i<sel.options.length;i++){ if(sel.options[i].value===v) ok=true; }
-    sel.value=ok?v:((target&&target!=='all')?target+'||*':'all'); v=sel.value; }
+  if(sel){
+    // Sync the dropdown for display only. A subdomain discovered *after* the
+    // page first rendered has a row in the Subdomains panel but no <option>
+    // here yet; inject one so we never fall back to target||* and silently
+    // drop the host filter (the old bug). The real (target,host) always
+    // drives the scope below — never the dropdown's post-fallback value.
+    var ok=false; for(var i=0;i<sel.options.length;i++){ if(sel.options[i].value===v){ ok=true; break; } }
+    if(!ok && v!=='all'){
+      var o=document.createElement('option'); o.value=v;
+      var pp=v.split('||'); o.textContent='  '+(pp[1]==='*'?pp[0]+' (all)':pp[1]);
+      sel.appendChild(o);
+    }
+    sel.value=v;
+  }
   S('assetscope', v);
   if(AssetsVT){ var p=v.split('||'); AssetsVT.setScope(v==='all'?null:assetScopeFn(p[0],p[1])); }
 }
