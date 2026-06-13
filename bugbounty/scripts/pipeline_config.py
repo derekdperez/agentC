@@ -29,7 +29,10 @@ DEFAULTS = {
     "default_rate_per_system": (100.0, float),# req/s ceiling across ALL domains
     "system_burst": (200.0, float),           # max requests the system may bank
     "pump_batch": (1500, int),                # pending files inspected per tick
-    "http_timeout_seconds": (12.0, float),    # per-request network timeout
+    "crawler_concurrency": (400, int),        # in-flight HTTP requests in the batch crawler
+    "crawler_batch": (1500, int),             # max ready files a crawler tick drains
+    "crawler_timeout": (5.0, float),          # per-request timeout in the batch crawler (dead hosts fail fast)
+    "http_timeout_seconds": (12.0, float),    # per-request network timeout (legacy single-request path)
 }
 
 
