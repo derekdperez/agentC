@@ -1,0 +1,12 @@
+{
+  "id": "0b0185e708ac423ab0d424a8f1c5c952",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/doctype/js_includes_doctype.jsx?v=05-19-2026_0833&lp=Wed_Jun_10_16_52_16_PDT_2026&c=26_489",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_doctype_js_includes_doctype.jsx_v_05-19-2026_0833_lp_Wed_Jun_10_16_52_16_PDT_2026_c_26_489.body",
+  "pattern": "(?i)(access[_-]?key|secret[_-]?key)",
+  "match_count": 1,
+  "first_match": "accessKey",
+  "context": "S.write.names,ATTRIBUTE_TRANSLATIONS.read.names);var CAMEL_CASED_ATTRIBUTE_NAMES=$w(\"colSpan rowSpan vAlign dateTime \"+\"accessKey tabIndex encType maxLength readOnly longDesc frameBorder\");for(var i=0,attr;attr=CAMEL_CASED_ATTRIBUTE_NAMES[i];i++){AT",
+  "detected_at": "2026-06-13T02:03:03.086772"
+}

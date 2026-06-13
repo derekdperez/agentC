@@ -1,0 +1,12 @@
+{
+  "id": "b8d29ecf22e44ce68d9e3a44032b7dba",
+  "target": "lillylibrary.org",
+  "hostname": "cpanel.lillylibrary.org",
+  "url": "https://cpanel.lillylibrary.org/cPanel_magic_revision_1690427912/unprotected/cpanel/style_v2_optimized.css",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/cpanel.lillylibrary.org/assets/stylesheets/cPanel_magic_revision_1690427912_unprotected_cpanel_style_v2_optimized.css.body",
+  "pattern": "(?i)(social[_-]?security|ssn)",
+  "match_count": 2,
+  "first_match": "ssn",
+  "context": "p:before{content:\"\\f247\"}.fa-object-ungroup:before{content:\"\\f248\"}.fa-octopus-deploy:before{content:\"\\e082\"}.fa-odnoklassniki:before{content:\"\\f263\"}.fa-odnoklassniki-square:before{content:\"\\f264\"}.fa-oil-can:before{content:\"\\f613\"}.fa-old-re",
+  "detected_at": "2026-06-13T01:29:02.316037"
+}

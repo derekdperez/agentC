@@ -1,0 +1,12 @@
+{
+  "id": "c6a34a63b4264ac0b28b79cd225546d2",
+  "target": "att.com",
+  "hostname": "www.ipservices.att.com",
+  "url": "http://www.ipservices.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/www.ipservices.att.com/assets/html/root.body",
+  "pattern": "(?i)(social[_-]?security|ssn)",
+  "match_count": 1,
+  "first_match": "SSN",
+  "context": "\"comments\" class=\"form-textarea\" placeholder=\"Do not include any personal information such as a Social Security number (SSN), Employer Identification Number (EIN), driver's license or state ID number, financial account number(s), credit or deb",
+  "detected_at": "2026-06-13T01:55:51.333036"
+}

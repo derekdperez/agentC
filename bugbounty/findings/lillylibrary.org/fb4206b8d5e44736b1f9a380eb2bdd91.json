@@ -1,0 +1,12 @@
+{
+  "id": "fb4206b8d5e44736b1f9a380eb2bdd91",
+  "target": "lillylibrary.org",
+  "hostname": "cpanel.lillylibrary.org",
+  "url": "https://cpanel.lillylibrary.org/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/cpanel.lillylibrary.org/assets/html/root.body",
+  "pattern": "(?i)(username|user|login)\\s*[:=]\\s*['\"][^'\"]+['\"]",
+  "match_count": 1,
+  "first_match": "user",
+  "context": "ncodeURIComponent(window.goto_uri):\"\";var ajax_login=new AjaxObject(login_form.action,login_results);ajax_login.update(\"user=\"+encodeURIComponent(login_username_el.value)+\"&pass=\"+encodeURIComponent(login_password_el.value)+goto_app_query+goto_uri_query,\"POST\")}return false}function show_log",
+  "detected_at": "2026-06-13T01:28:58.957753"
+}

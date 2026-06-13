@@ -1,0 +1,12 @@
+{
+  "id": "e5ce35642bd8480e85477924d91fbdf9",
+  "target": "att.com",
+  "hostname": "att-hmwk.idp.blogin.att.com",
+  "url": "http://att-hmwk.idp.blogin.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/att-hmwk.idp.blogin.att.com/assets/html/root.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 5,
+  "first_match": "<!-- Copyright (C) 2015 IBM Corporation -->",
+  "context": "<!DOCTYPE html>\n<!-- Copyright (C) 2015 IBM Corporation -->\n<!-- Copyright (C) 2000 Tivoli Systems, Inc. -->\n<!-- Copyright (C) 1999 IBM Corporation -->\n<!-- Copyright (C) 1998 Da",
+  "detected_at": "2026-06-13T02:02:16.145830"
+}

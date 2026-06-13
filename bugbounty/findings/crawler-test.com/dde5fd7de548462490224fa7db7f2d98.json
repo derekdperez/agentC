@@ -1,0 +1,12 @@
+{
+  "id": "dde5fd7de548462490224fa7db7f2d98",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/social_tags/open_graph_tags",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/social_tags_open_graph_tags.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 1,
+  "first_match": "admin",
+  "context": "raph description tag contents\" />\n      <meta property=\"og:site_name\" content=\"Crawler Test\"/>\n      <meta property=\"fb:admins\" content=\"3049578234,34097345345\" />\n      <meta property=\"fb:app_id\" content=\"4395760394567\" />\n      <meta property=",
+  "detected_at": "2026-06-13T00:35:38.464574"
+}

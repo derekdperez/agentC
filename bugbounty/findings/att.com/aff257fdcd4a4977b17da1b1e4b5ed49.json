@@ -1,0 +1,12 @@
+{
+  "id": "aff257fdcd4a4977b17da1b1e4b5ed49",
+  "target": "att.com",
+  "hostname": "officeathand.att.com",
+  "url": "https://officeathand.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/officeathand.att.com/assets/html/root.body",
+  "pattern": "(?i)(bypass|override|backdoor)",
+  "match_count": 3,
+  "first_match": "override",
+  "context": "                          <td class=\"pad-xs  border-gray-300    bg-white  text-default  valign-top text-left cell-blank-override   \" colspan=\"1\" rowspan=\"1\" style=\"\">\n                                                    \n\n                           ",
+  "detected_at": "2026-06-13T01:57:36.847789"
+}

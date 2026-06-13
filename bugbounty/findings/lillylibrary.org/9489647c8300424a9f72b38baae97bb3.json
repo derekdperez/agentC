@@ -1,0 +1,12 @@
+{
+  "id": "9489647c8300424a9f72b38baae97bb3",
+  "target": "lillylibrary.org",
+  "hostname": "www.lillylibrary.org",
+  "url": "https://www.lillylibrary.org/library-policies/wifi-hotspots",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/library-policies_wifi-hotspots.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 2,
+  "first_match": "<!-- This site was created in Webflow. https://webflow.com -->",
+  "context": "<!DOCTYPE html><!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Mon Jun 01 2026 20:26:06 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain=\"www.lillyli",
+  "detected_at": "2026-06-13T01:28:41.240351"
+}

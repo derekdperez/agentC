@@ -1,0 +1,12 @@
+{
+  "id": "1aabf72cac4d4873a81c8c3b92efa85f",
+  "target": "att.com",
+  "hostname": "www.ipservices.att.com",
+  "url": "http://www.ipservices.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/www.ipservices.att.com/assets/html/root.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 144,
+  "first_match": "<!-- Global Navigation -->",
+  "context": "-12 aem-Grid--default--12 \">\n    \n    <div class=\"global-navigation parbase aem-GridColumn aem-GridColumn--default--12\"><!-- Global Navigation -->\n\n<!-- HTML Global Navigation Structure -->\n\n\n\n\n \n<div class=\"main-header-wrapper \">    \n    \n    \n    <div class=\"segme",
+  "detected_at": "2026-06-13T01:55:50.038936"
+}

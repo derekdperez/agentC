@@ -1,0 +1,12 @@
+{
+  "id": "140d33033d9547e5984bead32f5a3edd",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/redirects/external_redirect_chain1",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/redirects_external_redirect_chain1.body",
+  "pattern": "(?i)(staging|uat|preprod|nonprod)",
+  "match_count": 3,
+  "first_match": "uat",
+  "context": "//www.lumar.io/use-case/website-audits/\">Technical SEO Audits</a></li><li><a href=\"https://www.lumar.io/geo-content-evaluation-for-ai-search/\">Content Evaluation &amp; Optimization for AI Search</a></li><li><a href=\"https://www.lumar.io/use-ca",
+  "detected_at": "2026-06-13T00:36:54.841581"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "fe8687ba0dfb44d986ab7d73612727b9",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/polaris_theme_refresh_observer.jsx?v=05-19-2026_0833",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_polaris_theme_refresh_observer.jsx_v_05-19-2026_0833.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 1,
+  "first_match": "Token",
+  "context": "_dark_theme;\n\t\t\tvar fetchOptions = {\n\t\t\t\tmethod: 'POST',\n\t\t\t\theaders: {\n'Content-Type': 'application/json',\n\t\t\t\t\t'X-UserToken': window.g_ck\n\t\t\t\t},\n\t\t\t}\n\t\t\treturn fetch(url, fetchOptions)\n\t\t\t\t.then(function(response) {\n\t\t\t\t\treturn response.text()",
+  "detected_at": "2026-06-13T02:02:47.840925"
+}

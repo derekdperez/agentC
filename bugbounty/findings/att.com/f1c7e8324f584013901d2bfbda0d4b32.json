@@ -1,0 +1,12 @@
+{
+  "id": "f1c7e8324f584013901d2bfbda0d4b32",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/doctype/js_includes_doctype.jsx?v=05-19-2026_0833&lp=Wed_Jun_10_16_52_16_PDT_2026&c=26_489",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_doctype_js_includes_doctype.jsx_v_05-19-2026_0833_lp_Wed_Jun_10_16_52_16_PDT_2026_c_26_489.body",
+  "pattern": "(?i)(social[_-]?security|ssn)",
+  "match_count": 189,
+  "first_match": "ssN",
+  "context": "rototype=oldElement.prototype;Element.Methods={ByTag:{},Simulated:{}};var methods={};var INSPECT_ATTRIBUTES={id:\"id\",className:\"class\"};function inspect(element){element=$(element);var result=\"<\"+element.tagName.toLowerCase();var attribute,val",
+  "detected_at": "2026-06-13T02:03:00.681865"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "ae465fb81baa441b8adfc0cfe54ecdb7",
+  "target": "lillylibrary.org",
+  "hostname": "www.lillylibrary.org",
+  "url": "https://www.lillylibrary.org/books-more/databases",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/books-more_databases.body",
+  "pattern": "(?i)(canary|beta|experimental)",
+  "match_count": 1,
+  "first_match": "experimental",
+  "context": "searchers will have access to a diverse, but focused set of topics in the field, including proven treatment techniques, experimental research theses, and many more.<br/><br/><a href=\"https://galesupport.com/geo/ma/?db=PPOP&amp;locid=mlin_w_lilly\"><stro",
+  "detected_at": "2026-06-13T01:28:37.191253"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "67f39cf405184048b53efc4d83ed289b",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/other/duplicated_body_content_2",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/other_duplicated_body_content_2.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 103,
+  "first_match": "<!--<div class='top-floating' data-button-text='TOP'></div>-->",
+  "context": "  <div class=\"row\">\n      <div class=\"large-12 columns\">\n        \n          \n        \n        <div class=\"wrapper\">\n    <!--<div class='top-floating' data-button-text='TOP'></div>-->\n    <header>\n  <a class=\"ir\" href=\"#\" id=\"logo\">Home</a>\n  <div id=\"utils\">\n    <div class=\"util-links\">\n      <a\n     ",
+  "detected_at": "2026-06-13T00:38:38.519565"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "8d29e0b8ccb94c78bab577c57f9f2f04",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/EZNJnB6JTVRv8QHuAgtLkC",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/html/EZNJnB6JTVRv8QHuAgtLkC.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 3,
+  "first_match": "<!-- prettier-ignore -->",
+  "context": "om/forms/d/e/1FAIpQLSeDXUQEdu5QcdiW-E5Hgeq0qi8OrHAL8YBoNVubVlAOrtVt_g/viewform\" />\n        <title>Login</title>\n        <!-- prettier-ignore -->\n        <meta name=\"OsanoCookiePartial\" content=\"\">\n        <script src=\"./dist/geotab.js\" defer></script>\n        <scr",
+  "detected_at": "2026-06-13T01:55:41.771150"
+}

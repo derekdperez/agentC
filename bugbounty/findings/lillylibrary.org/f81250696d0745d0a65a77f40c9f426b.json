@@ -1,0 +1,12 @@
+{
+  "id": "f81250696d0745d0a65a77f40c9f426b",
+  "target": "lillylibrary.org",
+  "hostname": "lillylibrary.org",
+  "url": "https://lillylibrary.org/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/lillylibrary.org/assets/html/root.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 2,
+  "first_match": "<!-- This site was created in Webflow. https://webflow.com -->",
+  "context": "<!DOCTYPE html><!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Mon Jun 01 2026 20:26:06 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain=\"www.lillyli",
+  "detected_at": "2026-06-13T01:28:33.132902"
+}

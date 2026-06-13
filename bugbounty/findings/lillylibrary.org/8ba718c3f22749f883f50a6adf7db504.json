@@ -1,0 +1,12 @@
+{
+  "id": "8ba718c3f22749f883f50a6adf7db504",
+  "target": "lillylibrary.org",
+  "hostname": "webmail.lillylibrary.org",
+  "url": "https://webmail.lillylibrary.org/cPanel_magic_revision_1690427912/unprotected/cpanel/style_v2_optimized.css",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/webmail.lillylibrary.org/assets/stylesheets/cPanel_magic_revision_1690427912_unprotected_cpanel_style_v2_optimized.css.body",
+  "pattern": "(?i)(elasticsearch|kibana|grafana|jenkins|sonarqube|artifactory)",
+  "match_count": 1,
+  "first_match": "jenkins",
+  "context": "ntent:\"\\f3b5\"}.fa-java:before{content:\"\\f4e4\"}.fa-jedi:before{content:\"\\f669\"}.fa-jedi-order:before{content:\"\\f50e\"}.fa-jenkins:before{content:\"\\f3b6\"}.fa-jira:before{content:\"\\f7b1\"}.fa-joget:before{content:\"\\f3b7\"}.fa-joint:before{content:\"\\f595",
+  "detected_at": "2026-06-13T01:29:03.458004"
+}

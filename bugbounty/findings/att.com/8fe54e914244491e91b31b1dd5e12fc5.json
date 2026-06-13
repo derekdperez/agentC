@@ -1,0 +1,12 @@
+{
+  "id": "8fe54e914244491e91b31b1dd5e12fc5",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/app.guided_tours/js_guided_tours_includes.jsx?v=05-19-2026_0833",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_app.guided_tours_js_guided_tours_includes.jsx_v_05-19-2026_0833.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 7,
+  "first_match": "Token",
+  "context": ")}):fetch(url,{method:\"POST\",body:JSON.stringify(data),headers:{\"Content-Type\":\"application/json; charset=utf-8\",\"X-UserToken\":window.g_ck}}).then(function(response){return response.json()}).then(function(data){cb&&cb(null,data.result)}).catch(f",
+  "detected_at": "2026-06-13T02:02:56.976585"
+}

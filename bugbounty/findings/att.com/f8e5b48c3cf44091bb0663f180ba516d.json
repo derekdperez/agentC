@@ -1,0 +1,12 @@
+{
+  "id": "f8e5b48c3cf44091bb0663f180ba516d",
+  "target": "att.com",
+  "hostname": "vietnamese.att.com",
+  "url": "https://vietnamese.att.com/sports/soccer/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/vietnamese.att.com/assets/html/sports_soccer_.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 6,
+  "first_match": "<!-- -->",
+  "context": "MuiGrid-grid-lg-12 MuiGrid-grid-xl-12 mui-style-15wej6k\"> <div class=\"MuiGrid-root MuiGrid-container mui-style-w0zsau\"> <!-- --> </div><div class=\"MuiGrid-root MuiGrid-container mui-style-1bgfdzt\"> <div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid",
+  "detected_at": "2026-06-13T02:00:46.361125"
+}

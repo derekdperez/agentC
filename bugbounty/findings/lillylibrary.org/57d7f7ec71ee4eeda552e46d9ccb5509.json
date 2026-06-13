@@ -1,0 +1,12 @@
+{
+  "id": "57d7f7ec71ee4eeda552e46d9ccb5509",
+  "target": "lillylibrary.org",
+  "hostname": "cpanel.lillylibrary.org",
+  "url": "https://cpanel.lillylibrary.org/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/cpanel.lillylibrary.org/assets/html/root.body",
+  "pattern": "(?i)(staging|uat|preprod|nonprod)",
+  "match_count": 1,
+  "first_match": "uat",
+  "context": "merica/Los_Angeles\",\"-480,0\":\"Pacific/Pitcairn\",\"-420,0\":\"America/Phoenix\",\"-420,1\":\"America/Denver\",\"-360,0\":\"America/Guatemala\",\"-360,1\":\"America/Chicago\",\"-360,1,s\":\"Pacific/Easter\",\"-300,0\":\"America/Bogota\",\"-300,1\":\"America/New_York\",\"-27",
+  "detected_at": "2026-06-13T01:28:59.150847"
+}

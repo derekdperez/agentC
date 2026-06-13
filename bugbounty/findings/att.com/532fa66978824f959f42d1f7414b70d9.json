@@ -1,0 +1,12 @@
+{
+  "id": "532fa66978824f959f42d1f7414b70d9",
+  "target": "att.com",
+  "hostname": "afmfe78.att.com",
+  "url": "https://afmfe78.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe78.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(root[_-]?token|admin[_-]?token)",
+  "match_count": 2,
+  "first_match": "AdminToken",
+  "context": "tAuthTokens(e)}get tokens(){return(async()=>{const e=await this.getTokensPromise;return(0,v.eK)(e).sort(v.$8)})()}get myAdminTokens(){return(async()=>{const e=(await this.getTokensPromise).filter(v.Qs);return(0,v.eK)(e).sort(v.$8)})()}}class S{constr",
+  "detected_at": "2026-06-13T02:03:31.723733"
+}

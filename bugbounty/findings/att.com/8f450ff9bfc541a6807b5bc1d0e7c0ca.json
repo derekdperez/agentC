@@ -1,0 +1,12 @@
+{
+  "id": "8f450ff9bfc541a6807b5bc1d0e7c0ca",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/dist/default.css",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/stylesheets/dist_default.css.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 15,
+  "first_match": "password",
+  "context": ".passwordCheckList{position:absolute;border-radius:10px;padding-block:10px;padding-inline:0 20px;box-shadow:0 0 15px rgba(0,0,0,.",
+  "detected_at": "2026-06-13T01:52:22.487923"
+}

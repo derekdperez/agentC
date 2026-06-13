@@ -1,0 +1,12 @@
+{
+  "id": "b82009939f2344019e9a77f6f8a87e82",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "http://attmbl-usdev.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/html/root.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 2,
+  "first_match": "<!--googleoff: all-->",
+  "context": ") {\n\t\t\tif (typeof document.body != undefined) {\n\t\t\t\tdocument.body.classList.add('touch_scroll');\n\t\t\t}\n\t\t}\n\t}\n  </script><!--googleoff: all--><noscript>This site requires JavaScript to be enabled</noscript> <!--googleon: all--><script type=\"text/javascript\" src=",
+  "detected_at": "2026-06-13T01:57:07.227733"
+}

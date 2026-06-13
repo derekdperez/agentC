@@ -1,0 +1,12 @@
+{
+  "id": "1775ca8b814f4c6e991eca8f38e4184d",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/content/word_count_hyphenated",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/content_word_count_hyphenated.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 2,
+  "first_match": "<!-- Google Tag Manager -->",
+  "context": "<div class=\"large-12 columns\">\n        \n          \n        \n        wasn't\n      </div>\n    </div>\n    \n  </body>\n\n  \n  <!-- Google Tag Manager -->\n  <noscript><iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-MCVXV6\"\n  height=\"0\" width=\"0\" style=\"display:none;v",
+  "detected_at": "2026-06-13T00:38:21.407748"
+}

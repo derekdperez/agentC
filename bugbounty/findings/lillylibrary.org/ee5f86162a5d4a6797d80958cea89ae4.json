@@ -1,0 +1,12 @@
+{
+  "id": "ee5f86162a5d4a6797d80958cea89ae4",
+  "target": "lillylibrary.org",
+  "hostname": "lillylibrary.org",
+  "url": "https://lillylibrary.org/about/library-staff",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/lillylibrary.org/assets/html/about_library-staff.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 2,
+  "first_match": "Token",
+  "context": "tabases\" class=\"dropdownlink w-inline-block\"><div>Databases</div></a><a href=\"https://learn.mangolanguages.com/login?gymToken=BYB5IEcxME6KCL5KkfuQAA&amp;r=https%3A%2F%2Flillylibrary.org%2F\" class=\"dropdownlink w-inline-block\"><div>Mango Language",
+  "detected_at": "2026-06-13T01:28:45.490687"
+}

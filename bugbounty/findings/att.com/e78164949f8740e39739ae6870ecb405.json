@@ -1,0 +1,12 @@
+{
+  "id": "e78164949f8740e39739ae6870ecb405",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/doctype/js_includes_doctype.jsx?v=05-19-2026_0833&lp=Wed_Jun_10_16_52_16_PDT_2026&c=26_489",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_doctype_js_includes_doctype.jsx_v_05-19-2026_0833_lp_Wed_Jun_10_16_52_16_PDT_2026_c_26_489.body",
+  "pattern": "(?i)\\.(env|bak|backup|old|swp|sql|zip|tar|gz)",
+  "match_count": 33,
+  "first_match": "tar",
+  "context": " element(event){return Element.extend(_element(event))}function _element(event){event=Event.extend(event);var node=event.target,type=event.type,currentTarget=event.currentTarget;if(currentTarget&&currentTarget.tagName){if(type===\"load\"||type===",
+  "detected_at": "2026-06-13T02:02:58.792642"
+}

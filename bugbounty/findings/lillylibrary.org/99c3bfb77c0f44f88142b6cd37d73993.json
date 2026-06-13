@@ -1,0 +1,12 @@
+{
+  "id": "99c3bfb77c0f44f88142b6cd37d73993",
+  "target": "lillylibrary.org",
+  "hostname": "www.lillylibrary.org",
+  "url": "https://www.lillylibrary.org/books-more/databases",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/books-more_databases.body",
+  "pattern": "(admin|administrator)",
+  "match_count": 1,
+  "first_match": "admin",
+  "context": "0\">Nursing and Allied Health (Gale OneFile)</strong></a><strong> </strong>\u2013 Articles on direct patient care, healthcare administration, and more.<br/><br/><a href=\"http://libraries.state.ma.us/login?db=OVIC&amp;locid=mlin_w_lilly\"><strong class=",
+  "detected_at": "2026-06-13T01:28:37.033187"
+}

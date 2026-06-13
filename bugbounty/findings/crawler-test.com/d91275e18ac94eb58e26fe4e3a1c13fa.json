@@ -1,0 +1,12 @@
+{
+  "id": "d91275e18ac94eb58e26fe4e3a1c13fa",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/urls/duplicate_page/baz",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/urls_duplicate_page_baz.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 2,
+  "first_match": "<!-- Google Tag Manager -->",
+  "context": "  <hr>\n      <div class=\"large-12 column\">\n        <div id=\"footer\"></div>\n      </div>\n    </div>\n    \n  </body>\n\n  \n  <!-- Google Tag Manager -->\n  <noscript><iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-MCVXV6\"\n  height=\"0\" width=\"0\" style=\"display:none;v",
+  "detected_at": "2026-06-13T00:39:23.684677"
+}

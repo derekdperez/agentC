@@ -1,0 +1,12 @@
+{
+  "id": "9cbc8ed9a6084ed9935847ae722ab7e7",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/social_tags/open_graph_tags",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/social_tags_open_graph_tags.body",
+  "pattern": "\\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\\b",
+  "match_count": 1,
+  "first_match": "4395760394567",
+  "context": " Test\"/>\n      <meta property=\"fb:admins\" content=\"3049578234,34097345345\" />\n      <meta property=\"fb:app_id\" content=\"4395760394567\" />\n      <meta property=\"og:locale\" content=\"en_US\" />\n      <meta property=\"og:locale:alternate\" content=\"fr_FR\" />\n ",
+  "detected_at": "2026-06-13T00:35:38.467944"
+}

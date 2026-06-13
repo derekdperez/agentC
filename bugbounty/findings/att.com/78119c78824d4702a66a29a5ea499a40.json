@@ -1,0 +1,12 @@
+{
+  "id": "78119c78824d4702a66a29a5ea499a40",
+  "target": "att.com",
+  "hostname": "vietnamese.att.com",
+  "url": "https://vietnamese.att.com/QTGwq_dg/VCvjlmC/j_jUGig/Kf/J91zhbz5NaiYVtEf/ZklJUVMpdA0/a1QaI/y5LNAwB",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/vietnamese.att.com/assets/html/QTGwq_dg_VCvjlmC_j_jUGig_Kf_J91zhbz5NaiYVtEf_ZklJUVMpdA0_a1QaI_y5LNAwB.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 6,
+  "first_match": "<!-- -->",
+  "context": "MuiGrid-grid-lg-12 MuiGrid-grid-xl-12 mui-style-15wej6k\"> <div class=\"MuiGrid-root MuiGrid-container mui-style-w0zsau\"> <!-- --> </div><div class=\"MuiGrid-root MuiGrid-container mui-style-1bgfdzt\"> <div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid",
+  "detected_at": "2026-06-13T01:58:58.109818"
+}

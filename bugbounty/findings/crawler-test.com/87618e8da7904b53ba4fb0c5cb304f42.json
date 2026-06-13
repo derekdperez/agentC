@@ -1,0 +1,12 @@
+{
+  "id": "87618e8da7904b53ba4fb0c5cb304f42",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/root.body",
+  "pattern": "(?i)(sensitive|confidential|restricted)",
+  "match_count": 10,
+  "first_match": "sensitive",
+  "context": "L-encoded v non-encoded not canonicalised icon</a>\n<br />\n      <a href=\"/canonical_tags/canonical_prameter_key_is_case_sensitive?key=value\">Parameter key is case sensitive</a>\n<br />\n      <a href=\"/canonical_tags/canonical_prameter_value_is_case_s",
+  "detected_at": "2026-06-13T00:35:03.672047"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "f17aaaba28ed427fb80ee430be4722e9",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0)",
+  "match_count": 2,
+  "first_match": "localhost",
+  "context": ".drivecam.net\",\"lytx-host-application-web-dev.aws.drivecaminc.xyz\",\"lytx-fleet-telematics-web-dev.aws.drivecaminc.xyz\",\"localhost\",\"127.0.0.1\"]),he=\"oReferrer\",pe=e=>{if(e)try{return new URL(e).host.split(\":\")[0]}catch(e){return\"\"}return\"\"},ge=()=>p",
+  "detected_at": "2026-06-13T01:52:15.747329"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "8f2d22a30c1f4931af3d4fe122317e8b",
+  "target": "att.com",
+  "hostname": "www.ipservices.att.com",
+  "url": "http://www.ipservices.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/www.ipservices.att.com/assets/html/root.body",
+  "pattern": "(?i)(access[_-]?key|secret[_-]?key)",
+  "match_count": 1,
+  "first_match": "accesskey",
+  "context": "     <input type=\"search\" class=\"inputbox\" size=\"\" maxlength=\"100\" aria-label=\"Search AT&amp;T business\" title=\"Search\" accesskey=\"4\" name=\"q-cludo\" id=\"q-cludo\" autocomplete=\"off\" placeholder=\"Let's find what you need...\"/>\n                <button ",
+  "detected_at": "2026-06-13T01:55:52.123197"
+}

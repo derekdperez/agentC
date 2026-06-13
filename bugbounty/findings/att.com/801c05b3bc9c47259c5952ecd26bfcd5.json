@@ -1,0 +1,12 @@
+{
+  "id": "801c05b3bc9c47259c5952ecd26bfcd5",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/doctype/js_includes_doctype.jsx?v=05-19-2026_0833&lp=Wed_Jun_10_16_52_16_PDT_2026&c=26_489",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_doctype_js_includes_doctype.jsx_v_05-19-2026_0833_lp_Wed_Jun_10_16_52_16_PDT_2026_c_26_489.body",
+  "pattern": "(?i)(impersonate|sudo|elevate)",
+  "match_count": 10,
+  "first_match": "Elevate",
+  "context": "es: function(includeDefaults) {\n\t\tif (includeDefaults)\n\t\t\treturn this.allRoles;\n\t\treturn this.roles;\n\t},\n\t\n\tgetAvailableElevatedRoles: function() {\n\t\treturn this.elevatedRoles;\n\t},\n\t\n\tsetRoles: function(r, includeDefaults) {\n\t\tif (includeDefaults)",
+  "detected_at": "2026-06-13T02:03:02.522789"
+}

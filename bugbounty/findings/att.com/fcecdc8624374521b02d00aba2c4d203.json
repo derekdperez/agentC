@@ -1,0 +1,12 @@
+{
+  "id": "fcecdc8624374521b02d00aba2c4d203",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/thirdparty/dom_purify/purify.jsx?v=05-19-2026_0833&sysparm_substitute=false",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_thirdparty_dom_purify_purify.jsx_v_05-19-2026_0833_sysparm_substitute_false.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 1,
+  "first_match": "rdp",
+  "context": "/*! RESOURCE: /scripts/thirdparty/dom_purify/purify.js */\n(function (global, factory) {\n  typeof exports === 'object' && typeof module !== 'undefined",
+  "detected_at": "2026-06-13T02:02:55.033868"
+}

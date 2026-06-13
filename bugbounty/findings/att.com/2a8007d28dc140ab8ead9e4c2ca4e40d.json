@@ -1,0 +1,12 @@
+{
+  "id": "2a8007d28dc140ab8ead9e4c2ca4e40d",
+  "target": "att.com",
+  "hostname": "lsreg.att.com",
+  "url": "https://lsreg.att.com/scripts/adobe/virtual/detm-container-hdr.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/lsreg.att.com/assets/scripts/scripts_adobe_virtual_detm-container-hdr.js.body",
+  "pattern": "(?i)(social[_-]?security|ssn)",
+  "match_count": 2,
+  "first_match": "ssN",
+  "context": "0;\",r.src=n.url,n.newIframeCreated=!0,t(),i.body.appendChild(r)}function t(e){r.addEventListener(\"load\",function(){r.className=\"aamIframeLoaded\",n.iframeHasLoaded=!0,n.fireIframeLoadedCallbacks(e),n.requestToProcess()})}this.startedAttachingIf",
+  "detected_at": "2026-06-13T02:02:05.077297"
+}

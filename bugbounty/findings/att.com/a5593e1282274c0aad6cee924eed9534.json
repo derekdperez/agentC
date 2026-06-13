@@ -1,0 +1,12 @@
+{
+  "id": "a5593e1282274c0aad6cee924eed9534",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/styles/polarisberg/css_includes_polarisberg.cssx?v=05-19-2026_0833&amp;c=1e8764041ba503107b8984cae54bcbcf&amp;theme=Polaris",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/stylesheets/styles_polarisberg_css_includes_polarisberg.cssx_v_05-19-2026_0833_amp;c_1e8764041ba503107b8984cae54bcbcf_amp;theme_Polaris.body",
+  "pattern": "(?i)(bypass|override|backdoor)",
+  "match_count": 1,
+  "first_match": "Override",
+  "context": "cons.ttf?1b83226fe70623e32efcda1aaf0a6462\") format(\"truetype\");\nfont-weight:normal;\nfont-style:normal;\n}\n\n\n/* Bootstrap Overrides */\n[class^=\"icon-\"]:before,\n[class*=\" icon-\"]:before {\nfont-family:\"now-icons\";\ndisplay:inline-block;\nline-height:1;\nf",
+  "detected_at": "2026-06-13T02:03:37.573793"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "24711f801041488a9f19550d1a4a60bb",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/links/nofollow_and_follow_link_target",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/links_nofollow_and_follow_link_target.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 2,
+  "first_match": "<!-- Google Tag Manager -->",
+  "context": "  <hr>\n      <div class=\"large-12 column\">\n        <div id=\"footer\"></div>\n      </div>\n    </div>\n    \n  </body>\n\n  \n  <!-- Google Tag Manager -->\n  <noscript><iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-MCVXV6\"\n  height=\"0\" width=\"0\" style=\"display:none;v",
+  "detected_at": "2026-06-13T00:39:13.611451"
+}

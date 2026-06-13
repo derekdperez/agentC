@@ -1,0 +1,12 @@
+{
+  "id": "8d1116604c384664ad94e4c20fd9b106",
+  "target": "att.com",
+  "hostname": "officeathand.att.com",
+  "url": "https://officeathand.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/officeathand.att.com/assets/html/root.body",
+  "pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+  "match_count": 8,
+  "first_match": "Contact%20Center%20Brochure%20for%20ATT%20Office@Hand.pdf",
+  "context": "\"Handle all communications in one AI-enhanced platform\" title=\"Download brochure\" href=\"/content/dam/attbusiness/ebooks/Contact%20Center%20Brochure%20for%20ATT%20Office@Hand.pdf\" class=\"btn-secondary att-track\">\n                  \n                  \n\n                  \n                  \n        ",
+  "detected_at": "2026-06-13T01:57:33.143514"
+}

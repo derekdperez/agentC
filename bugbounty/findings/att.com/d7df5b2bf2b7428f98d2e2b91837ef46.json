@@ -1,0 +1,12 @@
+{
+  "id": "d7df5b2bf2b7428f98d2e2b91837ef46",
+  "target": "att.com",
+  "hostname": "techtalent.att.com",
+  "url": "https://techtalent.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/techtalent.att.com/assets/html/root.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 2,
+  "first_match": "password",
+  "context": " \"DC\";\n    }\n    var purl = window.location.href;\n    var turl = encodeURIComponent(purl);\n    var acrValues = \"urn:att:password\";\n    setCookie(\"ELState\", turl, null, \"/\", null, true);\n\n    if (\"2\" == \"2\")\n    {\n        acrValues = \"MFAIA\";\n    }\n",
+  "detected_at": "2026-06-13T01:56:58.372010"
+}

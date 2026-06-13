@@ -1,0 +1,12 @@
+{
+  "id": "bc3f7236525d40b682d3bd319a732298",
+  "target": "att.com",
+  "hostname": "utildl4r4vdna.att.com",
+  "url": "http://utildl4r4vdna.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/utildl4r4vdna.att.com/assets/html/root.body",
+  "pattern": "(?i)(sensitive|confidential|restricted)",
+  "match_count": 1,
+  "first_match": "Restricted",
+  "context": "ICT_HTML=\"@(#)/vobs/common/src/lang/java/webapps/ROOT/app/pub/errors/restrict.html@@/main/1\" -->\n\n<html>\n\n<head>\n<title>Restricted Page</title>\n</head>\n\n<body>\n\n<br>\n<br>\n<img border=\"0\" src=\"/images/stop.gif\" width=\"46\" height=\"44\">\n<B>ACCESS DENIED",
+  "detected_at": "2026-06-13T01:54:37.205783"
+}

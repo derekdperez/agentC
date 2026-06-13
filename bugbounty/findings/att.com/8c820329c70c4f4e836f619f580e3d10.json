@@ -1,0 +1,12 @@
+{
+  "id": "8c820329c70c4f4e836f619f580e3d10",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/js_includes_list_edit_doctype.jsx?v=05-19-2026_0833&amp;lp=Wed_Jun_10_16_52_16_PDT_2026&amp;c=26_489",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_js_includes_list_edit_doctype.jsx_v_05-19-2026_0833_amp;lp_Wed_Jun_10_16_52_16_PDT_2026_amp;c_26_489.body",
+  "pattern": "(?i)(bypass|override|backdoor)",
+  "match_count": 15,
+  "first_match": "Override",
+  "context": ".editor.getValue();\n\t\tthis.focusElement.options.length = 0;\n\t\tif (this.editor.tableElement.choice != \"3\") {\n\t\t\tthis.nullOverride = xml.documentElement.getAttribute(\"default_option\");\n\t\t\tif (this.nullOverride)\n\t\t\t\taddOption(this.focusElement, \"\", th",
+  "detected_at": "2026-06-13T02:02:56.662742"
+}

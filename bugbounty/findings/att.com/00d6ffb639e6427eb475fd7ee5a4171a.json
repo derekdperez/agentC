@@ -1,0 +1,12 @@
+{
+  "id": "00d6ffb639e6427eb475fd7ee5a4171a",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/geotab/checkmate/main.css",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/stylesheets/geotab_checkmate_main.css.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 1,
+  "first_match": "ssh",
+  "context": "x;height:150px}.color-picker__colors-plate{height:100%;background-image:url(ui/modules/colorPicker/plate.png);cursor:crosshair}.color-picker__circle{position:absolute;border-radius:50%;border:1px #000 solid;width:8px;height:8px;background-colo",
+  "detected_at": "2026-06-13T01:52:25.119867"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "a6bf593efb4149b58219d5b349a1a3cf",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/heisenberg/heisenberg_all.jsx?v=05-19-2026_0833",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_heisenberg_heisenberg_all.jsx_v_05-19-2026_0833.body",
+  "pattern": "(?i)\\.(env|bak|backup|old|swp|sql|zip|tar|gz)",
+  "match_count": 38,
+  "first_match": "tar",
+  "context": "x = function (element, options) {\n    this.options = $.extend({}, Affix.DEFAULTS, options)\n    var target = this.options.target === Affix.DEFAULTS.target ? $(this.options.target) : $(document).find(this.options.target === '#' ? [] : this.option",
+  "detected_at": "2026-06-13T02:02:48.945903"
+}

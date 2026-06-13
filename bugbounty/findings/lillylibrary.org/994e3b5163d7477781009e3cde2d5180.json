@@ -1,0 +1,12 @@
+{
+  "id": "994e3b5163d7477781009e3cde2d5180",
+  "target": "lillylibrary.org",
+  "hostname": "cpanel.lillylibrary.org",
+  "url": "https://cpanel.lillylibrary.org/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/cpanel.lillylibrary.org/assets/html/root.body",
+  "pattern": "(?i)(social[_-]?security|ssn)",
+  "match_count": 3,
+  "first_match": "ssN",
+  "context": "tainer=DOM.get(\"login-status\");var this_class=level&&level_classes[level]||level_classes.info;var el_class=container.className.replace(levels_regex,this_class);container.className=el_class;fade_in(container);reset_status_timeout()}var STATUS_T",
+  "detected_at": "2026-06-13T01:28:59.134501"
+}

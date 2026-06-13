@@ -1,0 +1,12 @@
+{
+  "id": "e846799c6b2b454fb8cd3f4dcb12c1c4",
+  "target": "att.com",
+  "hostname": "officeathand.att.com",
+  "url": "https://officeathand.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/officeathand.att.com/assets/html/root.body",
+  "pattern": "(?i)(sensitive|confidential|restricted)",
+  "match_count": 1,
+  "first_match": "sensitive",
+  "context": "r (EIN), driver's license or state ID number, financial account number(s), credit or debit card number(s), or any other sensitive information in this form.\" aria-describedby=\"errmsg5\" aria-invalid=\"false\"></textarea>\n                                ",
+  "detected_at": "2026-06-13T01:57:37.095739"
+}

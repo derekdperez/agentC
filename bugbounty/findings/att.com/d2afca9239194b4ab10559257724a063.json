@@ -1,0 +1,12 @@
+{
+  "id": "d2afca9239194b4ab10559257724a063",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/heisenberg/heisenberg_all.jsx?v=05-19-2026_0833",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_heisenberg_heisenberg_all.jsx_v_05-19-2026_0833.body",
+  "pattern": "(?i)(staging|uat|preprod|nonprod)",
+  "match_count": 18,
+  "first_match": "uat",
+  "context": "\"==typeof formatter)return 1;throw new Error(formatterName+\" must be a string, function, or falsy value\")}}function evaluate(val,context){var args;return $.isFunction(val)?(args=Array.prototype.slice.call(arguments,2),val.apply(context,args)):",
+  "detected_at": "2026-06-13T02:02:50.628389"
+}

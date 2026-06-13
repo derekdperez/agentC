@@ -1,0 +1,12 @@
+{
+  "id": "9dda1035c4fd4304b7685a2720622c8e",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/redirects/external_redirect_chain1",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/redirects_external_redirect_chain1.body",
+  "pattern": "(?i)\\.(env|bak|backup|old|swp|sql|zip|tar|gz)",
+  "match_count": 2,
+  "first_match": "tar",
+  "context": "al);\n    });\n\n    if (tabsWrap && tabs.length) {\n      tabsWrap.addEventListener(\"click\", (e) => {\n        const btn = e.target.closest(\".lmr-tools-carousel__tab\");\n        if (!btn) return;\n        const realIdx = Number(btn.dataset.realIndex)",
+  "detected_at": "2026-06-13T00:36:53.820464"
+}

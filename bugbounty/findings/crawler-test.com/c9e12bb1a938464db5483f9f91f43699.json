@@ -1,0 +1,12 @@
+{
+  "id": "c9e12bb1a938464db5483f9f91f43699",
+  "target": "crawler-test.com",
+  "hostname": "subdomain.crawler-test.com",
+  "url": "https://subdomain.crawler-test.com/bower_components/jquery/jquery.min.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/subdomain.crawler-test.com/assets/scripts/bower_components_jquery_jquery.min.js.body",
+  "pattern": "(?i)\\.(env|bak|backup|old|swp|sql|zip|tar|gz)",
+  "match_count": 14,
+  "first_match": "tar",
+  "context": "ace=g.join(\".\"),t.namespace_re=t.namespace?RegExp(\"(^|\\\\.)\"+g.join(\"\\\\.(?:.*\\\\.|)\")+\"(\\\\.|$)\"):null,t.result=undefined,t.target||(t.target=r),n=null==n?[t]:x.makeArray(n,[t]),f=x.event.special[d]||{},i||!f.trigger||f.trigger.apply(r,n)!==!1)){i",
+  "detected_at": "2026-06-13T00:35:10.786888"
+}

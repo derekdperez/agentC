@@ -1,0 +1,123 @@
+(?i)(password|passwd|pwd)\s*[:=]\s*['"][^'"]{4,}['"]
+(?i)(username|user|login)\s*[:=]\s*['"][^'"]+['"]
+(?i)(api[_-]?key)\s*[:=]\s*['"][^'"]{8,}['"]
+(?i)(secret)\s*[:=]\s*['"][^'"]{8,}['"]
+(?i)(token)\s*[:=]\s*['"][^'"]{8,}['"]
+(?i)(access[_-]?token)\s*[:=]\s*['"][^'"]{8,}['"]
+(?i)(client[_-]?secret)\s*[:=]\s*['"][^'"]{8,}['"]
+(?i)(private[_-]?key)\s*[:=]\s*['"][^'"]{20,}['"]
+(?i)authorization:\s*basic\s+[a-z0-9+/=]+
+(?i)authorization:\s*bearer\s+[a-z0-9\-._~+/]+=*
+(?i)x-api-key\s*[:=]\s*[a-z0-9\-_]{16,}
+eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+
+AKIA[0-9A-Z]{16}
+ASIA[0-9A-Z]{16}
+(?i)aws(.{0,20})?(secret|access).{0,20}['"][A-Za-z0-9/+=]{40}['"]
+arn:aws:[^"' ]+
+AIza[0-9A-Za-z\-_]{35}
+(?i)google(.{0,20})?(api[_-]?key).{0,20}['"][^'"]+['"]
+ghp_[A-Za-z0-9]{36}
+github_pat_[A-Za-z0-9_]{80,}
+gho_[A-Za-z0-9]{36}
+ghu_[A-Za-z0-9]{36}
+ghs_[A-Za-z0-9]{36}
+glpat-[A-Za-z0-9\-_]{20,}
+xox[baprs]-[0-9A-Za-z\-]{10,}
+https://hooks\.slack\.com/services/[A-Za-z0-9/_-]+
+sk_live_[0-9A-Za-z]{24,}
+rk_live_[0-9A-Za-z]{24,}
+pk_live_[0-9A-Za-z]{24,}
+access_token\$production\$[0-9a-z]+
+SK[0-9a-fA-F]{32}
+AC[0-9a-fA-F]{32}
+SG\.[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}
+key-[0-9a-z]{32}
+shpat_[a-fA-F0-9]{32}
+AAAA[A-Za-z0-9_-]{7}:[A-Za-z0-9_-]{140,}
+mongodb(?:\+srv)?://[^"'\s]+
+postgres(?:ql)?://[^"'\s]+
+mysql://[^"'\s]+
+redis://[^"'\s]+
+(?i)(connectionstring|connection_string)\s*[:=]\s*['"][^'"]+['"]
+(?i)(server|host)=.*?(user id|uid)=.*?(password|pwd)=
+-----BEGIN RSA PRIVATE KEY-----
+-----BEGIN OPENSSH PRIVATE KEY-----
+-----BEGIN PRIVATE KEY-----
+-----BEGIN EC PRIVATE KEY-----
+-----BEGIN DSA PRIVATE KEY-----
+-----BEGIN CERTIFICATE-----
+\b10\.\d{1,3}\.\d{1,3}\.\d{1,3}\b
+\b192\.168\.\d{1,3}\.\d{1,3}\b
+\b172\.(1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}\b
+(?i)(internal|corp|intranet|dev|staging|test)\.[a-z0-9.-]+\.[a-z]{2,}
+[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}
+sourceMappingURL=.*\.map
+(?i)(stack trace|exception details|debug mode|traceback)
+(?i)(environment|env)\s*[:=]\s*(development|dev|staging)
+(?i)\.(env|bak|backup|old|swp|sql|zip|tar|gz)
+(?i)(secret|token|apikey|api_key|client_secret|private_key|access_key)
+(?i)kubeconfig
+(?i)serviceaccount
+DefaultEndpointsProtocol=https;AccountName=[^;]+;AccountKey=[^;]+
+(?i)docker[_-]?password
+(?i)docker[_-]?token
+(?i)(client_id|client_secret)
+(?i)(refresh_token)
+(?i)(id_token)
+<!--[\s\S]{0,1000}?-->
+(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)
+\/api\/v[0-9]+\/
+(graphql|graphiql)
+(admin|administrator)
+\/swagger
+\/openapi
+(?i)(aws_access_key_id|aws_secret_access_key)
+(?i)(azure_storage_key|azure_client_secret)
+(?i)(gcp_service_account|service_account_key)
+(?i)(db_password|database_password)
+(?i)(smtp_password|mail_password)
+(?i)(encryption_key|signing_key)
+(?i)(master_key|root_password)
+(?i)(jwt_secret|session_secret)
+(?i)(api_secret|consumer_secret)
+-----BEGIN PGP PRIVATE KEY BLOCK-----
+-----BEGIN ENCRYPTED PRIVATE KEY-----
+(?i)(localhost|127\.0\.0\.1|0\.0\.0\.0)
+(?i)(jdbc:mysql|jdbc:postgresql|jdbc:sqlserver):\/\/[^\s"'<>]+
+(?i)(admin|administrator|root)\s*[:=]\s*['"][^'"]+['"]
+(?i)(password|passwd|pwd)\s*[:=]\s*['"][^'"]+['"]
+(?i)(s3:\/\/[a-z0-9.\-_]+)
+https?:\/\/[a-z0-9.\-_]+\.s3\.amazonaws\.com[^\s"'<>]*
+(?i)(elasticsearch|kibana|grafana|jenkins|sonarqube|artifactory)
+(?i)(test[_-]?account|demo[_-]?account|qa[_-]?account)
+(?i)(vpn|ssh|rdp|bastion|jumpbox)
+ssh-rsa\s+[A-Za-z0-9+/=]+
+ssh-ed25519\s+[A-Za-z0-9+/=]+
+(?i)(BEGIN CONFIG|CONFIG START)
+(?i)(prod|production).{0,20}(password|secret|token|key)
+(?i)(backup[_-]?file|database[_-]?dump)
+(?i)(internal[_-]?api|private[_-]?api)
+(?i)(feature[_-]?flag|debug[_-]?flag)
+(?i)(aws|azure|gcp).{0,20}(token|secret|credential)
+(?i)(billing|invoice|payment).{0,20}(token|key|secret)
+(?i)(customer[_-]?data|pii|personal[_-]?data)
+(?i)(social[_-]?security|ssn)
+\b\d{3}-\d{2}-\d{4}\b
+(?i)(credit[_-]?card|card[_-]?number)
+\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\b
+(?i)(private[_-]?endpoint|internal[_-]?service)
+(?i)(staging|uat|preprod|nonprod)
+(?i)(hidden[_-]?api|undocumented[_-]?endpoint)
+(?i)(secret[_-]?path|admin[_-]?path)
+(?i)(canary|beta|experimental)
+(?i)(impersonate|sudo|elevate)
+(?i)(bypass|override|backdoor)
+(?i)(disable[_-]?auth|skip[_-]?auth)
+(?i)(debug=true|development=true)
+(?i)(root[_-]?token|admin[_-]?token)
+(?i)(webhook[_-]?secret)
+(?i)(oauth[_-]?token|oauth[_-]?secret)
+(?i)(firebase[_-]?secret)
+(?i)(access[_-]?key|secret[_-]?key)
+(?i)(internal[_-]?only)
+(?i)(sensitive|confidential|restricted)

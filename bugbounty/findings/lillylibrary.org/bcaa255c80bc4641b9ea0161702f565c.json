@@ -1,0 +1,12 @@
+{
+  "id": "bcaa255c80bc4641b9ea0161702f565c",
+  "target": "lillylibrary.org",
+  "hostname": "www.lillylibrary.org",
+  "url": "https://www.lillylibrary.org/programs-events/book-clubs-groups",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/programs-events_book-clubs-groups.body",
+  "pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+  "match_count": 8,
+  "first_match": "kinsey@highfivebooks.org",
+  "context": "ike Curato.<em><br/>\u200d</em></p><p><em>\u200d</em>*<em>To learn more about Graphic Novel Book Club, email </em><a href=\"mailto:kinsey@highfivebooks.org\"><em>kinsey@highfivebooks.org</em></a>.</p></div></div></div></div><div role=\"listitem\" class=\"w-dyn-item\"><div class=\"",
+  "detected_at": "2026-06-13T01:28:49.730800"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "999d75e6270d4dc692fb6107d3c06a1e",
+  "target": "att.com",
+  "hostname": "afmfe78.att.com",
+  "url": "https://afmfe78.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe78.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(feature[_-]?flag|debug[_-]?flag)",
+  "match_count": 10,
+  "first_match": "FeatureFlag",
+  "context": "adonly:!0},t.UH3={name:\"GetFaultSummaryByDevice\",readonly:!0},t.gYO={name:\"GetFeatureEula\",readonly:!0},t.Fu$={name:\"GetFeatureFlagsForPendo\",readonly:!0},t.zd8={name:\"GetHighResAccelerometerDataFromException\",readonly:!0},t.HPM={name:\"GetIoxWorksHeal",
+  "detected_at": "2026-06-13T02:03:29.721550"
+}

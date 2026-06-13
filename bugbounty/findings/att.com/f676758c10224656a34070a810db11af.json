@@ -1,0 +1,12 @@
+{
+  "id": "f676758c10224656a34070a810db11af",
+  "target": "att.com",
+  "hostname": "clicks.att.com",
+  "url": "https://clicks.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/clicks.att.com/assets/html/root.body",
+  "pattern": "(?i)(api[_-]?key)\\s*[:=]\\s*['\"][^'\"]{8,}['\"]",
+  "match_count": 1,
+  "first_match": "API_key",
+  "context": "=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n=\"https://s2.go-mpulse.net/boomerang/\";if(window.BOOMR_API_key=\"WPDUB-APVCN-LTNDE-ZPC3E-YKMHC\",function(){function e(){if(!i){var e=document.createElement(\"script\");e.id=\"boomr-scr-as\",e.src=window.BOOMR.url,e.asyn",
+  "detected_at": "2026-06-13T01:58:25.889728"
+}

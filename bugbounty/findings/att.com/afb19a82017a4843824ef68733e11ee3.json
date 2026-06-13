@@ -1,0 +1,12 @@
+{
+  "id": "afb19a82017a4843824ef68733e11ee3",
+  "target": "att.com",
+  "hostname": "utf-pre.idp.clogin.att.com",
+  "url": "http://utf-pre.idp.clogin.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/utf-pre.idp.clogin.att.com/assets/html/root.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 7,
+  "first_match": "token",
+  "context": "ith(\".att.com\")> 0 ))\n\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t\treturn true;\n\t\t\t\t\t\t   }\n\n\t\t\t\t    }\n\n\n\t\t\t\t\telse\n\t\t\t\t\t{\n\t\t\t\t\t\tconsole.log(\"in utftoken part :\"+ locationUrl);\n\n\t\t\t\t\t\tvar requestUrlSplit = locationUrl.split(\"?\");\n\n\t\t\t\t\t\tvar hostname = requestUrlSplit[0]+\"\"",
+  "detected_at": "2026-06-13T01:57:18.049829"
+}

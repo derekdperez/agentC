@@ -1,0 +1,12 @@
+{
+  "id": "9eb480b894964a49b7a378ba8d5dfc17",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/redirects/external_redirect_chain1",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/redirects_external_redirect_chain1.body",
+  "pattern": "(?i)(secret|token|apikey|api_key|client_secret|private_key|access_key)",
+  "match_count": 1,
+  "first_match": "secret",
+  "context": "lider_quote\">\u201cI\u2019m very pro-Protect because it enables us to resolve issues amazingly quickly. I think it may be Lumar\u2019s secret weapon! In one case, we identified an issue immediately and had it resolved soon after. When you consider the whole pro",
+  "detected_at": "2026-06-13T00:36:53.897315"
+}

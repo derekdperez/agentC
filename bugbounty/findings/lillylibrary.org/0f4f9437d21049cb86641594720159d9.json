@@ -1,0 +1,12 @@
+{
+  "id": "0f4f9437d21049cb86641594720159d9",
+  "target": "lillylibrary.org",
+  "hostname": "www.lillylibrary.org",
+  "url": "https://www.lillylibrary.org/library-services/library-card",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/library-services_library-card.body",
+  "pattern": "(?i)(staging|uat|preprod|nonprod)",
+  "match_count": 2,
+  "first_match": "uat",
+  "context": "br/><strong><em>2. A valid photo ID<br/><br/></em></strong>*If you are unable to provide such documentation due to extenuating circumstances, please discuss your situation with Library staff in hopes that we can find a solution<br/><br/>Librar",
+  "detected_at": "2026-06-13T01:28:42.492937"
+}

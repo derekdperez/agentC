@@ -1,0 +1,12 @@
+{
+  "id": "0dd7a76147824af3a0bdc049baa2b34a",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(canary|beta|experimental)",
+  "match_count": 6,
+  "first_match": "BETA",
+  "context": "ails:[\"AccidentDebugReport\"],driverlogs:[\"ViewHOSLogs\",()=>(0,x.j)(e,B.O5.NEW_DRIVER_LOGS_PAGE)||r(L.u6.DRIVERLOGS_FROM_BETA)],singledriverlogs:[\"ViewHOSLogs\",()=>(0,x.j)(e,B.O5.NEW_DRIVER_LOGS_PAGE)||r(L.u6.DRIVERLOGS_FROM_BETA)],hoslogs:[\"Vie",
+  "detected_at": "2026-06-13T01:52:17.605328"
+}

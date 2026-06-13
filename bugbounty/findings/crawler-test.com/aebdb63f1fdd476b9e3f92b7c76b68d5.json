@@ -1,0 +1,12 @@
+{
+  "id": "aebdb63f1fdd476b9e3f92b7c76b68d5",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/redirects/redirect_4_307",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/redirects_redirect_4_307.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 2,
+  "first_match": "<!-- Google Tag Manager -->",
+  "context": "  <hr>\n      <div class=\"large-12 column\">\n        <div id=\"footer\"></div>\n      </div>\n    </div>\n    \n  </body>\n\n  \n  <!-- Google Tag Manager -->\n  <noscript><iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-MCVXV6\"\n  height=\"0\" width=\"0\" style=\"display:none;v",
+  "detected_at": "2026-06-13T00:36:13.499378"
+}

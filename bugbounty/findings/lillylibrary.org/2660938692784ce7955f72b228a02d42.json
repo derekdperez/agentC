@@ -1,0 +1,12 @@
+{
+  "id": "2660938692784ce7955f72b228a02d42",
+  "target": "lillylibrary.org",
+  "hostname": "lillylibrary.org",
+  "url": "https://lillylibrary.org/library-policies/internet-use-policy",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/lillylibrary.org/assets/html/library-policies_internet-use-policy.body",
+  "pattern": "(?i)(sensitive|confidential|restricted)",
+  "match_count": 2,
+  "first_match": "sensitive",
+  "context": ". The public Internet computers are \u201cpublic\u201d and not private.The computer users are advised not to transmit or save any sensitive personal information on these computers.Lilly Library does not guarantee the privacy of any transmissions made or any i",
+  "detected_at": "2026-06-13T01:28:49.391810"
+}

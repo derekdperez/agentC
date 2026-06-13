@@ -1,0 +1,12 @@
+{
+  "id": "cec4b29fe88b46b1acb71b2c80313092",
+  "target": "att.com",
+  "hostname": "afmfe78.att.com",
+  "url": "https://afmfe78.att.com/dist/geotab.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe78.att.com/assets/scripts/dist_geotab.js.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 2,
+  "first_match": "rdp",
+  "context": "etVendorTitle:function(){const e=(e=>{const t=new Map([[\"g-fleetplus\",\"G-Fleet+\"],[\"pleos-fleet\",\"Kia.Pleos-fleet\"],[\"fordproeld\",\"Ford Pro ELD\"],[\"transfloeld\",\"TRANSFLO Telematics\"],[\"tecnoflotastelematics\",\"Tecnoflotas Telematics\"],[\"byspir",
+  "detected_at": "2026-06-13T02:03:33.017328"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "e3b01c1a964b4e45b732b7d321d43157",
+  "target": "att.com",
+  "hostname": "afmfe78.att.com",
+  "url": "https://afmfe78.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe78.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)\\.(env|bak|backup|old|swp|sql|zip|tar|gz)",
+  "match_count": 17,
+  "first_match": "tar",
+  "context": "n,s)},se=(e,t,i,n,s,a)=>{\"ResetPassword\"!==(e&&!(0,r.BT)(e)&&e.source)?K(i,n,t,{credentials:e,path:((0,r.BT)(e)?void 0:e.target)||D},((0,r.BT)(e)?void 0:e.rememberMe)||H(),!1,s,a):re.fireEvent(\"resetPassword\",P,[e])},re=(0,s.Ay)();return P={att",
+  "detected_at": "2026-06-13T02:03:27.709894"
+}

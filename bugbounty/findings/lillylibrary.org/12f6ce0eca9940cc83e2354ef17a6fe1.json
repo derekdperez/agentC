@@ -1,0 +1,12 @@
+{
+  "id": "12f6ce0eca9940cc83e2354ef17a6fe1",
+  "target": "lillylibrary.org",
+  "hostname": "cpanel.lillylibrary.org",
+  "url": "https://cpanel.lillylibrary.org/cPanel_magic_revision_1690427912/unprotected/cpanel/style_v2_optimized.css",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/cpanel.lillylibrary.org/assets/stylesheets/cPanel_magic_revision_1690427912_unprotected_cpanel_style_v2_optimized.css.body",
+  "pattern": "(?i)(credit[_-]?card|card[_-]?number)",
+  "match_count": 1,
+  "first_match": "credit-card",
+  "context": "{content:\"\\f4f1\"}.fa-creative-commons-share:before{content:\"\\f4f2\"}.fa-creative-commons-zero:before{content:\"\\f4f3\"}.fa-credit-card:before{content:\"\\f09d\"}.fa-critical-role:before{content:\"\\f6c9\"}.fa-crop:before{content:\"\\f125\"}.fa-crop-alt:before{con",
+  "detected_at": "2026-06-13T01:29:02.323371"
+}

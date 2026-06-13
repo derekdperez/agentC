@@ -1,0 +1,12 @@
+{
+  "id": "e9b806a5c544453fa6ff1b709fdd30fd",
+  "target": "lillylibrary.org",
+  "hostname": "webmail.lillylibrary.org",
+  "url": "http://webmail.lillylibrary.org/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/webmail.lillylibrary.org/assets/html/root.body",
+  "pattern": "(?i)(secret|token|apikey|api_key|client_secret|private_key|access_key)",
+  "match_count": 2,
+  "first_match": "token",
+  "context": "j_to_redirect;if(/^(?:\\/cpsess[^/]+)\\/$/.test(final_uri)){location_obj_to_redirect=top.location}else{if(result.security_token&&top!==window){for(var f=0;f<top.frames.length;f++){if(top.frames[f]!==window){var href=top.frames[f].location.href.rep",
+  "detected_at": "2026-06-13T01:28:58.688870"
+}

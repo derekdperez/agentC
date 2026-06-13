@@ -1,0 +1,12 @@
+{
+  "id": "b3f276c411e7435d96f639aaf6056a30",
+  "target": "att.com",
+  "hostname": "officeathand.att.com",
+  "url": "https://officeathand.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/officeathand.att.com/assets/html/root.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 154,
+  "first_match": "<!-- Global Navigation -->",
+  "context": "-12 aem-Grid--default--12 \">\n    \n    <div class=\"global-navigation parbase aem-GridColumn aem-GridColumn--default--12\"><!-- Global Navigation -->\n\n<!-- HTML Global Navigation Structure -->\n\n\n\n\n \n<div class=\"main-header-wrapper \">    \n    \n    \n    <div class=\"segme",
+  "detected_at": "2026-06-13T01:57:33.703010"
+}

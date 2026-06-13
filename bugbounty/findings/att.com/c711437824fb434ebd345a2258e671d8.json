@@ -1,0 +1,12 @@
+{
+  "id": "c711437824fb434ebd345a2258e671d8",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/doctype/js_includes_legacy.jsx?v=05-19-2026_0833&lp=Wed_Jun_10_16_52_16_PDT_2026&c=26_489",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_doctype_js_includes_legacy.jsx_v_05-19-2026_0833_lp_Wed_Jun_10_16_52_16_PDT_2026_c_26_489.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 3,
+  "first_match": "rdP",
+  "context": ".id, 'cat_item', 'sc_cat_item');\n\t\t  return;\n\t  }\n\t\t\tif (isQuestions(colName) || type === \"questions\") {\n\t\t\t\tvar allRecordProducers = 'sys_class_name=sc_cat_item_producer^ORsys_class_name=std_change_record_producer';\n\t\t\t\treflistOpen(listItemId",
+  "detected_at": "2026-06-13T02:02:54.446648"
+}

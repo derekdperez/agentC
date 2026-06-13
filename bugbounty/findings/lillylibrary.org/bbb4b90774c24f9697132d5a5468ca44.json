@@ -1,0 +1,12 @@
+{
+  "id": "bbb4b90774c24f9697132d5a5468ca44",
+  "target": "lillylibrary.org",
+  "hostname": "www.lillylibrary.org",
+  "url": "https://www.lillylibrary.org/about/library-history",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/about_library-history.body",
+  "pattern": "(?i)(secret|token|apikey|api_key|client_secret|private_key|access_key)",
+  "match_count": 2,
+  "first_match": "Token",
+  "context": "tabases\" class=\"dropdownlink w-inline-block\"><div>Databases</div></a><a href=\"https://learn.mangolanguages.com/login?gymToken=BYB5IEcxME6KCL5KkfuQAA&amp;r=https%3A%2F%2Flillylibrary.org%2F\" class=\"dropdownlink w-inline-block\"><div>Mango Language",
+  "detected_at": "2026-06-13T01:28:50.370676"
+}

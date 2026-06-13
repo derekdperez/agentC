@@ -1,0 +1,12 @@
+{
+  "id": "9d7dcadc255540b2b27859eafae7b49b",
+  "target": "lillylibrary.org",
+  "hostname": "lillylibrary.org",
+  "url": "https://lillylibrary.org/library-policies/community-room-policy",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/lillylibrary.org/assets/html/library-policies_community-room-policy.body",
+  "pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+  "match_count": 1,
+  "first_match": "lillylibrary@gmail.com",
+  "context": "ns wishing to use the community room outside of library business hours may speak to the <a target=\"_blank\" href=\"mailto:lillylibrary@gmail.com\">Library Director</a>. A key fob is available, at the discretion of the Library Director, to access the foyer, bathroom",
+  "detected_at": "2026-06-13T01:28:45.691785"
+}

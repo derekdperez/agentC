@@ -1,0 +1,12 @@
+{
+  "id": "0035cd0264974edcba31ad6c4517caa7",
+  "target": "att.com",
+  "hostname": "officeathand.att.com",
+  "url": "https://officeathand.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/officeathand.att.com/assets/html/root.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 3,
+  "first_match": "admin",
+  "context": "=\"M11.33 26.75l-10-10 1.42-1.42 8.62 8.63 18-18 1.42 1.41z\"></path></svg><span><span>Ready-to-use approach to setup and administration<br>\n </span></span>\n<li><svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 32 32\" height=\"24\" width=\"24\" cla",
+  "detected_at": "2026-06-13T01:57:34.206133"
+}

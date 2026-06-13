@@ -1,0 +1,12 @@
+{
+  "id": "328d260c086b4598a8e6955acf62c5e2",
+  "target": "lillylibrary.org",
+  "hostname": "cpanel.lillylibrary.org",
+  "url": "https://cpanel.lillylibrary.org/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/cpanel.lillylibrary.org/assets/html/root.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 9,
+  "first_match": "<!-- EXTERNAL CSS -->",
+  "context": "WTudwE3AqBlVCUf0xLYGTQqzzbhydwJ3Y34g318J1tmX+DPBTlz9MS2MY2/nP8DTGaqeTDf30rAAAAAElFTkSuQmCC\" type=\"image/x-icon\" />\n\n    <!-- EXTERNAL CSS -->\n    <link href=\"/cPanel_magic_revision_1648610195/unprotected/cpanel/fonts/open_sans/open_sans.min.css\" rel=\"stylesheet",
+  "detected_at": "2026-06-13T01:28:59.043932"
+}

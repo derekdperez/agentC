@@ -1,0 +1,12 @@
+{
+  "id": "e2a6fc90bde240af959513a5e46e390f",
+  "target": "crawler-test.com",
+  "hostname": "subdomain.crawler-test.com",
+  "url": "https://subdomain.crawler-test.com/bower_components/jquery/jquery.min.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/subdomain.crawler-test.com/assets/scripts/bower_components_jquery_jquery.min.js.body",
+  "pattern": "sourceMappingURL=.*\\.map",
+  "match_count": 1,
+  "first_match": "sourceMappingURL=jquery.min.map",
+  "context": "/*! jQuery v2.0.3 | (c) 2005, 2013 jQuery Foundation, Inc. | jquery.org/license\n//@ sourceMappingURL=jquery.min.map\n*/\n(function(e,undefined){var t,n,r=typeof undefined,i=e.location,o=e.document,s=o.documentElement,a=e.jQuery,u=e.$,l={",
+  "detected_at": "2026-06-13T00:35:10.723781"
+}

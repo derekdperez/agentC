@@ -1,0 +1,12 @@
+{
+  "id": "1c8b08d2d49545e1a32f4371a06e3baf",
+  "target": "att.com",
+  "hostname": "www.ipservices.att.com",
+  "url": "http://www.ipservices.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/www.ipservices.att.com/assets/html/root.body",
+  "pattern": "(?i)(sensitive|confidential|restricted)",
+  "match_count": 1,
+  "first_match": "sensitive",
+  "context": "r (EIN), driver's license or state ID number, financial account number(s), credit or debit card number(s), or any other sensitive information in this form.\" aria-describedby=\"errmsg5\" aria-invalid=\"false\"></textarea>\n                                ",
+  "detected_at": "2026-06-13T01:55:52.241609"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "7ba13312b7b94e9fa967d13463dc5400",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(client_id|client_secret)",
+  "match_count": 2,
+  "first_match": "client_id",
+  "context": "ge.settings)}createUserManager(e){if(!(e&&e.iamProviderType&&e.loginUrl&&e.clientId))return;let t={authority:e.loginUrl,client_id:e.clientId,redirect_uri:window.location.origin+\"/callback\",silent_redirect_uri:window.location.origin+\"/silent-renew.ht",
+  "detected_at": "2026-06-13T01:52:14.759267"
+}

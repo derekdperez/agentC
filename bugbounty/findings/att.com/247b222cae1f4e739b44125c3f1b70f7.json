@@ -1,0 +1,12 @@
+{
+  "id": "247b222cae1f4e739b44125c3f1b70f7",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/dist/geotab.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/scripts/dist_geotab.js.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 4,
+  "first_match": "Admin",
+  "context": "\",1212:\"coldChainHistory\",1321:\"riUserTableAndDetail\",1340:\"driverLogs\",1449:\"sustainabilityOverview\",1537:\"optimizationAdmin\",1574:\"exceptionsInsights\",1616:\"safetyOverview\",1628:\"dataSharingModal\",1759:\"tripsHistory\",1801:\"videoRules\",1832:\"ac",
+  "detected_at": "2026-06-13T01:52:18.111906"
+}

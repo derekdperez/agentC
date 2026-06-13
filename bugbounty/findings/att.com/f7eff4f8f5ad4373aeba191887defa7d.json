@@ -1,0 +1,12 @@
+{
+  "id": "f7eff4f8f5ad4373aeba191887defa7d",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/doctype/js_includes_doctype.jsx?v=05-19-2026_0833&lp=Wed_Jun_10_16_52_16_PDT_2026&c=26_489",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_doctype_js_includes_doctype.jsx_v_05-19-2026_0833_lp_Wed_Jun_10_16_52_16_PDT_2026_c_26_489.body",
+  "pattern": "(admin|administrator)",
+  "match_count": 2,
+  "first_match": "admin",
+  "context": "ng();\nfuncStr = funcStr.replace(/onSubmit[a-fA-F0-9]{32}\\(/, \"onSubmit(\");\n\tvar msg;\n\tif (g_user.hasRole(\"client_script_admin\"))\nmsg = type + \" script error: \" + ex.toString() + \":<br/>\" + funcStr.replace(/\\n/g, \"<br/>\").replace(/\\s/g, \"&nbsp;\")",
+  "detected_at": "2026-06-13T02:02:59.454356"
+}

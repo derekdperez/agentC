@@ -1,0 +1,12 @@
+{
+  "id": "03816b3f1a3c4dd1b83c6a872e668840",
+  "target": "lillylibrary.org",
+  "hostname": "lillylibrary.org",
+  "url": "https://lillylibrary.org/library-services/borrowing-materials",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/lillylibrary.org/assets/html/library-services_borrowing-materials.body",
+  "pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+  "match_count": 1,
+  "first_match": "lillylibrary@cwmars.org",
+  "context": "k here</a> to review our comprehensive Lost Materials Policy. <br/><br/>Please contact the library at (413) 587-1500 or lillylibrary@cwmars.org with any questions.</div></div><div class=\"infocardwrapper\"><div class=\"quick_links\"><div class=\"frame-382\"><div class=",
+  "detected_at": "2026-06-13T01:28:46.884835"
+}

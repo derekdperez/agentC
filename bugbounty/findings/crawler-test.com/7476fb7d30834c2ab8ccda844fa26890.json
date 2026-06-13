@@ -1,0 +1,12 @@
+{
+  "id": "7476fb7d30834c2ab8ccda844fa26890",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "http://crawler-test.com/bower_components/jquery/jquery.min.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/scripts/bower_components_jquery_jquery.min.js.body",
+  "pattern": "(?i)(bypass|override|backdoor)",
+  "match_count": 3,
+  "first_match": "override",
+  "context": "ion(){return 2===v?i:null},setRequestHeader:function(e,t){var n=e.toLowerCase();return v||(e=y[n]=y[n]||e,m[e]=t),this},overrideMimeType:function(e){return v||(c.mimeType=e),this},statusCode:function(e){var t;if(e)if(2>v)for(t in e)g[t]=[g[t],e[t]]",
+  "detected_at": "2026-06-13T00:36:42.120062"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "00e740473ec340f6b41f0c8af8ccc1ee",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/urls/page_with_hreflang/4",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/urls_page_with_hreflang_4.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 2,
+  "first_match": "<!-- Google Tag Manager -->",
+  "context": "  <hr>\n      <div class=\"large-12 column\">\n        <div id=\"footer\"></div>\n      </div>\n    </div>\n    \n  </body>\n\n  \n  <!-- Google Tag Manager -->\n  <noscript><iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-MCVXV6\"\n  height=\"0\" width=\"0\" style=\"display:none;v",
+  "detected_at": "2026-06-13T00:40:26.794226"
+}

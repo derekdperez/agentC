@@ -1,0 +1,12 @@
+{
+  "id": "31216b002c554d1384d6f696b13bcd01",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/styles/css_includes_doctype_polaris.cssx?v=05-19-2026_0833&amp;c=1e8764041ba503107b8984cae54bcbcf&amp;theme=Polaris",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/stylesheets/styles_css_includes_doctype_polaris.cssx_v_05-19-2026_0833_amp;c_1e8764041ba503107b8984cae54bcbcf_amp;theme_Polaris.body",
+  "pattern": "(?i)\\.(env|bak|backup|old|swp|sql|zip|tar|gz)",
+  "match_count": 1,
+  "first_match": "tar",
+  "context": "ight: bold;\n}\n\n.sourceRecord {\ncolor: white;\nbackground-color: #999999;\nfont-weight: bold;\npadding: 2px 6px 2px 6px;\n}\n\n.targetRecord {\ncolor: white;\nbackground-color: rgb(102, 153, 204);\nfont-weight: bold;\npadding: 2px 6px 2px 6px;\n}\n\n.uiSingl",
+  "detected_at": "2026-06-13T02:03:33.881714"
+}

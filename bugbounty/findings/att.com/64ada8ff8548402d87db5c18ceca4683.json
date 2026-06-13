@@ -1,0 +1,12 @@
+{
+  "id": "64ada8ff8548402d87db5c18ceca4683",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/dist/geotab.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/scripts/dist_geotab.js.body",
+  "pattern": "(?i)(staging|uat|preprod|nonprod)",
+  "match_count": 2,
+  "first_match": "Staging",
+  "context": "lity\",3871:\"pageNotFound\",3891:\"customerVisits\",3903:\"speedProfile\",3920:\"devices\",3962:\"store\",3965:\"exceptionsInsightsStaging\",4007:\"evBatteryHealth\",4059:\"publicWorksAdmin\",4075:\"investigation\",4115:\"iftaMiles\",4218:\"notificationTemplateWhatsAp",
+  "detected_at": "2026-06-13T01:52:18.223490"
+}

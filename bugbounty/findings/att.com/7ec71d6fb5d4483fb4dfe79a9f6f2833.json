@@ -1,0 +1,12 @@
+{
+  "id": "7ec71d6fb5d4483fb4dfe79a9f6f2833",
+  "target": "att.com",
+  "hostname": "officeathand.att.com",
+  "url": "https://officeathand.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/officeathand.att.com/assets/html/root.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 3,
+  "first_match": "sSh",
+  "context": "s=\"light-playIcon hero-video-modal-active    dark-theme-playIcon\" data-video=\"L-LgVF0h7QM\" data-url=\"L-LgVF0h7QM\" data-isShowModalVideoActive=\"true\">               \n                  </span>\n               \n               \n\n            </div>\n",
+  "detected_at": "2026-06-13T01:57:35.999570"
+}

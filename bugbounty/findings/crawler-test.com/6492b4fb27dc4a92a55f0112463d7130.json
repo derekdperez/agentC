@@ -1,0 +1,12 @@
+{
+  "id": "6492b4fb27dc4a92a55f0112463d7130",
+  "target": "crawler-test.com",
+  "hostname": "subdomain.crawler-test.com",
+  "url": "https://subdomain.crawler-test.com/bower_components/jquery/jquery.min.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/subdomain.crawler-test.com/assets/scripts/bower_components_jquery_jquery.min.js.body",
+  "pattern": "(?i)(social[_-]?security|ssn)",
+  "match_count": 35,
+  "first_match": "ssN",
+  "context": "&&s.id===a)return r.push(s),r}else{if(o[2])return O.apply(r,t.getElementsByTagName(e)),r;if((a=o[3])&&n.getElementsByClassName&&t.getElementsByClassName)return O.apply(r,t.getElementsByClassName(a)),r}if(n.qsa&&(!d||!d.test(e))){if(m=g=v,x=t,w",
+  "detected_at": "2026-06-13T00:35:11.297102"
+}

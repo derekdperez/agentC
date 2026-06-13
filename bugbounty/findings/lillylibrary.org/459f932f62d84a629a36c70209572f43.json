@@ -1,0 +1,12 @@
+{
+  "id": "459f932f62d84a629a36c70209572f43",
+  "target": "lillylibrary.org",
+  "hostname": "www.lillylibrary.org",
+  "url": "https://www.lillylibrary.org/about/contact-us",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/about_contact-us.body",
+  "pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+  "match_count": 1,
+  "first_match": "lillylibrary@cwmars.org",
+  "context": "g the form.</div></div></div><div class=\"text-block-7\">Main Phone: <strong>(413) 587-1500<br/>\u200d</strong>Email:<strong> \u00a0lillylibrary@cwmars.org</strong>\u2028<br/>Circulation Desk: Ext 2\u2028<br/>Reference Desk: Ext 3<br/>Children\u2019s Department: Ext 4<br/>Director\u2019s Office",
+  "detected_at": "2026-06-13T01:28:36.027799"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "36d8f700c3eb4585b296fd2ab60a81ad",
+  "target": "att.com",
+  "hostname": "www.ipservices.att.com",
+  "url": "http://www.ipservices.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/www.ipservices.att.com/assets/html/root.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 2,
+  "first_match": "vpn",
+  "context": "        <li class=\"pad-t-xxxs pad-b-xxxs-lg mar-b-none\">\n                                            <a href=\"/products/vpn.html\" class=\"att-track\" data-slot=\"Footer\">\n                                                Business VPN\n              ",
+  "detected_at": "2026-06-13T01:55:51.134531"
+}

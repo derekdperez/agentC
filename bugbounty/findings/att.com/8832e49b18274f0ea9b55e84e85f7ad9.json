@@ -1,0 +1,12 @@
+{
+  "id": "8832e49b18274f0ea9b55e84e85f7ad9",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(password|passwd|pwd)\\s*[:=]\\s*['\"][^'\"]{4,}['\"]",
+  "match_count": 2,
+  "first_match": "Password",
+  "context": "rningOff=!0),H.addEventListener(\"mousedown\",(e=>{ue(e,O)})),H.addEventListener(\"keyup\",(e=>{ue(e,O)})),R=new u.s(H,{showPassword:\"Show password\",hidePassword:\"Hide password\"})})(),E.addEventListener(\"click\",e,!1),w.addEventListener(\"click\",t,!1),_.addEventListener",
+  "detected_at": "2026-06-13T01:52:12.099207"
+}

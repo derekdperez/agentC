@@ -1,0 +1,12 @@
+{
+  "id": "90ec22d4b58349d7b193356359345916",
+  "target": "lillylibrary.org",
+  "hostname": "cpanel.lillylibrary.org",
+  "url": "https://cpanel.lillylibrary.org/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/cpanel.lillylibrary.org/assets/html/root.body",
+  "pattern": "(admin|administrator)",
+  "match_count": 1,
+  "first_match": "admin",
+  "context": "er locale on this screen.\",\"internal_error\":\"An internal error occurred. If this condition persists, contact the system administrator.\",\"read_below\":\"Read the important information below.\",\"success\":\"Login successful. Redirecting \u2026\",\"invalid_log",
+  "detected_at": "2026-06-13T01:28:59.057122"
+}

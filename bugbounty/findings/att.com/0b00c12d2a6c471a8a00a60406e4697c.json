@@ -1,0 +1,12 @@
+{
+  "id": "0b00c12d2a6c471a8a00a60406e4697c",
+  "target": "att.com",
+  "hostname": "lsreg.att.com",
+  "url": "https://lsreg.att.com/scripts/adobe/virtual/detm-container-hdr.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/lsreg.att.com/assets/scripts/scripts_adobe_virtual_detm-container-hdr.js.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 18,
+  "first_match": "rdP",
+  "context": "\"+d.version+\"&mcorgid=\"+encodeURIComponent(d.marketingCloudOrgID)+(n?\"&mid=\"+encodeURIComponent(n):\"\")+(d.idSyncDisable3rdPartySyncing||d.disableThirdPartyCookies?\"&d_coppa=true\":\"\"),c=[\"s_c_il\",d._in,\"_set\"+(i?\"MarketingCloud\":\"Analytics\")+\"F",
+  "detected_at": "2026-06-13T02:02:05.049780"
+}

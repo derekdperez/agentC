@@ -1,0 +1,12 @@
+{
+  "id": "2dd278c000ec4a739e6b0a0887c65872",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/geotab/checkmate/main.css",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/stylesheets/geotab_checkmate_main.css.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 11,
+  "first_match": "Admin",
+  "context": ".geo-page-toolbar--hidden{display:none}@media (max-width:640px){.geo-page-toolbar{height:3.5rem;padding:.75rem}}#optionsAdminId .geo-page-toolbar{border-bottom:none}.disabled{opacity:.35;cursor:default}.geo-button .icon{background-size:contain;b",
+  "detected_at": "2026-06-13T01:52:24.118972"
+}

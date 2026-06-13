@@ -1,0 +1,12 @@
+{
+  "id": "3c3875826c7a4404b4dc19802604c7a3",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/other/crawler_request_headers",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/other_crawler_request_headers.body",
+  "pattern": "\\b10\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b",
+  "match_count": 1,
+  "first_match": "10.0.114.142",
+  "context": "TO: </b>https<br /><b>PATH_INFO: </b>/other/crawler_request_headers<br /><b>QUERY_STRING: </b><br /><b>REMOTE_ADDR: </b>10.0.114.142<br /><b>REQUEST_METHOD: </b>GET<br /><b>REQUEST_PATH: </b>/other/crawler_request_headers<br /><b>REQUEST_URI: </b>/othe",
+  "detected_at": "2026-06-13T00:36:47.662378"
+}

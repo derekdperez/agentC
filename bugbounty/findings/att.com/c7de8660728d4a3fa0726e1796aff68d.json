@@ -1,0 +1,12 @@
+{
+  "id": "c7de8660728d4a3fa0726e1796aff68d",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/heisenberg/heisenberg_all.jsx?v=05-19-2026_0833",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_heisenberg_heisenberg_all.jsx_v_05-19-2026_0833.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 11,
+  "first_match": "sSh",
+  "context": "ons\n    this.$body          = $(document.body)\n    this.$element       = $(element)\n    this.$backdrop      =\n    this.isShown        = null\n    this.scrollbarWidth = 0\n    if (this.options.remote) {\n      this.$element\n        .find('.modal-c",
+  "detected_at": "2026-06-13T02:02:50.182993"
+}

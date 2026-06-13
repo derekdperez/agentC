@@ -1,0 +1,12 @@
+{
+  "id": "f800a2bdfa464d15812769a4ee281e9d",
+  "target": "lillylibrary.org",
+  "hostname": "lillylibrary.org",
+  "url": "https://lillylibrary.org/programs-events/book-clubs-groups",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/lillylibrary.org/assets/html/programs-events_book-clubs-groups.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 2,
+  "first_match": "Token",
+  "context": "tabases\" class=\"dropdownlink w-inline-block\"><div>Databases</div></a><a href=\"https://learn.mangolanguages.com/login?gymToken=BYB5IEcxME6KCL5KkfuQAA&amp;r=https%3A%2F%2Flillylibrary.org%2F\" class=\"dropdownlink w-inline-block\"><div>Mango Language",
+  "detected_at": "2026-06-13T01:28:37.625759"
+}

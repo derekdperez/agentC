@@ -1,0 +1,12 @@
+{
+  "id": "9303c0d6190649e58edd0397bab9ed2e",
+  "target": "lillylibrary.org",
+  "hostname": "lillylibrary.org",
+  "url": "https://lillylibrary.org/about/location-hours",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/lillylibrary.org/assets/html/about_location-hours.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 2,
+  "first_match": "Token",
+  "context": "tabases\" class=\"dropdownlink w-inline-block\"><div>Databases</div></a><a href=\"https://learn.mangolanguages.com/login?gymToken=BYB5IEcxME6KCL5KkfuQAA&amp;r=https%3A%2F%2Flillylibrary.org%2F\" class=\"dropdownlink w-inline-block\"><div>Mango Language",
+  "detected_at": "2026-06-13T01:28:49.601329"
+}

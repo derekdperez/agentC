@@ -1,0 +1,12 @@
+{
+  "id": "de9aabd212234607bb2f4913e5f33e66",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/heisenberg/heisenberg_all.jsx?v=05-19-2026_0833",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_heisenberg_heisenberg_all.jsx_v_05-19-2026_0833.body",
+  "pattern": "(?i)(social[_-]?security|ssn)",
+  "match_count": 1,
+  "first_match": "ssN",
+  "context": "  }\nModal.prototype.measureScrollbar = function () {\n    var scrollDiv = document.createElement('div')\n    scrollDiv.className = 'modal-scrollbar-measure'\n    this.$body.append(scrollDiv)\n    var scrollbarWidth = scrollDiv.offsetWidth - scroll",
+  "detected_at": "2026-06-13T02:02:50.339734"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "205f61124a584d7795f2a6027c982de3",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/dist/geotab.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/scripts/dist_geotab.js.body",
+  "pattern": "(?i)(feature[_-]?flag|debug[_-]?flag)",
+  "match_count": 2,
+  "first_match": "FeatureFlag",
+  "context": "m(t)||\"EmptyVersion\"}catch(t){e=\"ErrorInGettingVersion\"}return()=>e})(),startTime:i,addin:{},customButtons:{},prefetchedFeatureFlags:(()=>{const e=new Map;return[\"AUTHENTICATION.NEW_LOGIN_PAGE\"].forEach((t=>{e.set(t,(t=>fetch(\"/apiv1\",{method:\"POST\",h",
+  "detected_at": "2026-06-13T01:52:18.180083"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "585854c3046f4d66a6e172fd403649de",
+  "target": "crawler-test.com",
+  "hostname": "m.crawler-test.com",
+  "url": "https://m.crawler-test.com/bower_components/jquery/jquery.min.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/m.crawler-test.com/assets/scripts/bower_components_jquery_jquery.min.js.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 2,
+  "first_match": "password",
+  "context": ",n){var r=0>n?n+t:n;for(;t>++r;)e.push(r);return e})}},i.pseudos.nth=i.pseudos.eq;for(t in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})i.pseudos[t]=pt(t);for(t in{submit:!0,reset:!0})i.pseudos[t]=ft(t);function dt(){}dt.prototype=i.filters=i",
+  "detected_at": "2026-06-13T00:35:07.638580"
+}

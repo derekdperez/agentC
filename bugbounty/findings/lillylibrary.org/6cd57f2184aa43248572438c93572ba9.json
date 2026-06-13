@@ -1,0 +1,12 @@
+{
+  "id": "6cd57f2184aa43248572438c93572ba9",
+  "target": "lillylibrary.org",
+  "hostname": "lillylibrary.org",
+  "url": "https://lillylibrary.org/library-policies/child-safety-policy",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/lillylibrary.org/assets/html/library-policies_child-safety-policy.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 2,
+  "first_match": "<!-- This site was created in Webflow. https://webflow.com -->",
+  "context": "<!DOCTYPE html><!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Mon Jun 01 2026 20:26:06 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain=\"www.lillyli",
+  "detected_at": "2026-06-13T01:28:50.515739"
+}

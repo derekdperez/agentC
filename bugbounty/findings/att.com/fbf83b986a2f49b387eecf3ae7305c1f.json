@@ -1,0 +1,12 @@
+{
+  "id": "fbf83b986a2f49b387eecf3ae7305c1f",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/heisenberg/heisenberg_all.jsx?v=05-19-2026_0833",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_heisenberg_heisenberg_all.jsx_v_05-19-2026_0833.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 23,
+  "first_match": "Token",
+  "context": "on' ?\n          this.options.placement.call(this, $tip[0], this.$element[0]) :\n          this.options.placement\nvar autoToken = /\\s?auto?\\s?/i\n      var autoPlace = autoToken.test(placement)\n      if (autoPlace) placement = placement.replace(aut",
+  "detected_at": "2026-06-13T02:02:49.524889"
+}

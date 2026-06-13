@@ -1,0 +1,12 @@
+{
+  "id": "a551dfd2dffa4fa09a1d9616c8958f00",
+  "target": "lillylibrary.org",
+  "hostname": "www.lillylibrary.org",
+  "url": "https://www.lillylibrary.org/library-policies/wifi-hotspots",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/library-policies_wifi-hotspots.body",
+  "pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+  "match_count": 2,
+  "first_match": "lillylibrary@cwmars.org",
+  "context": "br/>To see if a hotspot is available, call the library at <strong>(413) 587-1500 ext. 2</strong> or email us at <strong>lillylibrary@cwmars.org</strong>.</div><div class=\"paragraphtext\"><strong><br/>Who Can Borrow a Hotspot?<br/><br/></strong>Any resident with a ",
+  "detected_at": "2026-06-13T01:28:41.222817"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "57aac0d2a4b64296bdf72dee97baefbc",
+  "target": "att.com",
+  "hostname": "officeathand.att.com",
+  "url": "https://officeathand.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/officeathand.att.com/assets/html/root.body",
+  "pattern": "(?i)(access[_-]?key|secret[_-]?key)",
+  "match_count": 1,
+  "first_match": "accesskey",
+  "context": "     <input type=\"search\" class=\"inputbox\" size=\"\" maxlength=\"100\" aria-label=\"Search AT&amp;T business\" title=\"Search\" accesskey=\"4\" name=\"q-cludo\" id=\"q-cludo\" autocomplete=\"off\" placeholder=\"Let's find what you need...\"/>\n                <button ",
+  "detected_at": "2026-06-13T01:57:36.992465"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "c95db232eed74fb78df3c72c6ac34afb",
+  "target": "lillylibrary.org",
+  "hostname": "www.lillylibrary.org",
+  "url": "https://www.lillylibrary.org/books-more/museum-passes",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/books-more_museum-passes.body",
+  "pattern": "(?i)(secret|token|apikey|api_key|client_secret|private_key|access_key)",
+  "match_count": 2,
+  "first_match": "Token",
+  "context": "tabases\" class=\"dropdownlink w-inline-block\"><div>Databases</div></a><a href=\"https://learn.mangolanguages.com/login?gymToken=BYB5IEcxME6KCL5KkfuQAA&amp;r=https%3A%2F%2Flillylibrary.org%2F\" class=\"dropdownlink w-inline-block\"><div>Mango Language",
+  "detected_at": "2026-06-13T01:28:37.961419"
+}

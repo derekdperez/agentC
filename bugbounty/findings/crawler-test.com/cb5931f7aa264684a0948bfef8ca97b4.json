@@ -1,0 +1,12 @@
+{
+  "id": "cb5931f7aa264684a0948bfef8ca97b4",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/redirects/external_redirect_chain1",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/redirects_external_redirect_chain1.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 18,
+  "first_match": "admin",
+  "context": "synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-col",
+  "detected_at": "2026-06-13T00:36:54.013320"
+}

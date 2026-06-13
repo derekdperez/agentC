@@ -1,0 +1,12 @@
+{
+  "id": "ec73decac267487396a5d183fcefde3e",
+  "target": "lillylibrary.org",
+  "hostname": "webmail.lillylibrary.org",
+  "url": "https://webmail.lillylibrary.org/cPanel_magic_revision_1690427912/unprotected/cpanel/style_v2_optimized.css",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/webmail.lillylibrary.org/assets/stylesheets/cPanel_magic_revision_1690427912_unprotected_cpanel_style_v2_optimized.css.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 26,
+  "first_match": "token",
+  "context": "r{clear:both}a:link,a:visited,a:active{color:#fff;text-decoration:none}a:hover{color:#e97b16;text-decoration:underline}#token-forms{margin-bottom:15px}.control_container{text-align:center;width:100%}#token-forms .control_container{text-align:cen",
+  "detected_at": "2026-06-13T01:29:03.370665"
+}

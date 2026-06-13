@@ -1,0 +1,12 @@
+{
+  "id": "8642080326b54cefa7cc7f143911b057",
+  "target": "lillylibrary.org",
+  "hostname": "www.lillylibrary.org",
+  "url": "https://www.lillylibrary.org/programs-events/book-clubs-groups",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/programs-events_book-clubs-groups.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 2,
+  "first_match": "<!-- This site was created in Webflow. https://webflow.com -->",
+  "context": "<!DOCTYPE html><!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Mon Jun 01 2026 20:26:06 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain=\"www.lillyli",
+  "detected_at": "2026-06-13T01:28:49.744495"
+}

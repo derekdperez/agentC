@@ -1,0 +1,12 @@
+{
+  "id": "6bc6fd2ad5c64dcb99ae4ed83f137281",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(social[_-]?security|ssn)",
+  "match_count": 61,
+  "first_match": "ssN",
+  "context": "&&i.parentNode.removeChild(i),e=void 0,l=[])};l=a,void 0===e&&(e=(()=>{let e=(0,n.Kb)((0,r.X)())[0],t=e.getElementsByClassName(\"reportError-report\")[0],i=e.getElementsByClassName(\"reportError-counter\")[0],s=e.getElementsByClassName(\"reportErro",
+  "detected_at": "2026-06-13T01:52:17.068990"
+}

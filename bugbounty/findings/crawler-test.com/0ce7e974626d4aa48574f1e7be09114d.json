@@ -1,0 +1,12 @@
+{
+  "id": "0ce7e974626d4aa48574f1e7be09114d",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/links/broken_links_internal",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/links_broken_links_internal.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 7,
+  "first_match": "Internal",
+  "context": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>Broken Links Internal</title>\n    \n      <meta content=\"en\" HTTP-EQUIV=\"content-language\"/>\n         \n    <link type=\"text/css\" href=\"/css/ap",
+  "detected_at": "2026-06-13T00:35:11.643912"
+}

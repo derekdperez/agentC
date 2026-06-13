@@ -1,0 +1,12 @@
+{
+  "id": "f6b91e3939c34a519ae7aabf9353433b",
+  "target": "crawler-test.com",
+  "hostname": "m.crawler-test.com",
+  "url": "https://m.crawler-test.com/links/alternate_type/atom_xml.atom",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/m.crawler-test.com/assets/html/links_alternate_type_atom_xml.atom.body",
+  "pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+  "match_count": 1,
+  "first_match": "johndoe@example.com",
+  "context": "    <p>This is the entry content.</p>\n      </div>\n    </content>\n    <author>\n      <name>John Doe</name>\n      <email>johndoe@example.com</email>\n    </author>\n  </entry>\n \n</feed>\n",
+  "detected_at": "2026-06-13T00:35:04.921433"
+}

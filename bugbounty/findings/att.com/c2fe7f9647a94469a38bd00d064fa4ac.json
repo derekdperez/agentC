@@ -1,0 +1,12 @@
+{
+  "id": "c2fe7f9647a94469a38bd00d064fa4ac",
+  "target": "att.com",
+  "hostname": "officeathand.att.com",
+  "url": "https://officeathand.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/officeathand.att.com/assets/html/root.body",
+  "pattern": "(?i)(impersonate|sudo|elevate)",
+  "match_count": 2,
+  "first_match": "elevate",
+  "context": "st mar-t-none\">                                       \n            <p>Voice, video, messaging, and more in one place to elevate your customers\u2019 experience. Plus, get:<br>\n</p>\n<div class=\"listwrapper\"><ul type=\"none\" class=\"chkmrk\">\n<li><svg xmlns",
+  "detected_at": "2026-06-13T01:57:36.791543"
+}

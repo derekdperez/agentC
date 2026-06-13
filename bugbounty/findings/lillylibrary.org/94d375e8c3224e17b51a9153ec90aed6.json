@@ -1,0 +1,12 @@
+{
+  "id": "94d375e8c3224e17b51a9153ec90aed6",
+  "target": "lillylibrary.org",
+  "hostname": "webmail.lillylibrary.org",
+  "url": "http://webmail.lillylibrary.org/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/webmail.lillylibrary.org/assets/html/root.body",
+  "pattern": "(?i)(staging|uat|preprod|nonprod)",
+  "match_count": 1,
+  "first_match": "uat",
+  "context": "merica/Los_Angeles\",\"-480,0\":\"Pacific/Pitcairn\",\"-420,0\":\"America/Phoenix\",\"-420,1\":\"America/Denver\",\"-360,0\":\"America/Guatemala\",\"-360,1\":\"America/Chicago\",\"-360,1,s\":\"Pacific/Easter\",\"-300,0\":\"America/Bogota\",\"-300,1\":\"America/New_York\",\"-27",
+  "detected_at": "2026-06-13T01:28:58.818935"
+}

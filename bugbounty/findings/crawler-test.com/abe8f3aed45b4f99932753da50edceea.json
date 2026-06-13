@@ -1,0 +1,12 @@
+{
+  "id": "abe8f3aed45b4f99932753da50edceea",
+  "target": "crawler-test.com",
+  "hostname": "subdomain.crawler-test.com",
+  "url": "https://subdomain.crawler-test.com/bower_components/jquery/jquery.min.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/subdomain.crawler-test.com/assets/scripts/bower_components_jquery_jquery.min.js.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 12,
+  "first_match": "ssH",
+  "context": "oolean\"==typeof e?e?this.show():this.hide():this.each(function(){Lt(this)?x(this).show():x(this).hide()})}}),x.extend({cssHooks:{opacity:{get:function(e,t){if(t){var n=vt(e,\"opacity\");return\"\"===n?\"1\":n}}}},cssNumber:{columnCount:!0,fillOpacit",
+  "detected_at": "2026-06-13T00:35:11.240370"
+}

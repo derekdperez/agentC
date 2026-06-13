@@ -1,0 +1,12 @@
+{
+  "id": "13e715e4041645d993837c6252b13d5b",
+  "target": "att.com",
+  "hostname": "afmfe78.att.com",
+  "url": "https://afmfe78.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe78.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(id_token)",
+  "match_count": 2,
+  "first_match": "id_token",
+  "context": "\"),e&&e();const s=await n.getUser();if(!s)throw new k.i(!1);A.A.resetIamUserManagerSingleton(),await n.signoutRedirect({id_token_hint:s.id_token})}}}var U=i(68205),x=i(17654),B=i(88739),F=i(56621),H=i(98093),G=i(23039),V=i(91218),W=i(86954),q=i(932",
+  "detected_at": "2026-06-13T02:03:28.063274"
+}

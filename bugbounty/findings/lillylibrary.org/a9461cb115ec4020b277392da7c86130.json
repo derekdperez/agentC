@@ -1,0 +1,12 @@
+{
+  "id": "a9461cb115ec4020b277392da7c86130",
+  "target": "lillylibrary.org",
+  "hostname": "lillylibrary.org",
+  "url": "https://lillylibrary.org/library-policies/lost-materials-policy",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/lillylibrary.org/assets/html/library-policies_lost-materials-policy.body",
+  "pattern": "(?i)(social[_-]?security|ssn)",
+  "match_count": 2,
+  "first_match": "ssN",
+  "context": ",400,500,600,700\"]  }});</script><script type=\"text/javascript\">!function(o,c){var n=c.documentElement,t=\" w-mod-\";n.className+=t+\"js\",(\"ontouchstart\"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+\"touch\")}(window,document",
+  "detected_at": "2026-06-13T01:28:49.143655"
+}

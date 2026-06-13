@@ -1,0 +1,12 @@
+{
+  "id": "b74e341e9f3b40b6ae9b20dcef09f826",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/canonical_tags/canonical_tag/5",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/canonical_tags_canonical_tag_5.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 2,
+  "first_match": "rdP",
+  "context": "\" src=\"/bower_components/jquery/jquery.min.js\"></script>\n    \n      <meta content=\"Default description b6sc6i0L9Y62Z/VO5rdP\" name=\"description\"/>\n    \n\n    <link rel=\"canonical\" href=\"https://crawler-test.com/\"/>\n  </head>\n  <body>\n    \n    <d",
+  "detected_at": "2026-06-13T00:36:43.812049"
+}

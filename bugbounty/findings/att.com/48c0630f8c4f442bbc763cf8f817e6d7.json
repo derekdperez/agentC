@@ -1,0 +1,12 @@
+{
+  "id": "48c0630f8c4f442bbc763cf8f817e6d7",
+  "target": "att.com",
+  "hostname": "lsreg.att.com",
+  "url": "https://lsreg.att.com/scripts/adobe/virtual/detm-container-hdr.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/lsreg.att.com/assets/scripts/scripts_adobe_virtual_detm-container-hdr.js.body",
+  "pattern": "(?i)\\.(env|bak|backup|old|swp|sql|zip|tar|gz)",
+  "match_count": 2,
+  "first_match": "env",
+  "context": "mapping_framework_is_ready=(this.configure=function(){console.log(\"----------\"),console.log(\"detmScriptLoader - \"+config.environment+\" version: \"+config.version),console.log(\"detm scripts were loaded asynchronously because this is the default b",
+  "detected_at": "2026-06-13T02:02:04.963647"
+}

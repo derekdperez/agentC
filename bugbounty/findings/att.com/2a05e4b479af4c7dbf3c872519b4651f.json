@@ -1,0 +1,12 @@
+{
+  "id": "2a05e4b479af4c7dbf3c872519b4651f",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(staging|uat|preprod|nonprod)",
+  "match_count": 12,
+  "first_match": "staging",
+  "context": "FRAMEWORK_ENHANCED_EXCEPTIONS_INSIGHTS_RELEASE)&&r(L.u6.REPORTING_FRAMEWORK_USE_ADTS_SUMMARY_REPORT)],exceptionsinsightsstaging:[\"ExceptionsReport\",()=>r(L.u6.REPORTING_FRAMEWORK_ENHANCED_EXCEPTIONS_INSIGHTS_RELEASE)&&r(L.u6.REPORTING_FRAMEWORK_EX",
+  "detected_at": "2026-06-13T01:52:17.458608"
+}

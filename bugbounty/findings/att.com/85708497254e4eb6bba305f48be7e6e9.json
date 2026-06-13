@@ -1,0 +1,12 @@
+{
+  "id": "85708497254e4eb6bba305f48be7e6e9",
+  "target": "att.com",
+  "hostname": "afmfe78.att.com",
+  "url": "https://afmfe78.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe78.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(username|user|login)\\s*[:=]\\s*['\"][^'\"]+['\"]",
+  "match_count": 2,
+  "first_match": "user",
+  "context": "mplatetext:\"notificationTemplates\",distributionlist:\"distributionLists\",group:\"groupsTree\",customreport:\"customReports\",user:\"users\",clearance:\"clearances\",engineController:\"engineControllers\",fuelevent:\"fuelEvents\",notification:\"notifications\",enginet",
+  "detected_at": "2026-06-13T02:03:27.097510"
+}

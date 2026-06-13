@@ -1,0 +1,12 @@
+{
+  "id": "8b0b63a70d254356980f21dde6a6c81e",
+  "target": "att.com",
+  "hostname": "afmfe78.att.com",
+  "url": "https://afmfe78.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe78.att.com/assets/html/root.body",
+  "pattern": "\\b10\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b",
+  "match_count": 2,
+  "first_match": "10.539.833.833",
+  "context": "334.334.334h4.467a.334.334 0 00.236-.57L4.522 3.41a.166.166 0 01.056-.273 6.667 6.667 0 016.31.734 6.506 6.506 0 01.063 10.539.833.833 0 00.982 1.344 8.081 8.081 0 003.342-6.64 8.083 8.083 0 00-3.418-6.6Z\" /></symbol>\n            <symbol viewBox=\"0 0 16 ",
+  "detected_at": "2026-06-13T01:57:14.252870"
+}

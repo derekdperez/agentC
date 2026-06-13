@@ -1,0 +1,12 @@
+{
+  "id": "018a0157c1814e5bb57a90c13601e1f8",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/styles/css_includes_doctype_polaris.cssx?v=05-19-2026_0833&amp;c=1e8764041ba503107b8984cae54bcbcf&amp;theme=Polaris",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/stylesheets/styles_css_includes_doctype_polaris.cssx_v_05-19-2026_0833_amp;c_1e8764041ba503107b8984cae54bcbcf_amp;theme_Polaris.body",
+  "pattern": "(?i)(impersonate|sudo|elevate)",
+  "match_count": 1,
+  "first_match": "impersonate",
+  "context": "px;\nfont-weight: bold;\nbackground-color: #eeeeee;\n}\n\n.glide_pane_header td {\npadding: 5px;\n}\n\n/* popupdivs.js - used by impersonate dialog */\ndiv.popup {\nposition: absolute;\nvisibility: hidden;\nbackground-color: white;\npadding-left: 10px;\npadding-righ",
+  "detected_at": "2026-06-13T02:03:34.257529"
+}

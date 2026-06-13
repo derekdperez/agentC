@@ -1,0 +1,12 @@
+{
+  "id": "133d8e1c311c412188202f82660fb7d3",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/thirdparty/dom_purify/purify.jsx?v=05-19-2026_0833&sysparm_substitute=false",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_thirdparty_dom_purify_purify.jsx_v_05-19-2026_0833_sysparm_substitute_false.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 1,
+  "first_match": "<!-->';\n      }\n      if (typeof dirty !== 'string' && !_isNode(dirty)) {\n        if (typeof dirty.toString === 'function') {\n          dirty = dirty.toString();\n          if (typeof dirty !== 'string') {\n            throw typeErrorCreate('dirty is not a string, aborting');\n          }\n        } else {\n          throw typeErrorCreate('toString is not a function');\n        }\n      }\n      if (!DOMPurify.isSupported) {\n        return dirty;\n      }\n      if (!SET_CONFIG) {\n        _parseConfig(cfg",
+  "context": "ntNode = null;\n      let returnNode = null;\n      IS_EMPTY_INPUT = !dirty;\n      if (IS_EMPTY_INPUT) {\n        dirty = '<!-->';\n      }\n      if (typeof dirty !== 'string' && !_isNode(dirty)) {\n        if (typeof dirty.toString === 'function') {\n          dirty = dirty.toString();\n          if (typeof dirty !== 'string') {\n            throw typeErrorCreate('dirty is not a string, aborting');\n          }\n        } else {\n          throw typeErrorCreate('toString is not a function');\n        }\n      }\n      if (!DOMPurify.isSupported) {\n        return dirty;\n      }\n      if (!SET_CONFIG) {\n        _parseConfig(cfg);\n      }\n      DOMPurify.removed = [];\n      if (typeof dirty === 'string') {\n        IN_PLACE = false;\n      }\n      if (IN_PLACE) {\n        if (dirty.nodeName) {\n          const tagName = transformCaseFunc(dirty.nodeName);\n          if (!ALLOWED_TAGS[tagName] || FORBID_TAGS[tagName]) {\n            throw typeErrorCreate('root node is forbidden and cannot be sanitized in-place');\n          }\n        }\n      } else if (dirty instanceof Node) {\n        body = _initDocument('<!---->');\n        importedNode = body.ownerDocument.importNode(dirty, true);\n        if (importedNode.nodeType === NODE_TYPE.e",
+  "detected_at": "2026-06-13T02:02:54.981622"
+}

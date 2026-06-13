@@ -1,0 +1,12 @@
+{
+  "id": "8fdd25c358f44087b6a0ed12f2c50bc6",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/doctype/js_includes_legacy.jsx?v=05-19-2026_0833&lp=Wed_Jun_10_16_52_16_PDT_2026&c=26_489",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_doctype_js_includes_legacy.jsx_v_05-19-2026_0833_lp_Wed_Jun_10_16_52_16_PDT_2026_c_26_489.body",
+  "pattern": "(?i)\\.(env|bak|backup|old|swp|sql|zip|tar|gz)",
+  "match_count": 4,
+  "first_match": "tar",
+  "context": "s[selectedIndex];\n\t  return option;\n\t}\n\treturn null;\n}\nfunction onOptionSelected(evt, select) {\n\tlastFocusedOption = evt.target.value;\n\tvar sourceOptions = select.options;\n\tfor (var i = 0; i < select.length; i++) {\n\t\tvar option = sourceOptions[",
+  "detected_at": "2026-06-13T02:02:54.154114"
+}

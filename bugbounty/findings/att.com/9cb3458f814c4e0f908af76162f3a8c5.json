@@ -1,0 +1,12 @@
+{
+  "id": "9cb3458f814c4e0f908af76162f3a8c5",
+  "target": "att.com",
+  "hostname": "afmfe78.att.com",
+  "url": "https://afmfe78.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe78.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(token)\\s*[:=]\\s*['\"][^'\"]{8,}['\"]",
+  "match_count": 1,
+  "first_match": "token",
+  "context": "essionId&&i.apiKey?(this.tokenAccessor.token=Object.assign({},i),e()):(console.error(\"GetSynergyOneSessionInfo: Invalid token:\",i),t())}),(e=>{t(e)}))}))}async deleteCookie(){if(this.isSynergyOneEligible())try{await this.myApi.call(ct.POc)}catch(e){this.errorHandler(e)}}clear(){this.tokenAccessor.clear()}constructor(e,t,i,n,s,r,a,o){this.connection=e,this.errorHandler=t,this.tokenAccessor=i,this.userName=n,this.hasAccessTo=s,this.isFedRamp=r,this.isWhiteLabeled=a,this.myApi=o,this.isExpired=e=>{let t=new Date,i=new Date(e);return t.getTime()>=i.getTime()+36e5},this.isMissingOrExpired=e=>!e||this.isExpired(e.issuedDate)}async initialize(){if(this.needsNewToken())try{await this.refreshSynergyOneToken()}catch(e){if(console.error(\"SynergyOneTokenProvider initialize() error:\",e),!e)return;this.errorHandler(e)}}terminate(){return this.clear(),this.del",
+  "detected_at": "2026-06-13T02:03:27.137783"
+}

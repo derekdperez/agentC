@@ -1,0 +1,12 @@
+{
+  "id": "428af9ec536843cba8d8d50755d2d2d3",
+  "target": "lillylibrary.org",
+  "hostname": "cpanel.lillylibrary.org",
+  "url": "https://cpanel.lillylibrary.org/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/cpanel.lillylibrary.org/assets/html/root.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 12,
+  "first_match": "password",
+  "context": "ser\" required>\n                                </div>\n                                <div class=\"input-req-login login-password-field-label\"><label for=\"pass\">Password</label></div>\n                                <div class=\"input-field-login ico",
+  "detected_at": "2026-06-13T01:28:59.056573"
+}

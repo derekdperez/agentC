@@ -1,0 +1,12 @@
+{
+  "id": "2fc5f6fc5da944498f5b57a09bcd5496",
+  "target": "att.com",
+  "hostname": "afmfe78.att.com",
+  "url": "https://afmfe78.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe78.att.com/assets/html/root.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 1,
+  "first_match": "rdp",
+  "context": "=new Set([\"adtmovil\",\"alphabet\",\"amcstracking\",\"att\",\"byspireon\",\"connectedcarebusinesslease\",\"copiloto\",\"ekcofleet\",\"fordproeld\",\"geomooveconnectedmobility\",\"g-fleetplus\",\"lionbeat\",\"lytxeld\",\"mittaflotaconectada\",\"pleos-fleet\",\"shell\",\"tecno",
+  "detected_at": "2026-06-13T01:57:14.990717"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "a5306bd87aad433bb372717cbf6c2f5e",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/styles/polarisberg/css_includes_polarisberg.cssx?v=05-19-2026_0833&amp;c=1e8764041ba503107b8984cae54bcbcf&amp;theme=Polaris",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/stylesheets/styles_polarisberg_css_includes_polarisberg.cssx_v_05-19-2026_0833_amp;c_1e8764041ba503107b8984cae54bcbcf_amp;theme_Polaris.body",
+  "pattern": "(?i)(credit[_-]?card|card[_-]?number)",
+  "match_count": 1,
+  "first_match": "credit-card",
+  "context": "ent:\"\\e174\"}\n.glyphicon-floppy-save::before{content:\"\\e175\"}\n.glyphicon-floppy-open::before{content:\"\\e176\"}\n.glyphicon-credit-card::before{content:\"\\e177\"}\n.glyphicon-transfer::before{content:\"\\e178\"}\n.glyphicon-cutlery::before{content:\"\\e179\"}\n.glyp",
+  "detected_at": "2026-06-13T02:03:37.256124"
+}

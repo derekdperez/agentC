@@ -1,0 +1,12 @@
+{
+  "id": "702771d61e79471f89247da7ebca80de",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/js_includes_customer.jsx?v=05-19-2026_0833&amp;lp=Wed_Jun_10_16_52_16_PDT_2026&amp;c=26_489",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_js_includes_customer.jsx_v_05-19-2026_0833_amp;lp_Wed_Jun_10_16_52_16_PDT_2026_amp;c_26_489.body",
+  "pattern": "(?i)(bypass|override|backdoor)",
+  "match_count": 4,
+  "first_match": "Override",
+  "context": "\"active\") == \"false\") {\n\t\t\tgsftSubmit(null, g_form.getFormElement(), verb);\n\t\t\treturn;\n\t\t}\n\t\n\t\tvar connGR;\n\t\tvar performOverride = function() {\n\t\t\tconnGR.active = false;\n\t\t\tconnGR.update();\n\t\t\tgsftSubmit(null, g_form.getFormElement(), verb);\n\t\t};\n\t",
+  "detected_at": "2026-06-13T02:02:57.705713"
+}

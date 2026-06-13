@@ -1,0 +1,12 @@
+{
+  "id": "9462ee1b06c44353b5cd7ef3d48f7c19",
+  "target": "att.com",
+  "hostname": "afmfe78.att.com",
+  "url": "https://afmfe78.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe78.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(admin|administrator)",
+  "match_count": 9,
+  "first_match": "admin",
+  "context": "eItem(n)}}return Promise.resolve(t)}}var b=i(30375),A=i(70950);const E=\"https://geotab.com\",w=`${E}/username`,_=`${E}/myadminPermission`;class T{get tokens(){return(async()=>{const e=await(async()=>{try{const e=await A.A.getManager().then((e=>nu",
+  "detected_at": "2026-06-13T02:03:28.242852"
+}

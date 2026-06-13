@@ -1,0 +1,12 @@
+{
+  "id": "a0acf7d8197f4bc480a71ec673b15d54",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/styles/css_includes_doctype_polaris.cssx?v=05-19-2026_0833&amp;c=1e8764041ba503107b8984cae54bcbcf&amp;theme=Polaris",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/stylesheets/styles_css_includes_doctype_polaris.cssx_v_05-19-2026_0833_amp;c_1e8764041ba503107b8984cae54bcbcf_amp;theme_Polaris.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 2,
+  "first_match": "ssh",
+  "context": "ext;\n}\n\n/******* Images   ********/\n\nIMG.cls {\nmargin-right: 0;\nmargin-top:5px;\nmargin-bottom:5px;\nheight:10px\n}\n\nIMG.clsshort {\nmargin-right: 0;\nmargin-top:2px;\nmargin-bottom:2px;\n}\n\nIMG.knowledge{\nmargin-left: 2px;\n}\n\n\ntable.drag_section_hea",
+  "detected_at": "2026-06-13T02:03:34.089036"
+}

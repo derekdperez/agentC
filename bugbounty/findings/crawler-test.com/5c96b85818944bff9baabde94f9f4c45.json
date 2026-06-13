@@ -1,0 +1,12 @@
+{
+  "id": "5c96b85818944bff9baabde94f9f4c45",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/other/script_tag_contents",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/other_script_tag_contents.body",
+  "pattern": "(?i)(internal|corp|intranet|dev|staging|test)\\.[a-z0-9.-]+\\.[a-z]{2,}",
+  "match_count": 2,
+  "first_match": "test",
+  "context": "2 columns\">\n        \n          \n        \n        \n        <script>\n<h1>Script Tag Contents</h1>\n<a href=\"http://crawler-test.semetrical.com/test1/script_tag_contents_link\">link</a>\n<meta http-equiv=\"refresh\" content=\"0;url=http://crawler-test.semetrical.com/t",
+  "detected_at": "2026-06-13T00:35:15.523721"
+}

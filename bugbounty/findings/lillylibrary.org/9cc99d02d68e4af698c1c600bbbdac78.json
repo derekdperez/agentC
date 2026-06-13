@@ -1,0 +1,12 @@
+{
+  "id": "9cc99d02d68e4af698c1c600bbbdac78",
+  "target": "lillylibrary.org",
+  "hostname": "webmail.lillylibrary.org",
+  "url": "http://webmail.lillylibrary.org/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/webmail.lillylibrary.org/assets/html/root.body",
+  "pattern": "(admin|administrator)",
+  "match_count": 1,
+  "first_match": "admin",
+  "context": "n\":\"The login is invalid.\",\"internal_error\":\"An internal error occurred. If this condition persists, contact the system administrator.\",\"read_below\":\"Read the important information below.\",\"success\":\"Login successful. Redirecting \u2026\",\"session_loc",
+  "detected_at": "2026-06-13T01:28:58.721495"
+}

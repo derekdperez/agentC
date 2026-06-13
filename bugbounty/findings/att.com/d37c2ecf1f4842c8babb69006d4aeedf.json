@@ -1,0 +1,12 @@
+{
+  "id": "d37c2ecf1f4842c8babb69006d4aeedf",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/$src",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/html/$src.body",
+  "pattern": "(?i)(internal|corp|intranet|dev|staging|test)\\.[a-z0-9.-]+\\.[a-z]{2,}",
+  "match_count": 4,
+  "first_match": "dev",
+  "context": "ps://saml.stage.att.com/isam/sps/attsamlidp_mfa/saml20/logininitial?RequestBinding=HTTPPost&PartnerId=https://attfedgov1dev.servicenowservices.com/&SAMLRequest=lVPLbtswEPwVgYferFdk1WYtF6qNogbSVIidHHopaHHlEOBD5VJK8%2FeVaBlxDw0Q8EIuZ3dmdskVMiXTlpade9L38LsDdMEfJTXS801B",
+  "detected_at": "2026-06-13T02:02:43.202309"
+}

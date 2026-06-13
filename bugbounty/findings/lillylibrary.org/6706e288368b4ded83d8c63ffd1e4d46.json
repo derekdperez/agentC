@@ -1,0 +1,12 @@
+{
+  "id": "6706e288368b4ded83d8c63ffd1e4d46",
+  "target": "lillylibrary.org",
+  "hostname": "webmail.lillylibrary.org",
+  "url": "http://webmail.lillylibrary.org/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/webmail.lillylibrary.org/assets/html/root.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 12,
+  "first_match": "password",
+  "context": "ser\" required>\n                                </div>\n                                <div class=\"input-req-login login-password-field-label\"><label for=\"pass\">Password</label></div>\n                                <div class=\"input-field-login ico",
+  "detected_at": "2026-06-13T01:28:58.719772"
+}

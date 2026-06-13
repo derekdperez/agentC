@@ -1,0 +1,12 @@
+{
+  "id": "05905d68eca6497996468b0bfbce7278",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/redirects/external_redirect",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/redirects_external_redirect.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 2,
+  "first_match": "rdp",
+  "context": " is optimized with the Yoast SEO Premium plugin v27.0 (Yoast SEO v27.0) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->\n\t<meta name=\"description\" content=\"The ultimate website optimization platform with tools for tech SEO, GEO, we",
+  "detected_at": "2026-06-13T00:39:57.932018"
+}

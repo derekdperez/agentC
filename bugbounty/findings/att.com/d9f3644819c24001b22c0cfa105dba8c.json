@@ -1,0 +1,12 @@
+{
+  "id": "d9f3644819c24001b22c0cfa105dba8c",
+  "target": "att.com",
+  "hostname": "afmfe78.att.com",
+  "url": "https://afmfe78.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe78.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(oauth[_-]?token|oauth[_-]?secret)",
+  "match_count": 2,
+  "first_match": "OAUTH_TOKEN",
+  "context": "LLED=\"USER_CANCELLED\",e.OID_GENERAL_ERROR=\"OID_GENERAL_ERROR\",e.OAUTH_AUTHORIZATION_ERROR=\"OAUTH_AUTHORIZATION_ERROR\",e.OAUTH_TOKEN_ERROR=\"OAUTH_TOKEN_ERROR\"}(a||(a={}))},82306(e,t,i){\"use strict\";i.d(t,{g:()=>s,y:()=>r});var n=i(48698);const s=(e,t)=",
+  "detected_at": "2026-06-13T02:03:31.916417"
+}

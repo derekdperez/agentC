@@ -1,0 +1,12 @@
+{
+  "id": "2ec6c94c74b24fa89b1481093cf747a2",
+  "target": "lillylibrary.org",
+  "hostname": "www.lillylibrary.org",
+  "url": "https://www.lillylibrary.org/library-policies/internet-use-policy",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/lillylibrary.org/www.lillylibrary.org/assets/html/library-policies_internet-use-policy.body",
+  "pattern": "(?i)(staging|uat|preprod|nonprod)",
+  "match_count": 1,
+  "first_match": "uat",
+  "context": "/><br/>3)\u00a0Up to two people may use a computer; library staff have the right to restrict use to one person to assure adequate workspace and a quiet environment for all using the library.<br/><br/>4)\u00a0Patrons sign-on for a computer at the automat",
+  "detected_at": "2026-06-13T01:28:43.308215"
+}

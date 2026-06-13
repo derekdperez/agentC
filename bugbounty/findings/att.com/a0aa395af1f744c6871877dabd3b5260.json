@@ -1,0 +1,12 @@
+{
+  "id": "a0aa395af1f744c6871877dabd3b5260",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/scripts/doctype/js_includes_last_doctype.jsx?v=05-19-2026_0833&amp;lp=Wed_Jun_10_16_52_16_PDT_2026&amp;c=26_489",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/scripts/scripts_doctype_js_includes_last_doctype.jsx_v_05-19-2026_0833_amp;lp_Wed_Jun_10_16_52_16_PDT_2026_amp;c_26_489.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 14,
+  "first_match": "Internal",
+  "context": "xport_poll_dialog');    \n    \tvar keys = [\"Export in Progress\", \"Export Complete\", \"Export Canceled\", \"Export failed\", \"Internal error\", \"Finished Export. Exported {0} of {1} rows\", \"Error uploading to Google Drive. Try again or contact your admini",
+  "detected_at": "2026-06-13T02:02:52.549016"
+}

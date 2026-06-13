@@ -1,0 +1,12 @@
+{
+  "id": "a8502dc2bdb74de1be8343eb9b4273d2",
+  "target": "att.com",
+  "hostname": "att-hmwk.idp.blogin.att.com",
+  "url": "http://att-hmwk.idp.blogin.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/att-hmwk.idp.blogin.att.com/assets/html/root.body",
+  "pattern": "(?i)(secret|token|apikey|api_key|client_secret|private_key|access_key)",
+  "match_count": 1,
+  "first_match": "API_key",
+  "context": "=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n=\"https://s2.go-mpulse.net/boomerang/\";if(window.BOOMR_API_key=\"WPDUB-APVCN-LTNDE-ZPC3E-YKMHC\",function(){function e(){if(!i){var e=document.createElement(\"script\");e.id=\"boomr-scr-a",
+  "detected_at": "2026-06-13T02:02:16.143697"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "2cff4b13c5a74d0bb07e8fa3425693fb",
+  "target": "att.com",
+  "hostname": "www.ipservices.att.com",
+  "url": "http://www.ipservices.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/www.ipservices.att.com/assets/html/root.body",
+  "pattern": "(?i)(bypass|override|backdoor)",
+  "match_count": 2,
+  "first_match": "bypass",
+  "context": "pe1\" name=\"requestType1\" value=\"reqaddlinfo\"/>\n                                                <input type=\"hidden\" id=\"bypassSubType1\" name=\"bypassSubType1\" value=\"RAI/Contact Us\"/>\n                                                <input type=\"hi",
+  "detected_at": "2026-06-13T01:55:51.807481"
+}

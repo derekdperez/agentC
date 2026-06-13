@@ -1,0 +1,12 @@
+{
+  "id": "0ac8d8f136924c0fb6ff327d15b6996c",
+  "target": "att.com",
+  "hostname": "mydesktop-east02u.att.com",
+  "url": "https://mydesktop-east02u.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/mydesktop-east02u.att.com/assets/html/root.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 1,
+  "first_match": "Admin",
+  "context": "lient is not installed, you may download it from the link below.\n\t\t</div>\n\t\t<div class=\"explain\">\n\t\t\tContact your local Administrator if you have any questions.\n\t\t</div>\n\t\t<div>\n\t\t\t\n\t\t\t\t<a href=\"https://customerconnect.omnissa.com/downloads/info",
+  "detected_at": "2026-06-13T01:51:39.499882"
+}

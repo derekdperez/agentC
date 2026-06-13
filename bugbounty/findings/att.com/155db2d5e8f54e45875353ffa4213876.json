@@ -1,0 +1,12 @@
+{
+  "id": "155db2d5e8f54e45875353ffa4213876",
+  "target": "att.com",
+  "hostname": "utf-pre.idp.clogin.att.com",
+  "url": "http://utf-pre.idp.clogin.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/utf-pre.idp.clogin.att.com/assets/html/root.body",
+  "pattern": "<!--[\\s\\S]{0,1000}?-->",
+  "match_count": 5,
+  "first_match": "<!-- Copyright (C) 2015 IBM Corporation -->",
+  "context": "<!DOCTYPE html>\n<!-- Copyright (C) 2015 IBM Corporation -->\n<!-- Copyright (C) 2000 Tivoli Systems, Inc. -->\n<!-- Copyright (C) 1999 IBM Corporation -->\n<!-- Copyright (C) 1998 Da",
+  "detected_at": "2026-06-13T01:57:18.045338"
+}

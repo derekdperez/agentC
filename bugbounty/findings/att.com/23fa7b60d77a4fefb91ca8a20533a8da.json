@@ -1,0 +1,12 @@
+{
+  "id": "23fa7b60d77a4fefb91ca8a20533a8da",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/styles/css_includes_doctype_polaris.cssx?v=05-19-2026_0833&amp;c=1e8764041ba503107b8984cae54bcbcf&amp;theme=Polaris",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/stylesheets/styles_css_includes_doctype_polaris.cssx_v_05-19-2026_0833_amp;c_1e8764041ba503107b8984cae54bcbcf_amp;theme_Polaris.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 1,
+  "first_match": "hack",
+  "context": "ontrols.filter_controls {\noverflow-x: auto;\n}\n\n.input_controls.filter_controls-with-overflow {\noverflow-x: auto;\n}\n\n\n/*\nhacky solution to maximize available space for conditions, especially in modals\nwe should remove this as soon as conditions ",
+  "detected_at": "2026-06-13T02:03:33.965954"
+}

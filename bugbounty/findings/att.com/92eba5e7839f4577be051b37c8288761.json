@@ -1,0 +1,12 @@
+{
+  "id": "92eba5e7839f4577be051b37c8288761",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 38,
+  "first_match": "rdP",
+  "context": "hing,d.acl,(0,ee.K)(geotab.location.getVendorPrefix().domain),!g,((e,i)=>t.customCodesService.codeExistsSync(e,i)),r.thirdPartyEulasAccepted,r.synergyAccess,(0,n.M8)(geotab.location.hostname)||(0,Ge.M0)(geotab.location.hostname),r.jurisdiction",
+  "detected_at": "2026-06-13T01:52:16.632308"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "b16b23b98c224e638ac4f854d24db5c3",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/$uxappimmutables.do?sysparm_request_type=ux_theme&sysparm_app_config_sys_id=e42a5af4c700201072b211d4d8c2607c&sysparm_app_sys_id=c86a62e2c7022010099a308dc7c26022&sysparm_page_registry=a84adaf4c700201072b211d4d8c260b7&uxpcb=r9i1xSxpL2Z5ml0SwuW+9iS88nQ=null",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/stylesheets/$uxappimmutables.do_sysparm_request_type_ux_theme_sysparm_app_config_sys_id_e42a5af4c700201072b211d4d8c2607c_sysparm_app_sys_id_c86a62e2c7022010099a308dc7c26022_sysparm_page_registry_a84adaf4c70020107.body",
+  "pattern": "(admin|administrator)",
+  "match_count": 4,
+  "first_match": "admin",
+  "context": "--now-messaging_action--primary_bare_critical--border-color--active:91,14,22;\n--now-illustration-custom-banner-agnostic-admin:polaris-banner-agnostic-admin-non-themable-flat-banner.svg;\n--now-template-message-empty-state_content--font-family:Lat",
+  "detected_at": "2026-06-13T02:03:39.135892"
+}

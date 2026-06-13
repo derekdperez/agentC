@@ -1,0 +1,12 @@
+{
+  "id": "bbf0bcc39cc54dd3976986160d36e0aa",
+  "target": "att.com",
+  "hostname": "attmbl-usdev.att.com",
+  "url": "https://attmbl-usdev.att.com/$src",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/attmbl-usdev.att.com/assets/html/$src.body",
+  "pattern": "(?i)(vpn|ssh|rdp|bastion|jumpbox)",
+  "match_count": 2,
+  "first_match": "rdp",
+  "context": "ig.siteId = \"0\";\n\t\twindow.snWebaConfig.trackerURL = \"\";\n\t\twindow.snWebaConfig.webaScriptPath = \"/scripts/piwik-3.1.1/thirdparty/piwik.min.js\";\n\t\twindow.snWebaConfig.ambClient = (window.g_ambClient) ? window.g_ambClient : ((window.amb)? window.",
+  "detected_at": "2026-06-13T02:02:43.554869"
+}

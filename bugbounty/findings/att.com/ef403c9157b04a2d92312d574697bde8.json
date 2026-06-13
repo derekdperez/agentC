@@ -1,0 +1,12 @@
+{
+  "id": "ef403c9157b04a2d92312d574697bde8",
+  "target": "att.com",
+  "hostname": "afmfe38.att.com",
+  "url": "https://afmfe38.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe38.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(sensitive|confidential|restricted)",
+  "match_count": 4,
+  "first_match": "Restricted",
+  "context": "\"},t.lqK={name:\"PushToken\"},t.tXZ={name:\"Recipient\"},t.smT={name:\"ReportTag\"},t.qp={name:\"ReportTemplate\"},t.oPk={name:\"RestrictedDataModeChange\"},t.QyU={name:\"Role\"},t.QVR={name:\"Rule\"},t.KW_={name:\"SafetyDriverInsight\"},t.fsK={name:\"SafetyFleetBenc",
+  "detected_at": "2026-06-13T01:52:18.000687"
+}

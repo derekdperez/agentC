@@ -1,0 +1,12 @@
+{
+  "id": "d55a5b40e9834f88be01772b287a2105",
+  "target": "att.com",
+  "hostname": "afmfe78.att.com",
+  "url": "https://afmfe78.att.com/dist/default.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/afmfe78.att.com/assets/scripts/dist_default.js.body",
+  "pattern": "(?i)(secret|token|apikey|api_key|client_secret|private_key|access_key)",
+  "match_count": 308,
+  "first_match": "Token",
+  "context": "mission\"},t.sBp={name:\"PotentialFuelMismatchEvent\"},t.hRw={name:\"Property\"},t.vgb={name:\"PropertySet\"},t.lqK={name:\"PushToken\"},t.tXZ={name:\"Recipient\"},t.smT={name:\"ReportTag\"},t.qp={name:\"ReportTemplate\"},t.oPk={name:\"RestrictedDataModeChange\"",
+  "detected_at": "2026-06-13T02:03:27.957869"
+}

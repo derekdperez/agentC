@@ -1,0 +1,12 @@
+{
+  "id": "a6eb95ed5fb24052b011a0dce38e8344",
+  "target": "att.com",
+  "hostname": "uptime.test-e.att.com",
+  "url": "https://uptime.test-e.att.com/static/js/main.81c01108.js",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/uptime.test-e.att.com/assets/scripts/static_js_main.81c01108.js.body",
+  "pattern": "(?i)\\.(env|bak|backup|old|swp|sql|zip|tar|gz)",
+  "match_count": 4,
+  "first_match": "tar",
+  "context": "\",r.nc&&(d.nonce=r.nc),d.onerror=d.onload=r=>{if(d.onerror=d.onload=null,\"load\"===r.type)n();else{var a=r&&r.type,f=r&&r.target&&r.target.href||t,c=new Error(\"Loading CSS chunk \"+e+\" failed.\\n(\"+a+\": \"+f+\")\");c.name=\"ChunkLoadError\",c.code=\"CSS",
+  "detected_at": "2026-06-13T02:03:03.268979"
+}

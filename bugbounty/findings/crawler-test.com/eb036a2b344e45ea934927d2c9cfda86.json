@@ -1,0 +1,12 @@
+{
+  "id": "eb036a2b344e45ea934927d2c9cfda86",
+  "target": "crawler-test.com",
+  "hostname": "crawler-test.com",
+  "url": "https://crawler-test.com/javascript/window-location-internal",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/crawler-test.com/crawler-test.com/assets/html/javascript_window-location-internal.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 2,
+  "first_match": "internal",
+  "context": "<!DOCTYPE html><html><head><title>javascript:window.location internal</title></head><body><script>window.location = \"/javascript/window-location-internal-redirect-working\"</script></body></",
+  "detected_at": "2026-06-13T00:37:26.739299"
+}

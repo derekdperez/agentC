@@ -1,0 +1,12 @@
+{
+  "id": "e61e310decdd4a6d809f22e7523b0d61",
+  "target": "att.com",
+  "hostname": "purchasinguat6.att.com",
+  "url": "https://purchasinguat6.att.com/",
+  "asset_path": "/home/cisco/repo/agentC/bugbounty/targets/att.com/purchasinguat6.att.com/assets/html/root.body",
+  "pattern": "(?i)(todo|fixme|hack|secret|password|token|apikey|internal|admin)",
+  "match_count": 9,
+  "first_match": "password",
+  "context": "SAME_USER onclick='confirmLogout()'> Not the same user?</a></div>\n\t\t<div class=\"control_box min_margin\">\n\t\t\t<label for=\"passwordField\" message=FND_SSO_PASSWORD>Password</label>\n\t\t\t<input tabindex=0 class=\"inp\" type=\"password\" id=\"passwordField\" nam",
+  "detected_at": "2026-06-13T01:57:06.768347"
+}
