@@ -4541,3 +4541,57 @@ subprocess.TimeoutExpired: Command '['/usr/bin/python3', 'scripts/render_dashboa
 2026-06-13 00:12:57 WARNING agentc.progress: task 'git_commit_push' FAILED after 0.55s: exit 1
 2026-06-13 00:22:57 WARNING agentc.progress:   action 'add_commit_push' (shell) FAILED: exit 1
 2026-06-13 00:22:57 WARNING agentc.progress: task 'git_commit_push' FAILED after 0.54s: exit 1
+2026-06-13 00:32:57 WARNING agentc.progress:   action 'add_commit_push' (shell) FAILED: exit 1
+2026-06-13 00:32:57 WARNING agentc.progress: task 'git_commit_push' FAILED after 0.53s: exit 1
+2026-06-13 00:39:23 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:23 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.20s: exit 1
+2026-06-13 00:39:24 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:24 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.06s: exit 1
+2026-06-13 00:39:25 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:25 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.06s: exit 1
+2026-06-13 00:39:26 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:26 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.07s: exit 1
+2026-06-13 00:39:27 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:27 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.06s: exit 1
+2026-06-13 00:39:28 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:28 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.08s: exit 1
+2026-06-13 00:39:29 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:29 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.06s: exit 1
+2026-06-13 00:39:30 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:30 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.07s: exit 1
+2026-06-13 00:39:31 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:31 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.08s: exit 1
+2026-06-13 00:39:32 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:32 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.05s: exit 1
+2026-06-13 00:39:33 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:33 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.07s: exit 1
+2026-06-13 00:39:34 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:34 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.05s: exit 1
+2026-06-13 00:39:35 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:35 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.07s: exit 1
+2026-06-13 00:39:36 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:36 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.08s: exit 1
+2026-06-13 00:39:37 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:37 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.07s: exit 1
+2026-06-13 00:39:38 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:38 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.11s: exit 1
+2026-06-13 00:39:39 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:39 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.06s: exit 1
+2026-06-13 00:39:40 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:40 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.08s: exit 1
+2026-06-13 00:39:41 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:41 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.10s: exit 1
+2026-06-13 00:39:42 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:42 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.12s: exit 1
+2026-06-13 00:39:43 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:43 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.10s: exit 1
+2026-06-13 00:39:44 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:44 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.09s: exit 1
+2026-06-13 00:39:45 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:45 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.07s: exit 1
+2026-06-13 00:39:46 WARNING agentc.progress:   action 'pump-queue' (python) FAILED: exit 1
+2026-06-13 00:39:46 WARNING agentc.progress: task 'bugbounty-queue-pump' FAILED after 0.12s: exit 1
+2026-06-13 00:40:55 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit -15
+2026-06-13 00:40:55 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.22s: exit -15
+2026-06-13 00:40:55 WARNING agentc.progress:   action 'perform-request' (python) FAILED: exit -15
+2026-06-13 00:40:55 WARNING agentc.progress: task 'bugbounty-http-request' FAILED after 0.23s: exit -15

@@ -184,6 +184,50 @@ def cmd_runs(args):
     return 0
 
 
+def cmd_reactions(args):
+    """List / pause / resume reactive (event- and file-triggered) tasks via
+    ``<state-dir>/reactive_tasks.json`` — the same file the engine consults
+    before firing a triggered task. Ad-hoc ``agentc exec`` is never gated."""
+    path = os.path.join(args.state_dir, "reactive_tasks.json")
+    try:
+        with open(path) as fh:
+            cfg = json.load(fh)
+    except (OSError, ValueError):
+        cfg = {}
+    cfg.setdefault("paused_all", False)
+    cfg.setdefault("paused_tasks", [])
+
+    def _save():
+        os.makedirs(args.state_dir, exist_ok=True)
+        with open(path, "w") as fh:
+            json.dump(cfg, fh, indent=2)
+
+    act = args.action
+    if act in ("pause-all", "resume-all"):
+        cfg["paused_all"] = (act == "pause-all")
+        _save()
+    elif act in ("pause", "resume"):
+        if not args.task:
+            print(f"usage: agentc reactions {act} <task-name>")
+            return 1
+        paused = set(cfg["paused_tasks"])
+        paused.add(args.task) if act == "pause" else paused.discard(args.task)
+        cfg["paused_tasks"] = sorted(paused)
+        _save()
+
+    eng = _engine(args)
+    reactive = [(n, t.trigger.type, t.trigger.event or t.trigger.path or "")
+                for n, t in sorted(eng.tasks.items())
+                if t.trigger.type in ("event", "file")]
+    print(f"reactions  paused_all={cfg['paused_all']}")
+    if not reactive:
+        print("  (no event/file-triggered tasks loaded)")
+    for n, typ, src in reactive:
+        is_paused = cfg["paused_all"] or n in cfg["paused_tasks"]
+        print(f"  [{'PAUSED' if is_paused else ' on   '}] {n:30} {typ}:{src}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="agentc", description="AI agent team orchestration")
     p.add_argument("--agents-dir", default=_default("configs", "agents"))
@@ -230,6 +274,14 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("-n", type=int, default=15)
     sp.add_argument("--json", action="store_true")
     sp.set_defaults(func=cmd_runs)
+
+    sp = sub.add_parser("reactions",
+                        help="list/pause/resume event- & file-triggered tasks "
+                             "(so adding a target won't auto-enumerate/spider)")
+    sp.add_argument("action", nargs="?", default="list",
+                    choices=["list", "pause", "resume", "pause-all", "resume-all"])
+    sp.add_argument("task", nargs="?", help="task name (for pause/resume)")
+    sp.set_defaults(func=cmd_reactions)
     return p
 
 

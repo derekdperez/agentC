@@ -11,6 +11,7 @@ Responsibilities:
 
 from __future__ import annotations
 
+import json
 import logging
 import os
 import threading
@@ -40,6 +41,7 @@ class WorkflowEngine:
         self.mock_agents = mock_agents
 
         self.store = StateStore(state_dir)
+        self._state_dir = state_dir
         self.bus = EventBus()
         self.scheduler = Scheduler()
         self.watcher = make_watcher()
@@ -193,7 +195,7 @@ class WorkflowEngine:
                     self.scheduler.add_interval(t.interval, lambda n=name: self._run_task_async(n))
                     log.info("scheduled %r every %ss", name, t.interval)
             elif t.type == "event":
-                self.bus.subscribe(t.event, lambda ev, n=name: self._run_task_async(n, ev))
+                self.bus.subscribe(t.event, lambda ev, n=name: self._run_triggered(n, ev))
                 log.info("task %r subscribed to event %r", name, t.event)
             elif t.type == "file":
                 watch_path = resolve_path(t.path)
@@ -216,7 +218,31 @@ class WorkflowEngine:
             self._trigger_times[key] = now
         event = self.emit("file." + kind, {"path": filepath, "kind": kind,
                           "filename": filepath.rsplit("/", 1)[-1]}, source="watcher")
+        if self._reactive_blocked(task_name):
+            log.info("reactive task %r paused — not firing for %s", task_name, filepath)
+            return
         self._run_task_async(task_name, event)
+
+    def _run_triggered(self, task_name: str, event=None) -> None:
+        """Run an event-triggered task unless its reaction is currently paused."""
+        if self._reactive_blocked(task_name):
+            log.info("reactive task %r paused — not firing", task_name)
+            return
+        self._run_task_async(task_name, event)
+
+    def _reactive_blocked(self, task_name: str) -> bool:
+        """True if this event/file-triggered task is paused via
+        ``<state_dir>/reactive_tasks.json`` ({"paused_all": bool,
+        "paused_tasks": [...]}). Re-read each call so toggles take effect
+        immediately without an engine restart. Ad-hoc ``run_task`` bypasses it."""
+        try:
+            with open(os.path.join(self._state_dir, "reactive_tasks.json")) as fh:
+                cfg = json.load(fh)
+        except (OSError, ValueError):
+            return False
+        if cfg.get("paused_all"):
+            return True
+        return task_name in (cfg.get("paused_tasks") or [])
 
     # ------------------------------------------------------------------ #
     # Daemon loop

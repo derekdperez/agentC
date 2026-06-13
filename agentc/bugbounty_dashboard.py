@@ -1069,76 +1069,124 @@ def render_assets_panel(assets, targets) -> str:
                  head_buttons=head, filter_for=False)
 
 
-def render_requests_panel(summary) -> str:
-    # Body is a client-side virtualized table fed by /api/requests (no cap).
-    headers = ["status", "domain", "url", "source", "when"]
-    sc = summary["completed_by_status"]
-    sc_txt = " ".join(f"{k}:{v}" for k, v in sorted(sc.items()))
-    sub = (f'pending <b>{summary["pending"]}</b> · ready <b>{summary["ready"]}</b> · '
-           f'completed <b>{summary["completed_total"]}</b> ({e(sc_txt)})')
-    note = (f'<span class="count" style="padding:0 6px">{sub}</span>'
+def request_counts_html(summary, qtotals) -> str:
+    """Clean queue summary for the consolidated Requests panel header."""
+    return (f'<span class="badge run" title="queued, awaiting a rate slot">'
+            f'{qtotals.get("pending", 0)} pending</span> '
+            f'<span class="badge ok" title="rate slot granted, awaiting send">'
+            f'{qtotals.get("ready", 0)} ready</span> '
+            f'<span class="badge mut" title="sent / fetched">'
+            f'{summary["completed_total"]} completed</span>')
+
+
+def render_requests_panel(summary, queue=None, qtotals=None,
+                          paused=False, metrics=None) -> str:
+    """Consolidated Requests + Queue panel: one virtualized grid showing both
+    queued (pending/ready) and completed requests, with a clean queue-count
+    summary, pause, and per-item delete (queued rows only)."""
+    headers = ["", "status", "domain", "url", "source", "when"]
+    qtotals = qtotals or {}
+    pause_cls = "bad" if paused else ""
+    pause_lbl = "Resume queue" if paused else "Pause queue"
+    total = qtotals.get("pending", 0) + qtotals.get("ready", 0) + summary["completed_total"]
+    head = (f'<span id="req-counts" class="count">{request_counts_html(summary, qtotals)}</span> '
+            f'<button class="mini {pause_cls}" id="q-pause">{pause_lbl}</button> '
+            f'<button class="mini bad" id="q-del" disabled>Delete Selected</button> '
             '<input id="reqq" class="filter" placeholder="search…" '
             'spellcheck="false" autocomplete="off">')
-    return panel("requests", "Requests", summary["completed_total"],
+    return panel("requests", "Requests", total,
                  table("tbl-requests", headers, [], None),
-                 head_buttons=note, filter_for=False)
+                 head_buttons=head, filter_for=False)
 
 
-def render_activity_panel(paths, eng, rate, pend_by_dom, runs) -> str:
-    headers = ["task", "status", "started", "duration", "trigger"]
-    rows, meta = [], []
-    from .dashboard import status_badge
+def requests_grid_rows(queue_items, completed) -> list:
+    """Unified rows for the consolidated grid:
+    [key, kind, status, domain, url, source, when_epoch].
+      * queued: key=queue-id, kind/status='pending'|'ready', deletable
+      * done:   key=domain|url|when, kind='done', status=HTTP code"""
+    rows = []
+    for it in queue_items:
+        src = _source_type_label(it.get("source_type", "")) or it.get("source_type", "") or "—"
+        rows.append([it["id"], it["qstatus"], it["qstatus"], it.get("domain", ""),
+                     it.get("url", "") or "", src,
+                     _ts(it.get("created_at", "")) or it.get("mtime", 0)])
+    for c in completed:
+        # request_rows_json(completed) → [status, domain, url, source, when]
+        rows.append([f'{c[1]}|{c[2]}|{c[4]}', "done", c[0], c[1], c[2], c[3], c[4]])
+    return rows
+
+
+def requests_grid_version(summary, queue, qtotals) -> str:
+    return f"{requests_version(summary)}|{queue_version(queue, qtotals)}"
+
+
+def _activity_runs(paths, runs) -> list:
+    """Recent bugbounty runs within the activity window (24h, after last clear)."""
     now = time.time()
-    cleared_before = load_cleared_before(paths)
-    cutoff_24h = now - 86400
-    runs = [r for r in runs
-            if (r.get("started") or r.get("finished") or 0) > max(cleared_before, cutoff_24h)]
-    for r in runs:
-        started = r.get("started", 0)
-        finished = r.get("finished")
-        if finished:
-            dur = fmt_dur(finished - started)
-        elif started:
-            dur = (f'<span class="runtime" data-since="{started}">'
-                   f'{fmt_dur(now - started)}</span>')
-        else:
-            dur = "—"
+    floor = max(load_cleared_before(paths), now - 86400)
+    return [r for r in runs
+            if (r.get("started") or r.get("finished") or 0) > floor]
+
+
+def activity_rows_json(paths, runs) -> list:
+    """Compact rows: [task, status, started_epoch, finished_epoch, trigger, run_id]."""
+    rows = []
+    for r in _activity_runs(paths, runs):
         rows.append([
-            e(r.get("task", "")), status_badge(r.get("status", "")),
-            fmt_ts(started), dur, e(r.get("trigger", "")),
+            r.get("task", ""), r.get("status", ""),
+            r.get("started", 0) or 0, r.get("finished", 0) or 0,
+            r.get("trigger", ""), r.get("id", ""),
         ])
-        meta.append({"kind": "run", "run": r.get("id", ""), "_class": "rrow"})
-    head = '<button class="mini" data-act="clear-runs">Clear</button>'
-    return panel("activity", "Activity", len(runs),
-                 table("tbl-activity", headers, rows, meta),
-                 head_buttons=head, filter_for="tbl-activity")
+    return rows
+
+
+def activity_version(paths, runs) -> str:
+    rs = _activity_runs(paths, runs)
+    newest = max((r.get("finished") or r.get("started") or 0 for r in rs), default=0)
+    return f"act:{len(rs)}:{int(newest)}"
+
+
+def render_activity_panel(paths=None, eng=None, rate=None, pend_by_dom=None, runs=None) -> str:
+    # Body is a client-side virtualized table fed by /api/activity.
+    headers = ["task", "status", "started", "duration", "trigger"]
+    n = len(_activity_runs(paths, runs or [])) if paths else 0
+    head = ('<button class="mini" data-act="clear-runs">Clear</button> '
+            '<input id="actq" class="filter" placeholder="search…" '
+            'spellcheck="false" autocomplete="off">')
+    return panel("activity", "Activity", n,
+                 table("tbl-activity", headers, [], None),
+                 head_buttons=head, filter_for=False)
 
 
 _FEED_LEVEL = {'ok': 'info', 'running': 'info', 'failed': 'error', 'fail': 'error',
                'interrupted': 'warning', 'skipped': 'debug'}
 
-def render_feed_panel(feed) -> str:
+def feed_rows_json(feed) -> list:
+    """Compact rows: [time_epoch, task, status, text, level]."""
+    return [[f["time"], f["task"], f["status"], (f["text"] or "")[:200],
+             _FEED_LEVEL.get(f["status"], "info")] for f in feed]
+
+
+def feed_version(feed) -> str:
+    newest = max((f["time"] for f in feed), default=0)
+    return f"fd:{len(feed)}:{int(newest)}"
+
+
+def render_feed_panel(feed=None) -> str:
+    # Body is a client-side virtualized table fed by /api/feed; the level select
+    # filters client-side via a VTable scope predicate.
     headers = ["time", "task", "", "activity"]
-    rows, meta = [], []
-    for f in feed:
-        cls = {"ok": "ok", "fail": "bad", "running": "run",
-               "interrupted": "warn", "skipped": "mut"}.get(f["status"], "mut")
-        rows.append([
-            fmt_ts(f["time"]),
-            f'<span class="badge mut">{e(f["task"])}</span>',
-            badge("●", cls),
-            f'<span title="{e(f["text"])}">{e(f["text"][:200])}</span>',
-        ])
-        meta.append({"level": _FEED_LEVEL.get(f["status"], "info")})
     head = ('<select id="feedlevel" class="logsel" title="minimum log level">'
             '<option value="debug">all levels</option>'
             '<option value="info">info+</option>'
             '<option value="warning">warning+</option>'
             '<option value="error">errors only</option>'
-            '</select>')
-    return panel("feed", "Activity feed", len(feed),
-                 table("tbl-feed", headers, rows, meta),
-                 head_buttons=head, filter_for="tbl-feed")
+            '</select>'
+            '<input id="feedq" class="filter" placeholder="search…" '
+            'spellcheck="false" autocomplete="off">')
+    return panel("feed", "Activity feed", len(feed or []),
+                 table("tbl-feed", headers, [], None),
+                 head_buttons=head, filter_for=False)
 
 
 def _rate_last(rate, d):
@@ -1390,15 +1438,16 @@ def render_page(paths: Paths) -> str:
     qtotals = queue_totals()
     metrics = load_request_metrics()
 
+    # Activity + Feed consolidated into the single Activity panel (run rows;
+    # click a row for its feed lines). Requests + Queue consolidated into the
+    # single Requests panel (request data + queue summary + per-item delete).
     panels = (
-        render_feed_panel(feed)
-        + render_targets_panel(targets)
+        render_targets_panel(targets)
         + render_subdomains_panel(subs)
         + render_assets_panel(assets, targets)
-        + render_requests_panel(summary)
+        + render_requests_panel(summary, queue, qtotals, paused, metrics)
         + render_activity_panel(paths, eng, rate, pend_by_dom, runs)
         + render_rate_panel(rate, pend_by_dom)
-        + render_queue_panel(queue, paused, metrics, qtotals)
     )
     stats = _header_stats(targets, subs, assets, summary, eng, paused)
     alive = bool(eng.get("active") or eng.get("running"))
@@ -1415,6 +1464,8 @@ def render_page(paths: Paths) -> str:
     html = html.replace("__REQVER__", json.dumps(requests_version(summary)))
     html = html.replace("__QUEUEVER__", json.dumps(queue_version(queue, qtotals)))
     html = html.replace("__RATEVER__", json.dumps(rate_version(rate, pend_by_dom)))
+    html = html.replace("__FEEDVER__", json.dumps(feed_version(feed)))
+    html = html.replace("__ACTVER__", json.dumps(activity_version(paths, runs)))
     html = html.replace("__ISPAUSED__", "true" if paused else "false")
     return html
 
@@ -1537,6 +1588,16 @@ def make_handler(paths: Paths):
                 self._json(200, {"version": rate_version(rate, pend_by_dom),
                                  "rows": rate_rows_json(rate, pend_by_dom)})
                 return
+            if parts[:2] == ["api", "feed"]:
+                feed = load_feed(paths)
+                self._json(200, {"version": feed_version(feed),
+                                 "rows": feed_rows_json(feed)})
+                return
+            if parts[:2] == ["api", "activity"]:
+                runs = load_bb_runs(paths)
+                self._json(200, {"version": activity_version(paths, runs),
+                                 "rows": activity_rows_json(paths, runs)})
+                return
             if parts[:2] == ["api", "refresh"]:
                 tgts = load_targets()
                 subs_list = load_subdomains(tgts)
@@ -1567,10 +1628,8 @@ def make_handler(paths: Paths):
                 ct_html = (f'<span class="badge run" title="pending">{pending_ct}p</span> '
                            f'<span class="badge ok" title="ready">{ready_ct}r</span>')
 
-                feed_html = render_feed_panel(feed)
                 tgts_html = render_targets_panel(tgts)
                 subs_html = render_subdomains_panel(subs_list)
-                act_html = render_activity_panel(paths, eng, rate, pend_by_dom, runs)
 
                 self._json(200, {
                     "gen_epoch": int(time.time()),
@@ -1580,14 +1639,14 @@ def make_handler(paths: Paths):
                     "queue_ver": queue_version(queue, qtotals),
                     "queue_count": qtotals["total"],
                     "rate_ver": rate_version(rate, pend_by_dom),
+                    "feed_ver": feed_version(feed),
+                    "activity_ver": activity_version(paths, runs),
                     "stats": _header_stats(tgts, subs_list, assets, summary, eng, paused),
                     "metrics_html": _queue_metrics_html(metrics),
                     "queue_counts_html": ct_html,
                     "panels": {
-                        "feed":       {"count": _count(feed_html),   "tbody": _tbody(feed_html)},
                         "targets":    {"count": _count(tgts_html),   "tbody": _tbody(tgts_html)},
                         "subdomains": {"count": _count(subs_html),   "tbody": _tbody(subs_html)},
-                        "activity":   {"count": _count(act_html),    "tbody": _tbody(act_html)},
                     },
                 })
                 return
@@ -1950,7 +2009,7 @@ function applyFilter(tbl, q){
     r.style.display = (!q || r.textContent.toLowerCase().indexOf(q)>=0) ? '' : 'none';
   });
 }
-var VIRTUAL_TABLES={'tbl-assets':1, 'tbl-requests':1, 'tbl-queue':1, 'tbl-rate':1};  // sorted/filtered by VTable, not the DOM helpers
+var VIRTUAL_TABLES={'tbl-assets':1, 'tbl-requests':1, 'tbl-queue':1, 'tbl-rate':1, 'tbl-feed':1, 'tbl-activity':1};  // sorted/filtered by VTable, not the DOM helpers
 document.querySelectorAll('table.dt').forEach(function(tbl){
   if(VIRTUAL_TABLES[tbl.id]) return;  // virtual tables manage their own header sort
   var ths=tbl.tHead.rows[0].cells;
@@ -1980,7 +2039,7 @@ document.querySelectorAll('.pbody').forEach(function(sc){
 /* ============================================================= *
  *  Virtualized tables (assets, requests) + cross-panel selection *
  * ============================================================= */
-var ASSETSVER=__ASSETSVER__, REQVER=__REQVER__, QUEUEVER=__QUEUEVER__, RATEVER=__RATEVER__;
+var ASSETSVER=__ASSETSVER__, REQVER=__REQVER__, QUEUEVER=__QUEUEVER__, RATEVER=__RATEVER__, FEEDVER=__FEEDVER__, ACTVER=__ACTVER__;
 
 /* client-side mirrors of the server formatters so look/feel matches */
 function fmtSize(n){ n=Number(n); if(!isFinite(n)) return '—';
@@ -2172,6 +2231,49 @@ var QueueVT=VTable({ tableId:'tbl-queue', scrollId:'scroll-queue', select:false,
   onCheck:updateQueueDelBtn
 });
 
+/* feed row: [time_epoch, task, status, text, level] */
+var FEED_LEVEL_ORD={debug:0,info:1,warning:2,error:3};
+var feedMinLevel=FEED_LEVEL_ORD[L('feedlevel')]!=null?L('feedlevel'):'debug';
+function feedScope(){
+  var minv=FEED_LEVEL_ORD[feedMinLevel]||0;
+  return function(r){ var lv=FEED_LEVEL_ORD[r[4]]; return lv==null || lv>=minv; };
+}
+var FeedVT=VTable({ tableId:'tbl-feed', scrollId:'scroll-feed', select:false,
+  cols:[
+    {h:'time', num:true, get:function(r){return r[0];}, render:function(r){return fmtTs(r[0]);}},
+    {h:'task', get:function(r){return r[1];}, render:function(r){return '<span class="badge mut">'+esc(r[1])+'</span>';}},
+    {h:'',     get:function(r){return r[2];}, render:function(r){
+        var cls={ok:'ok',fail:'bad',running:'run',interrupted:'warn',skipped:'mut'}[r[2]]||'mut';
+        return '<span class="badge '+cls+'">●</span>'; }},
+    {h:'activity', get:function(r){return r[3];}, render:function(r){return '<span title="'+esc(r[3])+'">'+esc(r[3])+'</span>';}}
+  ],
+  key:function(r){return r[0]+'|'+r[1]+'|'+r[3];},
+  search:function(r){return [r[1],r[3]].join(' ');},
+  sort:{i:0,dir:'desc'},
+  onCount:function(n){ var c=document.getElementById('count-feed'); if(c) c.textContent=n; }
+});
+
+/* activity row: [task, status, started_epoch, finished_epoch, trigger, run_id] */
+var ActivityVT=VTable({ tableId:'tbl-activity', scrollId:'scroll-activity', select:false,
+  cols:[
+    {h:'task',   get:function(r){return r[0];}},
+    {h:'status', get:function(r){return r[1];}, render:function(r){
+        var cls={success:'ok',failed:'bad',running:'run',interrupted:'warn',skipped:'mut'}[r[1]]||'mut';
+        return '<span class="badge '+cls+'">'+esc(r[1]||'?')+'</span>'; }},
+    {h:'started',num:true, get:function(r){return r[2];}, render:function(r){return fmtTs(r[2]);}},
+    {h:'duration', num:true, get:function(r){return (r[3]||Date.now()/1000)-r[2];}, render:function(r){
+        if(r[3]) return ((r[3]-r[2]).toFixed(1))+'s';
+        return r[2]?'<span class="runtime" data-since="'+r[2]+'">…</span>':'—'; }},
+    {h:'trigger', get:function(r){return r[4];}}
+  ],
+  key:function(r){return r[5];},
+  search:function(r){return [r[0],r[1],r[4]].join(' ');},
+  sort:{i:2,dir:'desc'},
+  rowAttrs:function(r){return ' data-run="'+esc(r[5])+'"';},
+  onRowClick:function(key,tr){ if(key){ openRunDetail(key); return true; } },
+  onCount:function(n){ var c=document.getElementById('count-activity'); if(c) c.textContent=n; }
+});
+
 /* ---- cross-panel selection: targets ⇒ subdomain filter ⇒ asset scope ---- */
 function clearSel(tbl){ if(!tbl) return;
   [].forEach.call(tbl.querySelectorAll('tr.selected'), function(r){ r.classList.remove('selected'); }); }
@@ -2269,6 +2371,14 @@ function toggleSubRow(tr){
   if(queueq){ var qqv=L('queueq'); if(qqv) queueq.value=qqv;
     queueq.addEventListener('input', function(){ S('queueq', queueq.value); if(QueueVT) QueueVT.setQuery(queueq.value); });
     queueq.addEventListener('dblclick', function(ev){ ev.stopPropagation(); }); }
+  var feedq=document.getElementById('feedq');
+  if(feedq){ var fqv=L('feedq'); if(fqv) feedq.value=fqv;
+    feedq.addEventListener('input', function(){ S('feedq', feedq.value); if(FeedVT) FeedVT.setQuery(feedq.value); });
+    feedq.addEventListener('dblclick', function(ev){ ev.stopPropagation(); }); }
+  var actq=document.getElementById('actq');
+  if(actq){ var aqv=L('actq'); if(aqv) actq.value=aqv;
+    actq.addEventListener('input', function(){ S('actq', actq.value); if(ActivityVT) ActivityVT.setQuery(actq.value); });
+    actq.addEventListener('dblclick', function(ev){ ev.stopPropagation(); }); }
   var subq=document.getElementById('subq');
   if(subq){ var ssv=L('subq'); if(ssv) subq.value=ssv;
     subq.addEventListener('input', function(){ S('subq', subq.value); applySubView(); });
@@ -2278,30 +2388,16 @@ function toggleSubRow(tr){
     clearSel(document.getElementById('tbl-targets')); selectTarget(null); });
 })();
 
-/* feed level filter */
-var LEVEL_ORD={debug:0,info:1,warning:2,error:3};
-function applyFeedLevel(minLevel){
-  var minVal=LEVEL_ORD[minLevel]!=null?LEVEL_ORD[minLevel]:0;
-  var tbl=document.getElementById('tbl-feed'); if(!tbl||!tbl.tBodies[0]) return;
-  [].forEach.call(tbl.tBodies[0].rows,function(r){
-    if(r.classList.contains('empty')) return;
-    var lvl=r.getAttribute('data-level')||'info';
-    if(LEVEL_ORD[lvl]!=null&&LEVEL_ORD[lvl]<minVal) r.style.display='none';
-  });
-}
+/* feed level filter — drives the FeedVT scope predicate */
 (function(){
   var sel=document.getElementById('feedlevel'); if(!sel) return;
-  var saved=L('feedlevel'); if(saved) sel.value=saved;
+  sel.value=feedMinLevel;
+  if(FeedVT) FeedVT.setScope(feedScope());
   sel.addEventListener('change',function(){
-    var tbl=document.getElementById('tbl-feed');
-    var qi=document.querySelector('input.filter[data-t="tbl-feed"]');
-    if(tbl&&qi) applyFilter(tbl,qi.value);
-    S('feedlevel',sel.value); applyFeedLevel(sel.value);
+    feedMinLevel=sel.value; S('feedlevel',sel.value);
+    if(FeedVT) FeedVT.setScope(feedScope());
   });
   sel.addEventListener('dblclick',function(ev){ ev.stopPropagation(); });
-  applyFeedLevel(sel.value);
-  var qi=document.querySelector('input.filter[data-t="tbl-feed"]');
-  if(qi) qi.addEventListener('input',function(){ applyFeedLevel(sel.value); });
 })();
 
 /* restore persisted selection/scope, then load the virtual data */
@@ -2324,6 +2420,8 @@ loadVT(AssetsVT, '/api/assets', ASSETSVER, 'agentcbb:assets');
 loadVT(ReqVT, '/api/requests', REQVER, 'agentcbb:requests');
 loadVT(RateVT, '/api/rate', RATEVER, 'agentcbb:rate');
 loadVT(QueueVT, '/api/queue', QUEUEVER, 'agentcbb:queue');
+loadVT(FeedVT, '/api/feed', FEEDVER, 'agentcbb:feed');
+loadVT(ActivityVT, '/api/activity', ACTVER, 'agentcbb:activity');
 
 /* ---- resize + collapse + reorder panels ---- */
 var panels=[].slice.call(document.querySelectorAll('.panel'));
@@ -2710,6 +2808,10 @@ function applyRefresh(data){
     RATEVER=data.rate_ver; loadVT(RateVT,'/api/rate',RATEVER,'agentcbb:rate'); }
   if(data.queue_ver && data.queue_ver!==QUEUEVER){
     QUEUEVER=data.queue_ver; loadVT(QueueVT,'/api/queue',QUEUEVER,'agentcbb:queue'); }
+  if(data.feed_ver && data.feed_ver!==FEEDVER){
+    FEEDVER=data.feed_ver; loadVT(FeedVT,'/api/feed',FEEDVER,'agentcbb:feed'); }
+  if(data.activity_ver && data.activity_ver!==ACTVER){
+    ACTVER=data.activity_ver; loadVT(ActivityVT,'/api/activity',ACTVER,'agentcbb:activity'); }
 }
 
 function applyPanelBody(panelId, data){
@@ -2745,10 +2847,6 @@ function applyPanelBody(panelId, data){
   if(fi && fi.value) applyFilter(tbl, fi.value);
   /* panel-specific post-update hooks */
   if(panelId==='subdomains') applySubView();
-  if(panelId==='feed'){
-    var fl=document.getElementById('feedlevel');
-    if(fl) applyFeedLevel(fl.value);
-  }
 }
 
 pause.addEventListener('change', function(){ S('paused', pause.checked); schedule(); });
