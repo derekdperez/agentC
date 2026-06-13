@@ -1080,14 +1080,57 @@ def render_assets_panel(assets, targets) -> str:
                  head_buttons=head, filter_for=False)
 
 
+def _scan_request_rates() -> dict:
+    """Completed-request throughput from completed/* file mtimes: req/s over the
+    last 3s ('now'), and per-second averages over the last 1 min and 10 min."""
+    now = time.time()
+    cut3, cut60, cut600 = now - 3.0, now - 60.0, now - 600.0
+    comp = os.path.join(requests_dir(), "completed")
+    n3 = n60 = n600 = 0
+    try:
+        for st_dir in os.listdir(comp):
+            spath = os.path.join(comp, st_dir)
+            if not os.path.isdir(spath):
+                continue
+            try:
+                names = os.listdir(spath)
+            except OSError:
+                continue
+            for fname in names:
+                if not fname.endswith(".json"):
+                    continue
+                try:
+                    mt = os.path.getmtime(os.path.join(spath, fname))
+                except OSError:
+                    continue
+                if mt < cut600:
+                    continue
+                n600 += 1
+                if mt >= cut60:
+                    n60 += 1
+                if mt >= cut3:
+                    n3 += 1
+    except OSError:
+        pass
+    return {"now": round(n3 / 3.0, 1), "m1": round(n60 / 60.0, 2),
+            "m10": round(n600 / 600.0, 2)}
+
+
+def request_rates() -> dict:
+    return _cached("req_rates", 2.0, _scan_request_rates)
+
+
 def request_counts_html(summary, qtotals) -> str:
-    """Clean queue summary for the consolidated Requests panel header."""
+    """Clean queue summary + throughput for the consolidated Requests header."""
+    r = request_rates()
     return (f'<span class="badge run" title="queued, awaiting a rate slot">'
             f'{qtotals.get("pending", 0)} pending</span> '
             f'<span class="badge ok" title="rate slot granted, awaiting send">'
             f'{qtotals.get("ready", 0)} ready</span> '
             f'<span class="badge mut" title="sent / fetched">'
-            f'{summary["completed_total"]} completed</span>')
+            f'{summary["completed_total"]} completed</span> '
+            f'<span class="count" title="completed req/s: now (3s) · avg last 1m · avg last 10m">'
+            f'&#9889; {r["now"]}/s now &middot; {r["m1"]}/s 1m &middot; {r["m10"]}/s 10m</span>')
 
 
 def render_requests_panel(summary, queue=None, qtotals=None,
@@ -1102,6 +1145,7 @@ def render_requests_panel(summary, queue=None, qtotals=None,
     total = qtotals.get("pending", 0) + qtotals.get("ready", 0) + summary["completed_total"]
     head = (f'<span id="req-counts" class="count">{request_counts_html(summary, qtotals)}</span> '
             f'<button class="mini {pause_cls}" id="q-pause">{pause_lbl}</button> '
+            f'<button class="mini" id="reqdone" title="show / hide completed requests (queued only by default)">show completed</button> '
             f'<button class="mini" id="q-all" title="select/clear all queued (deletable) requests in view">All</button> '
             f'<button class="mini bad" id="q-del" disabled>Delete Selected</button> '
             '<input id="reqq" class="filter" placeholder="search…" '
@@ -2362,6 +2406,11 @@ var ReqVT=VTable({ tableId:'tbl-requests', scrollId:'scroll-requests', select:fa
   onCheck:updateQueueDelBtn,
   onCount:function(n){ var c=document.getElementById('count-requests'); if(c) c.textContent=n; }
 });
+/* Requests grid hides completed (done) rows by default — show only the live
+   queue (pending/ready) until the user opts in via the 'show completed' button. */
+var reqShowDone = (L('reqshowdone')===true);
+function reqScope(){ return reqShowDone ? null : function(r){ return r[1]!=='done'; }; }
+if(ReqVT) ReqVT.setScope(reqScope());
 
 /* rate row: [domain, queued, last_epoch] */
 var RateVT=VTable({ tableId:'tbl-rate', scrollId:'scroll-rate', select:false,
@@ -3070,6 +3119,12 @@ document.getElementById('reload').addEventListener('click', function(){ location
 (function(){
   var qAllBtn=document.getElementById('q-all');
   if(qAllBtn) qAllBtn.addEventListener('click', function(){ if(ReqVT) ReqVT.toggleAll(); });
+  var rdone=document.getElementById('reqdone');
+  function syncDone(){ if(rdone) rdone.textContent=reqShowDone?'hide completed':'show completed';
+    if(rdone) rdone.className='mini'+(reqShowDone?' bad':''); }
+  syncDone();
+  if(rdone) rdone.addEventListener('click', function(){ reqShowDone=!reqShowDone;
+    S('reqshowdone', reqShowDone); if(ReqVT) ReqVT.setScope(reqScope()); syncDone(); });
   var qpause=document.getElementById('q-pause');
   if(qpause) qpause.addEventListener('click', function(){
     qpause.disabled=true;
