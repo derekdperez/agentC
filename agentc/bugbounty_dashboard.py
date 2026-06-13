@@ -995,51 +995,62 @@ def _http_badge(code) -> str:
     return badge(s or "?", cls)
 
 
-def render_targets_panel(targets) -> str:
+def targets_rows_json(targets) -> list:
+    """Compact rows: [domain, status, program, tags[], n_sub, n_assets,
+    requested, discovered, created_epoch]. Badges/chips/action buttons render
+    client-side (TargetsVT)."""
+    return [[t["domain"], t["status"], t["program"] or "", list(t["tags"] or []),
+             t["n_sub"], t["n_assets"], t["requested"], t["discovered"],
+             _ts(t["created_at"]) or 0] for t in targets]
+
+
+def targets_version(targets) -> str:
+    return (f"tg:{len(targets)}:{sum(t['n_assets'] for t in targets)}:"
+            f"{sum(t['n_sub'] for t in targets)}:{sum(t['requested'] for t in targets)}")
+
+
+def render_targets_panel(targets=None) -> str:
+    # Body is a client-side virtualized table fed by /api/targets.
     headers = ["domain", "status", "program", "tags", "subs", "assets",
                "requested", "discovered", "created", ""]
-    rows, meta = [], []
-    for t in targets:
-        acts = (f'<span class="act" data-domain="{e(t["domain"])}">'
-                f'<button class="mini" data-act="edit" data-domain="{e(t["domain"])}">edit</button>'
-                f'<button class="mini" data-act="probe" data-domain="{e(t["domain"])}">re-probe</button>'
-                f'<button class="mini bad" data-act="del" data-domain="{e(t["domain"])}">del</button>'
-                f'</span>')
-        rows.append([
-            e(t["domain"]), _status_badge(t["status"]), e(t["program"] or "—"),
-            _tag_chips(t["tags"]), t["n_sub"], t["n_assets"],
-            t["requested"], t["discovered"], fmt_ts(_ts(t["created_at"])), acts,
-        ])
-        meta.append({"kind": "target", "domain": t["domain"],
-                     "_class": "selectable"})
     buttons = ('<button class="add" data-act="add-target">+ add target</button>'
-               '<button class="mini" data-act="import-targets" style="margin-left:6px">import</button>')
-    return panel("targets", "Targets", len(targets),
-                 table("tbl-targets", headers, rows, meta), head_buttons=buttons)
+               '<button class="mini" data-act="import-targets" style="margin-left:6px">import</button>'
+               '<input id="tgtq" class="filter" placeholder="search…" '
+               'spellcheck="false" autocomplete="off">')
+    return panel("targets", "Targets", len(targets or []),
+                 table("tbl-targets", headers, [], None),
+                 head_buttons=buttons, filter_for=False)
 
 
-def render_subdomains_panel(subs) -> str:
-    headers = ["target", "hostname", "assets", "html", "scripts", "css",
-               "img", "critical", "last seen"]
-    rows, meta = [], []
+def subs_rows_json(subs) -> list:
+    """Compact rows: [target, hostname, n_assets, html, scripts, css, img,
+    critical, last_epoch]."""
+    out = []
     for s in subs:
         c = s["counts"]
-        rows.append([
-            e(s["target"]), e(s["hostname"]), s["n_assets"],
-            c["html"], c["scripts"], c["stylesheets"], c["images"], c["critical"],
-            fmt_ts(s["last"]),
-        ])
-        # Selecting a subdomain row scopes the Assets panel to that host.
-        meta.append({"kind": "sub", "target": s["target"], "host": s["hostname"],
-                     "_class": "selectable"})
+        out.append([s["target"], s["hostname"], s["n_assets"], c["html"],
+                    c["scripts"], c["stylesheets"], c["images"], c["critical"],
+                    s["last"]])
+    return out
+
+
+def subs_version(subs) -> str:
+    newest = max((s["last"] for s in subs), default=0)
+    return f"sb:{len(subs)}:{sum(s['n_assets'] for s in subs)}:{int(newest)}"
+
+
+def render_subdomains_panel(subs=None) -> str:
+    # Body is a client-side virtualized table fed by /api/subdomains.
+    headers = ["target", "hostname", "assets", "html", "scripts", "css",
+               "img", "critical", "last seen"]
     head = ('<span class="filterbar" id="subfilter" style="display:none">'
             'filtered: <b id="subfilterval"></b>'
             '<button class="mini" id="subfilterclear">&#10005; clear</button>'
             '</span>'
             '<input id="subq" class="filter" placeholder="search…" '
             'spellcheck="false" autocomplete="off">')
-    return panel("subdomains", "Subdomains", len(subs),
-                 table("tbl-subdomains", headers, rows, meta),
+    return panel("subdomains", "Subdomains", len(subs or []),
+                 table("tbl-subdomains", headers, [], None),
                  head_buttons=head, filter_for=False)
 
 
@@ -1466,6 +1477,8 @@ def render_page(paths: Paths) -> str:
     html = html.replace("__RATEVER__", json.dumps(rate_version(rate, pend_by_dom)))
     html = html.replace("__FEEDVER__", json.dumps(feed_version(feed)))
     html = html.replace("__ACTVER__", json.dumps(activity_version(paths, runs)))
+    html = html.replace("__TGTVER__", json.dumps(targets_version(targets)))
+    html = html.replace("__SUBVER__", json.dumps(subs_version(subs)))
     html = html.replace("__ISPAUSED__", "true" if paused else "false")
     return html
 
@@ -1558,7 +1571,16 @@ def make_handler(paths: Paths):
                            detail or {"errors": ["run not found"]})
                 return
             if parts[:2] == ["api", "targets"]:
-                self._json(200, {"items": load_targets()})
+                tgts = load_targets()
+                # `items` kept for the edit modal; `rows`/`version` feed TargetsVT.
+                self._json(200, {"version": targets_version(tgts),
+                                 "rows": targets_rows_json(tgts),
+                                 "items": tgts})
+                return
+            if parts[:2] == ["api", "subdomains"]:
+                subs = load_subdomains(load_targets())
+                self._json(200, {"version": subs_version(subs),
+                                 "rows": subs_rows_json(subs)})
                 return
             if parts[:2] == ["api", "assets"]:
                 assets = load_assets()
@@ -1617,17 +1639,6 @@ def make_handler(paths: Paths):
                 paused = is_paused()
                 queue = load_queue()
                 qtotals = queue_totals()
-                def _tbody(html: str) -> str:
-                    s = html.find("<tbody>") + 7
-                    ee = html.rfind("</tbody>")
-                    return html[s:ee] if s > 7 and ee >= 0 else ""
-
-                def _count(html: str) -> str:
-                    m = re.search(r'class="count"[^>]*>([^<]+)', html)
-                    return m.group(1).strip() if m else "0"
-
-                tgts_html = render_targets_panel(tgts)
-                subs_html = render_subdomains_panel(subs_list)
 
                 self._json(200, {
                     "gen_epoch": int(time.time()),
@@ -1638,11 +1649,9 @@ def make_handler(paths: Paths):
                     "rate_ver": rate_version(rate, pend_by_dom),
                     "feed_ver": feed_version(feed),
                     "activity_ver": activity_version(paths, runs),
+                    "tgt_ver": targets_version(tgts),
+                    "sub_ver": subs_version(subs_list),
                     "stats": _header_stats(tgts, subs_list, assets, summary, eng, paused),
-                    "panels": {
-                        "targets":    {"count": _count(tgts_html),   "tbody": _tbody(tgts_html)},
-                        "subdomains": {"count": _count(subs_html),   "tbody": _tbody(subs_html)},
-                    },
                 })
                 return
             self._json(404, {"errors": ["not found"]})
@@ -2004,7 +2013,7 @@ function applyFilter(tbl, q){
     r.style.display = (!q || r.textContent.toLowerCase().indexOf(q)>=0) ? '' : 'none';
   });
 }
-var VIRTUAL_TABLES={'tbl-assets':1, 'tbl-requests':1, 'tbl-queue':1, 'tbl-rate':1, 'tbl-feed':1, 'tbl-activity':1};  // sorted/filtered by VTable, not the DOM helpers
+var VIRTUAL_TABLES={'tbl-assets':1, 'tbl-requests':1, 'tbl-rate':1, 'tbl-feed':1, 'tbl-activity':1, 'tbl-targets':1, 'tbl-subdomains':1};  // every grid is virtualized
 document.querySelectorAll('table.dt').forEach(function(tbl){
   if(VIRTUAL_TABLES[tbl.id]) return;  // virtual tables manage their own header sort
   var ths=tbl.tHead.rows[0].cells;
@@ -2034,7 +2043,7 @@ document.querySelectorAll('.pbody').forEach(function(sc){
 /* ============================================================= *
  *  Virtualized tables (assets, requests) + cross-panel selection *
  * ============================================================= */
-var ASSETSVER=__ASSETSVER__, REQVER=__REQVER__, RATEVER=__RATEVER__, FEEDVER=__FEEDVER__, ACTVER=__ACTVER__;
+var ASSETSVER=__ASSETSVER__, REQVER=__REQVER__, RATEVER=__RATEVER__, FEEDVER=__FEEDVER__, ACTVER=__ACTVER__, TGTVER=__TGTVER__, SUBVER=__SUBVER__;
 
 /* client-side mirrors of the server formatters so look/feel matches */
 function fmtSize(n){ n=Number(n); if(!isFinite(n)) return '—';
@@ -2134,6 +2143,7 @@ function VTable(opt){
   // checkbox helpers (queue)
   V.checkedKeys=function(){ return Object.keys(V.checked); };
   V.clearChecked=function(){ V.checked={}; render(); if(opt.onCheck) opt.onCheck(V); };
+  V.clearSel=function(){ V.sel=null; S('vsel:'+opt.tableId, null); render(); };
   // Select-all / none over the *currently filtered view*, restricted to rows
   // that are actually checkable (the chk column's chkIf, if any).
   function _chkCol(){ for(var j=0;j<opt.cols.length;j++){ if(opt.cols[j].chk) return opt.cols[j]; } return null; }
@@ -2263,6 +2273,61 @@ var ActivityVT=VTable({ tableId:'tbl-activity', scrollId:'scroll-activity', sele
   onCount:function(n){ var c=document.getElementById('count-activity'); if(c) c.textContent=n; }
 });
 
+function statusBadge(s){ var cls={active:'ok',paused:'warn',archived:'mut'}[s]||'mut';
+  return '<span class="badge '+cls+'">'+esc(s||'?')+'</span>'; }
+function tagChips(tags){ if(!tags||!tags.length) return '—';
+  return tags.map(function(t){ return '<span class="badge mut">'+esc(t)+'</span>'; }).join(' '); }
+
+/* target row: [domain, status, program, tags[], n_sub, n_assets, requested, discovered, created_epoch] */
+var TargetsVT=VTable({ tableId:'tbl-targets', scrollId:'scroll-targets',
+  cols:[
+    {h:'domain',     get:function(r){return r[0];}},
+    {h:'status',     get:function(r){return r[1];}, render:function(r){return statusBadge(r[1]);}},
+    {h:'program',    get:function(r){return r[2];}, render:function(r){return esc(r[2]||'—');}},
+    {h:'tags',       get:function(r){return (r[3]||[]).join(' ');}, render:function(r){return tagChips(r[3]);}},
+    {h:'subs',       num:true, get:function(r){return r[4];}},
+    {h:'assets',     num:true, get:function(r){return r[5];}},
+    {h:'requested',  num:true, get:function(r){return r[6];}},
+    {h:'discovered', num:true, get:function(r){return r[7];}},
+    {h:'created',    num:true, get:function(r){return r[8];}, render:function(r){return fmtTs(r[8]);}},
+    {h:'', get:function(){return '';}, render:function(r){ var d=esc(r[0]);
+        return '<span class="act" data-domain="'+d+'">'
+          +'<button class="mini" data-act="edit" data-domain="'+d+'">edit</button>'
+          +'<button class="mini" data-act="probe" data-domain="'+d+'">re-probe</button>'
+          +'<button class="mini bad" data-act="del" data-domain="'+d+'">del</button></span>'; }}
+  ],
+  key:function(r){return r[0];},
+  search:function(r){return [r[0],r[1],r[2],(r[3]||[]).join(' ')].join(' ');},
+  sort:{i:0,dir:'asc'},
+  rowAttrs:function(r){return ' data-kind="target" data-domain="'+esc(r[0])+'"';},
+  onSelect:function(key){ selectTarget(key||null); },
+  onCount:function(n){ var c=document.getElementById('count-targets'); if(c) c.textContent=n; }
+});
+
+/* subdomain row: [target, hostname, n_assets, html, scripts, css, img, critical, last_epoch] */
+var SubsVT=VTable({ tableId:'tbl-subdomains', scrollId:'scroll-subdomains',
+  cols:[
+    {h:'target',   get:function(r){return r[0];}},
+    {h:'hostname', get:function(r){return r[1];}},
+    {h:'assets',   num:true, get:function(r){return r[2];}},
+    {h:'html',     num:true, get:function(r){return r[3];}},
+    {h:'scripts',  num:true, get:function(r){return r[4];}},
+    {h:'css',      num:true, get:function(r){return r[5];}},
+    {h:'img',      num:true, get:function(r){return r[6];}},
+    {h:'critical', num:true, get:function(r){return r[7];}},
+    {h:'last seen',num:true, get:function(r){return r[8];}, render:function(r){return fmtTs(r[8]);}}
+  ],
+  key:function(r){return r[0]+'||'+r[1];},
+  search:function(r){return [r[0],r[1]].join(' ');},
+  sort:{i:8,dir:'desc'},
+  rowAttrs:function(r){return ' data-kind="sub" data-target="'+esc(r[0])+'" data-host="'+esc(r[1])+'"';},
+  onSelect:function(key){
+    if(key){ var p=key.split('||'); S('sel:sub', key); setAssetScope(p[0], p[1]); }
+    else { S('sel:sub', null); var tg=L('sel:target'); setAssetScope(tg||null, tg?'*':null); }
+  },
+  onCount:function(n){ var c=document.getElementById('count-subdomains'); if(c) c.textContent=n; }
+});
+
 /* ---- cross-panel selection: targets ⇒ subdomain filter ⇒ asset scope ---- */
 function clearSel(tbl){ if(!tbl) return;
   [].forEach.call(tbl.querySelectorAll('tr.selected'), function(r){ r.classList.remove('selected'); }); }
@@ -2295,17 +2360,11 @@ function setAssetScope(target, host){
   if(AssetsVT){ var p=v.split('||'); AssetsVT.setScope(v==='all'?null:assetScopeFn(p[0],p[1])); }
 }
 
-/* subdomain filter: hides rows for other targets; composes with #subq search */
+/* subdomain filter: scope SubsVT to the selected target; #subq search composes
+   on top via SubsVT.setQuery (both applied by the VTable). */
 var subFilter=null;
 function applySubView(){
-  var tbl=document.getElementById('tbl-subdomains'); if(!tbl||!tbl.tBodies[0]) return;
-  var qi=document.getElementById('subq'), q=(qi&&qi.value||'').toLowerCase();
-  [].forEach.call(tbl.tBodies[0].rows, function(r){
-    if(r.classList.contains('empty')) return;
-    var okF=!subFilter || r.getAttribute('data-target')===subFilter;
-    var okT=!q || r.textContent.toLowerCase().indexOf(q)>=0;
-    r.style.display=(okF&&okT)?'':'none';
-  });
+  if(SubsVT) SubsVT.setScope(subFilter?function(r){return r[0]===subFilter;}:null);
   var bar=document.getElementById('subfilter');
   if(bar){ if(subFilter){ document.getElementById('subfilterval').textContent=subFilter; bar.style.display=''; }
     else bar.style.display='none'; }
@@ -2317,19 +2376,6 @@ function selectTarget(domain){
   if(domain){ setSubFilter(domain); setAssetScope(domain,'*'); }
   else { setSubFilter(null); setAssetScope(null,null); }
 }
-function toggleTargetRow(tr){
-  var tbl=tr.closest('table'), dom=tr.getAttribute('data-domain'), was=tr.classList.contains('selected');
-  clearSel(tbl);
-  if(was){ selectTarget(null); }
-  else { tr.classList.add('selected'); selectTarget(dom); }
-}
-function toggleSubRow(tr){
-  var tbl=tr.closest('table'), t=tr.getAttribute('data-target'), h=tr.getAttribute('data-host'),
-      was=tr.classList.contains('selected');
-  clearSel(tbl);
-  if(was){ S('sel:sub', null); var tg=L('sel:target'); setAssetScope(tg||null, tg?'*':null); }
-  else { tr.classList.add('selected'); S('sel:sub', t+'||'+h); setAssetScope(t,h); }
-}
 
 /* controls: asset scope dropdown + the three search boxes */
 (function(){
@@ -2337,8 +2383,7 @@ function toggleSubRow(tr){
   if(asel){
     asel.addEventListener('change', function(){
       var v=asel.value, p=v.split('||'); S('assetscope', v);
-      clearSel(document.getElementById('tbl-targets'));
-      clearSel(document.getElementById('tbl-subdomains'));
+      if(TargetsVT) TargetsVT.clearSel(); if(SubsVT) SubsVT.clearSel();
       S('sel:target', null); S('sel:sub', null); setSubFilter(null);
       if(AssetsVT) AssetsVT.setScope(v==='all'?null:assetScopeFn(p[0],p[1]));
     });
@@ -2366,11 +2411,15 @@ function toggleSubRow(tr){
     actq.addEventListener('dblclick', function(ev){ ev.stopPropagation(); }); }
   var subq=document.getElementById('subq');
   if(subq){ var ssv=L('subq'); if(ssv) subq.value=ssv;
-    subq.addEventListener('input', function(){ S('subq', subq.value); applySubView(); });
+    subq.addEventListener('input', function(){ S('subq', subq.value); if(SubsVT) SubsVT.setQuery(subq.value); });
     subq.addEventListener('dblclick', function(ev){ ev.stopPropagation(); }); }
+  var tgtq=document.getElementById('tgtq');
+  if(tgtq){ var tqv=L('tgtq'); if(tqv) tgtq.value=tqv;
+    tgtq.addEventListener('input', function(){ S('tgtq', tgtq.value); if(TargetsVT) TargetsVT.setQuery(tgtq.value); });
+    tgtq.addEventListener('dblclick', function(ev){ ev.stopPropagation(); }); }
   var sfc=document.getElementById('subfilterclear');
   if(sfc) sfc.addEventListener('click', function(ev){ ev.stopPropagation();
-    clearSel(document.getElementById('tbl-targets')); selectTarget(null); });
+    if(TargetsVT) TargetsVT.clearSel(); selectTarget(null); });
 })();
 
 /* feed level filter — drives the FeedVT scope predicate */
@@ -2385,17 +2434,13 @@ function toggleSubRow(tr){
   sel.addEventListener('dblclick',function(ev){ ev.stopPropagation(); });
 })();
 
-/* restore persisted selection/scope, then load the virtual data */
+/* restore persisted scope. TargetsVT/SubsVT restore their own row highlight
+   from vsel:* in VTable init; here we just re-apply the cross-panel scope. */
 (function(){
   var tg=L('sel:target');
-  if(tg){ var row=findRow(document.getElementById('tbl-targets'), {'data-domain':tg});
-    if(row){ row.classList.add('selected'); } subFilter=tg; }
-  else { subFilter=L('subfilter')||null; }
-  var sb=L('sel:sub');
-  if(sb){ var p=sb.split('||');
-    var srow=findRow(document.getElementById('tbl-subdomains'), {'data-target':p[0],'data-host':p[1]});
-    if(srow) srow.classList.add('selected'); }
+  subFilter = tg || L('subfilter') || null;
   applySubView();
+  var sb=L('sel:sub');
   if(sb){ var pp=sb.split('||'); setAssetScope(pp[0], pp[1]); }
   else if(tg){ setAssetScope(tg,'*'); }
   else { var as=L('assetscope'); if(as && as!=='all'){ var q=as.split('||'); setAssetScope(q[0],q[1]); } else setAssetScope(null,null); }
@@ -2406,6 +2451,8 @@ loadVT(ReqVT, '/api/requests', REQVER, 'agentcbb:requests');
 loadVT(RateVT, '/api/rate', RATEVER, 'agentcbb:rate');
 loadVT(FeedVT, '/api/feed', FEEDVER, 'agentcbb:feed');
 loadVT(ActivityVT, '/api/activity', ACTVER, 'agentcbb:activity');
+loadVT(TargetsVT, '/api/targets', TGTVER, 'agentcbb:targets');
+loadVT(SubsVT, '/api/subdomains', SUBVER, 'agentcbb:subdomains');
 
 /* ---- resize + collapse + reorder panels ---- */
 var panels=[].slice.call(document.querySelectorAll('.panel'));
@@ -2617,12 +2664,9 @@ document.addEventListener('click', function(ev){
   if(rb){ openAssetRaw(rb.getAttribute('data-rawid')); return; }
   var al=ev.target.closest('a.olink[data-asset]');
   if(al){ ev.preventDefault(); openAsset(al.getAttribute('data-asset')); return; }
-  var tr=ev.target.closest('tbody tr');
-  if(!tr) return;
-  if(tr.getAttribute('data-kind')==='run'){ openRunDetail(tr.getAttribute('data-run')); return; }
-  if(isControl(ev.target)) return;   // a button/link inside the row — don't toggle selection
-  if(tr.getAttribute('data-kind')==='target'){ toggleTargetRow(tr); }
-  else if(tr.getAttribute('data-kind')==='sub'){ toggleSubRow(tr); }
+  // Row selection (targets/subdomains) and run-detail (activity) are handled by
+  // their VTables' onSelect/onRowClick; the delegation above covers data-act
+  // buttons, raw-request buttons, and asset links inside virtual rows.
 });
 
 /* ---- live runtime ticking ---- */
@@ -2789,6 +2833,10 @@ function applyRefresh(data){
     FEEDVER=data.feed_ver; loadVT(FeedVT,'/api/feed',FEEDVER,'agentcbb:feed'); }
   if(data.activity_ver && data.activity_ver!==ACTVER){
     ACTVER=data.activity_ver; loadVT(ActivityVT,'/api/activity',ACTVER,'agentcbb:activity'); }
+  if(data.tgt_ver && data.tgt_ver!==TGTVER){
+    TGTVER=data.tgt_ver; loadVT(TargetsVT,'/api/targets',TGTVER,'agentcbb:targets'); }
+  if(data.sub_ver && data.sub_ver!==SUBVER){
+    SUBVER=data.sub_ver; loadVT(SubsVT,'/api/subdomains',SUBVER,'agentcbb:subdomains'); }
 }
 
 function applyPanelBody(panelId, data){
